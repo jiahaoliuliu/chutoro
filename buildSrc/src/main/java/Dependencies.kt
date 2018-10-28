@@ -5,7 +5,7 @@ object Versions {
     val rxAndroid = "2.1.0"
     val cardView = "28.0.0"
     val recyclerView = "28.0.0"
-    val retrofit = "2.3.0"
+    val retrofit = "2.4.0"
 
     // Tests
     val junit = "4.12"
