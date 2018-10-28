@@ -35,9 +35,9 @@ dependencies {
     // TODO: Add LiveData
 
     // Unit tests
-    testImplementation 'junit:junit:4.12'
-    testImplementation 'org.mockito:mockito-core:2.23.0'
+    testImplementation Tests.junit
+    testImplementation Tests.mockito
 
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation Tests.testRunner
+    androidTestImplementation Tests.espresso
 }

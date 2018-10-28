@@ -1,10 +1,17 @@
 object Versions {
+    // Libs
     val support_lib = "28.0.0"
     val rxJava = "2.2.3"
     val rxAndroid = "2.1.0"
     val cardView = "28.0.0"
     val recyclerView = "28.0.0"
     val retrofit = "2.3.0"
+
+    // Tests
+    val junit = "4.12"
+    val mockito = "2.23.0"
+    val testRunner = "1.0.2"
+    val espesso = "3.0.2"
 }
 
 object Libs {
@@ -19,4 +26,13 @@ object Libs {
     // Optional
     val cardView = "com.android.support:cardview-v7:${Versions.cardView}"
     val recyclerView = "com.android.support:recyclerview-v7:${Versions.recyclerView}"
+}
+
+object Tests {
+    // Unit tests
+    val junit = "junit:junit:${Versions.junit}"
+    val mockito = "org.mockito:mockito-core:${Versions.mockito}"
+
+    val testRunner = "com.android.support.test:runner:${Versions.testRunner}"
+    val espresso = "com.android.support.test.espresso:espresso-core:${Versions.espesso}"
 }
