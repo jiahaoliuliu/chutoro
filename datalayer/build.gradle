@@ -5,6 +5,9 @@ dependencies {
     implementation project(path: ':domain')
     implementation project(path: ':networklayer')
     implementation project(path: ':storagelayer')
+
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.3'
+
 }
 
 sourceCompatibility = "7"

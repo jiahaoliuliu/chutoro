@@ -3,6 +3,9 @@ apply plugin: 'java-library'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':domain')
+
+    // TODO: Add room depedencies
+    // TODO: Add livedata dependencies
 }
 
 sourceCompatibility = "7"
