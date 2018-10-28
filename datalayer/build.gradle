@@ -1,0 +1,11 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':domain')
+    implementation project(path: ':networklayer')
+    implementation project(path: ':storagelayer')
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
