@@ -32,7 +32,8 @@ dependencies {
     implementation Libs.cardView
     implementation Libs.recyclerView
 
-    // TODO: Add LiveData
+    implementation Libs.liveData
+    annotationProcessor AnnotationProcessor.liveData
 
     // Unit tests
     testImplementation Tests.junit

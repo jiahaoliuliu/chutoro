@@ -6,6 +6,10 @@ object Versions {
     val cardView = "28.0.0"
     val recyclerView = "28.0.0"
     val retrofit = "2.4.0"
+    val liveData = "1.1.1"
+    val room = "1.1.1"
+    val viewModel = "1.1.1"
+    val lifeCycleExtensions = "1.1.1"
 
     // Tests
     val junit = "4.12"
@@ -26,6 +30,17 @@ object Libs {
     // Optional
     val cardView = "com.android.support:cardview-v7:${Versions.cardView}"
     val recyclerView = "com.android.support:recyclerview-v7:${Versions.recyclerView}"
+    val liveData = "android.arch.lifecycle:livedata:${Versions.liveData}"
+    val room = "android.arch.persistence.room:runtime:${Versions.room}"
+    val roomRxJava = "android.arch.persistence.room:rxjava2:${Versions.room}"
+    val roomGuava = "android.arch.persistence.room:guava:${Versions.room}"
+    val viewModel = "android.arch.lifecycle:viewmodel:${Versions.viewModel}"
+    val lifeCycleExtension = "android.arch.lifecycle:extensions:${Versions.lifeCycleExtensions}"
+}
+
+object AnnotationProcessor {
+    val liveData = "android.arch.lifecycle:compiler:${Versions.liveData}"
+    val room = "android.arch.persistence.room:compiler${Versions.room}"
 }
 
 object Tests {

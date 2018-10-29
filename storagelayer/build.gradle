@@ -4,8 +4,13 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':domain')
 
-    // TODO: Add room depedencies
-    // TODO: Add livedata dependencies
+    // Live data
+    implementation Libs.liveData
+    annotationProcessor AnnotationProcessor.liveData
+
+    // Room
+    implementation Libs.room
+    annotationProcessor AnnotationProcessor.room
 }
 
 sourceCompatibility = "7"
