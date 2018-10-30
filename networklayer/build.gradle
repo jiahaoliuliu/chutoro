@@ -10,5 +10,5 @@ dependencies {
 
 }
 
-sourceCompatibility = "7"
-targetCompatibility = "7"
+sourceCompatibility = Versions.java
+targetCompatibility = Versions.java

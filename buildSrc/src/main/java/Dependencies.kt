@@ -16,16 +16,22 @@ object Versions {
     val mockito = "2.23.0"
     val testRunner = "1.0.2"
     val espesso = "3.0.2"
+
+    // Others
+    val java = "8"
+    val gradle = "3.2.0"
 }
 
 object Libs {
     // Core
-    val support_annotations = "com.android.support:support-annotations:${Versions.support_lib}"
     val support_appcompat_v7 = "com.android.support:appcompat-v7:${Versions.support_lib}"
     val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     val retrofit_rxjava_adapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
     val rxjava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"
     val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}"
+
+    // Others
+    val gradle_plugin = "com.android.tools.build:gradle:${Versions.gradle}"
 
     // Optional
     val cardView = "com.android.support:cardview-v7:${Versions.cardView}"
@@ -39,6 +45,7 @@ object Libs {
 }
 
 object AnnotationProcessor {
+    val support = "com.android.support:support-annotations:${Versions.support_lib}"
     val liveData = "android.arch.lifecycle:compiler:${Versions.liveData}"
     val room = "android.arch.persistence.room:compiler:${Versions.room}"
 }

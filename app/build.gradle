@@ -25,6 +25,7 @@ dependencies {
 
     // Core libraries
     implementation Libs.support_appcompat_v7
+    implementation AnnotationProcessor.support
     implementation Libs.rxjava
     implementation Libs.rxAndroid
 
