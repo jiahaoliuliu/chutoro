@@ -10,6 +10,7 @@ object Versions {
     val room = "1.1.1"
     val viewModel = "1.1.1"
     val lifeCycleExtensions = "1.1.1"
+    val dagger = "2.19"
 
     // Tests
     val junit = "4.12"
@@ -29,6 +30,8 @@ object Libs {
     val retrofit_rxjava_adapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
     val rxjava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"
     val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}"
+    val dagger = "com.google.dagger:dagger:${Versions.dagger}"
+    val dagger_support = "com.google.dagger:dagger-android-support:${Versions.dagger}"
 
     // Others
     val gradle_plugin = "com.android.tools.build:gradle:${Versions.gradle}"
@@ -48,6 +51,7 @@ object AnnotationProcessor {
     val support = "com.android.support:support-annotations:${Versions.support_lib}"
     val liveData = "android.arch.lifecycle:compiler:${Versions.liveData}"
     val room = "android.arch.persistence.room:compiler:${Versions.room}"
+    val dagger = "com.google.dagger:dagger-compiler:${Versions.dagger}"
 }
 
 object Tests {

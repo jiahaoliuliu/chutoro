@@ -25,9 +25,12 @@ dependencies {
 
     // Core libraries
     implementation Libs.support_appcompat_v7
-    implementation AnnotationProcessor.support
+    annotationProcessor AnnotationProcessor.support
     implementation Libs.rxjava
     implementation Libs.rxAndroid
+    implementation Libs.dagger
+    implementation Libs.dagger_support
+    annotationProcessor AnnotationProcessor.dagger
 
     // Optional
     implementation Libs.cardView
