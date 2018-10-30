@@ -4,6 +4,8 @@ import com.jiahaoliuliu.domain.IMovie;
 
 import java.util.List;
 
+import io.reactivex.Single;
+
 /**
  * Contract for MVP
  */
@@ -19,10 +21,18 @@ public interface MoviesListContract {
          */
         void setView(View view);
 
-        List<IMovie> retrieveMoviesList();
+        /**
+         * Method used to retrieve a list of movies
+         * @return Single of a list of movies
+         */
+        Single<List<IMovie>> retrieveMoviesList();
     }
 
     interface Model {
-        List<IMovie> retrieveMoviesList();
+        /**
+         * Method used to retrieve a list of movies
+         * @return Single of a list of movies
+         */
+        Single<List<IMovie>> retrieveMoviesList();
     }
 }

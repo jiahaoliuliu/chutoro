@@ -4,6 +4,8 @@ import com.jiahaoliuliu.domain.IMovie;
 
 import java.util.List;
 
+import io.reactivex.Single;
+
 public class MoviesListPresenter implements MoviesListContract.Presenter {
 
     private final MoviesListContract.Model model;
@@ -11,7 +13,7 @@ public class MoviesListPresenter implements MoviesListContract.Presenter {
     private MoviesListContract.View view;
 
     public MoviesListPresenter() {
-        this.model = new MoviesListModel();
+        this.model = new MoviesListModel(this);
     }
 
     @Override
@@ -20,7 +22,7 @@ public class MoviesListPresenter implements MoviesListContract.Presenter {
     }
 
     @Override
-    public List<IMovie> retrieveMoviesList() {
+    public Single<List<IMovie>> retrieveMoviesList() {
         return model.retrieveMoviesList();
     }
 }
