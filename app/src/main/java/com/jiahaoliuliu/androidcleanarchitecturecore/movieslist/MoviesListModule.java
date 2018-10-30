@@ -10,4 +10,9 @@ public class MoviesListModule {
     MoviesListContract.Presenter providePresenter() {
         return new MoviesListPresenter();
     }
+
+    @Provides
+    MoviesListContract.Model provideModel() {
+        return new MoviesListModel();
+    }
 }

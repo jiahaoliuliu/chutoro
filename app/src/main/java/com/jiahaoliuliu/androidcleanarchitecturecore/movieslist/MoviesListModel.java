@@ -8,11 +8,7 @@ import io.reactivex.Single;
 
 public class MoviesListModel implements MoviesListContract.Model {
 
-    private final MoviesListContract.Presenter presenter;
-
-    // TODO: Inject the repository
-    public MoviesListModel(MoviesListContract.Presenter presenter) {
-        this.presenter = presenter;
+    public MoviesListModel() {
     }
 
     @Override
