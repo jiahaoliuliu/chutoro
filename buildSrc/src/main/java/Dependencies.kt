@@ -40,7 +40,7 @@ object Libs {
 
 object AnnotationProcessor {
     val liveData = "android.arch.lifecycle:compiler:${Versions.liveData}"
-    val room = "android.arch.persistence.room:compiler${Versions.room}"
+    val room = "android.arch.persistence.room:compiler:${Versions.room}"
 }
 
 object Tests {
