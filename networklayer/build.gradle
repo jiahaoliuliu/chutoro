@@ -7,7 +7,9 @@ dependencies {
     // Other dependencies
     implementation Libs.retrofit
     implementation Libs.rxjava
-
+    implementation Libs.dagger
+    implementation Libs.dagger_support
+    annotationProcessor AnnotationProcessor.dagger
 }
 
 sourceCompatibility = Versions.java
