@@ -1,12 +1,20 @@
 apply plugin: 'java-library'
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(path: ':domain')
-
-    // Other dependencies
+    // Retrofit
     implementation Libs.retrofit
+
+    // RxJava
     implementation Libs.rxjava
+    implementation Libs.retrofit_rxjava_adapter
+    implementation Libs.rxjava_gson_converter
+
+    // Gson
+    implementation Libs.gson
+
+    // Dagger
     implementation Libs.dagger
     implementation Libs.dagger_support
     annotationProcessor AnnotationProcessor.dagger
