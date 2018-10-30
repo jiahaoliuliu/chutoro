@@ -6,9 +6,12 @@ import com.jiahaoliuliu.androidcleanarchitecturecore.movieslist.MoviesListModule
 import com.jiahaoliuliu.androidcleanarchitecturecore.movieslist.MoviesListPresenter;
 import com.jiahaoliuliu.datalayer.moviesrepository.MoviesRepositoryModule;
 
+import javax.inject.Singleton;
+
 import dagger.Component;
 
 @Component(modules = {MoviesListModule.class, MoviesRepositoryModule.class})
+@Singleton
 public interface MainComponent {
 
     void inject(MoviesListActivity moviesListActivity);
