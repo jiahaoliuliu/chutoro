@@ -3,6 +3,7 @@ object Versions {
     val support_lib = "28.0.0"
     val rxJava = "2.2.3"
     val rxAndroid = "2.1.0"
+    val rxJavaGsonConverter = "2.4.0"
     val cardView = "28.0.0"
     val recyclerView = "28.0.0"
     val retrofit = "2.4.0"
@@ -11,6 +12,7 @@ object Versions {
     val viewModel = "1.1.1"
     val lifeCycleExtensions = "1.1.1"
     val dagger = "2.19"
+    val gson = "2.8.5"
 
     // Tests
     val junit = "4.12"
@@ -30,8 +32,11 @@ object Libs {
     val retrofit_rxjava_adapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
     val rxjava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"
     val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}"
+    val rxjava_gson_converter = "com.squareup.retrofit2:converter-gson:${Versions.rxJavaGsonConverter}"
+
     val dagger = "com.google.dagger:dagger:${Versions.dagger}"
     val dagger_support = "com.google.dagger:dagger-android-support:${Versions.dagger}"
+    val gson = "com.google.code.gson:gson:${Versions.gson}"
 
     // Others
     val gradle_plugin = "com.android.tools.build:gradle:${Versions.gradle}"

@@ -2,13 +2,19 @@ package com.jiahaoliuliu.androidcleanarchitecturecore.movieslist;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.jiahaoliuliu.androidcleanarchitecturecore.MainApplication;
 import com.jiahaoliuliu.androidcleanarchitecturecore.R;
+import com.jiahaoliuliu.domain.IMovie;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
 public class MoviesListActivity extends AppCompatActivity implements MoviesListContract.View {
+
+    private static final String TAG = "MoviesListActivity";
 
     @Inject
     MoviesListContract.Presenter presenter;
@@ -24,4 +30,15 @@ public class MoviesListActivity extends AppCompatActivity implements MoviesListC
         presenter.retrieveMoviesList();
     }
 
+    @Override
+    public void showMoviesList(List<? extends IMovie> moviesList) {
+        // TODO: Implement this
+        Log.v(TAG, "List of movies retrieved " + moviesList.toString());
+    }
+
+    @Override
+    protected void onDestroy() {
+        presenter.dispose();
+        super.onDestroy();
+    }
 }

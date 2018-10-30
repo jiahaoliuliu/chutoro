@@ -11,5 +11,10 @@ import io.reactivex.Single;
  */
 public interface IMoviesRepository {
 
-    Single<List<IMovie>> retrieveMoviesList();
+    /**
+     * Retrieve a list of movies either from network, either from the
+     * temporal memory, either from the database
+     * @return a list of movies
+     */
+    Single<List<? extends IMovie>> retrieveMoviesList();
 }

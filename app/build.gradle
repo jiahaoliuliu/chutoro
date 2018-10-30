@@ -16,13 +16,29 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency {
+        DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == "com.android.support") {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion "26.+"
+            }
+        }
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(path: ':domain')
     implementation project(path: ':datalayer')
-
     // Core libraries
     implementation Libs.support_appcompat_v7
     annotationProcessor AnnotationProcessor.support
@@ -31,18 +47,15 @@ dependencies {
     implementation Libs.dagger
     implementation Libs.dagger_support
     annotationProcessor AnnotationProcessor.dagger
-
     // Optional
     implementation Libs.cardView
     implementation Libs.recyclerView
-
     implementation Libs.liveData
     annotationProcessor AnnotationProcessor.liveData
-
     // Unit tests
     testImplementation Tests.junit
     testImplementation Tests.mockito
-
     androidTestImplementation Tests.testRunner
     androidTestImplementation Tests.espresso
+    compile project(path: ':networklayer')
 }

@@ -12,6 +12,12 @@ import io.reactivex.Single;
 public interface MoviesListContract {
 
     interface View {
+
+        /**
+         * Show the list of movies on the screen
+         * @param moviesList
+         */
+        void showMoviesList(List<? extends IMovie> moviesList);
     }
 
     interface Presenter {
@@ -25,7 +31,12 @@ public interface MoviesListContract {
          * Method used to retrieve a list of movies
          * @return Single of a list of movies
          */
-        Single<List<IMovie>> retrieveMoviesList();
+        void retrieveMoviesList();
+
+        /**
+         * Dispose all the retained memory
+         */
+        void dispose();
     }
 
     interface Model {
@@ -33,6 +44,6 @@ public interface MoviesListContract {
          * Method used to retrieve a list of movies
          * @return Single of a list of movies
          */
-        Single<List<IMovie>> retrieveMoviesList();
+        Single<List<? extends IMovie>> retrieveMoviesList();
     }
 }
