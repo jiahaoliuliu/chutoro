@@ -39,6 +39,8 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(path: ':domain')
     implementation project(path: ':datalayer')
+    compile project(path: ':networklayer')
+
     // Core libraries
     implementation Libs.support_appcompat_v7
     annotationProcessor AnnotationProcessor.support
@@ -47,15 +49,17 @@ dependencies {
     implementation Libs.dagger
     implementation Libs.dagger_support
     annotationProcessor AnnotationProcessor.dagger
+    implementation Libs.picasso
+
     // Optional
     implementation Libs.cardView
     implementation Libs.recyclerView
     implementation Libs.liveData
     annotationProcessor AnnotationProcessor.liveData
+
     // Unit tests
     testImplementation Tests.junit
     testImplementation Tests.mockito
     androidTestImplementation Tests.testRunner
     androidTestImplementation Tests.espresso
-    compile project(path: ':networklayer')
 }

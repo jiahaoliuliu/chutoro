@@ -13,6 +13,7 @@ object Versions {
     val lifeCycleExtensions = "1.1.1"
     val dagger = "2.19"
     val gson = "2.8.5"
+    val picasso = "2.71828"
 
     // Tests
     val junit = "4.12"
@@ -37,6 +38,8 @@ object Libs {
     val dagger = "com.google.dagger:dagger:${Versions.dagger}"
     val dagger_support = "com.google.dagger:dagger-android-support:${Versions.dagger}"
     val gson = "com.google.code.gson:gson:${Versions.gson}"
+
+    val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
 
     // Others
     val gradle_plugin = "com.android.tools.build:gradle:${Versions.gradle}"

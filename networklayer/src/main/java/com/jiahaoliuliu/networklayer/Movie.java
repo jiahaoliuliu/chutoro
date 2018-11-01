@@ -53,7 +53,7 @@ public class Movie implements IMovie {
 
     @Override
     public String getImageUrl() {
-        return imageUrl;
+        return ImagesBaseUrl + imageUrl;
     }
 
     @Override
