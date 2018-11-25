@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Module
 public class NetworkModule {
 
-    private static final String BASE_URL = "https://api.themoviedb.org/3/";
+    private static final String BASE_URL = "";
     private Retrofit retrofit;
 
     public NetworkModule() {
@@ -21,7 +21,7 @@ public class NetworkModule {
     }
 
     @Provides
-    public ITMDBService provideITmdbService() {
-        return retrofit.create(ITMDBService.class);
+    public ItemService provideItemService() {
+        return retrofit.create(ItemService.class);
     }
 }

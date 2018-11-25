@@ -1,4 +1,11 @@
 object Versions {
+    // Android
+    val compileSdkVersion = 28
+    val minSdkVersion = 15
+    val targetSdkVersion = 28
+    val versionCode = 1
+    val versionName = "1.0"
+
     // Libs
     val support_lib = "28.0.0"
     val rxJava = "2.2.3"
@@ -23,6 +30,7 @@ object Versions {
 
     // Others
     val java = "8"
+    val androidJavaVersion = 1.8
     val gradle = "3.2.0"
 }
 
@@ -68,5 +76,6 @@ object Tests {
     val mockito = "org.mockito:mockito-core:${Versions.mockito}"
 
     val testRunner = "com.android.support.test:runner:${Versions.testRunner}"
+    val testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
     val espresso = "com.android.support.test.espresso:espresso-core:${Versions.espesso}"
 }

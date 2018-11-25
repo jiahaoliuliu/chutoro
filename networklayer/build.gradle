@@ -2,7 +2,7 @@ apply plugin: 'java-library'
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation project(path: ':domain')
+    implementation project(path: ':entity')
     // Retrofit
     implementation Libs.retrofit
 

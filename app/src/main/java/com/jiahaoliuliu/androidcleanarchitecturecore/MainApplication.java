@@ -9,7 +9,9 @@ public class MainApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        mainComponent = DaggerMainComponent.builder().build();
+        mainComponent = DaggerMainComponent.builder()
+            .applicationModule(new ApplicationModule(this))
+            .build();
     }
 
     public static MainComponent getMainComponent() {

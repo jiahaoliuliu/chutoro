@@ -1,31 +1,21 @@
 package com.jiahaoliuliu.androidcleanarchitecturecore;
 
-import com.jiahaoliuliu.androidcleanarchitecturecore.movieslist.MoviesListActivity;
-import com.jiahaoliuliu.androidcleanarchitecturecore.movieslist.MoviesListModel;
-import com.jiahaoliuliu.androidcleanarchitecturecore.movieslist.MoviesListModule;
-import com.jiahaoliuliu.androidcleanarchitecturecore.movieslist.MoviesListPresenter;
-import com.jiahaoliuliu.datalayer.moviesrepository.MoviesRepository;
-import com.jiahaoliuliu.datalayer.moviesrepository.MoviesRepositoryModule;
+import com.jiahaoliuliu.androidcleanarchitecturecore.itemslist.ItemsListActivity;
+import com.jiahaoliuliu.androidcleanarchitecturecore.itemslist.ItemsListModule;
+import com.jiahaoliuliu.datalayer.itemsrepository.ItemsRepositoryModule;
 import com.jiahaoliuliu.networklayer.NetworkModule;
+import com.jiahaoliuliu.storagelayer.ItemsDatabaseModule;
 
 import javax.inject.Singleton;
 
 import dagger.Component;
 
 @Component(modules = {
-        MoviesListModule.class, MoviesRepositoryModule.class,
-        // TODO: Add repository as subcomponent so the app module does
-        // not depends on the network module
-        NetworkModule.class
+        ApplicationModule.class, ItemsListModule.class,
+        ItemsRepositoryModule.class,
+        NetworkModule.class, ItemsDatabaseModule.class
 })
 @Singleton
 public interface MainComponent {
-
-    void inject(MoviesListActivity moviesListActivity);
-
-    void inject(MoviesListPresenter moviesListPresenter);
-
-    void inject(MoviesListModel moviesListModel);
-
-    void inject(MoviesRepository moviesRepository);
+    void inject(ItemsListActivity itemsListActivity);
 }

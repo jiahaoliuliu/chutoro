@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme"
         android:name=".MainApplication"
         >
-        <activity android:name=".movieslist.MoviesListActivity">
+        <activity android:name=".itemslist.ItemsListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

@@ -1,1 +1,1 @@
-include ':app', ':domain', ':datalayer', ':networklayer', ':storagelayer'
+include ':app', ':entity', ':datalayer', ':networklayer', ':storagelayer'

@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion Versions.compileSdkVersion
     defaultConfig {
         applicationId "com.jiahaoliuliu.androidcleanarchitecturecore"
-        minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        minSdkVersion Versions.minSdkVersion
+        targetSdkVersion Versions.targetSdkVersion
+        versionCode Versions.versionCode
+        versionName Versions.versionName
+        testInstrumentationRunner Tests.testInstrumentationRunner
     }
     buildTypes {
         release {
@@ -18,8 +18,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
+        sourceCompatibility Versions.androidJavaVersion
+        targetCompatibility Versions.androidJavaVersion
+    }
+
+    dataBinding{
+        enabled = true
     }
 }
 
@@ -37,9 +41,10 @@ configurations.all {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation project(path: ':domain')
+    implementation project(path: ':entity')
     implementation project(path: ':datalayer')
-    compile project(path: ':networklayer')
+    implementation project(path: ':networklayer')
+    implementation project(path: ':storagelayer')
 
     // Core libraries
     implementation Libs.support_appcompat_v7
@@ -62,4 +67,5 @@ dependencies {
     testImplementation Tests.mockito
     androidTestImplementation Tests.testRunner
     androidTestImplementation Tests.espresso
+    compile project(path: ':storagelayer')
 }
