@@ -1,7 +1,5 @@
 package com.jiahaoliuliu.chutoro.entity;
 
-import java.util.Date;
-
 public interface ITransactions {
 
     /**
@@ -19,5 +17,5 @@ public interface ITransactions {
 
     String getDestination();
 
-    Date getDate();
+    long getDate();
 }

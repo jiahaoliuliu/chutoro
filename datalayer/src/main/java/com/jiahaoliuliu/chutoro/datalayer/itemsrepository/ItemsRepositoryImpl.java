@@ -3,7 +3,7 @@ package com.jiahaoliuliu.chutoro.datalayer.itemsrepository;
 import android.util.Log;
 
 import com.jiahaoliuliu.chutoro.entity.ITransactions;
-//import com.jiahaoliuliu.chutoro.networklayer.ItemService;
+//import com.jiahaoliuliu.chutoro.networklayer.TransactionService;
 import com.jiahaoliuliu.chutoro.storagelayer.ItemsDatabase;
 
 import java.util.ArrayList;
@@ -15,13 +15,13 @@ public class ItemsRepositoryImpl implements ItemsRepository {
 
     private static final String TAG = "ItemsRepositoryImpl";
 
-//    private final ItemService itemService;
+//    private final TransactionService itemService;
     private final ItemsDatabase itemsDatabase;
     // Temporal memory for the items list
     private List<? extends ITransactions> memoryCache = new ArrayList<>();
 
     public ItemsRepositoryImpl(
-//            ItemService itemService,
+//            TransactionService itemService,
             ItemsDatabase itemsDatabase) {
 //        this.itemService = itemService;
         this.itemsDatabase = itemsDatabase;
@@ -50,7 +50,7 @@ public class ItemsRepositoryImpl implements ItemsRepository {
 //                // Save the content into the database
 //                for (ITransactions item: itemsList) {
 //                    Log.v(TAG, "Trying to save " + item + " into the database");
-//                    itemsDatabase.itemDao().upsert(new ITransactionsImpl(item));
+//                    itemsDatabase.itemDao().upsert(new Transaction(item));
 //                }
 //             }).onErrorResumeNext(throwable -> {
 //                 Log.e(TAG, "Error retrieving data from backend", throwable);

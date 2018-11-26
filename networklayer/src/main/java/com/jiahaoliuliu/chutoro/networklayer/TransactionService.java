@@ -1,11 +1,13 @@
 package com.jiahaoliuliu.chutoro.networklayer;
 
+import java.util.List;
+
 import io.reactivex.Single;
 import retrofit2.http.GET;
 
-public interface ItemService {
+public interface TransactionService {
 
     @GET("")
-    Single<ItemsList> getItemsList();
+    Single<List<Transaction>> getItemsList();
 
 }
