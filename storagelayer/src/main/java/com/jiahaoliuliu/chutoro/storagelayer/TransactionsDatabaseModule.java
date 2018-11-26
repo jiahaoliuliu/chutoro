@@ -9,7 +9,7 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class ItemsDatabaseModule {
+public class TransactionsDatabaseModule {
 
     private TransactionsDatabase transactionsDatabase;
 

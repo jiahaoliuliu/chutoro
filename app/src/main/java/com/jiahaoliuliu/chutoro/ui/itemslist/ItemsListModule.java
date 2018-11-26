@@ -1,6 +1,6 @@
 package com.jiahaoliuliu.chutoro.ui.itemslist;
 
-import com.jiahaoliuliu.chutoro.datalayer.itemsrepository.ItemsRepository;
+import com.jiahaoliuliu.chutoro.datalayer.transactionsrepository.ITransactionsRepository;
 
 import javax.inject.Singleton;
 
@@ -18,7 +18,7 @@ public class ItemsListModule {
 
     @Provides
     @Singleton
-    ItemsListContract.Model provideModel(ItemsRepository itemsRepository) {
-        return new ItemsListModel(itemsRepository);
+    ItemsListContract.Model provideModel(ITransactionsRepository ITransactionsRepository) {
+        return new ItemsListModel(ITransactionsRepository);
     }
 }
