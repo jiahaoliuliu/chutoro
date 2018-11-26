@@ -1,2 +1,2 @@
-# AndroidCleanArchitectureCore
-The core template for a clean android architecture
+# Chutoro
+Yet another finance app
