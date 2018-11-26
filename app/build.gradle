@@ -45,6 +45,7 @@ dependencies {
     implementation project(path: ':datalayer')
     implementation project(path: ':networklayer')
     implementation project(path: ':storagelayer')
+    implementation project(path: ':devicelayer')
 
     // Core libraries
     implementation Libs.support_appcompat_v7
