@@ -2,9 +2,8 @@ package com.jiahaoliuliu.chutoro.datalayer.itemsrepository;
 
 import android.util.Log;
 
-import com.jiahaoliuliu.chutoro.entity.Item;
+import com.jiahaoliuliu.chutoro.entity.ITransactions;
 //import com.jiahaoliuliu.chutoro.networklayer.ItemService;
-import com.jiahaoliuliu.chutoro.storagelayer.ItemImpl;
 import com.jiahaoliuliu.chutoro.storagelayer.ItemsDatabase;
 
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ public class ItemsRepositoryImpl implements ItemsRepository {
 //    private final ItemService itemService;
     private final ItemsDatabase itemsDatabase;
     // Temporal memory for the items list
-    private List<? extends Item> memoryCache = new ArrayList<>();
+    private List<? extends ITransactions> memoryCache = new ArrayList<>();
 
     public ItemsRepositoryImpl(
 //            ItemService itemService,
@@ -29,11 +28,11 @@ public class ItemsRepositoryImpl implements ItemsRepository {
     }
 
     @Override
-    public Single<? extends List<? extends Item>> retrieveItemsList() {
+    public Single<? extends List<? extends ITransactions>> retrieveItemsList() {
         // List of Priorities
-//        Single<? extends List<? extends Item>> backendSource = retrieveItemsListFromBackend();
-        Single<? extends List<? extends Item>> storageSource = retrieveItemsListFromStorage();
-        Single<? extends List<? extends Item>> cacheSource = retrieveItemsListFromCache();
+//        Single<? extends List<? extends ITransactions>> backendSource = retrieveItemsListFromBackend();
+        Single<? extends List<? extends ITransactions>> storageSource = retrieveItemsListFromStorage();
+        Single<? extends List<? extends ITransactions>> cacheSource = retrieveItemsListFromCache();
 
         return Single.concat(
 //                backendSource,
@@ -42,16 +41,16 @@ public class ItemsRepositoryImpl implements ItemsRepository {
                 .first(memoryCache);
     }
 
-//    private Single<? extends List<? extends Item>> retrieveItemsListFromBackend() {
-//        return tmdbService.getItemsList()
+//    private Single<? extends List<? extends ITransactions>> retrieveItemsListFromBackend() {
+//        return imdbService.getItemsList()
 //             .map(itemsListBackend -> itemsListBackend.getItemsList())
 //             .doOnSuccess(itemsList -> {
 //                // Updates the internal cache
 //                saveItemsListToCache(itemsList);
 //                // Save the content into the database
-//                for (Item item: itemsList) {
+//                for (ITransactions item: itemsList) {
 //                    Log.v(TAG, "Trying to save " + item + " into the database");
-//                    itemsDatabase.itemDao().upsert(new ItemImpl(item));
+//                    itemsDatabase.itemDao().upsert(new ITransactionsImpl(item));
 //                }
 //             }).onErrorResumeNext(throwable -> {
 //                 Log.e(TAG, "Error retrieving data from backend", throwable);
@@ -59,11 +58,11 @@ public class ItemsRepositoryImpl implements ItemsRepository {
 //             });
 //    }
 
-    private Single<? extends List<? extends Item>> retrieveItemsListFromCache() {
+    private Single<? extends List<? extends ITransactions>> retrieveItemsListFromCache() {
         return Single.just(memoryCache);
     }
 
-    private Single<? extends List<? extends Item>> retrieveItemsListFromStorage() {
+    private Single<? extends List<? extends ITransactions>> retrieveItemsListFromStorage() {
         return itemsDatabase.itemDao().getAllItems()
                 .doOnSuccess(itemsList -> saveItemsListToCache(itemsList))
                 .onErrorResumeNext(throwable -> {
@@ -72,7 +71,7 @@ public class ItemsRepositoryImpl implements ItemsRepository {
                 });
     }
 
-    private void saveItemsListToCache(List<? extends Item> newItemsList) {
+    private void saveItemsListToCache(List<? extends ITransactions> newItemsList) {
         this.memoryCache = newItemsList;
     }
 }

@@ -15,28 +15,28 @@ import io.reactivex.Single;
 public abstract class ItemDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    protected abstract void insert(ItemImpl itemImpl);
+    protected abstract void insert(ITransactionsImpl itemImpl);
 
     @Update(onConflict = OnConflictStrategy.IGNORE)
-    protected abstract void update(ItemImpl itemImpl);
+    protected abstract void update(ITransactionsImpl itemImpl);
 
-    public void upsert(ItemImpl itemImpl) {
+    public void upsert(ITransactionsImpl itemImpl) {
         insert(itemImpl);
         update(itemImpl);
     }
 
-    public void upsert(List<ItemImpl> itemsList) {
-        for (ItemImpl itemImpl : itemsList) {
+    public void upsert(List<ITransactionsImpl> itemsList) {
+        for (ITransactionsImpl itemImpl : itemsList) {
             upsert(itemImpl);
         }
     }
 
     @Delete
-    public abstract void delete(ItemImpl itemImpl);
+    public abstract void delete(ITransactionsImpl itemImpl);
 
-    @Query("Delete from item_table")
+    @Query("Delete from ITransactionsImpl")
     public abstract void deleteAllItems();
 
-    @Query("Select * from item_table order by timeStamp asc")
-    public abstract Single<List<ItemImpl>> getAllItems();
+    @Query("Select * from ITransactionsImpl order by timeStamp asc")
+    public abstract Single<List<ITransactionsImpl>> getAllItems();
 }

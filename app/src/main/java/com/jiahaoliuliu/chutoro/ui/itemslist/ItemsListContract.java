@@ -1,6 +1,6 @@
 package com.jiahaoliuliu.chutoro.ui.itemslist;
 
-import com.jiahaoliuliu.chutoro.entity.Item;
+import com.jiahaoliuliu.chutoro.entity.ITransactions;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public interface ItemsListContract {
          * Show the list of items on the screen
          * @param itemsList
          */
-        void showItemsList(List<? extends Item> itemsList);
+        void showItemsList(List<? extends ITransactions> itemsList);
     }
 
     interface Presenter {
@@ -44,6 +44,6 @@ public interface ItemsListContract {
          * Method used to retrieve a list of items
          * @return Single of a list of items
          */
-        Single<? extends List<? extends Item>> retrieveItemsList();
+        Single<? extends List<? extends ITransactions>> retrieveItemsList();
     }
 }

@@ -4,12 +4,12 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-import com.jiahaoliuliu.chutoro.entity.Item;
+import com.jiahaoliuliu.chutoro.entity.ITransactions;
 
 import java.util.Date;
 
 @Entity(tableName = "item_table")
-public class ItemImpl implements Item {
+public class ITransactionsImpl implements ITransactions {
 
     @PrimaryKey
     @NonNull
@@ -23,7 +23,7 @@ public class ItemImpl implements Item {
 
     private long timeStamp;
 
-    public ItemImpl(String id, String title, String description, String imageUrl, long timeStamp) {
+    public ITransactionsImpl(String id, String title, String description, String imageUrl, long timeStamp) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -31,9 +31,9 @@ public class ItemImpl implements Item {
         this.timeStamp = timeStamp;
     }
 
-    public ItemImpl(Item anotherItem) {
-        this(anotherItem.getId(), anotherItem.getTitle(), anotherItem.getDescription(),
-                anotherItem.getImageUrl(), new Date().getTime());
+    public ITransactionsImpl(ITransactions anotherITransactions) {
+        this(anotherITransactions.getId(), anotherITransactions.getTitle(), anotherITransactions.getDescription(),
+                anotherITransactions.getImageUrl(), new Date().getTime());
     }
 
     @Override
@@ -81,7 +81,7 @@ public class ItemImpl implements Item {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ItemImpl itemImpl = (ItemImpl) o;
+        ITransactionsImpl itemImpl = (ITransactionsImpl) o;
 
         if (timeStamp != itemImpl.timeStamp) return false;
         if (!id.equals(itemImpl.id)) return false;
@@ -103,7 +103,7 @@ public class ItemImpl implements Item {
 
     @Override
     public String toString() {
-        return "ItemImpl{" +
+        return "ITransactionsImpl{" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +

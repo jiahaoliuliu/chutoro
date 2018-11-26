@@ -1,7 +1,7 @@
 package com.jiahaoliuliu.chutoro.ui.itemslist;
 
 import com.jiahaoliuliu.chutoro.datalayer.itemsrepository.ItemsRepository;
-import com.jiahaoliuliu.chutoro.entity.Item;
+import com.jiahaoliuliu.chutoro.entity.ITransactions;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class ItemsListModel implements ItemsListContract.Model {
     }
 
     @Override
-    public Single<? extends List<? extends Item>> retrieveItemsList() {
+    public Single<? extends List<? extends ITransactions>> retrieveItemsList() {
         return itemsRepository.retrieveItemsList();
     }
 }

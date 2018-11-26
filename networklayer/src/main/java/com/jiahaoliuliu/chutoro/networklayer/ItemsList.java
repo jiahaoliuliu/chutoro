@@ -5,9 +5,9 @@ import java.util.List;
 public class ItemsList {
 
     private int page;
-    private List<ItemImpl> itemsList;
+    private List<ITransactionsImpl> itemsList;
 
-    public ItemsList(int page, List<ItemImpl> itemsList) {
+    public ItemsList(int page, List<ITransactionsImpl> itemsList) {
         this.page = page;
         this.itemsList = itemsList;
     }
@@ -16,7 +16,7 @@ public class ItemsList {
         return page;
     }
 
-    public List<ItemImpl> getItemsList() {
+    public List<ITransactionsImpl> getItemsList() {
         return itemsList;
     }
 

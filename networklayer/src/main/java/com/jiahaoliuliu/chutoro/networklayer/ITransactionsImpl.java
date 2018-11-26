@@ -1,15 +1,15 @@
 package com.jiahaoliuliu.chutoro.networklayer;
 
-import com.jiahaoliuliu.chutoro.entity.Item;
+import com.jiahaoliuliu.chutoro.entity.ITransactions;
 
-public class ItemImpl implements Item {
+public class ITransactionsImpl implements ITransactions {
 
     private String id;
     private String title;
     private String description;
     private String imageUrl;
 
-    public ItemImpl(String id, String title, String description, String imageUrl) {
+    public ITransactionsImpl(String id, String title, String description, String imageUrl) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -41,7 +41,7 @@ public class ItemImpl implements Item {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ItemImpl item = (ItemImpl) o;
+        ITransactionsImpl item = (ITransactionsImpl) o;
 
         if (id != null ? !id.equals(item.id) : item.id != null) return false;
         if (title != null ? !title.equals(item.title) : item.title != null) return false;
@@ -61,7 +61,7 @@ public class ItemImpl implements Item {
 
     @Override
     public String toString() {
-        return "ItemImpl{" +
+        return "ITransactionsImpl{" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
