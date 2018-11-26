@@ -1,8 +1,8 @@
 package com.jiahaoliuliu.chutoro.networklayer;
 
-import com.jiahaoliuliu.chutoro.entity.ITransactions;
+import com.jiahaoliuliu.chutoro.entity.ITransaction;
 
-public class Transaction implements ITransactions {
+public class Transaction implements ITransaction {
 
     private final int quantity;
     private final String source;

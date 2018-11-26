@@ -1,6 +1,6 @@
 package com.jiahaoliuliu.chutoro.entity;
 
-public interface ITransactions {
+public interface ITransaction {
 
     /**
      * Get transactions quantity. Since float does not operate very well in Java, it is using

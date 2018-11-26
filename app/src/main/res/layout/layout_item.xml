@@ -2,8 +2,8 @@
 <layout>
     <data>
         <variable
-            name="ITransactions"
-            type="com.jiahaoliuliu.chutoro.entity.ITransactions" />
+            name="ITransaction"
+            type="com.jiahaoliuliu.chutoro.entity.ITransaction" />
     </data>
 
     <android.support.v7.widget.CardView
@@ -28,7 +28,7 @@
                 android:layout_toRightOf="@+id/image"
                 android:layout_marginLeft="10dp"
                 style="@style/TextAppearance.AppCompat.Large"
-                android:text="@{ITransactions.title}"
+                android:text="@{ITransaction.title}"
                 />
 
             <TextView
@@ -41,7 +41,7 @@
                 android:lines="5"
                 android:layout_marginTop="10dp"
                 android:ellipsize="end"
-                android:text="@{ITransactions.description}"
+                android:text="@{ITransaction.description}"
                 />
         </RelativeLayout>
 

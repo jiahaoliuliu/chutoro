@@ -1,6 +1,6 @@
 package com.jiahaoliuliu.chutoro.datalayer.itemsrepository;
 
-import com.jiahaoliuliu.chutoro.entity.ITransactions;
+import com.jiahaoliuliu.chutoro.entity.ITransaction;
 
 import java.util.List;
 
@@ -16,5 +16,5 @@ public interface ItemsRepository {
      * temporal memory, either from the database
      * @return a list of items
      */
-    Single<? extends List<? extends ITransactions>> retrieveItemsList();
+    Single<? extends List<? extends ITransaction>> retrieveItemsList();
 }

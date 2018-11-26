@@ -4,12 +4,12 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-import com.jiahaoliuliu.chutoro.entity.ITransactions;
+import com.jiahaoliuliu.chutoro.entity.ITransaction;
 
 import java.util.Date;
 
 @Entity(tableName = "item_table")
-public class ITransactionsImpl implements ITransactions {
+public class ITransactionImpl implements ITransaction {
 
     @PrimaryKey
     @NonNull
@@ -23,7 +23,7 @@ public class ITransactionsImpl implements ITransactions {
 
     private long timeStamp;
 
-    public ITransactionsImpl(String id, String title, String description, String imageUrl, long timeStamp) {
+    public ITransactionImpl(String id, String title, String description, String imageUrl, long timeStamp) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -31,9 +31,9 @@ public class ITransactionsImpl implements ITransactions {
         this.timeStamp = timeStamp;
     }
 
-    public ITransactionsImpl(ITransactions anotherITransactions) {
-        this(anotherITransactions.getId(), anotherITransactions.getTitle(), anotherITransactions.getDescription(),
-                anotherITransactions.getImageUrl(), new Date().getTime());
+    public ITransactionImpl(ITransaction anotherITransaction) {
+        this(anotherITransaction.getId(), anotherITransaction.getTitle(), anotherITransaction.getDescription(),
+                anotherITransaction.getImageUrl(), new Date().getTime());
     }
 
     @Override
@@ -81,7 +81,7 @@ public class ITransactionsImpl implements ITransactions {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ITransactionsImpl itemImpl = (ITransactionsImpl) o;
+        ITransactionImpl itemImpl = (ITransactionImpl) o;
 
         if (timeStamp != itemImpl.timeStamp) return false;
         if (!id.equals(itemImpl.id)) return false;
@@ -103,7 +103,7 @@ public class ITransactionsImpl implements ITransactions {
 
     @Override
     public String toString() {
-        return "ITransactionsImpl{" +
+        return "ITransactionImpl{" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +

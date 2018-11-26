@@ -8,7 +8,7 @@ import android.util.Log;
 
 import com.jiahaoliuliu.chutoro.ui.MainApplication;
 import com.jiahaoliuliu.chutoro.R;
-import com.jiahaoliuliu.chutoro.entity.ITransactions;
+import com.jiahaoliuliu.chutoro.entity.ITransaction;
 
 import java.util.List;
 
@@ -43,7 +43,7 @@ public class ItemsListActivity extends AppCompatActivity implements ItemsListCon
     }
 
     @Override
-    public void showItemsList(List<? extends ITransactions> itemsList) {
+    public void showItemsList(List<? extends ITransaction> itemsList) {
         Log.v(TAG, "List of items retrieved " + itemsList.toString());
         itemsListAdapter.setItemsList(itemsList);
     }

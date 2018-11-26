@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.jiahaoliuliu.chutoro.databinding.LayoutItemBinding;
-import com.jiahaoliuliu.chutoro.entity.ITransactions;
+import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ItemsListAdapter extends RecyclerView.Adapter<ItemsListAdapter.ItemHolder>{
 
-    private List<? extends ITransactions> itemsList;
+    private List<? extends ITransaction> itemsList;
     private Picasso picasso;
 
     public ItemsListAdapter() {
@@ -22,7 +22,7 @@ public class ItemsListAdapter extends RecyclerView.Adapter<ItemsListAdapter.Item
         this.picasso = Picasso.get();
     }
 
-    public void setItemsList(List<? extends ITransactions> itemsList) {
+    public void setItemsList(List<? extends ITransaction> itemsList) {
         this.itemsList = itemsList;
         notifyDataSetChanged();
     }
@@ -40,8 +40,8 @@ public class ItemsListAdapter extends RecyclerView.Adapter<ItemsListAdapter.Item
 
     @Override
     public void onBindViewHolder(ItemHolder holder, int position) {
-        ITransactions ITransactions = itemsList.get(position);
-        holder.bind(ITransactions);
+        ITransaction ITransaction = itemsList.get(position);
+        holder.bind(ITransaction);
     }
 
     @Override
@@ -60,10 +60,10 @@ public class ItemsListAdapter extends RecyclerView.Adapter<ItemsListAdapter.Item
             this.image = layoutItemBinding.image;
         }
 
-        public void bind(ITransactions ITransactions) {
-            layoutItemBinding.setItem(ITransactions);
+        public void bind(ITransaction ITransaction) {
+            layoutItemBinding.setItem(ITransaction);
             layoutItemBinding.executePendingBindings();
-            picasso.load(ITransactions.getImageUrl()).into(image);
+            picasso.load(ITransaction.getImageUrl()).into(image);
         }
     }
 }

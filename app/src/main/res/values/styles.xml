@@ -3,9 +3,9 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <ITransactions name="colorPrimary">@color/colorPrimary</ITransactions>
-        <ITransactions name="colorPrimaryDark">@color/colorPrimaryDark</ITransactions>
-        <ITransactions name="colorAccent">@color/colorAccent</ITransactions>
+        <ITransaction name="colorPrimary">@color/colorPrimary</ITransaction>
+        <ITransaction name="colorPrimaryDark">@color/colorPrimaryDark</ITransaction>
+        <ITransaction name="colorAccent">@color/colorAccent</ITransaction>
     </style>
 
 </resources>
