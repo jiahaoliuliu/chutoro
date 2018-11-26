@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 //import com.jiahaoliuliu.chutoro.networklayer.TransactionService;
-import com.jiahaoliuliu.chutoro.storagelayer.ItemsDatabase;
+import com.jiahaoliuliu.chutoro.storagelayer.TransactionsDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,15 +16,15 @@ public class ItemsRepositoryImpl implements ItemsRepository {
     private static final String TAG = "ItemsRepositoryImpl";
 
 //    private final TransactionService itemService;
-    private final ItemsDatabase itemsDatabase;
+    private final TransactionsDatabase transactionsDatabase;
     // Temporal memory for the items list
     private List<? extends ITransaction> memoryCache = new ArrayList<>();
 
     public ItemsRepositoryImpl(
 //            TransactionService itemService,
-            ItemsDatabase itemsDatabase) {
+            TransactionsDatabase transactionsDatabase) {
 //        this.itemService = itemService;
-        this.itemsDatabase = itemsDatabase;
+        this.transactionsDatabase = transactionsDatabase;
     }
 
     @Override
@@ -50,7 +50,7 @@ public class ItemsRepositoryImpl implements ItemsRepository {
 //                // Save the content into the database
 //                for (ITransaction item: itemsList) {
 //                    Log.v(TAG, "Trying to save " + item + " into the database");
-//                    itemsDatabase.itemDao().upsert(new Transaction(item));
+//                    transactionsDatabase.itemDao().upsert(new Transaction(item));
 //                }
 //             }).onErrorResumeNext(throwable -> {
 //                 Log.e(TAG, "Error retrieving data from backend", throwable);
@@ -63,7 +63,7 @@ public class ItemsRepositoryImpl implements ItemsRepository {
     }
 
     private Single<? extends List<? extends ITransaction>> retrieveItemsListFromStorage() {
-        return itemsDatabase.itemDao().getAllItems()
+        return transactionsDatabase.itemDao().getAllItems()
                 .doOnSuccess(itemsList -> saveItemsListToCache(itemsList))
                 .onErrorResumeNext(throwable -> {
                    Log.e(TAG, "Error retrieving data from the database ", throwable);

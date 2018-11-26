@@ -11,18 +11,18 @@ import dagger.Provides;
 @Module
 public class ItemsDatabaseModule {
 
-    private ItemsDatabase itemsDatabase;
+    private TransactionsDatabase transactionsDatabase;
 
     @Provides
     @Singleton
-    public ItemsDatabase provideItemsDatabase(Context context) {
-        if (itemsDatabase == null) {
-            itemsDatabase = Room.databaseBuilder(context.getApplicationContext(),
-                    ItemsDatabase.class, ItemsDatabase.DATABASE_NAME)
+    TransactionsDatabase provideTransactionsDatabase(Context context) {
+        if (transactionsDatabase == null) {
+            transactionsDatabase = Room.databaseBuilder(context.getApplicationContext(),
+                    TransactionsDatabase.class, TransactionsDatabase.DATABASE_NAME)
                     .fallbackToDestructiveMigration()
                     .build();
         }
 
-        return itemsDatabase;
+        return transactionsDatabase;
     }
 }

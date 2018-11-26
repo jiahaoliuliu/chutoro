@@ -1,7 +1,7 @@
 package com.jiahaoliuliu.chutoro.datalayer.itemsrepository;
 
 //import com.jiahaoliuliu.chutoro.networklayer.TransactionService;
-import com.jiahaoliuliu.chutoro.storagelayer.ItemsDatabase;
+import com.jiahaoliuliu.chutoro.storagelayer.TransactionsDatabase;
 
 import javax.inject.Singleton;
 
@@ -15,9 +15,9 @@ public class ItemsRepositoryModule {
     @Singleton
     ItemsRepository providesItemsRepository(
 //            TransactionService itemService,
-            ItemsDatabase itemsDatabase) {
+            TransactionsDatabase transactionsDatabase) {
         return new ItemsRepositoryImpl(
 //                itemService,
-                itemsDatabase);
+                transactionsDatabase);
     }
 }
