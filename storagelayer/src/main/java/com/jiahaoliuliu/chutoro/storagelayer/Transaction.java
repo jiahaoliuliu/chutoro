@@ -29,6 +29,11 @@ public class Transaction implements ITransaction {
         this.date = date;
     }
 
+    @NonNull
+    public int getId() {
+        return id;
+    }
+
     @Override
     public int getQuantity() {
         return quantity;

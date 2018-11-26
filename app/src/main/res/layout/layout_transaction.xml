@@ -2,7 +2,7 @@
 <layout>
     <data>
         <variable
-            name="ITransaction"
+            name="transaction"
             type="com.jiahaoliuliu.chutoro.entity.ITransaction" />
     </data>
 
@@ -25,10 +25,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="title"
-                android:layout_toRightOf="@+id/image"
                 android:layout_marginLeft="10dp"
                 style="@style/TextAppearance.AppCompat.Large"
-                android:text="@{ITransaction.title}"
                 />
 
             <TextView
@@ -41,7 +39,6 @@
                 android:lines="5"
                 android:layout_marginTop="10dp"
                 android:ellipsize="end"
-                android:text="@{ITransaction.description}"
                 />
         </RelativeLayout>
 

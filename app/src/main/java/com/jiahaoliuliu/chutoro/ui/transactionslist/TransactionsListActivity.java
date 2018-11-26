@@ -1,5 +1,6 @@
-package com.jiahaoliuliu.chutoro.ui.itemslist;
+package com.jiahaoliuliu.chutoro.ui.transactionslist;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,20 +15,20 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class ItemsListActivity extends AppCompatActivity implements ItemsListContract.View {
+public class TransactionsListActivity extends AppCompatActivity implements TransactionsListContract.View {
 
-    private static final String TAG = "ItemsListActivity";
+    private static final String TAG = "TransactionsListActivity";
 
     @Inject
-    protected ItemsListContract.Presenter presenter;
+    protected TransactionsListContract.Presenter presenter;
 
     private RecyclerView recyclerView;
-    private ItemsListAdapter itemsListAdapter;
+    private TransactionsListAdapter transactionsListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_items_list);
+        setContentView(R.layout.activity_transactions_list);
 
         MainApplication.getMainComponent().inject(this);
 
@@ -35,17 +36,18 @@ public class ItemsListActivity extends AppCompatActivity implements ItemsListCon
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-        itemsListAdapter = new ItemsListAdapter();
-        recyclerView.setAdapter(itemsListAdapter);
+        transactionsListAdapter = new TransactionsListAdapter();
+        recyclerView.setAdapter(transactionsListAdapter);
 
         presenter.setView(this);
-        presenter.retrieveItemsList();
+        presenter.retrieveTransactionsList();
     }
 
+    @SuppressLint("LongLogTag")
     @Override
-    public void showItemsList(List<? extends ITransaction> itemsList) {
-        Log.v(TAG, "List of items retrieved " + itemsList.toString());
-        itemsListAdapter.setItemsList(itemsList);
+    public void showTransactionsList(List<? extends ITransaction> transactionsList) {
+        Log.v(TAG, "List of items retrieved " + transactionsList.toString());
+        transactionsListAdapter.setTransactionsList(transactionsList);
     }
 
     @Override

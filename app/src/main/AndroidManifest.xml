@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme"
         android:name="com.jiahaoliuliu.chutoro.ui.MainApplication"
         >
-        <activity android:name=".ui.itemslist.ItemsListActivity">
+        <activity android:name=".ui.transactionslist.TransactionsListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
