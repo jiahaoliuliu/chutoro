@@ -1,4 +1,4 @@
-package com.jiahaoliuliu.chutoro;
+package com.jiahaoliuliu.chutoro.ui;
 
 import android.content.Context;
 

@@ -6,7 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
-import com.jiahaoliuliu.chutoro.MainApplication;
+import com.jiahaoliuliu.chutoro.ui.MainApplication;
 import com.jiahaoliuliu.chutoro.R;
 import com.jiahaoliuliu.chutoro.entity.Item;
 

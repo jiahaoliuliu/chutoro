@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name="com.jiahaoliuliu.chutoro.MainApplication"
+        android:name="com.jiahaoliuliu.chutoro.ui.MainApplication"
         >
         <activity android:name=".ui.itemslist.ItemsListActivity">
             <intent-filter>

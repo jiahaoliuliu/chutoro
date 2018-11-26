@@ -1,4 +1,4 @@
-package com.jiahaoliuliu.chutoro;
+package com.jiahaoliuliu.chutoro.ui;
 
 import com.jiahaoliuliu.chutoro.ui.itemslist.ItemsListActivity;
 import com.jiahaoliuliu.chutoro.ui.itemslist.ItemsListModule;
