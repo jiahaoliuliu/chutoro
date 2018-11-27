@@ -32,10 +32,11 @@ public class TransactionsRepository implements ITransactionsRepository {
         Single<? extends List<? extends ITransaction>> storageSource = retrieveTransactionsListFromStorage();
         Single<? extends List<? extends ITransaction>> cacheSource = retrieveTransactionsListFromCache();
 
-        return Single.concat(
-                storageSource, cacheSource)
-                .filter(source -> !source.isEmpty())
-                .first(memoryCache);
+//        return Single.concat(
+//                storageSource, cacheSource)
+//                .filter(source -> !source.isEmpty())
+//                .first(memoryCache);
+        return commonTransactionsProvider.provideTransactionsList();
     }
 
     private Single<? extends List<? extends ITransaction>> retrieveTransactionsListFromCache() {
