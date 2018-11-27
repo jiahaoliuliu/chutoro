@@ -1,5 +1,6 @@
 package com.jiahaoliuliu.chutoro.datalayer.transactionsrepository;
 
+import com.jiahaoliuliu.chutoro.devicelayer.CommonTransactionsProvider;
 import com.jiahaoliuliu.chutoro.storagelayer.TransactionsDatabase;
 
 import javax.inject.Singleton;
@@ -12,7 +13,9 @@ public class TransactionsRepositoryModule {
 
     @Provides
     @Singleton
-    ITransactionsRepository providesTransactionsRepository(TransactionsDatabase transactionsDatabase) {
-        return new TransactionsRepository(transactionsDatabase);
+    ITransactionsRepository providesTransactionsRepository(
+            TransactionsDatabase transactionsDatabase, CommonTransactionsProvider
+            commonTransactionsProvider) {
+        return new TransactionsRepository(transactionsDatabase, commonTransactionsProvider);
     }
 }

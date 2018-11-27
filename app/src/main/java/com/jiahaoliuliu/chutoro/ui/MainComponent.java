@@ -1,5 +1,6 @@
 package com.jiahaoliuliu.chutoro.ui;
 
+import com.jiahaoliuliu.chutoro.devicelayer.di.DeviceLayerModule;
 import com.jiahaoliuliu.chutoro.ui.transactionslist.TransactionsListActivity;
 import com.jiahaoliuliu.chutoro.ui.transactionslist.TransactionsListModule;
 import com.jiahaoliuliu.chutoro.datalayer.transactionsrepository.TransactionsRepositoryModule;
@@ -13,7 +14,8 @@ import dagger.Component;
 @Component(modules = {
         ApplicationModule.class, TransactionsListModule.class,
         TransactionsRepositoryModule.class,
-        NetworkModule.class, TransactionsDatabaseModule.class
+        NetworkModule.class, TransactionsDatabaseModule.class,
+        DeviceLayerModule.class
 })
 @Singleton
 public interface MainComponent {
