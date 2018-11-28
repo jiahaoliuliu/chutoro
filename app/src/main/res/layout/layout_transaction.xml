@@ -46,7 +46,6 @@
                     android:layout_height="wrap_content"
                     tools:text="Quantity"
                     style="@style/TextAppearance.AppCompat.Large"
-                    android:text="@{Integer.toString(transaction.quantity)}"
                     />
 
             </LinearLayout>
@@ -61,7 +60,6 @@
                     android:layout_height="wrap_content"
                     tools:text="04/11/2018"
                     android:paddingTop="10dp"
-                    android:text="@{Long.toString(transaction.date)}"
                     android:layout_weight="1"
                     />
 

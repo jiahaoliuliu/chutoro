@@ -10,7 +10,9 @@ import com.jiahaoliuliu.chutoro.databinding.LayoutTransactionBinding;
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsListAdapter.TransactionHolder>{
@@ -49,17 +51,33 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
     }
 
     class TransactionHolder extends RecyclerView.ViewHolder {
+        private static final String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
+        private static final String CURRENCY = "AED";
 
         private LayoutTransactionBinding layoutTransactionBinding;
+        private SimpleDateFormat simpleDateFormatter;
 
         public TransactionHolder(LayoutTransactionBinding layoutTransactionBinding) {
             super(layoutTransactionBinding.getRoot());
             this.layoutTransactionBinding = layoutTransactionBinding;
+            simpleDateFormatter = new SimpleDateFormat(DATE_FORMAT);
         }
 
-        public void bind(ITransaction ITransaction) {
-            layoutTransactionBinding.setTransaction(ITransaction);
+        public void bind(ITransaction transaction) {
+            layoutTransactionBinding.setTransaction(transaction);
             layoutTransactionBinding.executePendingBindings();
+            layoutTransactionBinding.date.setText(parseDate(transaction.getDate()));
+            layoutTransactionBinding.quantity.setText(parseQuantity(transaction.getQuantity()));
+
+        }
+
+        private String parseDate(long date) {
+            return simpleDateFormatter.format(new Date(date));
+        }
+
+        private String parseQuantity(int quantity) {
+            double quantityDouble = quantity/100d;
+            return String.format("%.2f", quantityDouble) + CURRENCY;
         }
     }
 }
