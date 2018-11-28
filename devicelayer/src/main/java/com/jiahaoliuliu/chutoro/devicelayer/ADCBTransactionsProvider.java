@@ -24,7 +24,6 @@ import io.reactivex.Single;
 public class ADCBTransactionsProvider implements ITransactionsProvider{
 
     private static final String TAG = "ADCBTransactionsProvider";
-    private static final String SOURCE = "ADCB";
     private static final String COLUMN_ADDRESS = "address";
     private static final String COLUMN_DATE = "date";
     private static final String COLUMN_TYPE = "type";
@@ -52,6 +51,7 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
     private static final int POSITION_QUANTITY = 2;
     private static final int POSITION_DESTINATION = 4;
     private static final int POSITION_DATE = 3;
+    private static final String SOURCE = "ADCB";
 
     /**
      * The context is needed to access to the content providers
