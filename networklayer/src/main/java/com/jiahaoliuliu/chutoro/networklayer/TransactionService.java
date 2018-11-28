@@ -1,5 +1,7 @@
 package com.jiahaoliuliu.chutoro.networklayer;
 
+import com.jiahaoliuliu.chutoro.entity.Transaction;
+
 import java.util.List;
 
 import io.reactivex.Single;

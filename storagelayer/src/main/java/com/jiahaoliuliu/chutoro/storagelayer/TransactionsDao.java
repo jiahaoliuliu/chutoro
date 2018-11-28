@@ -15,22 +15,22 @@ import io.reactivex.Single;
 public abstract class TransactionsDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    protected abstract void insert(Transaction transaction);
+    protected abstract void insert(PersistentTransaction persistentTransaction);
 
     @Update(onConflict = OnConflictStrategy.IGNORE)
-    protected abstract void update(Transaction transaction);
+    protected abstract void update(PersistentTransaction persistentTransaction);
 
-    public void upsert(Transaction transaction) {
-        insert(transaction);
-        update(transaction);
+    public void upsert(PersistentTransaction persistentTransaction) {
+        insert(persistentTransaction);
+        update(persistentTransaction);
     }
 
     @Delete
-    public abstract void delete(Transaction itemImpl);
+    public abstract void delete(PersistentTransaction itemImpl);
 
     @Query("Delete from transactions")
     public abstract void deleteAllItems();
 
     @Query("Select * from transactions order by date asc")
-    public abstract Single<List<Transaction>> getAllTransactions();
+    public abstract Single<List<PersistentTransaction>> getAllTransactions();
 }

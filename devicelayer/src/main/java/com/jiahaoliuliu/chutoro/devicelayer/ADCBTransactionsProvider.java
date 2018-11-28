@@ -10,6 +10,7 @@ import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.entity.Sms;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import io.reactivex.Single;
@@ -21,14 +22,18 @@ import io.reactivex.Single;
 public class ADCBTransactionsProvider implements ITransactionsProvider{
 
     private static final String TAG = "ADCBTransactionsProvider";
+    private static final String COLUMN_ADDRESS = "address";
+    private static final String COLUMN_DATE = "date";
+    private static final String COLUMN_TYPE = "type";
+    private static final String COLUMN_BODY = "body";
 
     private static final String[] PROJECTION = {
-            Sms.COLUMN_DATE,
-            Sms.COLUMN_BODY
+            COLUMN_DATE,
+            COLUMN_BODY
     };
 
     // Selection query
-    private static final String SELECTION_CLAUSE = Sms.COLUMN_TYPE + "=? and " + Sms.COLUMN_ADDRESS + "=?";
+    private static final String SELECTION_CLAUSE = COLUMN_TYPE + "=? and " + COLUMN_ADDRESS + "=?";
 
     private static final String ADDRESS_ADCB = "ADCBAlert";
 
@@ -36,7 +41,7 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
     private static final String[] SELECTION_ARGS = {"1", ADDRESS_ADCB};
 
     // Sort order
-    private static final String SORT_ORDER = Sms.COLUMN_DATE + " DESC";
+    private static final String SORT_ORDER = COLUMN_DATE + " DESC";
 
     /**
      * The context is needed to access to the content providers
@@ -60,33 +65,42 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
 
     @SuppressLint("LongLogTag")
     private List<ITransaction> getDataFromCursor(Cursor cursor) {
-        List<ITransaction> transactionsList = new ArrayList<>();
-
         // Try to move the cursor to the first position
         if (!cursor.moveToFirst()) {
             Log.v(TAG, "The user does not have any sms");
             cursor.close();
-            return transactionsList;
+            return Collections.emptyList();
         }
 
-        do {
+        List<Sms> smsList = new ArrayList<>();
+        while(cursor.moveToNext()) {
             try {
-                Sms sms = new Sms(cursor.getString(cursor.getColumnIndexOrThrow(Sms.COLUMN_BODY)),
-                        cursor.getLong(cursor.getColumnIndexOrThrow(Sms.COLUMN_DATE)));
+                Sms sms = new Sms(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_BODY)),
+                        cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_DATE)));
 
                 Log.v(TAG, "Sms read " + sms.toString());
-//                ITransactions transactions = parseSms(sms);
-//                if (transactions != null) {
-//                    transactionsList.add(transactions);
-//                }
-
+                smsList.add(sms);
                 // To catch any error on Getting the data from the cursor
             } catch (IllegalArgumentException illegalArgumentException) {
                 Log.w(TAG, "Error getting sms message from content resolver ", illegalArgumentException);
             }
-        } while (cursor.moveToNext());
+        }
         cursor.close();
 
-        return transactionsList;
+//        do {
+//            try {
+//                Sms sms = new Sms(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_BODY)),
+//                        cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_DATE)));
+//
+//                Log.v(TAG, "Sms read " + sms.toString());
+//                smsList.add(sms);
+//                // To catch any error on Getting the data from the cursor
+//            } catch (IllegalArgumentException illegalArgumentException) {
+//                Log.w(TAG, "Error getting sms message from content resolver ", illegalArgumentException);
+//            }
+//        } while (cursor.moveToNext());
+//        cursor.close();
+
+        return Collections.emptyList();
     }
 }

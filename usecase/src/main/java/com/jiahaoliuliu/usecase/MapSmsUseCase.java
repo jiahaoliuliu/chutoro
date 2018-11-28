@@ -11,5 +11,4 @@ public class MapSmsUseCase {
 
     public MapSmsUseCase() {}
 
-    public List<Sms> parseSms()
 }

@@ -1,6 +1,4 @@
-package com.jiahaoliuliu.chutoro.networklayer;
-
-import com.jiahaoliuliu.chutoro.entity.ITransaction;
+package com.jiahaoliuliu.chutoro.entity;
 
 public class Transaction implements ITransaction {
 
