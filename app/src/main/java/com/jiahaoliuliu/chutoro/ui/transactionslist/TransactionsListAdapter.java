@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.jiahaoliuliu.chutoro.databinding.LayoutTransactionBinding;
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
@@ -15,11 +16,9 @@ import java.util.List;
 public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsListAdapter.TransactionHolder>{
 
     private List<? extends ITransaction> transactionsList;
-    private Picasso picasso;
 
     public TransactionsListAdapter() {
         this.transactionsList = new ArrayList<>();
-        this.picasso = Picasso.get();
     }
 
     public void setTransactionsList(List<? extends ITransaction> transactionsList) {
@@ -52,19 +51,15 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
     class TransactionHolder extends RecyclerView.ViewHolder {
 
         private LayoutTransactionBinding layoutTransactionBinding;
-        private ImageView image;
 
         public TransactionHolder(LayoutTransactionBinding layoutTransactionBinding) {
             super(layoutTransactionBinding.getRoot());
             this.layoutTransactionBinding = layoutTransactionBinding;
-            this.image = layoutTransactionBinding.image;
         }
 
         public void bind(ITransaction ITransaction) {
             layoutTransactionBinding.setTransaction(ITransaction);
             layoutTransactionBinding.executePendingBindings();
-            // TODO: Get the image url according to the source
-//            picasso.load(ITransaction.getImageUrl()).into(image);
         }
     }
 }
