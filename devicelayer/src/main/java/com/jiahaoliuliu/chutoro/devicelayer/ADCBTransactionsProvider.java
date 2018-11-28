@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.entity.Sms;
+import com.jiahaoliuliu.usecase.MapSmsUseCase;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,24 +48,26 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
      * The context is needed to access to the content providers
      */
     private final Context context;
+    private final MapSmsUseCase mapSmsUseCase;
 
-    public ADCBTransactionsProvider(Context context) {
+    public ADCBTransactionsProvider(Context context, MapSmsUseCase mapSmsUseCase) {
         this.context = context;
+        this.mapSmsUseCase = mapSmsUseCase;
     }
 
     @Override
-    public Single<List<ITransaction>> provideTransactions() {
+    public Single<? extends List<? extends ITransaction>> provideTransactions() {
         Cursor cursor = context.getContentResolver()
                 .query(Uri.parse("content://sms/inbox"), PROJECTION, SELECTION_CLAUSE,
                         SELECTION_ARGS, SORT_ORDER);
 
-        List<ITransaction> transactionsList = getDataFromCursor(cursor);
+        List<? extends ITransaction> transactionsList = getDataFromCursor(cursor);
         // TODO: Implement this
         return Single.just(transactionsList);
     }
 
     @SuppressLint("LongLogTag")
-    private List<ITransaction> getDataFromCursor(Cursor cursor) {
+    private List<? extends ITransaction> getDataFromCursor(Cursor cursor) {
         // Try to move the cursor to the first position
         if (!cursor.moveToFirst()) {
             Log.v(TAG, "The user does not have any sms");
@@ -101,6 +104,6 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
 //        } while (cursor.moveToNext());
 //        cursor.close();
 
-        return Collections.emptyList();
+        return mapSmsUseCase.mapSmsListToTransactionsList(smsList);
     }
 }

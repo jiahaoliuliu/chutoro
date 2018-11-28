@@ -12,5 +12,5 @@ public interface ITransactionsProvider {
      * Provide all the transactions
      * @return
      */
-    Single<List<ITransaction>> provideTransactions();
+    Single<? extends List<? extends ITransaction>> provideTransactions();
 }

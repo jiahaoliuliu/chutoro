@@ -3,6 +3,9 @@ apply plugin: 'java-library'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':entity')
+
+    implementation Libs.dagger
+    annotationProcessor AnnotationProcessor.dagger
 }
 
 sourceCompatibility = Versions.java

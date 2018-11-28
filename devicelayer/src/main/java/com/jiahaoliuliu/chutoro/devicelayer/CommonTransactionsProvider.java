@@ -20,7 +20,7 @@ public class CommonTransactionsProvider {
         this.adcbTransactionsProvider = adcbTransactionsProvider;
     }
 
-    public Single<List<ITransaction>> provideTransactionsList() {
+    public Single<? extends List<? extends ITransaction>> provideTransactionsList() {
         return adcbTransactionsProvider.provideTransactions();
     }
 }
