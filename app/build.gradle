@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion Versions.compileSdkVersion
     defaultConfig {
-        applicationId "com.jiahaoliuliu.androidcleanarchitecturecore"
+        applicationId "com.jiahaoliuliu.chutoro"
         minSdkVersion Versions.minSdkVersion
         targetSdkVersion Versions.targetSdkVersion
         versionCode Versions.versionCode
@@ -45,6 +45,8 @@ dependencies {
     implementation project(path: ':datalayer')
     implementation project(path: ':networklayer')
     implementation project(path: ':storagelayer')
+    implementation project(path: ':devicelayer')
+    implementation project(path: ':usecase')
 
     // Core libraries
     implementation Libs.support_appcompat_v7
@@ -67,5 +69,4 @@ dependencies {
     testImplementation Tests.mockito
     androidTestImplementation Tests.testRunner
     androidTestImplementation Tests.espresso
-    compile project(path: ':storagelayer')
 }

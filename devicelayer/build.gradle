@@ -10,6 +10,7 @@ android {
         versionName Versions.versionName
 
         testInstrumentationRunner Tests.testInstrumentationRunner
+
     }
 
     buildTypes {
@@ -28,9 +29,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':entity')
-    implementation project(path: ':networklayer')
-    implementation project(path: ':storagelayer')
-    implementation project(path: ':devicelayer')
+    implementation project(path: ':usecase')
 
     implementation Libs.support_appcompat_v7
 
@@ -40,13 +39,8 @@ dependencies {
     implementation Libs.dagger_support
     annotationProcessor AnnotationProcessor.dagger
 
-    implementation Libs.room
-    annotationProcessor AnnotationProcessor.room
-
-    implementation Libs.liveData
-    annotationProcessor AnnotationProcessor.liveData
-
     testImplementation Tests.junit
+
     androidTestImplementation Tests.testRunner
     androidTestImplementation Tests.espresso
 }
