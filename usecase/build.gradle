@@ -6,6 +6,9 @@ dependencies {
 
     implementation Libs.dagger
     annotationProcessor AnnotationProcessor.dagger
+
+    testImplementation Tests.junit
+    testImplementation Tests.mockito
 }
 
 sourceCompatibility = Versions.java

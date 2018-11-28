@@ -23,6 +23,7 @@ import io.reactivex.Single;
 public class ADCBTransactionsProvider implements ITransactionsProvider{
 
     private static final String TAG = "ADCBTransactionsProvider";
+    private static final String SOURCE = "ADCB";
     private static final String COLUMN_ADDRESS = "address";
     private static final String COLUMN_DATE = "date";
     private static final String COLUMN_TYPE = "type";
@@ -104,6 +105,6 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
 //        } while (cursor.moveToNext());
 //        cursor.close();
 
-        return mapSmsUseCase.mapSmsListToTransactionsList(smsList);
+        return mapSmsUseCase.mapSmsListToTransactionsList(smsList, SOURCE);
     }
 }
