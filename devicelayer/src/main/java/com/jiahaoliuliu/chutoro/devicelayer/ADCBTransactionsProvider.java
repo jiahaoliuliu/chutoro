@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.util.Log;
 
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
+import com.jiahaoliuliu.chutoro.entity.Sms;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,18 +21,14 @@ import io.reactivex.Single;
 public class ADCBTransactionsProvider implements ITransactionsProvider{
 
     private static final String TAG = "ADCBTransactionsProvider";
-    private static final String COLUMN_ADDRESS = "address";
-    private static final String COLUMN_DATE = "date";
-    private static final String COLUMN_TYPE = "type";
-    private static final String COLUMN_BODY = "body";
 
     private static final String[] PROJECTION = {
-            COLUMN_DATE,
-            COLUMN_BODY
+            Sms.COLUMN_DATE,
+            Sms.COLUMN_BODY
     };
 
     // Selection query
-    private static final String SELECTION_CLAUSE = COLUMN_TYPE + "=? and " + COLUMN_ADDRESS + "=?";
+    private static final String SELECTION_CLAUSE = Sms.COLUMN_TYPE + "=? and " + Sms.COLUMN_ADDRESS + "=?";
 
     private static final String ADDRESS_ADCB = "ADCBAlert";
 
@@ -39,7 +36,7 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
     private static final String[] SELECTION_ARGS = {"1", ADDRESS_ADCB};
 
     // Sort order
-    private static final String SORT_ORDER = COLUMN_DATE + " DESC";
+    private static final String SORT_ORDER = Sms.COLUMN_DATE + " DESC";
 
     /**
      * The context is needed to access to the content providers
@@ -74,8 +71,8 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
 
         do {
             try {
-                Sms sms = new Sms(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_BODY)),
-                        cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_DATE)));
+                Sms sms = new Sms(cursor.getString(cursor.getColumnIndexOrThrow(Sms.COLUMN_BODY)),
+                        cursor.getLong(cursor.getColumnIndexOrThrow(Sms.COLUMN_DATE)));
 
                 Log.v(TAG, "Sms read " + sms.toString());
 //                ITransactions transactions = parseSms(sms);
