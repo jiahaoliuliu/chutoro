@@ -31,7 +31,7 @@ public class MapSmsUseCase {
                 Transaction transaction = parseSmsToTransaction(sms, source);
                 transactionList.add(transaction);
             } catch (IllegalArgumentException illegalArgumentException) {
-                illegalArgumentException.printStackTrace();
+                System.out.println("Error mapping sms to transactions");
             }
         }
         return transactionList;
