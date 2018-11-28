@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.entity.Sms;
+import com.jiahaoliuliu.chutoro.entity.SmsParsingParameters;
 import com.jiahaoliuliu.usecase.MapSmsUseCase;
 
 import java.util.ArrayList;
@@ -23,7 +24,6 @@ import io.reactivex.Single;
 public class ADCBTransactionsProvider implements ITransactionsProvider{
 
     private static final String TAG = "ADCBTransactionsProvider";
-    private static final String SOURCE = "ADCB";
     private static final String COLUMN_ADDRESS = "address";
     private static final String COLUMN_DATE = "date";
     private static final String COLUMN_TYPE = "type";
@@ -44,6 +44,14 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
 
     // Sort order
     private static final String SORT_ORDER = COLUMN_DATE + " DESC";
+
+    // Pattern parameters
+    private static final String PATTERN_1 = "Your credit card (.*?) was used for AED(.*?) on (.*?) at (.*?)\\. ";
+    private static final String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
+    private static final int POSITION_QUANTITY = 2;
+    private static final int POSITION_DESTINATION = 4;
+    private static final int POSITION_DATE = 3;
+    private static final String SOURCE = "ADCB";
 
     /**
      * The context is needed to access to the content providers
@@ -91,20 +99,8 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
         }
         cursor.close();
 
-//        do {
-//            try {
-//                Sms sms = new Sms(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_BODY)),
-//                        cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_DATE)));
-//
-//                Log.v(TAG, "Sms read " + sms.toString());
-//                smsList.add(sms);
-//                // To catch any error on Getting the data from the cursor
-//            } catch (IllegalArgumentException illegalArgumentException) {
-//                Log.w(TAG, "Error getting sms message from content resolver ", illegalArgumentException);
-//            }
-//        } while (cursor.moveToNext());
-//        cursor.close();
-
-        return mapSmsUseCase.mapSmsListToTransactionsList(smsList, SOURCE);
+        SmsParsingParameters smsParsingParameters = new SmsParsingParameters(PATTERN_1, DATE_FORMAT,
+                POSITION_QUANTITY, POSITION_DESTINATION, POSITION_DATE, SOURCE);
+        return mapSmsUseCase.mapSmsListToTransactionsList(smsList, smsParsingParameters);
     }
 }
