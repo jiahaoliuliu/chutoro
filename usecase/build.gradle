@@ -1,0 +1,15 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':entity')
+
+    implementation Libs.dagger
+    annotationProcessor AnnotationProcessor.dagger
+
+    testImplementation Tests.junit
+    testImplementation Tests.mockito
+}
+
+sourceCompatibility = Versions.java
+targetCompatibility = Versions.java
