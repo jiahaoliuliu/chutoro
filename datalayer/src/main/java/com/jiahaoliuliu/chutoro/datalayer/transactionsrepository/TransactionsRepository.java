@@ -23,18 +23,18 @@ public class TransactionsRepository implements ITransactionsRepository {
                                   CommonTransactionsProvider commonTransactionsProvider) {
         this.transactionsDatabase = transactionsDatabase;
         this.commonTransactionsProvider = commonTransactionsProvider;
-        updateTransactionsList();
     }
 
     @Override
     public LiveData<? extends List<? extends ITransaction>> retrieveTransactionsList() {
+        updateTransactionsList();
         return transactionsDatabase.transactionsDao().getAllTransactions();
     }
 
     private void updateTransactionsList() {
         commonTransactionsProvider.provideTransactionsList().subscribeOn(Schedulers.io())
                 .subscribe(transactionsList -> {
-                    transactionsDatabase.transactionsDao().upsert(transactionsList);
+//                    transactionsDatabase.transactionsDao().upsert(transactionsList);
                 }, throwable -> {
                     Log.e(TAG, "Error getting the transactions List");
                 });

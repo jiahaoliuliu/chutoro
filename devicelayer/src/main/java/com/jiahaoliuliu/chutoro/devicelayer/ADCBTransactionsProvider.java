@@ -89,7 +89,8 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
         List<Sms> smsList = new ArrayList<>();
         while(cursor.moveToNext()) {
             try {
-                Sms sms = new Sms(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_BODY)),
+                Sms sms = new Sms(cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_BODY)),
                         cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_DATE)));
 
                 Log.v(TAG, "Sms read " + sms.toString());
