@@ -3,6 +3,12 @@ package com.jiahaoliuliu.chutoro.entity;
 public interface ITransaction {
 
     /**
+     * Get the sms id when it was parsed
+     * @return
+     */
+    long getSmsId();
+
+    /**
      * Get transactions quantity. Since float does not operate very well in Java, it is using
      * int with 2 decimals instead
      * @return The quantity used * 100

@@ -45,6 +45,10 @@ dependencies {
     implementation Libs.roomRxJava
     annotationProcessor AnnotationProcessor.room
 
+    // LiveData
+    implementation Libs.liveData
+    annotationProcessor AnnotationProcessor.liveData
+
     testImplementation Tests.junit
     androidTestImplementation Tests.testRunner
     androidTestImplementation Tests.espresso

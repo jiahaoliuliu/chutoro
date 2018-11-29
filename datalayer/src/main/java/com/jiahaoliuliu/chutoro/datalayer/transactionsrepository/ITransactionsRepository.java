@@ -1,5 +1,7 @@
 package com.jiahaoliuliu.chutoro.datalayer.transactionsrepository;
 
+import android.arch.lifecycle.LiveData;
+
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 
 import java.util.List;
@@ -16,5 +18,5 @@ public interface ITransactionsRepository {
      * temporal memory, either from the database
      * @return a list of transactions
      */
-    Single<? extends List<? extends ITransaction>> retrieveTransactionsList();
+    LiveData<? extends List<? extends ITransaction>> retrieveTransactionsList();
 }

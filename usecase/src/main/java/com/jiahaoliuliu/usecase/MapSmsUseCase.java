@@ -1,6 +1,7 @@
 package com.jiahaoliuliu.usecase;
 
 
+import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.entity.Sms;
 import com.jiahaoliuliu.chutoro.entity.SmsParsingParameters;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
@@ -18,13 +19,13 @@ import java.util.regex.Pattern;
 public class MapSmsUseCase {
     public MapSmsUseCase() {}
 
-    public List<Transaction> mapSmsListToTransactionsList(List<Sms> smsList,
-                                                          SmsParsingParameters smsParsingParameters) {
+    public List<ITransaction> mapSmsListToTransactionsList(List<Sms> smsList,
+                                                           SmsParsingParameters smsParsingParameters) {
         SimpleDateFormat simpleDateFormatter = new SimpleDateFormat(smsParsingParameters.getDateFormat());
-        List<Transaction> transactionList = new ArrayList<>();
+        List<ITransaction> transactionList = new ArrayList<>();
         for (Sms sms: smsList) {
             try {
-                Transaction transaction = parseSmsToTransaction(sms, smsParsingParameters, simpleDateFormatter);
+                ITransaction transaction = parseSmsToTransaction(sms, smsParsingParameters, simpleDateFormatter);
                 transactionList.add(transaction);
             } catch (IllegalArgumentException illegalArgumentException) {
                 System.out.println("Error mapping sms to transactions");
@@ -33,7 +34,7 @@ public class MapSmsUseCase {
         return transactionList;
     }
 
-    private Transaction parseSmsToTransaction(Sms sms, SmsParsingParameters smsParsingParameters,
+    private ITransaction parseSmsToTransaction(Sms sms, SmsParsingParameters smsParsingParameters,
                                               SimpleDateFormat simpleDateFormatter) {
         Pattern pattern = Pattern.compile(smsParsingParameters.getPattern());
         Matcher matcher = pattern.matcher(sms.getBody());
@@ -64,6 +65,6 @@ public class MapSmsUseCase {
             throw new IllegalArgumentException("Error parsing the date");
         }
 
-        return new Transaction(quantity, smsParsingParameters.getSource(), destination, date);
+        return new Transaction(sms.getId(), quantity, smsParsingParameters.getSource(), destination, date);
     }
 }

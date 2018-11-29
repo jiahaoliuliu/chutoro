@@ -1,7 +1,6 @@
 package com.jiahaoliuliu.chutoro.ui.transactionslist;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -10,13 +9,9 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import com.jiahaoliuliu.chutoro.ui.MainApplication;
 import com.jiahaoliuliu.chutoro.R;
-import com.jiahaoliuliu.chutoro.entity.ITransaction;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -53,15 +48,12 @@ public class TransactionsListActivity extends AppCompatActivity implements Trans
                     new String[]{Manifest.permission.READ_SMS},
                     REQUEST_CODE_FOR_READ_SMS_PERMISSION);
         } else {
-            presenter.retrieveTransactionsList();
+            presenter.retrieveTransactionsList().observe(this,
+                    transactionsList -> {
+                        transactionsListAdapter.setTransactionsList(transactionsList);
+                }
+            );
         }
-    }
-
-    @SuppressLint("LongLogTag")
-    @Override
-    public void showTransactionsList(List<? extends ITransaction> transactionsList) {
-        Log.v(TAG, "List of items retrieved " + transactionsList.toString());
-        transactionsListAdapter.setTransactionsList(transactionsList);
     }
 
     @Override
@@ -73,7 +65,10 @@ public class TransactionsListActivity extends AppCompatActivity implements Trans
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // permission was granted
-                    presenter.retrieveTransactionsList();
+                    presenter.retrieveTransactionsList().observe(this,
+                            transactionsList -> {
+                                transactionsListAdapter.setTransactionsList(transactionsList);
+                            });
                 } else {
                     // permission denied
                     finish();
