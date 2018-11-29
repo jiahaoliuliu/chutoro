@@ -6,10 +6,10 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
 
+import com.jiahaoliuliu.chutoro.devicelayer.smsparser.Sms;
+import com.jiahaoliuliu.chutoro.devicelayer.smsparser.SmsParserHelper;
+import com.jiahaoliuliu.chutoro.devicelayer.smsparser.SmsParserParameters;
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
-import com.jiahaoliuliu.chutoro.entity.Sms;
-import com.jiahaoliuliu.chutoro.usecase.mapsmsusecase.SmsMappingParameters;
-import com.jiahaoliuliu.chutoro.usecase.mapsmsusecase.MapSmsUseCase;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -59,11 +59,11 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
      * The context is needed to access to the content providers
      */
     private final Context context;
-    private final MapSmsUseCase mapSmsUseCase;
+    private final SmsParserHelper smsParserHelper;
 
-    public ADCBTransactionsProvider(Context context, MapSmsUseCase mapSmsUseCase) {
+    public ADCBTransactionsProvider(Context context, SmsParserHelper smsParserHelper) {
         this.context = context;
-        this.mapSmsUseCase = mapSmsUseCase;
+        this.smsParserHelper = smsParserHelper;
     }
 
     @Override
@@ -99,8 +99,8 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
         }
         cursor.close();
 
-        SmsMappingParameters smsMappingParameters = new SmsMappingParameters(PATTERN_1, DATE_FORMAT,
+        SmsParserParameters smsParserParameters = new SmsParserParameters(PATTERN_1, DATE_FORMAT,
                 POSITION_QUANTITY, POSITION_DESTINATION, POSITION_DATE, SOURCE);
-        return mapSmsUseCase.mapSmsListToTransactionsList(smsList, smsMappingParameters);
+        return smsParserHelper.mapSmsListToTransactionsList(smsList, smsParserParameters);
     }
 }

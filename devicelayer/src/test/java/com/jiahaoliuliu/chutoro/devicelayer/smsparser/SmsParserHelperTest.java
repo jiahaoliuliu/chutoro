@@ -1,7 +1,6 @@
-package com.jiahaoliuliu.chutoro.usecase.mapsmsusecase;
+package com.jiahaoliuliu.chutoro.devicelayer.smsparser;
 
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
-import com.jiahaoliuliu.chutoro.entity.Sms;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
 
 import org.junit.Before;
@@ -15,7 +14,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
-public class MapSmsUseCaseTest {
+public class SmsParserHelperTest {
 
     private static final long SMS_1_ID = 6543;
     private static final int SMS_1_QUANTITY = 359;
@@ -31,11 +30,11 @@ public class MapSmsUseCaseTest {
     private static final int POSITION_DATE = 3;
     private static final String SOURCE = "ADCB";
 
-    private MapSmsUseCase mapSmsUseCase;
+    private SmsParserHelper smsParserHelper;
 
     @Before
     public void setup() {
-        mapSmsUseCase = new MapSmsUseCase();
+        smsParserHelper = new SmsParserHelper();
     }
 
     @Test
@@ -46,11 +45,11 @@ public class MapSmsUseCaseTest {
         smsList.add(sms);
         Transaction rightTransaction = new Transaction(SMS_1_ID, SMS_1_QUANTITY, SOURCE, SMS_1_DESTINATION, SMS_1_DATE);
 
-        SmsMappingParameters smsMappingParameters = new SmsMappingParameters(PATTERN_1, DATE_FORMAT,
+        SmsParserParameters smsParserParameters = new SmsParserParameters(PATTERN_1, DATE_FORMAT,
                 POSITION_QUANTITY, POSITION_DESTINATION, POSITION_DATE, SOURCE);
 
         // Execute the method
-        List<ITransaction> transactionList = mapSmsUseCase.mapSmsListToTransactionsList(smsList, smsMappingParameters);
+        List<ITransaction> transactionList = smsParserHelper.mapSmsListToTransactionsList(smsList, smsParserParameters);
 
         // Verify the results
         assertEquals(1, transactionList.size());

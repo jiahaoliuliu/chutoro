@@ -40,6 +40,7 @@ dependencies {
     annotationProcessor AnnotationProcessor.dagger
 
     testImplementation Tests.junit
+    testImplementation Tests.mockito
 
     androidTestImplementation Tests.testRunner
     androidTestImplementation Tests.espresso

@@ -5,7 +5,7 @@ import android.content.Context;
 import com.jiahaoliuliu.chutoro.devicelayer.ADCBTransactionsProvider;
 import com.jiahaoliuliu.chutoro.devicelayer.CommonTransactionsProvider;
 import com.jiahaoliuliu.chutoro.devicelayer.ITransactionsProvider;
-import com.jiahaoliuliu.chutoro.usecase.mapsmsusecase.MapSmsUseCase;
+import com.jiahaoliuliu.chutoro.devicelayer.smsparser.SmsParserHelper;
 
 import dagger.Module;
 import dagger.Provides;
@@ -14,8 +14,13 @@ import dagger.Provides;
 public class DeviceLayerModule {
 
     @Provides
-    ITransactionsProvider provideADCBTransactionsProvider(Context context, MapSmsUseCase mapSmsUseCase) {
-        return new ADCBTransactionsProvider(context, mapSmsUseCase);
+    SmsParserHelper provideSmsParserHelper() {
+        return new SmsParserHelper();
+    }
+
+    @Provides
+    ITransactionsProvider provideADCBTransactionsProvider(Context context, SmsParserHelper smsParserHelper) {
+        return new ADCBTransactionsProvider(context, smsParserHelper);
     }
 
     @Provides
