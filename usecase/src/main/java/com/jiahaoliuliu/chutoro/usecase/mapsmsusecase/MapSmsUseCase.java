@@ -18,12 +18,12 @@ public class MapSmsUseCase {
     public MapSmsUseCase() {}
 
     public List<Transaction> mapSmsListToTransactionsList(List<Sms> smsList,
-                                                          SmsParsingParameters smsParsingParameters) {
-        SimpleDateFormat simpleDateFormatter = new SimpleDateFormat(smsParsingParameters.getDateFormat());
+                                                          SmsMappingParameters smsMappingParameters) {
+        SimpleDateFormat simpleDateFormatter = new SimpleDateFormat(smsMappingParameters.getDateFormat());
         List<Transaction> transactionList = new ArrayList<>();
         for (Sms sms: smsList) {
             try {
-                Transaction transaction = parseSmsToTransaction(sms, smsParsingParameters, simpleDateFormatter);
+                Transaction transaction = parseSmsToTransaction(sms, smsMappingParameters, simpleDateFormatter);
                 transactionList.add(transaction);
             } catch (IllegalArgumentException illegalArgumentException) {
                 System.out.println("Error mapping sms to transactions");
@@ -32,9 +32,9 @@ public class MapSmsUseCase {
         return transactionList;
     }
 
-    private Transaction parseSmsToTransaction(Sms sms, SmsParsingParameters smsParsingParameters,
+    private Transaction parseSmsToTransaction(Sms sms, SmsMappingParameters smsMappingParameters,
                                               SimpleDateFormat simpleDateFormatter) {
-        Pattern pattern = Pattern.compile(smsParsingParameters.getPattern());
+        Pattern pattern = Pattern.compile(smsMappingParameters.getPattern());
         Matcher matcher = pattern.matcher(sms.getBody());
         // If the pattern is not correct
         if (!matcher.find()) {
@@ -42,7 +42,7 @@ public class MapSmsUseCase {
         }
 
         // Quantity
-        String quantityString = matcher.group(smsParsingParameters.getPositionQuantity());
+        String quantityString = matcher.group(smsMappingParameters.getPositionQuantity());
         int quantity;
         try {
             float quantityFloat = Float.valueOf(quantityString);
@@ -53,16 +53,16 @@ public class MapSmsUseCase {
         }
 
         // Destination
-        String destination = matcher.group(smsParsingParameters.getPositionDestination());
+        String destination = matcher.group(smsMappingParameters.getPositionDestination());
 
         // Date
         long date;
         try {
-            date = simpleDateFormatter.parse(matcher.group(smsParsingParameters.getPositionDate())).getTime();
+            date = simpleDateFormatter.parse(matcher.group(smsMappingParameters.getPositionDate())).getTime();
         } catch (ParseException parseException) {
             throw new IllegalArgumentException("Error parsing the date");
         }
 
-        return new Transaction(quantity, smsParsingParameters.getSource(), destination, date);
+        return new Transaction(quantity, smsMappingParameters.getSource(), destination, date);
     }
 }

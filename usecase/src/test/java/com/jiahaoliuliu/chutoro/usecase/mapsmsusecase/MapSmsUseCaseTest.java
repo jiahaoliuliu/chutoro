@@ -1,9 +1,7 @@
-package com.jiahaoliuliu.chutoro.usecase;
+package com.jiahaoliuliu.chutoro.usecase.mapsmsusecase;
 
 import com.jiahaoliuliu.chutoro.entity.Sms;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
-import com.jiahaoliuliu.chutoro.usecase.mapsmsusecase.MapSmsUseCase;
-import com.jiahaoliuliu.chutoro.usecase.mapsmsusecase.SmsParsingParameters;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -46,11 +44,11 @@ public class MapSmsUseCaseTest {
         smsList.add(sms);
         Transaction rightTransaction = new Transaction(SMS_1_QUANTITY, SOURCE, SMS_1_DESTINATION, SMS_1_DATE);
 
-        SmsParsingParameters smsParsingParameters = new SmsParsingParameters(PATTERN_1, DATE_FORMAT,
+        SmsMappingParameters smsMappingParameters = new SmsMappingParameters(PATTERN_1, DATE_FORMAT,
                 POSITION_QUANTITY, POSITION_DESTINATION, POSITION_DATE, SOURCE);
 
         // Execute the method
-        List<Transaction> transactionList = mapSmsUseCase.mapSmsListToTransactionsList(smsList, smsParsingParameters);
+        List<Transaction> transactionList = mapSmsUseCase.mapSmsListToTransactionsList(smsList, smsMappingParameters);
 
         // Verify the results
         assertEquals(1, transactionList.size());

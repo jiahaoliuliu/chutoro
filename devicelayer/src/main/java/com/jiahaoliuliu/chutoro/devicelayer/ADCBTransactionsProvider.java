@@ -8,7 +8,7 @@ import android.util.Log;
 
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.entity.Sms;
-import com.jiahaoliuliu.chutoro.usecase.mapsmsusecase.SmsParsingParameters;
+import com.jiahaoliuliu.chutoro.usecase.mapsmsusecase.SmsMappingParameters;
 import com.jiahaoliuliu.chutoro.usecase.mapsmsusecase.MapSmsUseCase;
 
 import java.util.ArrayList;
@@ -99,8 +99,8 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
         }
         cursor.close();
 
-        SmsParsingParameters smsParsingParameters = new SmsParsingParameters(PATTERN_1, DATE_FORMAT,
+        SmsMappingParameters smsMappingParameters = new SmsMappingParameters(PATTERN_1, DATE_FORMAT,
                 POSITION_QUANTITY, POSITION_DESTINATION, POSITION_DATE, SOURCE);
-        return mapSmsUseCase.mapSmsListToTransactionsList(smsList, smsParsingParameters);
+        return mapSmsUseCase.mapSmsListToTransactionsList(smsList, smsMappingParameters);
     }
 }
