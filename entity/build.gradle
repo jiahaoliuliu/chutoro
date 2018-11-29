@@ -1,24 +1,8 @@
-plugins {
-    id "org.jetbrains.kotlin.jvm" version "1.2.71"
-}
-
 apply plugin: 'java-library'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation Libs.kotlin_standard_lib_jdk_8
 }
 
 sourceCompatibility = Versions.java
 targetCompatibility = Versions.java
-
-compileKotlin {
-    kotlinOptions {
-        jvmTarget = Versions.androidJavaVersion
-    }
-}
-compileTestKotlin {
-    kotlinOptions {
-        jvmTarget = Versions.androidJavaVersion
-    }
-}

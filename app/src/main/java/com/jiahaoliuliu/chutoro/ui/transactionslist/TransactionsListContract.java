@@ -15,11 +15,6 @@ public interface TransactionsListContract {
 
     interface View {
 
-//        /**
-//         * Show the list of transactions on the screen
-//         * @param transactionsList
-//         */
-//        void showTransactionsList(List<? extends ITransaction> transactionsList);
     }
 
     interface Presenter {
@@ -39,13 +34,5 @@ public interface TransactionsListContract {
          * Dispose all the retained memory
          */
         void dispose();
-    }
-
-    interface Model {
-        /**
-         * Method used to retrieve a list of transactions
-         * @return Single of a list of transactions
-         */
-        LiveData<? extends List<? extends ITransaction>> retrieveTransactionsList();
     }
 }
