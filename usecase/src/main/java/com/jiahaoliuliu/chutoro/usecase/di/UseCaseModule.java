@@ -1,6 +1,6 @@
-package com.jiahaoliuliu.usecase.di;
+package com.jiahaoliuliu.chutoro.usecase.di;
 
-import com.jiahaoliuliu.usecase.MapSmsUseCase;
+import com.jiahaoliuliu.chutoro.usecase.mapsmsusecase.MapSmsUseCase;
 
 import dagger.Module;
 import dagger.Provides;

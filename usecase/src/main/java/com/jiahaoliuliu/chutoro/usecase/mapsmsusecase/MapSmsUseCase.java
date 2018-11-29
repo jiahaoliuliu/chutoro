@@ -1,8 +1,7 @@
-package com.jiahaoliuliu.usecase;
+package com.jiahaoliuliu.chutoro.usecase.mapsmsusecase;
 
 
 import com.jiahaoliuliu.chutoro.entity.Sms;
-import com.jiahaoliuliu.chutoro.entity.SmsParsingParameters;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
 
 import java.text.ParseException;

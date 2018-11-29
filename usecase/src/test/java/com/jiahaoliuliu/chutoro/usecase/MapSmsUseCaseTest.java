@@ -1,9 +1,9 @@
 package com.jiahaoliuliu.chutoro.usecase;
 
 import com.jiahaoliuliu.chutoro.entity.Sms;
-import com.jiahaoliuliu.chutoro.entity.SmsParsingParameters;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
-import com.jiahaoliuliu.usecase.MapSmsUseCase;
+import com.jiahaoliuliu.chutoro.usecase.mapsmsusecase.MapSmsUseCase;
+import com.jiahaoliuliu.chutoro.usecase.mapsmsusecase.SmsParsingParameters;
 
 import org.junit.Before;
 import org.junit.Test;

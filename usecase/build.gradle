@@ -1,8 +1,28 @@
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.2.71"
+}
+
 apply plugin: 'java-library'
+
+sourceCompatibility = Versions.java
+targetCompatibility = Versions.java
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = Versions.androidJavaVersion
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = Versions.androidJavaVersion
+    }
+}
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':entity')
+    implementation Libs.kotlin_standard_lib_jdk_8
 
     implementation Libs.dagger
     annotationProcessor AnnotationProcessor.dagger

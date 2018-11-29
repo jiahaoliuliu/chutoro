@@ -5,7 +5,7 @@ import android.content.Context;
 import com.jiahaoliuliu.chutoro.devicelayer.ADCBTransactionsProvider;
 import com.jiahaoliuliu.chutoro.devicelayer.CommonTransactionsProvider;
 import com.jiahaoliuliu.chutoro.devicelayer.ITransactionsProvider;
-import com.jiahaoliuliu.usecase.MapSmsUseCase;
+import com.jiahaoliuliu.chutoro.usecase.mapsmsusecase.MapSmsUseCase;
 
 import dagger.Module;
 import dagger.Provides;

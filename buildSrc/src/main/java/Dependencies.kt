@@ -21,6 +21,7 @@ object Versions {
     val dagger = "2.19"
     val gson = "2.8.5"
     val picasso = "2.71828"
+    val kotlin = "1.2.71"
 
     // Tests
     val junit = "4.12"
@@ -37,6 +38,7 @@ object Versions {
 object Libs {
     // Core
     val support_appcompat_v7 = "com.android.support:appcompat-v7:${Versions.support_lib}"
+    val kotlin_standard_lib_jdk_8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     val retrofit_rxjava_adapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
     val rxjava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"

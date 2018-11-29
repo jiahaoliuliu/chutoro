@@ -8,8 +8,8 @@ import android.util.Log;
 
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.entity.Sms;
-import com.jiahaoliuliu.chutoro.entity.SmsParsingParameters;
-import com.jiahaoliuliu.usecase.MapSmsUseCase;
+import com.jiahaoliuliu.chutoro.usecase.mapsmsusecase.SmsParsingParameters;
+import com.jiahaoliuliu.chutoro.usecase.mapsmsusecase.MapSmsUseCase;
 
 import java.util.ArrayList;
 import java.util.Collections;
