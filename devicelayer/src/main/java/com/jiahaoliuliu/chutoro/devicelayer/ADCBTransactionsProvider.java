@@ -24,12 +24,14 @@ import io.reactivex.Single;
 public class ADCBTransactionsProvider implements ITransactionsProvider{
 
     private static final String TAG = "ADCBTransactionsProvider";
+    private static final String COLUMN_ID = "_id";
     private static final String COLUMN_ADDRESS = "address";
     private static final String COLUMN_DATE = "date";
     private static final String COLUMN_TYPE = "type";
     private static final String COLUMN_BODY = "body";
 
     private static final String[] PROJECTION = {
+            COLUMN_ID,
             COLUMN_DATE,
             COLUMN_BODY
     };

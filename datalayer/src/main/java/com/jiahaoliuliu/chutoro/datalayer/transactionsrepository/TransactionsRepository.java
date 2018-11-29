@@ -11,49 +11,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Single;
+import io.reactivex.schedulers.Schedulers;
 
 public class TransactionsRepository implements ITransactionsRepository {
 
     private static final String TAG = "TransactionsRepository";
     private final TransactionsDatabase transactionsDatabase;
     private final CommonTransactionsProvider commonTransactionsProvider;
-    // Temporal memory for the transactions list
-    private List<? extends ITransaction> memoryCache = new ArrayList<>();
 
     public TransactionsRepository(TransactionsDatabase transactionsDatabase,
                                   CommonTransactionsProvider commonTransactionsProvider) {
         this.transactionsDatabase = transactionsDatabase;
         this.commonTransactionsProvider = commonTransactionsProvider;
+        updateTransactionsList();
     }
 
     @Override
     public LiveData<? extends List<? extends ITransaction>> retrieveTransactionsList() {
-        // TODO use the common transactions provider
-        // List of Priorities
-        Single<? extends List<? extends ITransaction>> storageSource = retrieveTransactionsListFromStorage();
-        Single<? extends List<? extends ITransaction>> cacheSource = retrieveTransactionsListFromCache();
-
-//        return Single.concat(
-//                storageSource, cacheSource)
-//                .filter(source -> !source.isEmpty())
-//                .first(memoryCache);
-        return commonTransactionsProvider.provideTransactionsList();
+        return transactionsDatabase.transactionsDao().getAllTransactions();
     }
 
-    private Single<? extends List<? extends ITransaction>> retrieveTransactionsListFromCache() {
-        return Single.just(memoryCache);
-    }
-
-    private Single<? extends List<? extends ITransaction>> retrieveTransactionsListFromStorage() {
-        return transactionsDatabase.transactionsDao().getAllTransactions()
-                .doOnSuccess(transactionsList -> saveTransactionsListToCache(transactionsList))
-                .onErrorResumeNext(throwable -> {
-                   Log.e(TAG, "Error retrieving data from the database ", throwable);
-                   return Single.just(new ArrayList<>());
+    private void updateTransactionsList() {
+        commonTransactionsProvider.provideTransactionsList().subscribeOn(Schedulers.io())
+                .subscribe(transactionsList -> {
+                    transactionsDatabase.transactionsDao().upsert(transactionsList);
+                }, throwable -> {
+                    Log.e(TAG, "Error getting the transactions List");
                 });
     }
 
-    private void saveTransactionsListToCache(List<? extends ITransaction> newTransactionsList) {
-        this.memoryCache = newTransactionsList;
-    }
+//    private Single<? extends List<? extends ITransaction>> retrieveTransactionsListFromStorage() {
+//        return transactionsDatabase.transactionsDao().getAllTransactions()
+//                .doOnSuccess(transactionsList -> saveTransactionsListToCache(transactionsList))
+//                .onErrorResumeNext(throwable -> {
+//                   Log.e(TAG, "Error retrieving data from the database ", throwable);
+//                   return Single.just(new ArrayList<>());
+//                });
+//    }
 }

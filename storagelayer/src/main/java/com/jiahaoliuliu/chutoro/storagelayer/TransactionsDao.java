@@ -1,5 +1,6 @@
 package com.jiahaoliuliu.chutoro.storagelayer;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -25,6 +26,12 @@ public abstract class TransactionsDao {
         update(persistentTransaction);
     }
 
+    public void upsert(List<PersistentTransaction> persistentTransactionList) {
+        for (PersistentTransaction persistentTransaction :persistentTransactionList) {
+            upsert(persistentTransaction);
+        }
+    }
+
     @Delete
     public abstract void delete(PersistentTransaction itemImpl);
 
@@ -32,5 +39,5 @@ public abstract class TransactionsDao {
     public abstract void deleteAllItems();
 
     @Query("Select * from transactions order by date asc")
-    public abstract Single<List<PersistentTransaction>> getAllTransactions();
+    public abstract LiveData<List<PersistentTransaction>> getAllTransactions();
 }
