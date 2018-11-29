@@ -24,12 +24,14 @@ import io.reactivex.Single;
 public class ADCBTransactionsProvider implements ITransactionsProvider{
 
     private static final String TAG = "ADCBTransactionsProvider";
+    private static final String COLUMN_ID = "_id";
     private static final String COLUMN_ADDRESS = "address";
     private static final String COLUMN_DATE = "date";
     private static final String COLUMN_TYPE = "type";
     private static final String COLUMN_BODY = "body";
 
     private static final String[] PROJECTION = {
+            COLUMN_ID,
             COLUMN_DATE,
             COLUMN_BODY
     };
@@ -70,9 +72,7 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
                 .query(Uri.parse("content://sms/inbox"), PROJECTION, SELECTION_CLAUSE,
                         SELECTION_ARGS, SORT_ORDER);
 
-        List<? extends ITransaction> transactionsList = getDataFromCursor(cursor);
-        // TODO: Implement this
-        return Single.just(transactionsList);
+        return Single.just(getDataFromCursor(cursor));
     }
 
     @SuppressLint("LongLogTag")
@@ -87,10 +87,10 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
         List<Sms> smsList = new ArrayList<>();
         while(cursor.moveToNext()) {
             try {
-                Sms sms = new Sms(cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_BODY)),
+                Sms sms = new Sms(cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_BODY)),
                         cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_DATE)));
 
-                Log.v(TAG, "Sms read " + sms.toString());
                 smsList.add(sms);
                 // To catch any error on Getting the data from the cursor
             } catch (IllegalArgumentException illegalArgumentException) {

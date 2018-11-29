@@ -1,6 +1,7 @@
 package com.jiahaoliuliu.chutoro.usecase.mapsmsusecase;
 
 
+import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.entity.Sms;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
 
@@ -17,13 +18,13 @@ import java.util.regex.Pattern;
 public class MapSmsUseCase {
     public MapSmsUseCase() {}
 
-    public List<Transaction> mapSmsListToTransactionsList(List<Sms> smsList,
-                                                          SmsMappingParameters smsMappingParameters) {
-        SimpleDateFormat simpleDateFormatter = new SimpleDateFormat(smsMappingParameters.getDateFormat());
-        List<Transaction> transactionList = new ArrayList<>();
+    public List<ITransaction> mapSmsListToTransactionsList(List<Sms> smsList,
+                                                           SmsMappingParameters smsParsingParameters) {
+        SimpleDateFormat simpleDateFormatter = new SimpleDateFormat(smsParsingParameters.getDateFormat());
+        List<ITransaction> transactionList = new ArrayList<>();
         for (Sms sms: smsList) {
             try {
-                Transaction transaction = parseSmsToTransaction(sms, smsMappingParameters, simpleDateFormatter);
+                ITransaction transaction = parseSmsToTransaction(sms, smsParsingParameters, simpleDateFormatter);
                 transactionList.add(transaction);
             } catch (IllegalArgumentException illegalArgumentException) {
                 System.out.println("Error mapping sms to transactions");
@@ -63,6 +64,6 @@ public class MapSmsUseCase {
             throw new IllegalArgumentException("Error parsing the date");
         }
 
-        return new Transaction(quantity, smsMappingParameters.getSource(), destination, date);
+        return new Transaction(sms.getId(), quantity, smsMappingParameters.getSource(), destination, date);
     }
 }
