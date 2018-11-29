@@ -1,5 +1,6 @@
 package com.jiahaoliuliu.chutoro.datalayer.transactionsrepository;
 
+import android.arch.lifecycle.LiveData;
 import android.util.Log;
 
 import com.jiahaoliuliu.chutoro.devicelayer.CommonTransactionsProvider;
@@ -26,7 +27,7 @@ public class TransactionsRepository implements ITransactionsRepository {
     }
 
     @Override
-    public Single<? extends List<? extends ITransaction>> retrieveTransactionsList() {
+    public LiveData<? extends List<? extends ITransaction>> retrieveTransactionsList() {
         // TODO use the common transactions provider
         // List of Priorities
         Single<? extends List<? extends ITransaction>> storageSource = retrieveTransactionsListFromStorage();

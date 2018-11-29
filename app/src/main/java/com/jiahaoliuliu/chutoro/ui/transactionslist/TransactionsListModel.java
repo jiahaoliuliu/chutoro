@@ -1,5 +1,7 @@
 package com.jiahaoliuliu.chutoro.ui.transactionslist;
 
+import android.arch.lifecycle.LiveData;
+
 import com.jiahaoliuliu.chutoro.datalayer.transactionsrepository.ITransactionsRepository;
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 
@@ -19,7 +21,7 @@ public class TransactionsListModel implements TransactionsListContract.Model {
     }
 
     @Override
-    public Single<? extends List<? extends ITransaction>> retrieveTransactionsList() {
+    public LiveData<? extends List<? extends ITransaction>> retrieveTransactionsList() {
         return ITransactionsRepository.retrieveTransactionsList();
     }
 }

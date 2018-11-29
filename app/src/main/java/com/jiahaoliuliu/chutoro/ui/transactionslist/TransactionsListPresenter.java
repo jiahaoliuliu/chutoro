@@ -1,7 +1,12 @@
 package com.jiahaoliuliu.chutoro.ui.transactionslist;
 
 import android.annotation.SuppressLint;
+import android.arch.lifecycle.LiveData;
 import android.util.Log;
+
+import com.jiahaoliuliu.chutoro.entity.ITransaction;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -30,16 +35,17 @@ public class TransactionsListPresenter implements TransactionsListContract.Prese
 
     @SuppressLint("LongLogTag")
     @Override
-    public void retrieveTransactionsList() {
-        compositeDisposable.add(model.retrieveTransactionsList()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                transactionsList -> view.showTransactionsList(transactionsList),
-                throwable -> {
-                    // TODO: Show the error on the screen
-                    Log.e(TAG, "Error getting the list of the transactions from backend ", throwable);
-                }));
+    public LiveData<? extends List<? extends ITransaction>> retrieveTransactionsList() {
+        return model.retrieveTransactionsList();
+//        compositeDisposable.add(model.retrieveTransactionsList()
+//            .subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .subscribe(
+//                transactionsList -> view.showTransactionsList(transactionsList),
+//                throwable -> {
+//                    // TODO: Show the error on the screen
+//                    Log.e(TAG, "Error getting the list of the transactions from backend ", throwable);
+//                }));
     }
 
     @Override
