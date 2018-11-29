@@ -2,16 +2,23 @@ package com.jiahaoliuliu.chutoro.entity;
 
 public class Transaction implements ITransaction {
 
+    private final long smsId;
     private final int quantity;
     private final String source;
     private final String destination;
     private final long date;
 
-    public Transaction(int quantity, String source, String destination, long date) {
+    public Transaction(long smsId, int quantity, String source, String destination, long date) {
+        this.smsId = smsId;
         this.quantity = quantity;
         this.source = source;
         this.destination = destination;
         this.date = date;
+    }
+
+    @Override
+    public long getSmsId() {
+        return smsId;
     }
 
     @Override
@@ -41,6 +48,7 @@ public class Transaction implements ITransaction {
 
         Transaction that = (Transaction) o;
 
+        if (smsId != that.smsId) return false;
         if (quantity != that.quantity) return false;
         if (date != that.date) return false;
         if (source != null ? !source.equals(that.source) : that.source != null) return false;
@@ -49,7 +57,8 @@ public class Transaction implements ITransaction {
 
     @Override
     public int hashCode() {
-        int result = quantity;
+        int result = (int) (smsId ^ (smsId >>> 32));
+        result = 31 * result + quantity;
         result = 31 * result + (source != null ? source.hashCode() : 0);
         result = 31 * result + (destination != null ? destination.hashCode() : 0);
         result = 31 * result + (int) (date ^ (date >>> 32));
@@ -59,7 +68,8 @@ public class Transaction implements ITransaction {
     @Override
     public String toString() {
         return "Transaction{" +
-                "quantity=" + quantity +
+                "smsId=" + smsId +
+                ", quantity=" + quantity +
                 ", source='" + source + '\'' +
                 ", destination='" + destination + '\'' +
                 ", date=" + date +

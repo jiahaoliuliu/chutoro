@@ -4,6 +4,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
 
 import java.util.Objects;
@@ -13,16 +14,24 @@ public class PersistentTransaction extends Transaction {
 
     @PrimaryKey(autoGenerate = true)
     @NonNull
-    private final int id;
+    private long id;
 
-    public PersistentTransaction(@NonNull int id, int quantity, String source, String destination, long date) {
-        super(quantity, source, destination, date);
-        this.id = id;
+    public PersistentTransaction(long smsId, int quantity, String source, String destination, long date) {
+        super(smsId, quantity, source, destination, date);
+    }
+
+    public PersistentTransaction(ITransaction transaction) {
+        super(transaction.getSmsId(), transaction.getQuantity(), transaction.getSource(),
+                transaction.getDestination(), transaction.getDate());
     }
 
     @NonNull
-    public int getId() {
+    public long getId() {
         return id;
+    }
+
+    public void setId(@NonNull long id) {
+        this.id = id;
     }
 
     @Override
@@ -39,7 +48,7 @@ public class PersistentTransaction extends Transaction {
     @Override
     public int hashCode() {
         int result = super.hashCode();
-        result = 31 * result + id;
+        result = 31 * result + (int) (id ^ (id >>> 32));
         return result;
     }
 

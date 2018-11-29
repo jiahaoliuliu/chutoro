@@ -9,8 +9,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import io.reactivex.Single;
-
 public class TransactionsListModel implements TransactionsListContract.Model {
 
     private final ITransactionsRepository ITransactionsRepository;

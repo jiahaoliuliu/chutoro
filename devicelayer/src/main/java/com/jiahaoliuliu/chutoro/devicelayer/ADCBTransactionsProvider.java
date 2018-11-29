@@ -72,9 +72,7 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
                 .query(Uri.parse("content://sms/inbox"), PROJECTION, SELECTION_CLAUSE,
                         SELECTION_ARGS, SORT_ORDER);
 
-        List<? extends ITransaction> transactionsList = getDataFromCursor(cursor);
-        // TODO: Implement this
-        return Single.just(transactionsList);
+        return Single.just(getDataFromCursor(cursor));
     }
 
     @SuppressLint("LongLogTag")
@@ -93,7 +91,6 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
                         cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_BODY)),
                         cursor.getLong(cursor.getColumnIndexOrThrow(COLUMN_DATE)));
 
-                Log.v(TAG, "Sms read " + sms.toString());
                 smsList.add(sms);
                 // To catch any error on Getting the data from the cursor
             } catch (IllegalArgumentException illegalArgumentException) {
