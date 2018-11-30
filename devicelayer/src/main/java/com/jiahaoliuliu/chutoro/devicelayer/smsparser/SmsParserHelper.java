@@ -1,12 +1,15 @@
 package com.jiahaoliuliu.chutoro.devicelayer.smsparser;
 
 
+import android.support.annotation.NonNull;
+
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,16 +20,28 @@ import java.util.regex.Pattern;
 public class SmsParserHelper {
     public SmsParserHelper() {}
 
-    public List<ITransaction> mapSmsListToTransactionsList(List<Sms> smsList,
-                                                           SmsParserParameters smsParsingParameters) {
-        SimpleDateFormat simpleDateFormatter = new SimpleDateFormat(smsParsingParameters.getDateFormat());
+    public List<ITransaction> mapSmsListToTransactionsList(@NonNull List<Sms> smsList,
+                                                           @NonNull SmsParserParameters smsParsingParameters) {
+        // Preconditions
+        if (smsList == null) {
+            return Collections.emptyList();
+        }
+
+        if (smsParsingParameters == null) {
+            return Collections.emptyList();
+        }
+
         List<ITransaction> transactionList = new ArrayList<>();
+        SimpleDateFormat simpleDateFormatter = new SimpleDateFormat(smsParsingParameters.getDateFormat());
+
         for (Sms sms: smsList) {
             try {
                 ITransaction transaction = parseSmsToTransaction(sms, smsParsingParameters, simpleDateFormatter);
                 transactionList.add(transaction);
             } catch (IllegalArgumentException illegalArgumentException) {
                 System.out.println("Error mapping sms to transactions");
+            } catch (IndexOutOfBoundsException indexOutOfBoundsException) {
+                System.out.println("Error mapping sms to transactions. The index requested is out of bounds");
             }
         }
         return transactionList;
