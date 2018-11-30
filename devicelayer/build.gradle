@@ -29,7 +29,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':entity')
-    implementation project(path: ':usecase')
 
     implementation Libs.support_appcompat_v7
 
@@ -40,6 +39,7 @@ dependencies {
     annotationProcessor AnnotationProcessor.dagger
 
     testImplementation Tests.junit
+    testImplementation Tests.mockito
 
     androidTestImplementation Tests.testRunner
     androidTestImplementation Tests.espresso
