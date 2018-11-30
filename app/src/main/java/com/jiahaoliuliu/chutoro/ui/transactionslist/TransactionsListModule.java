@@ -1,6 +1,6 @@
 package com.jiahaoliuliu.chutoro.ui.transactionslist;
 
-import com.jiahaoliuliu.chutoro.datalayer.transactionsrepository.ITransactionsRepository;
+import com.jiahaoliuliu.chutoro.usecase.RetrieveTransactionsListUseCase;
 
 import javax.inject.Singleton;
 
@@ -12,13 +12,8 @@ public class TransactionsListModule {
 
     @Provides
     @Singleton
-    TransactionsListContract.Presenter providePresenter(TransactionsListContract.Model model) {
-        return new TransactionsListPresenter(model);
-    }
-
-    @Provides
-    @Singleton
-    TransactionsListContract.Model provideModel(ITransactionsRepository ITransactionsRepository) {
-        return new TransactionsListModel(ITransactionsRepository);
+    TransactionsListContract.Presenter providePresenter(
+            RetrieveTransactionsListUseCase retrieveTransactionsListUseCase) {
+        return new TransactionsListPresenter(retrieveTransactionsListUseCase);
     }
 }

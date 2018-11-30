@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.arch.lifecycle.LiveData;
 
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
+import com.jiahaoliuliu.chutoro.usecase.RetrieveTransactionsListUseCase;
 
 import java.util.List;
 
@@ -15,14 +16,13 @@ public class TransactionsListPresenter implements TransactionsListContract.Prese
 
     private static final String TAG = "TransactionsListPresenter";
 
-    private final TransactionsListContract.Model model;
-
     private TransactionsListContract.View view;
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
+    private final RetrieveTransactionsListUseCase retrieveTransactionsListUseCase;
 
-    @Inject
-    public TransactionsListPresenter(TransactionsListContract.Model model) {
-        this.model = model;
+//    @Inject
+    public TransactionsListPresenter(RetrieveTransactionsListUseCase retrieveTransactionsListUseCase) {
+        this.retrieveTransactionsListUseCase = retrieveTransactionsListUseCase;
     }
 
     @Override
@@ -33,7 +33,7 @@ public class TransactionsListPresenter implements TransactionsListContract.Prese
     @SuppressLint("LongLogTag")
     @Override
     public LiveData<? extends List<? extends ITransaction>> retrieveTransactionsList() {
-        return model.retrieveTransactionsList();
+        return retrieveTransactionsListUseCase.execute();
     }
 
     @Override

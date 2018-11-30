@@ -23,48 +23,24 @@ public class SmsParserParameters {
         return pattern;
     }
 
-    public void setPattern(String pattern) {
-        this.pattern = pattern;
-    }
-
     public String getDateFormat() {
         return dateFormat;
-    }
-
-    public void setDateFormat(String dateFormat) {
-        this.dateFormat = dateFormat;
     }
 
     public int getPositionQuantity() {
         return positionQuantity;
     }
 
-    public void setPositionQuantity(int positionQuantity) {
-        this.positionQuantity = positionQuantity;
-    }
-
     public int getPositionDestination() {
         return positionDestination;
-    }
-
-    public void setPositionDestination(int positionDestination) {
-        this.positionDestination = positionDestination;
     }
 
     public int getPositionDate() {
         return positionDate;
     }
 
-    public void setPositionDate(int positionDate) {
-        this.positionDate = positionDate;
-    }
-
     public String getSource() {
         return source;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
     }
 
     @Override

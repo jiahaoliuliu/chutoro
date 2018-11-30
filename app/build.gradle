@@ -42,11 +42,11 @@ configurations.all {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(path: ':entity')
+    implementation project(path: ':usecase')
     implementation project(path: ':datalayer')
     implementation project(path: ':networklayer')
     implementation project(path: ':storagelayer')
     implementation project(path: ':devicelayer')
-    implementation project(path: ':usecase')
 
     // Core libraries
     implementation Libs.support_appcompat_v7
