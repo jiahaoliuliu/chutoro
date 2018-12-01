@@ -1,6 +1,6 @@
 package com.jiahaoliuliu.chutoro.devicelayer;
 
-import com.jiahaoliuliu.chutoro.entity.ITransaction;
+import com.jiahaoliuliu.chutoro.entity.Transaction;
 
 import java.util.List;
 
@@ -14,12 +14,21 @@ import io.reactivex.Single;
 public class CommonTransactionsProvider {
 
     private final TransactionsProvider adcbTransactionsProvider;
+    private final TransactionsProvider najmTransactionsProvider;
 
-    public CommonTransactionsProvider(TransactionsProvider adcbTransactionsProvider) {
+    public CommonTransactionsProvider(TransactionsProvider adcbTransactionsProvider,
+                                      TransactionsProvider najmTransactionsProvider) {
         this.adcbTransactionsProvider = adcbTransactionsProvider;
+        this.najmTransactionsProvider = najmTransactionsProvider;
     }
 
-    public Single<? extends List<? extends ITransaction>> provideTransactionsList() {
-        return adcbTransactionsProvider.provideTransactions();
+    public Single<List<Transaction>> provideTransactionsList() {
+        return Single.zip(
+                adcbTransactionsProvider.provideTransactions(),
+                najmTransactionsProvider.provideTransactions(),
+                (transactions, transactions2) -> {
+                    transactions.addAll(transactions2);
+                    return transactions;
+                });
     }
 }

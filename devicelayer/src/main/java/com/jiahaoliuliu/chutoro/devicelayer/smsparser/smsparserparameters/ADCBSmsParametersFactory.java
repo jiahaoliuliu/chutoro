@@ -3,12 +3,13 @@ package com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters;
 import java.util.Arrays;
 import java.util.List;
 
-public class ADCBSmsParserParametersFactory implements ISmsParserParametersFactory {
+public class ADCBSmsParametersFactory implements ISmsParametersFactory {
 
+    private static final String SENDER = "ADCBAlert";
     private static final String SOURCE = "ADCB";
 
     // Pattern 1
-    // Example Your credit card XXX4921 was used for USD15.00 on 20/11/2018 14:31:31 at PREY, INC.,SAN FRANCISCO-US. Available credit limit is now AED39109.37.
+    // Example Your credit card XXX4921 was used for AED15.00 on 20/11/2018 14:31:31 at PREY, INC.,SAN FRANCISCO-US. Available credit limit is now AED39109.37.
     private static final String PATTERN_1 = "Your credit card (.*?) was used for AED(.*?) on (.*?) at (.*?)\\. ";
     private static final String PATTERN_1_DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
     private static final int PATTERN_1_POSITION_QUANTITY = 2;
@@ -22,6 +23,11 @@ public class ADCBSmsParserParametersFactory implements ISmsParserParametersFacto
     private static final int PATTERN_2_POSITION_QUANTITY = 1;
     private static final int PATTERN_2_POSITION_DESTINATION = 4;
     private static final int PATTERN_2_POSITION_DATE = 3;
+
+    @Override
+    public String getSmsSender() {
+        return SENDER;
+    }
 
     @Override
     public List<SmsParserParameters> createSmsParserParametersList() {
