@@ -4,7 +4,6 @@ package com.jiahaoliuliu.chutoro.devicelayer.smsparser;
 import android.support.annotation.NonNull;
 
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.SmsParserParameters;
-import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
 
 import java.text.ParseException;
@@ -21,7 +20,7 @@ import java.util.regex.Pattern;
 public class SmsParserHelper {
     public SmsParserHelper() {}
 
-    public List<ITransaction> mapSmsListToTransactionsList(
+    public List<Transaction> mapSmsListToTransactionsList(
             @NonNull List<Sms> smsList,
             @NonNull List<SmsParserParameters> smsParsingParametersList) {
 
@@ -35,7 +34,7 @@ public class SmsParserHelper {
         }
 
         // FIXME: Optimize this
-        List<ITransaction> transactionsList = new ArrayList<>();
+        List<Transaction> transactionsList = new ArrayList<>();
 
         for (SmsParserParameters smsParserParameters: smsParsingParametersList) {
             transactionsList.addAll(mapSmsListToTransactionsList(smsList, smsParserParameters));
@@ -43,7 +42,7 @@ public class SmsParserHelper {
         return transactionsList;
     }
 
-    private List<ITransaction> mapSmsListToTransactionsList(
+    private List<Transaction> mapSmsListToTransactionsList(
             @NonNull List<Sms> smsList,@NonNull SmsParserParameters smsParsingParameters) {
         // Preconditions
         if (smsList == null) {
@@ -54,12 +53,12 @@ public class SmsParserHelper {
             return Collections.emptyList();
         }
 
-        List<ITransaction> transactionList = new ArrayList<>();
+        List<Transaction> transactionList = new ArrayList<>();
         SimpleDateFormat simpleDateFormatter = new SimpleDateFormat(smsParsingParameters.getDateFormat());
 
         for (Sms sms: smsList) {
             try {
-                ITransaction transaction = parseSmsToTransaction(sms, smsParsingParameters, simpleDateFormatter);
+                Transaction transaction = parseSmsToTransaction(sms, smsParsingParameters, simpleDateFormatter);
                 transactionList.add(transaction);
             } catch (IllegalArgumentException illegalArgumentException) {
                 System.out.println("Error mapping sms to transactions");
@@ -70,7 +69,7 @@ public class SmsParserHelper {
         return transactionList;
     }
 
-    private ITransaction parseSmsToTransaction(Sms sms, SmsParserParameters smsParserParameters,
+    private Transaction parseSmsToTransaction(Sms sms, SmsParserParameters smsParserParameters,
                                               SimpleDateFormat simpleDateFormatter) {
         Pattern pattern = Pattern.compile(smsParserParameters.getPattern());
         Matcher matcher = pattern.matcher(sms.getBody());

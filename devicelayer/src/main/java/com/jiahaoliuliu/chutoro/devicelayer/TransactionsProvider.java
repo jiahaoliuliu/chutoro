@@ -11,6 +11,7 @@ import com.jiahaoliuliu.chutoro.devicelayer.smsparser.Sms;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.SmsParserHelper;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.SmsParserParameters;
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
+import com.jiahaoliuliu.chutoro.entity.Transaction;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -59,7 +60,7 @@ public class TransactionsProvider {
         this.smsParserParametersFactory = smsParserParametersFactory;
     }
 
-    public Single<? extends List<? extends ITransaction>> provideTransactions() {
+    public Single<List<Transaction>> provideTransactions() {
         Cursor cursor = context.getContentResolver()
                 .query(Uri.parse("content://sms/inbox"), PROJECTION, SELECTION_CLAUSE,
                         SELECTION_ARGS, SORT_ORDER);
@@ -69,7 +70,7 @@ public class TransactionsProvider {
 
 
     @SuppressLint("LongLogTag")
-    private List<? extends ITransaction> getDataFromCursor(Cursor cursor) {
+    private List<Transaction> getDataFromCursor(Cursor cursor) {
         // Try to move the cursor to the first position
         if (!cursor.moveToFirst()) {
             Log.v(TAG, "The user does not have any sms");

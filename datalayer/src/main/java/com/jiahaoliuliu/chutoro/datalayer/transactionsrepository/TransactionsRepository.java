@@ -37,7 +37,7 @@ public class TransactionsRepository implements ITransactionsRepository {
             .subscribe(transactionsList -> {
                 transactionsDatabase.transactionsDao().insertIfDoesNotExist(transactionsList);
             }, throwable -> {
-                Log.e(TAG, "Error getting the transactions List");
+                Log.e(TAG, "Error getting the transactions List", throwable);
             });
     }
 }
