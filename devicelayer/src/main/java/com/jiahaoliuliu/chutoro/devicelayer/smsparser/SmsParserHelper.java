@@ -18,6 +18,9 @@ import java.util.regex.Pattern;
  * Use case created to map the list of sms to a list of any other data
  */
 public class SmsParserHelper {
+    // Based on ISO_4217, all the currency should have 3 letters
+    private static final int SIZE_OF_CURRENCY_SYMBOL = 3;
+
     public SmsParserHelper() {}
 
     public List<Transaction> mapSmsListToTransactionsList(
@@ -79,15 +82,10 @@ public class SmsParserHelper {
         }
 
         // Quantity
-        String quantityString = matcher.group(smsParserParameters.getPositionQuantity());
-        int quantity;
-        try {
-            float quantityFloat = Float.valueOf(quantityString);
-            // Get the quantity which is only with 2 zeros
-            quantity = (int) (quantityFloat*100f);
-        } catch (NumberFormatException numberFormatException) {
-            throw new IllegalArgumentException("Error formating the quantity " + quantityString);
-        }
+        int quantity = parseQuantity(smsParserParameters, matcher);
+
+        // Currency
+        String currency = parseCurrency(smsParserParameters, matcher);
 
         // Destination
         String destination = matcher.group(smsParserParameters.getPositionDestination());
@@ -95,7 +93,26 @@ public class SmsParserHelper {
         // Date
         long date = parseDate(sms, smsParserParameters, simpleDateFormatter, matcher);
 
-        return new Transaction(sms.getId(), quantity, smsParserParameters.getSource(), destination, date);
+        return new Transaction(sms.getId(), quantity, currency, smsParserParameters.getSource(), destination, date);
+    }
+
+    private int parseQuantity(SmsParserParameters smsParserParameters, Matcher matcher) {
+        String quantityAndCurrencyString = matcher.group(smsParserParameters.getPositionQuantity());
+        int quantity;
+        try {
+            float quantityFloat = Float.valueOf(quantityAndCurrencyString.substring(SIZE_OF_CURRENCY_SYMBOL).trim());
+            // Get the quantity which is only with 2 zeros
+            quantity = (int) (quantityFloat*100f);
+        } catch (NumberFormatException numberFormatException) {
+            throw new IllegalArgumentException("Error formatting the quantity " + quantityAndCurrencyString);
+        }
+        return quantity;
+    }
+
+    private String parseCurrency(SmsParserParameters smsParserParameters, Matcher matcher) {
+        String quantityAndCurrencyString = matcher.group(smsParserParameters.getPositionQuantity());
+
+        return quantityAndCurrencyString.substring(0, SIZE_OF_CURRENCY_SYMBOL);
     }
 
     private long parseDate(Sms sms, SmsParserParameters smsParserParameters,

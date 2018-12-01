@@ -52,7 +52,6 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
 
     class TransactionHolder extends RecyclerView.ViewHolder {
         private static final String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
-        private static final String CURRENCY = "AED";
 
         private LayoutTransactionBinding layoutTransactionBinding;
         private SimpleDateFormat simpleDateFormatter;
@@ -77,7 +76,7 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
 
         private String parseQuantity(int quantity) {
             double quantityDouble = quantity/100d;
-            return String.format("%.2f", quantityDouble) + CURRENCY;
+            return String.format("%.2f", quantityDouble);
         }
     }
 }
