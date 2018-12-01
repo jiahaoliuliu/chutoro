@@ -1,5 +1,6 @@
 package com.jiahaoliuliu.chutoro.devicelayer.smsparser;
 
+import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.SmsParserParameters;
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
 

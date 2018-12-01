@@ -1,4 +1,4 @@
-package com.jiahaoliuliu.chutoro.devicelayer.smsparser;
+package com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters;
 
 public class SmsParserParameters {
 
@@ -9,7 +9,7 @@ public class SmsParserParameters {
     private int positionDate;
     private String source;
 
-    public SmsParserParameters(String pattern, String dateFormat, int positionQuantity,
+    protected SmsParserParameters(String pattern, String dateFormat, int positionQuantity,
                                int positionDestination, int positionDate, String source) {
         this.pattern = pattern;
         this.dateFormat = dateFormat;

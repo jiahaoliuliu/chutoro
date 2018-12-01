@@ -2,7 +2,6 @@ package com.jiahaoliuliu.chutoro.devicelayer;
 
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Single;
@@ -14,9 +13,9 @@ import io.reactivex.Single;
  */
 public class CommonTransactionsProvider {
 
-    private final ITransactionsProvider adcbTransactionsProvider;
+    private final TransactionsProvider adcbTransactionsProvider;
 
-    public CommonTransactionsProvider(ITransactionsProvider adcbTransactionsProvider) {
+    public CommonTransactionsProvider(TransactionsProvider adcbTransactionsProvider) {
         this.adcbTransactionsProvider = adcbTransactionsProvider;
     }
 
