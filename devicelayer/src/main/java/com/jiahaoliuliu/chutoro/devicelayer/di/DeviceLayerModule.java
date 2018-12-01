@@ -7,6 +7,7 @@ import com.jiahaoliuliu.chutoro.devicelayer.TransactionsProvider;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.SmsParserHelper;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.ADCBSmsParametersFactory;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.ISmsParametersFactory;
+import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.NajmSmsParametersFactory;
 
 import javax.inject.Named;
 
@@ -38,7 +39,7 @@ public class DeviceLayerModule {
     @Provides
     @Named(QUALIFIED_NAME_SMS_PARSER_PARAMETERS_FACTORY_NAJM)
     ISmsParametersFactory provideNajmSmsParserParametersFactory() {
-        return new ADCBSmsParametersFactory();
+        return new NajmSmsParametersFactory();
     }
 
     @Provides
