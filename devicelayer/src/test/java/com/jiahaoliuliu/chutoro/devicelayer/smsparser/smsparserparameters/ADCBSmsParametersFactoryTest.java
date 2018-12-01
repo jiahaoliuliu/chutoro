@@ -2,7 +2,6 @@ package com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters;
 
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.Sms;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.SmsParserHelper;
-import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
 
 import org.junit.Before;
@@ -21,7 +20,7 @@ import static org.junit.Assert.assertEquals;
  */
 @RunWith(MockitoJUnitRunner.class)
 
-public class ADCBSmsParserParametersFactoryTest {
+public class ADCBSmsParametersFactoryTest {
 
     private static final String SOURCE = "ADCB";
 
@@ -40,12 +39,12 @@ public class ADCBSmsParserParametersFactoryTest {
     private static final String PATTERN_2_SMS_DESTINATION = "ATM-MARINA MALL DXB";
     private static final String PATTERN_2_SMS_BODY = "AED1200.00 withdrawn from acc. XXX132001 on Nov 16 2018  9:40AM at ATM-MARINA MALL DXB. Avl.Bal.AED29349.34. Be cautious with large amt. of cash.";
 
-    private ADCBSmsParserParametersFactory adcbSmsParserParametersFactory;
+    private ADCBSmsParametersFactory adcbSmsParametersFactory;
     private SmsParserHelper smsParserHelper;
 
     @Before
     public void setup() {
-        adcbSmsParserParametersFactory = new ADCBSmsParserParametersFactory();
+        adcbSmsParametersFactory = new ADCBSmsParametersFactory();
         smsParserHelper = new SmsParserHelper();
     }
 
@@ -55,10 +54,10 @@ public class ADCBSmsParserParametersFactoryTest {
         Sms sms = new Sms(PATTERN_1_SMS_ID, PATTERN_1_SMS_BODY, PATTERN_1_SMS_DATE);
 
         // Execute the method
-        List<ITransaction> transactionList =
+        List<Transaction> transactionList =
                 smsParserHelper.mapSmsListToTransactionsList(
                         Arrays.asList(sms),
-                        adcbSmsParserParametersFactory.createSmsParserParametersList());
+                        adcbSmsParametersFactory.createSmsParserParametersList());
 
         // Verify the results
         assertEquals(1, transactionList.size());
@@ -73,10 +72,10 @@ public class ADCBSmsParserParametersFactoryTest {
         Sms sms = new Sms(PATTERN_2_SMS_ID, PATTERN_2_SMS_BODY, PATTERN_2_SMS_DATE);
 
         // Execute the method
-        List<ITransaction> transactionList =
+        List<Transaction> transactionList =
                 smsParserHelper.mapSmsListToTransactionsList(
                         Arrays.asList(sms),
-                        adcbSmsParserParametersFactory.createSmsParserParametersList());
+                        adcbSmsParametersFactory.createSmsParserParametersList());
 
         // Verify the results
         assertEquals(1, transactionList.size());

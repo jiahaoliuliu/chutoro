@@ -6,11 +6,10 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
 
-import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.ISmsParserParametersFactory;
+import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.ISmsParametersFactory;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.Sms;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.SmsParserHelper;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.SmsParserParameters;
-import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
 
 import java.util.ArrayList;
@@ -38,10 +37,6 @@ public class TransactionsProvider {
     // Selection query
     private static final String SELECTION_CLAUSE = COLUMN_TYPE + "=? and " + COLUMN_ADDRESS + "=?";
 
-    private static final String ADDRESS_ADCB = "ADCBAlert";
-
-    // Selection arguments
-    private static final String[] SELECTION_ARGS = {"1", ADDRESS_ADCB};
 
     // Sort order
     private static final String SORT_ORDER = COLUMN_DATE + " DESC";
@@ -51,19 +46,22 @@ public class TransactionsProvider {
      */
     private final Context context;
     private final SmsParserHelper smsParserHelper;
-    private final ISmsParserParametersFactory smsParserParametersFactory;
+    private final ISmsParametersFactory smsParametersFactory;
 
     public TransactionsProvider(Context context, SmsParserHelper smsParserHelper,
-                                ISmsParserParametersFactory smsParserParametersFactory) {
+                                ISmsParametersFactory smsParametersFactory) {
         this.context = context;
         this.smsParserHelper = smsParserHelper;
-        this.smsParserParametersFactory = smsParserParametersFactory;
+        this.smsParametersFactory = smsParametersFactory;
     }
 
     public Single<List<Transaction>> provideTransactions() {
+        // Selection arguments
+        String[] Selection_args = {"1", smsParametersFactory.getSmsSender()};
+
         Cursor cursor = context.getContentResolver()
                 .query(Uri.parse("content://sms/inbox"), PROJECTION, SELECTION_CLAUSE,
-                        SELECTION_ARGS, SORT_ORDER);
+                        Selection_args, SORT_ORDER);
 
         return Single.just(getDataFromCursor(cursor));
     }
@@ -94,8 +92,7 @@ public class TransactionsProvider {
         cursor.close();
 
         List<SmsParserParameters> smsParserParametersList =
-                smsParserParametersFactory.createSmsParserParametersList();
+                smsParametersFactory.createSmsParserParametersList();
         return smsParserHelper.mapSmsListToTransactionsList(smsList, smsParserParametersList);
     }
-
 }

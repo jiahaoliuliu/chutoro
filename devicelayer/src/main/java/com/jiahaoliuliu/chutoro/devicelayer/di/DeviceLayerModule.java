@@ -5,8 +5,8 @@ import android.content.Context;
 import com.jiahaoliuliu.chutoro.devicelayer.CommonTransactionsProvider;
 import com.jiahaoliuliu.chutoro.devicelayer.TransactionsProvider;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.SmsParserHelper;
-import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.ADCBSmsParserParametersFactory;
-import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.ISmsParserParametersFactory;
+import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.ADCBSmsParametersFactory;
+import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.ISmsParametersFactory;
 
 import javax.inject.Named;
 
@@ -17,7 +17,7 @@ import dagger.Provides;
 public class DeviceLayerModule {
 
     // ADCB
-    private static final String QUALIFIED_NAME_SMS_PARSER_PARAMETERS_FACTORY_ADCB = "ADCBSmsParserParametersFactory";
+    private static final String QUALIFIED_NAME_SMS_PARSER_PARAMETERS_FACTORY_ADCB = "ADCBSmsParametersFactory";
     private static final String QUALIFIED_NAME_TRANSACTIONS_PROVIDER_ADCB = "ADCBTransactionsProvider";
 
     // Najm
@@ -31,14 +31,14 @@ public class DeviceLayerModule {
 
     @Provides
     @Named(QUALIFIED_NAME_SMS_PARSER_PARAMETERS_FACTORY_ADCB)
-    ISmsParserParametersFactory provideADCBSmsParserParametersFactory() {
-        return new ADCBSmsParserParametersFactory();
+    ISmsParametersFactory provideADCBSmsParserParametersFactory() {
+        return new ADCBSmsParametersFactory();
     }
 
     @Provides
     @Named(QUALIFIED_NAME_SMS_PARSER_PARAMETERS_FACTORY_NAJM)
-    ISmsParserParametersFactory provideNajmSmsParserParametersFactory() {
-        return new ADCBSmsParserParametersFactory();
+    ISmsParametersFactory provideNajmSmsParserParametersFactory() {
+        return new ADCBSmsParametersFactory();
     }
 
     @Provides
@@ -46,7 +46,7 @@ public class DeviceLayerModule {
     TransactionsProvider provideADCBTransactionsProvider(
             Context context, SmsParserHelper smsParserHelper,
             @Named(QUALIFIED_NAME_SMS_PARSER_PARAMETERS_FACTORY_ADCB)
-            ISmsParserParametersFactory smsParserParametersFactory) {
+                    ISmsParametersFactory smsParserParametersFactory) {
         return new TransactionsProvider(context, smsParserHelper, smsParserParametersFactory);
     }
 
@@ -55,7 +55,7 @@ public class DeviceLayerModule {
     TransactionsProvider provideNajmTransactionsProvider(
             Context context, SmsParserHelper smsParserHelper,
             @Named(QUALIFIED_NAME_SMS_PARSER_PARAMETERS_FACTORY_NAJM)
-                    ISmsParserParametersFactory smsParserParametersFactory) {
+                    ISmsParametersFactory smsParserParametersFactory) {
         return new TransactionsProvider(context, smsParserHelper, smsParserParametersFactory);
     }
 
