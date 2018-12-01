@@ -26,7 +26,7 @@ public class NajmSmsParametersFactoryTest {
 
     // Pattern 1
     private static final long PATTERN_1_SMS_ID = 6543;
-    private static final int PATTERN_1_SMS_QUANTITY = 49;
+    private static final int PATTERN_1_SMS_QUANTITY = 4900;
     private static final long PATTERN_1_SMS_DATE = 1543522832854l;
     private static final String PATTERN_1_SMS_DESTINATION = "MCDONALDS -DXB AIRPORT AE";
     private static final String PATTERN_1_SMS_BODY = "You made a purchase of AED 49 at MCDONALDS -DXB AIRPORT AE  with your Najm Credit Card xxxxxxxxxxxx2933. Avl Limit AED 45117.";

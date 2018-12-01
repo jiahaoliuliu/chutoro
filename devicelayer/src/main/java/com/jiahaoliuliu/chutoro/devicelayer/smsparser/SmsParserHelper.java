@@ -93,13 +93,27 @@ public class SmsParserHelper {
         String destination = matcher.group(smsParserParameters.getPositionDestination());
 
         // Date
-        long date;
+        long date = parseDate(sms, smsParserParameters, simpleDateFormatter, matcher);
+
+        return new Transaction(sms.getId(), quantity, smsParserParameters.getSource(), destination, date);
+    }
+
+    private long parseDate(Sms sms, SmsParserParameters smsParserParameters,
+                           SimpleDateFormat simpleDateFormatter, Matcher matcher) {
+        long date = sms.getDate();
+        // If the position is unknown, then use the one that comes from the sms
+        if (smsParserParameters.getPositionDate() == -1) {
+            return date;
+        }
+
         try {
             date = simpleDateFormatter.parse(matcher.group(smsParserParameters.getPositionDate())).getTime();
         } catch (ParseException parseException) {
             throw new IllegalArgumentException("Error parsing the date");
+        } catch (IndexOutOfBoundsException indexOutOfBoundException) {
+            System.out.println("The date is not specified correctly. Using the one that comes from the sms");
         }
 
-        return new Transaction(sms.getId(), quantity, smsParserParameters.getSource(), destination, date);
+        return date;
     }
 }
