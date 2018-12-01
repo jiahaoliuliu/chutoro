@@ -28,14 +28,24 @@ public class ADCBSmsParametersFactoryTest {
     private static final long PATTERN_1_SMS_ID = 6543;
     private static final int PATTERN_1_SMS_QUANTITY = 359;
     private static final long PATTERN_1_SMS_DATE = 1542443169000l;
+    private static final String PATTERN_1_SMS_CURRENCY = "AED";
     private static final String PATTERN_1_SMS_DESTINATION = "GOOGLE*IDREAMS,G.CO HELPPAY#-US";
     private static final String PATTERN_1_SMS_BODY = "Your credit card XXX4921 was used for AED3.59 on 17/11/2018 12:26:09 at "
             + PATTERN_1_SMS_DESTINATION + ". Available credit limit is now AED9192.92.";
+
+    // Pattern 1 (Other currency)
+    private static final long PATTERN_1_CURRENCY_SMS_ID = 6543;
+    private static final int PATTERN_1_CURRENCY_SMS_QUANTITY = 4826;
+    private static final long PATTERN_1_CURRENCY_SMS_DATE = 1543260127000l;
+    private static final String PATTERN_1_CURRENCY_SMS_CURRENCY = "USD";
+    private static final String PATTERN_1_CURRENCY_SMS_DESTINATION = "LUCIDCHART COM CHARG,SOUTH JORDAN-US";
+    private static final String PATTERN_1_CURRENCY_SMS_BODY = "Your credit card XXX4921 was used for USD48.26 on 26/11/2018 23:22:07 at LUCIDCHART COM CHARG,SOUTH JORDAN-US. Available credit limit is now AED38792.72.";
 
     // Pattern 2
     private static final long PATTERN_2_SMS_ID = 6543;
     private static final int PATTERN_2_SMS_QUANTITY = 120000;
     private static final long PATTERN_2_SMS_DATE = 1542346800000l;
+    private static final String PATTERN_2_SMS_CURRENCY = "AED";
     private static final String PATTERN_2_SMS_DESTINATION = "ATM-MARINA MALL DXB";
     private static final String PATTERN_2_SMS_BODY = "AED1200.00 withdrawn from acc. XXX132001 on Nov 16 2018  9:40AM at ATM-MARINA MALL DXB. Avl.Bal.AED29349.34. Be cautious with large amt. of cash.";
 
@@ -62,7 +72,27 @@ public class ADCBSmsParametersFactoryTest {
         // Verify the results
         assertEquals(1, transactionList.size());
         Transaction rightTransaction = new Transaction(PATTERN_1_SMS_ID, PATTERN_1_SMS_QUANTITY,
-                SOURCE, PATTERN_1_SMS_DESTINATION, PATTERN_1_SMS_DATE);
+                PATTERN_1_SMS_CURRENCY, SOURCE, PATTERN_1_SMS_DESTINATION, PATTERN_1_SMS_DATE);
+        assertEquals(rightTransaction, transactionList.get(0));
+    }
+
+    @Test
+    public void testPattern1_OtherCurrency() {
+        // Prepare the data
+        Sms sms = new Sms(PATTERN_1_CURRENCY_SMS_ID, PATTERN_1_CURRENCY_SMS_BODY,
+                PATTERN_1_CURRENCY_SMS_DATE);
+
+        // Execute the method
+        List<Transaction> transactionList =
+                smsParserHelper.mapSmsListToTransactionsList(
+                        Arrays.asList(sms),
+                        adcbSmsParametersFactory.createSmsParserParametersList());
+
+        // Verify the results
+        assertEquals(1, transactionList.size());
+        Transaction rightTransaction = new Transaction(PATTERN_1_CURRENCY_SMS_ID,
+                PATTERN_1_CURRENCY_SMS_QUANTITY, PATTERN_1_CURRENCY_SMS_CURRENCY, SOURCE,
+                PATTERN_1_CURRENCY_SMS_DESTINATION, PATTERN_1_CURRENCY_SMS_DATE);
         assertEquals(rightTransaction, transactionList.get(0));
     }
 
@@ -80,7 +110,7 @@ public class ADCBSmsParametersFactoryTest {
         // Verify the results
         assertEquals(1, transactionList.size());
         Transaction rightTransaction = new Transaction(PATTERN_2_SMS_ID, PATTERN_2_SMS_QUANTITY,
-                SOURCE, PATTERN_2_SMS_DESTINATION, PATTERN_2_SMS_DATE);
+                PATTERN_2_SMS_CURRENCY, SOURCE, PATTERN_2_SMS_DESTINATION, PATTERN_2_SMS_DATE);
         assertEquals(rightTransaction, transactionList.get(0));
     }
 }

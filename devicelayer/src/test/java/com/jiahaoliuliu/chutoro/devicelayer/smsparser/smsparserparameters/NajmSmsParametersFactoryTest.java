@@ -28,8 +28,17 @@ public class NajmSmsParametersFactoryTest {
     private static final long PATTERN_1_SMS_ID = 6543;
     private static final int PATTERN_1_SMS_QUANTITY = 4900;
     private static final long PATTERN_1_SMS_DATE = 1543522832854l;
+    private static final String PATTERN_1_SMS_CURRENCY = "AED";
     private static final String PATTERN_1_SMS_DESTINATION = "MCDONALDS -DXB AIRPORT AE";
     private static final String PATTERN_1_SMS_BODY = "You made a purchase of AED 49 at MCDONALDS -DXB AIRPORT AE  with your Najm Credit Card xxxxxxxxxxxx2933. Avl Limit AED 45117.";
+
+    // Pattern 1 (Other currency)
+    private static final long PATTERN_1_CURRENCY_SMS_ID = 6543;
+    private static final int PATTERN_1_CURRENCY_SMS_QUANTITY = 2500;
+    private static final long PATTERN_1_CURRENCY_SMS_DATE = 1542812469138l;
+    private static final String PATTERN_1_CURRENCY_SMS_CURRENCY = "EUR";
+    private static final String PATTERN_1_CURRENCY_SMS_DESTINATION = "WIKIMEDIA EUR US";
+    private static final String PATTERN_1_CURRENCY_SMS_BODY = "You made a purchase of EUR 25 at WIKIMEDIA EUR US  with your Najm Credit Card xxxxxxxxxxxx2933. Avl Limit AED 48209.62.";
 
     private NajmSmsParametersFactory najmSmsParametersFactory;
     private SmsParserHelper smsParserHelper;
@@ -54,7 +63,27 @@ public class NajmSmsParametersFactoryTest {
         // Verify the results
         assertEquals(1, transactionList.size());
         Transaction rightTransaction = new Transaction(PATTERN_1_SMS_ID, PATTERN_1_SMS_QUANTITY,
-                SOURCE, PATTERN_1_SMS_DESTINATION, PATTERN_1_SMS_DATE);
+                PATTERN_1_SMS_CURRENCY, SOURCE, PATTERN_1_SMS_DESTINATION, PATTERN_1_SMS_DATE);
+        assertEquals(rightTransaction, transactionList.get(0));
+    }
+
+    @Test
+    public void testPattern1_OtherCurrency() {
+        // Prepare the data
+        Sms sms = new Sms(PATTERN_1_CURRENCY_SMS_ID, PATTERN_1_CURRENCY_SMS_BODY,
+                PATTERN_1_CURRENCY_SMS_DATE);
+
+        // Execute the method
+        List<Transaction> transactionList =
+                smsParserHelper.mapSmsListToTransactionsList(
+                        Arrays.asList(sms),
+                        najmSmsParametersFactory.createSmsParserParametersList());
+
+        // Verify the results
+        assertEquals(1, transactionList.size());
+        Transaction rightTransaction = new Transaction(PATTERN_1_CURRENCY_SMS_ID,
+                PATTERN_1_CURRENCY_SMS_QUANTITY, PATTERN_1_CURRENCY_SMS_CURRENCY, SOURCE,
+                PATTERN_1_CURRENCY_SMS_DESTINATION, PATTERN_1_CURRENCY_SMS_DATE);
         assertEquals(rightTransaction, transactionList.get(0));
     }
 }

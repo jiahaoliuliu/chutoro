@@ -7,8 +7,6 @@ import android.support.annotation.NonNull;
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
 
-import java.util.Objects;
-
 @Entity(tableName = "transactions")
 public class PersistentTransaction extends Transaction {
 
@@ -16,13 +14,14 @@ public class PersistentTransaction extends Transaction {
     @NonNull
     private long id;
 
-    public PersistentTransaction(long smsId, int quantity, String source, String destination, long date) {
-        super(smsId, quantity, source, destination, date);
+    public PersistentTransaction(long smsId, int quantity, String currency,
+                                 String source, String destination, long date) {
+        super(smsId, quantity, currency, source, destination, date);
     }
 
     public PersistentTransaction(ITransaction transaction) {
-        super(transaction.getSmsId(), transaction.getQuantity(), transaction.getSource(),
-                transaction.getDestination(), transaction.getDate());
+        super(transaction.getSmsId(), transaction.getQuantity(), transaction.getCurrency(),
+                transaction.getSource(), transaction.getDestination(), transaction.getDate());
     }
 
     @NonNull

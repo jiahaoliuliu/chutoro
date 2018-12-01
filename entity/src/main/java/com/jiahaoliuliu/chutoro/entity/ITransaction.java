@@ -16,12 +16,27 @@ public interface ITransaction {
     int getQuantity();
 
     /**
+     * The currency of the quantity
+     * @return
+     */
+    String getCurrency();
+
+    /**
      * The bank where the money were originally from
      * @return The bank where the money come from
      */
     String getSource();
 
+    /**
+     * Where the money goes
+     * @return
+     */
     String getDestination();
 
+    /**
+     * When the operation was made
+     * @return
+     */
     long getDate();
+
 }
