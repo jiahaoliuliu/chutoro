@@ -1,6 +1,5 @@
 package com.jiahaoliuliu.chutoro.devicelayer.smsparser;
 
-import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.ISmsParserParametersFactory;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.SmsParserParameters;
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
@@ -10,7 +9,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -36,6 +34,7 @@ public class SmsParserHelperTest {
             + SMS_1_DESTINATION + ". Available credit limit is now AED39192.92.";
 
     private static final String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
+    private static final String DATE_FORMAT_WRONG = "dd/MM/yyyy HH:mm";
     private static final int POSITION_QUANTITY = 2;
     private static final int POSITION_QUANTITY_WRONG = POSITION_QUANTITY + 1;
     private static final int POSITION_DESTINATION = 4;
@@ -56,15 +55,14 @@ public class SmsParserHelperTest {
     public void mapSmsListToTransactionsList_Success() {
         // Prepare the data
         Sms sms = new Sms(SMS_1_ID, SMS_1_BODY, SMS_1_DATE);
+        SmsParserParameters smsParserParameters = createSmsParserParameters(PATTERN_1, DATE_FORMAT,
+                POSITION_QUANTITY, POSITION_DESTINATION, POSITION_DATE, SOURCE);
 
         // Execute the method
         List<ITransaction> transactionList =
                 smsParserHelper.mapSmsListToTransactionsList(
                         Arrays.asList(sms),
-                        Arrays.asList(
-                            createSmsParserParameters(
-                                    PATTERN_1, DATE_FORMAT, POSITION_QUANTITY, POSITION_DESTINATION,
-                                    POSITION_DATE, SOURCE)));
+                        Arrays.asList(smsParserParameters));
 
         // Verify the results
         assertEquals(1, transactionList.size());
@@ -72,102 +70,120 @@ public class SmsParserHelperTest {
         assertEquals(rightTransaction, transactionList.get(0));
     }
 
-//    @Test
-//    public void mapSmsListToTransactionsList_SmsListNull() {
-//        // Prepare the data
-//        SmsParserParameters smsParserParameters = new SmsParserParameters(PATTERN_1, DATE_FORMAT,
-//                POSITION_QUANTITY, POSITION_DESTINATION, POSITION_DATE, SOURCE);
-//
-//        // Execute the method
-//        List<ITransaction> transactionList =
-//                smsParserHelper.mapSmsListToTransactionsList(null, smsParserParameters);
-//
-//        // Verify the results
-//        assertEquals(0, transactionList.size());
-//    }
-//
-//    @Test
-//    public void mapSmsListToTransactionsList_SmsParametersNull() {
-//        // Prepare the data
-//        Sms sms = new Sms(SMS_1_ID, SMS_1_BODY, SMS_1_DATE);
-//        List<Sms> smsList = new ArrayList();
-//        smsList.add(sms);
-//
-//        // Execute the method
-//        List<ITransaction> transactionList = smsParserHelper.mapSmsListToTransactionsList(smsList, null);
-//
-//        // Verify the results
-//        assertEquals(0, transactionList.size());
-//    }
-//
-//    @Test
-//    public void mapSmsListToTransactionsList_Failure() {
-//        // Prepare the data
-//        Sms sms = new Sms(SMS_2_ID, SMS_2_BODY, SMS_2_DATE);
-//        List<Sms> smsList = new ArrayList();
-//        smsList.add(sms);
-//
-//        SmsParserParameters smsParserParameters = new SmsParserParameters(PATTERN_1, DATE_FORMAT,
-//                POSITION_QUANTITY, POSITION_DESTINATION, POSITION_DATE, SOURCE);
-//
-//        // Execute the method
-//        List<ITransaction> transactionList = smsParserHelper.mapSmsListToTransactionsList(smsList,
-//                Arrays.asList(smsParserParameters));
-//
-//        // Verify the results
-//        assertEquals(0, transactionList.size());
-//    }
-//
-//    @Test
-//    public void mapSmsListToTransactionsList_WrongPositionQuantity() {
-//        // Prepare the data
-//        Sms sms = new Sms(SMS_1_ID, SMS_1_BODY, SMS_1_DATE);
-//        List<Sms> smsList = new ArrayList();
-//        smsList.add(sms);
-//
-//        SmsParserParameters smsParserParameters = new SmsParserParameters(PATTERN_1, DATE_FORMAT,
-//                POSITION_QUANTITY_WRONG, POSITION_DESTINATION, POSITION_DATE, SOURCE);
-//
-//        // Execute the method
-//        List<ITransaction> transactionList = smsParserHelper.mapSmsListToTransactionsList(smsList, smsParserParameters);
-//
-//        // Verify the results
-//        assertEquals(0, transactionList.size());
-//    }
-//
-//    @Test
-//    public void mapSmsListToTransactionsList_WrongPositionDate() {
-//        // Prepare the data
-//        Sms sms = new Sms(SMS_1_ID, SMS_1_BODY, SMS_1_DATE);
-//        List<Sms> smsList = new ArrayList();
-//        smsList.add(sms);
-//
-//        SmsParserParameters smsParserParameters = new SmsParserParameters(PATTERN_1, DATE_FORMAT,
-//                POSITION_QUANTITY, POSITION_DESTINATION, POSITION_DATE_WRONG, SOURCE);
-//
-//        // Execute the method
-//        List<ITransaction> transactionList = smsParserHelper.mapSmsListToTransactionsList(smsList, smsParserParameters);
-//
-//        // Verify the results
-//        assertEquals(0, transactionList.size());
-//    }
-//
-//    @Test
-//    public void mapSmsListToTransactionsList_WrongPositionDestination() {
-//        // Prepare the data
-//        Sms sms = new Sms(SMS_1_ID, SMS_1_BODY, SMS_1_DATE);
-//        List<Sms> smsList = new ArrayList();
-//        smsList.add(sms);
-//
-//        SmsParserParameters smsParserParameters = new SmsParserParameters(PATTERN_1, DATE_FORMAT,
-//                POSITION_QUANTITY, POSITION_DESTINATION_WRONG, POSITION_DATE, SOURCE);
-//
-//        // Execute the method
-//        List<ITransaction> transactionList = smsParserHelper.mapSmsListToTransactionsList(smsList, smsParserParameters);
-//
-//        // Verify the results
-//        assertEquals(0, transactionList.size());
-//    }
+    @Test
+    public void mapSmsListToTransactionsList_SmsListNull() {
+        // Prepare the data
+        SmsParserParameters smsParserParameters = createSmsParserParameters(PATTERN_1, DATE_FORMAT,
+                POSITION_QUANTITY, POSITION_DESTINATION, POSITION_DATE, SOURCE);
+
+        // Execute the method
+        List<ITransaction> transactionList =
+                smsParserHelper.mapSmsListToTransactionsList(
+                        null,
+                        Arrays.asList(smsParserParameters));
+
+        // Verify the results
+        assertEquals(0, transactionList.size());
+    }
+
+    @Test
+    public void mapSmsListToTransactionsList_SmsParametersNull() {
+        // Prepare the data
+        Sms sms = new Sms(SMS_1_ID, SMS_1_BODY, SMS_1_DATE);
+
+        // Execute the method
+        List<ITransaction> transactionList =
+                smsParserHelper.mapSmsListToTransactionsList(
+                        Arrays.asList(sms), null);
+
+        // Verify the results
+        assertEquals(0, transactionList.size());
+    }
+
+    @Test
+    public void mapSmsListToTransactionsList_WrongBody() {
+        // Prepare the data
+        Sms sms = new Sms(SMS_2_ID, SMS_2_BODY, SMS_2_DATE);
+        SmsParserParameters smsParserParameters = createSmsParserParameters(PATTERN_1, DATE_FORMAT,
+                POSITION_QUANTITY, POSITION_DESTINATION, POSITION_DATE, SOURCE);
+
+        // Execute the method
+        List<ITransaction> transactionList =
+                smsParserHelper.mapSmsListToTransactionsList(
+                        Arrays.asList(sms),
+                        Arrays.asList(smsParserParameters));
+
+        // Verify the results
+        assertEquals(0, transactionList.size());
+    }
+
+    @Test
+    public void mapSmsListToTransactionsList_WrongDateFormatQuantity() {
+        // Prepare the data
+        Sms sms = new Sms(SMS_1_ID, SMS_1_BODY, SMS_1_DATE);
+        SmsParserParameters smsParserParameters = createSmsParserParameters(PATTERN_1,
+                DATE_FORMAT_WRONG, POSITION_QUANTITY_WRONG, POSITION_DESTINATION, POSITION_DATE, SOURCE);
+
+        // Execute the method
+        List<ITransaction> transactionList =
+                smsParserHelper.mapSmsListToTransactionsList(
+                        Arrays.asList(sms),
+                        Arrays.asList(smsParserParameters));
+
+        // Verify the results
+        assertEquals(0, transactionList.size());
+    }
+
+    @Test
+    public void mapSmsListToTransactionsList_WrongPositionQuantity() {
+        // Prepare the data
+        Sms sms = new Sms(SMS_1_ID, SMS_1_BODY, SMS_1_DATE);
+        SmsParserParameters smsParserParameters = createSmsParserParameters(PATTERN_1, DATE_FORMAT,
+                POSITION_QUANTITY_WRONG, POSITION_DESTINATION, POSITION_DATE, SOURCE);
+
+        // Execute the method
+        List<ITransaction> transactionList =
+                smsParserHelper.mapSmsListToTransactionsList(
+                        Arrays.asList(sms),
+                        Arrays.asList(smsParserParameters));
+
+        // Verify the results
+        assertEquals(0, transactionList.size());
+    }
+
+    @Test
+    public void mapSmsListToTransactionsList_WrongPositionDestination() {
+        // Prepare the data
+        Sms sms = new Sms(SMS_1_ID, SMS_1_BODY, SMS_1_DATE);
+        SmsParserParameters smsParserParameters = createSmsParserParameters(PATTERN_1, DATE_FORMAT,
+                POSITION_QUANTITY, POSITION_DESTINATION_WRONG, POSITION_DATE, SOURCE);
+
+        // Execute the method
+        List<ITransaction> transactionList =
+                smsParserHelper.mapSmsListToTransactionsList(
+                        Arrays.asList(sms),
+                        Arrays.asList(smsParserParameters));
+
+        // Verify the results
+        assertEquals(0, transactionList.size());
+    }
+
+    @Test
+    public void mapSmsListToTransactionsList_WrongPositionDate() {
+        // Prepare the data
+        Sms sms = new Sms(SMS_1_ID, SMS_1_BODY, SMS_1_DATE);
+        SmsParserParameters smsParserParameters = createSmsParserParameters(PATTERN_1, DATE_FORMAT,
+                POSITION_QUANTITY, POSITION_DESTINATION, POSITION_DATE_WRONG, SOURCE);
+
+        // Execute the method
+        List<ITransaction> transactionList =
+                smsParserHelper.mapSmsListToTransactionsList(
+                        Arrays.asList(sms),
+                        Arrays.asList(smsParserParameters));
+
+        // Verify the results
+        assertEquals(0, transactionList.size());
+    }
 
     private SmsParserParameters createSmsParserParameters(
             String pattern, String dateFormat, int positionQuantity, int positionDestination,

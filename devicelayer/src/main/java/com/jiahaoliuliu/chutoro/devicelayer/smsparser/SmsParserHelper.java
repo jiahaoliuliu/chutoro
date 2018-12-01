@@ -25,6 +25,15 @@ public class SmsParserHelper {
             @NonNull List<Sms> smsList,
             @NonNull List<SmsParserParameters> smsParsingParametersList) {
 
+        // Preconditions
+        if (smsList == null) {
+            return Collections.emptyList();
+        }
+
+        if (smsParsingParametersList == null) {
+            return Collections.emptyList();
+        }
+
         // FIXME: Optimize this
         List<ITransaction> transactionsList = new ArrayList<>();
 
