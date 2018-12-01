@@ -6,9 +6,10 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
 
+import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.ISmsParserParametersFactory;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.Sms;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.SmsParserHelper;
-import com.jiahaoliuliu.chutoro.devicelayer.smsparser.SmsParserParameters;
+import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.SmsParserParameters;
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 
 import java.util.ArrayList;
@@ -17,13 +18,10 @@ import java.util.List;
 
 import io.reactivex.Single;
 
-/**
- * Specific transactions provider for ABCD Bank
- * (Abu Dhabi Commercial Bank)
- */
-public class ADCBTransactionsProvider implements ITransactionsProvider{
+public class TransactionsProvider {
 
-    private static final String TAG = "ADCBTransactionsProvider";
+    private static final String TAG = "AbsTransactionsProvider";
+
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_ADDRESS = "address";
     private static final String COLUMN_DATE = "date";
@@ -47,26 +45,20 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
     // Sort order
     private static final String SORT_ORDER = COLUMN_DATE + " DESC";
 
-    // Pattern parameters
-    private static final String PATTERN_1 = "Your credit card (.*?) was used for AED(.*?) on (.*?) at (.*?)\\. ";
-    private static final String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
-    private static final int POSITION_QUANTITY = 2;
-    private static final int POSITION_DESTINATION = 4;
-    private static final int POSITION_DATE = 3;
-    private static final String SOURCE = "ADCB";
-
     /**
      * The context is needed to access to the content providers
      */
     private final Context context;
     private final SmsParserHelper smsParserHelper;
+    private final ISmsParserParametersFactory smsParserParametersFactory;
 
-    public ADCBTransactionsProvider(Context context, SmsParserHelper smsParserHelper) {
+    public TransactionsProvider(Context context, SmsParserHelper smsParserHelper,
+                                ISmsParserParametersFactory smsParserParametersFactory) {
         this.context = context;
         this.smsParserHelper = smsParserHelper;
+        this.smsParserParametersFactory = smsParserParametersFactory;
     }
 
-    @Override
     public Single<? extends List<? extends ITransaction>> provideTransactions() {
         Cursor cursor = context.getContentResolver()
                 .query(Uri.parse("content://sms/inbox"), PROJECTION, SELECTION_CLAUSE,
@@ -74,6 +66,7 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
 
         return Single.just(getDataFromCursor(cursor));
     }
+
 
     @SuppressLint("LongLogTag")
     private List<? extends ITransaction> getDataFromCursor(Cursor cursor) {
@@ -99,8 +92,9 @@ public class ADCBTransactionsProvider implements ITransactionsProvider{
         }
         cursor.close();
 
-        SmsParserParameters smsParserParameters = new SmsParserParameters(PATTERN_1, DATE_FORMAT,
-                POSITION_QUANTITY, POSITION_DESTINATION, POSITION_DATE, SOURCE);
-        return smsParserHelper.mapSmsListToTransactionsList(smsList, smsParserParameters);
+        List<SmsParserParameters> smsParserParametersList =
+                smsParserParametersFactory.createSmsParserParametersList();
+        return smsParserHelper.mapSmsListToTransactionsList(smsList, smsParserParametersList);
     }
+
 }

@@ -3,6 +3,7 @@ package com.jiahaoliuliu.chutoro.devicelayer.smsparser;
 
 import android.support.annotation.NonNull;
 
+import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.SmsParserParameters;
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
 
@@ -20,8 +21,30 @@ import java.util.regex.Pattern;
 public class SmsParserHelper {
     public SmsParserHelper() {}
 
-    public List<ITransaction> mapSmsListToTransactionsList(@NonNull List<Sms> smsList,
-                                                           @NonNull SmsParserParameters smsParsingParameters) {
+    public List<ITransaction> mapSmsListToTransactionsList(
+            @NonNull List<Sms> smsList,
+            @NonNull List<SmsParserParameters> smsParsingParametersList) {
+
+        // Preconditions
+        if (smsList == null) {
+            return Collections.emptyList();
+        }
+
+        if (smsParsingParametersList == null) {
+            return Collections.emptyList();
+        }
+
+        // FIXME: Optimize this
+        List<ITransaction> transactionsList = new ArrayList<>();
+
+        for (SmsParserParameters smsParserParameters: smsParsingParametersList) {
+            transactionsList.addAll(mapSmsListToTransactionsList(smsList, smsParserParameters));
+        }
+        return transactionsList;
+    }
+
+    private List<ITransaction> mapSmsListToTransactionsList(
+            @NonNull List<Sms> smsList,@NonNull SmsParserParameters smsParsingParameters) {
         // Preconditions
         if (smsList == null) {
             return Collections.emptyList();
