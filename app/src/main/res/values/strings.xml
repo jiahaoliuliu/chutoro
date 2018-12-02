@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">Chutoro</string>
     <string name="title_activity_add_transaction">AddTransactionActivity</string>
+    <string name="source">Bank</string>
+    <string name="destination">Shop</string>
+    <string name="quantity">quantity</string>
+    <string name="currency">Currency</string>
+    <string name="add_transaction_title">Add transaction</string>
+
+    <string-array name="currencies_array">
+        <item>Dirhams</item>
+        <item>Euros</item>
+        <item>Dollars</item>
+    </string-array>
 </resources>

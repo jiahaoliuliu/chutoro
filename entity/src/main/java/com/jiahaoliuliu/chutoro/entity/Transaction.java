@@ -2,7 +2,7 @@ package com.jiahaoliuliu.chutoro.entity;
 
 public class Transaction implements ITransaction {
 
-    private final long smsId;
+    private long smsId = -1;
     private final int quantity;
     private final String currency;
     private final String source;
@@ -22,6 +22,11 @@ public class Transaction implements ITransaction {
     @Override
     public long getSmsId() {
         return smsId;
+    }
+
+    @Override
+    public boolean isFromSms() {
+        return smsId != -1;
     }
 
     @Override

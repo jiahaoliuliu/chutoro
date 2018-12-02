@@ -7,12 +7,41 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ui.addtransaction.AddTransactionActivity"
-    tools:showIn="@layout/activity_add_transaction">
+    tools:showIn="@layout/activity_add_transaction"
+    android:orientation="vertical"
+    >
 
+    <EditText
+        android:id="@+id/destination"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/destination"
+        />
+
+    <EditText
+        android:id="@+id/source"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/source"
+        />
+
+    <EditText
+        android:id="@+id/quantity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/quantity"
+        android:inputType="numberDecimal"
+        />
+    <Spinner
+        android:id="@+id/currency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
     <Button
-        android:id="@+id/pressMe"
+        android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="pressMe!"
+        android:text="Add"
         />
+    <!-- TODO Add Date and time picker -->
 </LinearLayout>
