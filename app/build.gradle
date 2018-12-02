@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion Versions.compileSdkVersion
@@ -22,7 +24,7 @@ android {
         targetCompatibility Versions.androidJavaVersion
     }
 
-    dataBinding{
+    dataBinding {
         enabled = true
     }
 }
@@ -30,12 +32,12 @@ android {
 configurations.all {
     resolutionStrategy.eachDependency {
         DependencyResolveDetails details ->
-        def requested = details.requested
-        if (requested.group == "com.android.support") {
-            if (!requested.name.startsWith("multidex")) {
-                details.useVersion "26.+"
+            def requested = details.requested
+            if (requested.group == "com.android.support") {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion "26.+"
+                }
             }
-        }
     }
 }
 
@@ -50,6 +52,7 @@ dependencies {
 
     // Core libraries
     implementation Libs.support_appcompat_v7
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     annotationProcessor AnnotationProcessor.support
     implementation Libs.support_design
     implementation Libs.rxjava
@@ -70,4 +73,5 @@ dependencies {
     testImplementation Tests.mockito
     androidTestImplementation Tests.testRunner
     androidTestImplementation Tests.espresso
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
