@@ -2,25 +2,34 @@ package com.jiahaoliuliu.chutoro.ui.addtransaction
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils
 import android.view.View
 import android.widget.*
 import com.jiahaoliuliu.chutoro.R
+import com.jiahaoliuliu.chutoro.ui.MainApplication
 
 import kotlinx.android.synthetic.main.activity_add_transaction.*
+import javax.inject.Inject
 
-// TODO: Use MVP for this
-class AddTransactionActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+class AddTransactionActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
+        AddTransactionContract.View {
 
     companion object {
         private const val DEFAULT_CURRENCY = "Dirhams"
     }
+
+    @Inject
+    lateinit var presenter: AddTransactionContract.Presenter
+
     var currency: String = DEFAULT_CURRENCY
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_transaction)
         setSupportActionBar(toolbar)
+
+        MainApplication.getMainComponent().inject(this)
+
+        presenter.setView(this)
 
         // Link the views
         val destinationED = findViewById<EditText>(R.id.destination)
@@ -41,35 +50,12 @@ class AddTransactionActivity : AppCompatActivity(), AdapterView.OnItemSelectedLi
 
         val addTransactionButton = findViewById<Button>(R.id.add)
         addTransactionButton.setOnClickListener { _ ->
-            addTransactionIfCorrect(destinationED.text.toString(), sourceED.text.toString(),
-                    quantity.text.toString())
+            presenter.addTransactionIfCorrect(destinationED.text.toString(), sourceED.text.toString(),
+                    quantity.text.toString(), currency)
         }
 
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_close)
         title = getString(R.string.add_transaction_title)
-    }
-
-    private fun addTransactionIfCorrect(destination: String, source: String, quantity: String) {
-        if (isAllDataValid(destination, source, quantity)) {
-
-        }
-    }
-
-    private fun isAllDataValid(destination: String, source: String, quantity: String): Boolean {
-        return isDestinationValid(destination) && isSourceValid(source) &&
-                isQuantityValid(quantity)
-    }
-
-    private fun isDestinationValid(destination: String): Boolean {
-        return !TextUtils.isEmpty(destination)
-    }
-
-    private fun isSourceValid(source: String): Boolean {
-        return !TextUtils.isEmpty(source)
-    }
-
-    private fun isQuantityValid(quantity: String): Boolean {
-        return quantity.toFloatOrNull() != null
     }
 
     // Spinner

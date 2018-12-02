@@ -48,6 +48,7 @@ object Libs {
 
     val dagger = "com.google.dagger:dagger:${Versions.dagger}"
     val dagger_support = "com.google.dagger:dagger-android-support:${Versions.dagger}"
+    val dagger_kotlin = "com.google.dagger:dagger-compiler:${Versions.dagger}"
     val gson = "com.google.code.gson:gson:${Versions.gson}"
 
     val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
