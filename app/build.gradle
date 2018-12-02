@@ -57,11 +57,15 @@ dependencies {
     implementation Libs.support_design
     implementation Libs.rxjava
     implementation Libs.rxAndroid
+
     implementation Libs.dagger
     implementation Libs.dagger_support
     kapt Libs.dagger_kotlin
     annotationProcessor AnnotationProcessor.dagger
+
     implementation Libs.picasso
+
+    implementation Libs.kotlin_standard_lib_jdk_8
 
     // Optional
     implementation Libs.cardView
@@ -74,5 +78,4 @@ dependencies {
     testImplementation Tests.mockito
     androidTestImplementation Tests.testRunner
     androidTestImplementation Tests.espresso
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

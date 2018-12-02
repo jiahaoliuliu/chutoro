@@ -1,8 +1,10 @@
 package com.jiahaoliuliu.chutoro.ui.addtransaction
 
 import android.text.TextUtils
+import com.jiahaoliuliu.chutoro.usecase.AddTransactionUseCase
 
-class AddTransactionPresenter: AddTransactionContract.Presenter {
+class AddTransactionPresenter(private val addTransactionUseCase: AddTransactionUseCase):
+        AddTransactionContract.Presenter {
 
     private var view: AddTransactionContract.View? = null
 
@@ -12,31 +14,7 @@ class AddTransactionPresenter: AddTransactionContract.Presenter {
 
     override fun addTransactionIfCorrect(
             destination: String, source: String, quantity: String, currency: String) {
-        if (isAllDataValid(destination, source, quantity, currency)) {
-
-        }
-    }
-
-    private fun isAllDataValid(destination: String, source: String, quantity: String,
-                               currency: String): Boolean {
-        return isDestinationValid(destination) && isSourceValid(source) &&
-                isQuantityValid(quantity) && isCurrencyValid(currency)
-    }
-
-    private fun isDestinationValid(destination: String): Boolean {
-        return !TextUtils.isEmpty(destination)
-    }
-
-    private fun isSourceValid(source: String): Boolean {
-        return !TextUtils.isEmpty(source)
-    }
-
-    private fun isQuantityValid(quantity: String): Boolean {
-        return quantity.toFloatOrNull() != null
-    }
-
-    private fun isCurrencyValid(currency: String): Boolean {
-        return !TextUtils.isEmpty(currency)
+        addTransactionUseCase.execute(destination, source, quantity, currency)
     }
 
 }

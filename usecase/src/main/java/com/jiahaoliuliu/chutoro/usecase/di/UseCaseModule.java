@@ -1,6 +1,7 @@
 package com.jiahaoliuliu.chutoro.usecase.di;
 
 import com.jiahaoliuliu.chutoro.datalayer.transactionsrepository.ITransactionsRepository;
+import com.jiahaoliuliu.chutoro.usecase.AddTransactionUseCase;
 import com.jiahaoliuliu.chutoro.usecase.RetrieveTransactionsListUseCase;
 
 import dagger.Module;
@@ -13,5 +14,11 @@ public class UseCaseModule {
     RetrieveTransactionsListUseCase provideRetrieveTransactionsListUseCase(
             ITransactionsRepository transactionsRepository) {
         return new RetrieveTransactionsListUseCase(transactionsRepository);
+    }
+
+    @Provides
+    AddTransactionUseCase provideAddTransactionUseCase(
+            ITransactionsRepository transactionsRepository) {
+        return new AddTransactionUseCase(transactionsRepository);
     }
 }
