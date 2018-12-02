@@ -51,6 +51,7 @@ dependencies {
     // Core libraries
     implementation Libs.support_appcompat_v7
     annotationProcessor AnnotationProcessor.support
+    implementation Libs.support_design
     implementation Libs.rxjava
     implementation Libs.rxAndroid
     implementation Libs.dagger
