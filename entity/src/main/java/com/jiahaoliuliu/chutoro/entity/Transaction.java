@@ -13,7 +13,7 @@ public class Transaction implements ITransaction {
     private final String destination;
     private final long date;
 
-    public Transaction(long smsId, int quantity, String currency, String source, String destination,
+    protected Transaction(long smsId, int quantity, String currency, String source, String destination,
                        long date) {
         this.smsId = smsId;
         this.quantity = quantity;
@@ -21,10 +21,6 @@ public class Transaction implements ITransaction {
         this.source = source;
         this.destination = destination;
         this.date = date;
-    }
-
-    public Transaction(int quantity, String currency, String source, String destination, long date) {
-        this(DEFAULT_SMS_ID, quantity, currency, source, destination, date);
     }
 
     @Override
