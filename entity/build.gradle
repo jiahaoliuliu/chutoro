@@ -1,11 +1,15 @@
 apply plugin: 'java-library'
-apply plugin: 'kotlin-kapt'
+apply plugin: 'org.jetbrains.kotlin.jvm'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compile "org.jetbrains.kotlin:kotlin-stdlib"
 
-    implementation Libs.kotlin_standard_lib_jdk_8
+//    implementation Libs.kotlin_standard_lib_jdk_8
 }
 
 sourceCompatibility = Versions.java
 targetCompatibility = Versions.java
+repositories {
+    mavenCentral()
+}

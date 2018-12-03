@@ -21,8 +21,8 @@ class AddTransactionUseCase(private val transactionsRepository: ITransactionsRep
         }
     }
 
-    private fun parseQuantity(quantityString: String): Int {
-        return (quantityString.toFloat() * 100.0) as Int
+    fun parseQuantity(quantityString: String): Int {
+        return (quantityString.toFloat() * 100.0).toInt()
     }
 
     private fun isAllDataValid(destination: String, source: String, quantity: String,
