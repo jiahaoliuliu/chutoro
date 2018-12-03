@@ -94,10 +94,13 @@ public class SmsParserHelper {
         // Date
         long date = parseDate(sms, smsParserParameters, simpleDateFormatter, matcher);
 
-        return new TransactionBuilder(smsParserParameters.getSource(), destination, date)
+        return new TransactionBuilder()
                 .setSmsId(sms.getId())
+                .setSource(smsParserParameters.getSource())
+                .setDestination(destination)
                 .setQuantity(quantity)
                 .setCurrency(currency)
+                .setDate(date)
                 .build();
     }
 

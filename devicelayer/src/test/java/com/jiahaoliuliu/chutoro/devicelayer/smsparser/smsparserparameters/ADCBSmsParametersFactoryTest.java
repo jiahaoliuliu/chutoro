@@ -3,6 +3,7 @@ package com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.Sms;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.SmsParserHelper;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
+import com.jiahaoliuliu.chutoro.entity.TransactionBuilder;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -71,8 +72,15 @@ public class ADCBSmsParametersFactoryTest {
 
         // Verify the results
         assertEquals(1, transactionList.size());
-        Transaction rightTransaction = new Transaction(PATTERN_1_SMS_ID, PATTERN_1_SMS_QUANTITY,
-                PATTERN_1_SMS_CURRENCY, SOURCE, PATTERN_1_SMS_DESTINATION, PATTERN_1_SMS_DATE);
+        Transaction rightTransaction =
+                new TransactionBuilder()
+                    .setSmsId(PATTERN_1_SMS_ID)
+                    .setQuantity(PATTERN_1_SMS_QUANTITY)
+                    .setCurrency(PATTERN_1_SMS_CURRENCY)
+                    .setSource(SOURCE)
+                    .setDestination(PATTERN_1_SMS_DESTINATION)
+                    .setDate(PATTERN_1_SMS_DATE)
+                    .build();
         assertEquals(rightTransaction, transactionList.get(0));
     }
 
@@ -90,9 +98,20 @@ public class ADCBSmsParametersFactoryTest {
 
         // Verify the results
         assertEquals(1, transactionList.size());
-        Transaction rightTransaction = new Transaction(PATTERN_1_CURRENCY_SMS_ID,
-                PATTERN_1_CURRENCY_SMS_QUANTITY, PATTERN_1_CURRENCY_SMS_CURRENCY, SOURCE,
-                PATTERN_1_CURRENCY_SMS_DESTINATION, PATTERN_1_CURRENCY_SMS_DATE);
+//        Transaction rightTransaction = new Transaction(PATTERN_1_CURRENCY_SMS_ID,
+//                PATTERN_1_CURRENCY_SMS_QUANTITY, PATTERN_1_CURRENCY_SMS_CURRENCY, SOURCE,
+//                PATTERN_1_CURRENCY_SMS_DESTINATION, PATTERN_1_CURRENCY_SMS_DATE);
+
+        Transaction rightTransaction =
+                new TransactionBuilder()
+                        .setSmsId(PATTERN_1_CURRENCY_SMS_ID)
+                        .setQuantity(PATTERN_1_CURRENCY_SMS_QUANTITY)
+                        .setCurrency(PATTERN_1_CURRENCY_SMS_CURRENCY)
+                        .setSource(SOURCE)
+                        .setDestination(PATTERN_1_CURRENCY_SMS_DESTINATION)
+                        .setDate(PATTERN_1_CURRENCY_SMS_DATE)
+                        .build();
+
         assertEquals(rightTransaction, transactionList.get(0));
     }
 
@@ -109,8 +128,18 @@ public class ADCBSmsParametersFactoryTest {
 
         // Verify the results
         assertEquals(1, transactionList.size());
-        Transaction rightTransaction = new Transaction(PATTERN_2_SMS_ID, PATTERN_2_SMS_QUANTITY,
-                PATTERN_2_SMS_CURRENCY, SOURCE, PATTERN_2_SMS_DESTINATION, PATTERN_2_SMS_DATE);
+//        Transaction rightTransaction = new Transaction(PATTERN_2_SMS_ID, PATTERN_2_SMS_QUANTITY,
+//                PATTERN_2_SMS_CURRENCY, SOURCE, PATTERN_2_SMS_DESTINATION, PATTERN_2_SMS_DATE);
+        Transaction rightTransaction =
+                new TransactionBuilder()
+                        .setSmsId(PATTERN_2_SMS_ID)
+                        .setQuantity(PATTERN_2_SMS_QUANTITY)
+                        .setCurrency(PATTERN_2_SMS_CURRENCY)
+                        .setSource(SOURCE)
+                        .setDestination(PATTERN_2_SMS_DESTINATION)
+                        .setDate(PATTERN_2_SMS_DATE)
+                        .build();
+
         assertEquals(rightTransaction, transactionList.get(0));
     }
 }

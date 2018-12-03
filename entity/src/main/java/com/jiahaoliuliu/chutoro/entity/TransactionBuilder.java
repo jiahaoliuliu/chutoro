@@ -2,6 +2,8 @@ package com.jiahaoliuliu.chutoro.entity;
 
 /**
  * The builder pattern for Transaction. This will allow more flexibility when the data is parsed
+ * Note this class shouldn't be injected. In order to achieve that, all the methods need to
+ * be tested thoughtly
  */
 public class TransactionBuilder {
 
@@ -15,10 +17,7 @@ public class TransactionBuilder {
     private String destination;
     private long date = Transaction.DEFAULT_DATE;
 
-    public TransactionBuilder(String source, String destination, long date) {
-        setSource(source);
-        setDestination(destination);
-        setDate(date);
+    public TransactionBuilder() {
     }
 
     public TransactionBuilder setSmsId(long smsId) {
@@ -58,7 +57,7 @@ public class TransactionBuilder {
                     "building transaction");
         }
 
-        this.smsId = smsId;
+        this.quantity = quantity;
         return this;
     }
 

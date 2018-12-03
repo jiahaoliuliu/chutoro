@@ -10,7 +10,9 @@ class AddTransactionUseCase(private val transactionsRepository: ITransactionsRep
 
     fun execute(destination: String, source: String, quantity: String, currency: Currency, date: Long): Single<Boolean> {
         try {
-            val transaction = TransactionBuilder(source, destination, date)
+            val transaction = TransactionBuilder()
+                    .setDestination(destination)
+                    .setSource(source)
                     .setQuantity(quantity)
                     .setCurrency(currency)
                     .setDate(date)
