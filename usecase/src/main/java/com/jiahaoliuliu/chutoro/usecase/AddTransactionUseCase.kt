@@ -10,15 +10,18 @@ class AddTransactionUseCase(private val transactionsRepository: ITransactionsRep
 
     // TODO: Create a special class for Quantity
     fun execute(destination: String, source: String, quantityString: String, currency: String, date: Long): Single<Boolean> {
-        if (isAllDataValid(destination, source, quantityString, currency, date)) {
-            // Quantity
-            val quantity = parseQuantity(quantityString)
-
-            val transaction = Transaction(quantity, currency, source, destination, date)
-            return transactionsRepository.addTransaction(transaction)
-        } else {
-            return Single.error(IllegalArgumentException("The parameters are not correct"))
+        try {
+            val transaction = Transaction.Builder()
         }
+//        if (isAllDataValid(destination, source, quantityString, currency, date)) {
+//            // Quantity
+//            val quantity = parseQuantity(quantityString)
+//
+//            val transaction = Transaction(quantity, currency, source, destination, date)
+//            return transactionsRepository.addTransaction(transaction)
+//        } else {
+//            return Single.error(IllegalArgumentException("The parameters are not correct"))
+//        }
     }
 
     fun parseQuantity(quantityString: String): Int {
