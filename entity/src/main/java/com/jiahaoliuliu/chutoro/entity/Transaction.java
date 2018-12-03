@@ -2,17 +2,18 @@ package com.jiahaoliuliu.chutoro.entity;
 
 public class Transaction implements ITransaction {
 
-    private static final long DEFAULT_SMS_ID = -1;
+    protected static final long DEFAULT_SMS_ID = -1;
+    protected static final int DEFAULT_QUANTITY = -1;
+    protected static final long DEFAULT_DATE = -1l;
 
-    private long smsId;
+    private final long smsId;
     private final int quantity;
     private final String currency;
     private final String source;
     private final String destination;
     private final long date;
 
-    // TODO: Create the builder patter when there are too many constructors
-    public Transaction(long smsId, int quantity, String currency, String source, String destination,
+    protected Transaction(long smsId, int quantity, String currency, String source, String destination,
                        long date) {
         this.smsId = smsId;
         this.quantity = quantity;
@@ -20,20 +21,6 @@ public class Transaction implements ITransaction {
         this.source = source;
         this.destination = destination;
         this.date = date;
-    }
-
-    public Transaction(long smsId, int quantity, Currency currency, String source, String destination,
-                       long date) {
-        this.smsId = smsId;
-        this.quantity = quantity;
-        this.currency = currency.toString();
-        this.source = source;
-        this.destination = destination;
-        this.date = date;
-    }
-
-    public Transaction(int quantity, String currency, String source, String destination, long date) {
-        this(DEFAULT_SMS_ID, quantity, currency, source, destination, date);
     }
 
     @Override

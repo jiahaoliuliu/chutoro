@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.SmsParserParameters;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
+import com.jiahaoliuliu.chutoro.entity.TransactionBuilder;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -82,7 +83,7 @@ public class SmsParserHelper {
         }
 
         // Quantity
-        int quantity = parseQuantity(smsParserParameters, matcher);
+        float quantity = parseQuantity(smsParserParameters, matcher);
 
         // Currency
         String currency = parseCurrency(smsParserParameters, matcher);
@@ -93,20 +94,23 @@ public class SmsParserHelper {
         // Date
         long date = parseDate(sms, smsParserParameters, simpleDateFormatter, matcher);
 
-        return new Transaction(sms.getId(), quantity, currency, smsParserParameters.getSource(), destination, date);
+        return new TransactionBuilder()
+                .setSmsId(sms.getId())
+                .setSource(smsParserParameters.getSource())
+                .setDestination(destination)
+                .setQuantity(quantity)
+                .setCurrency(currency)
+                .setDate(date)
+                .build();
     }
 
-    private int parseQuantity(SmsParserParameters smsParserParameters, Matcher matcher) {
+    private float parseQuantity(SmsParserParameters smsParserParameters, Matcher matcher) {
         String quantityAndCurrencyString = matcher.group(smsParserParameters.getPositionQuantity());
-        int quantity;
         try {
-            float quantityFloat = Float.valueOf(quantityAndCurrencyString.substring(SIZE_OF_CURRENCY_SYMBOL).trim());
-            // Get the quantity which is only with 2 zeros
-            quantity = (int) (quantityFloat*100f);
+            return Float.valueOf(quantityAndCurrencyString.substring(SIZE_OF_CURRENCY_SYMBOL).trim());
         } catch (NumberFormatException numberFormatException) {
             throw new IllegalArgumentException("Error formatting the quantity " + quantityAndCurrencyString);
         }
-        return quantity;
     }
 
     private String parseCurrency(SmsParserParameters smsParserParameters, Matcher matcher) {

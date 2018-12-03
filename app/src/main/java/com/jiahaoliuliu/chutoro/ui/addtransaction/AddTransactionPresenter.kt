@@ -24,7 +24,7 @@ class AddTransactionPresenter(private val addTransactionUseCase: AddTransactionU
 
     override fun addTransactionIfCorrect(
             destination: String, source: String, quantity: String, currency: Currency, date: Long){
-        compositeDisposable.add(addTransactionUseCase.execute(destination, source, quantity, currency.toString(), date)
+        compositeDisposable.add(addTransactionUseCase.execute(destination, source, quantity, currency, date)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({resultBoolean ->
