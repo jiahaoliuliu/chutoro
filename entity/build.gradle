@@ -1,7 +1,10 @@
 apply plugin: 'java-library'
+apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation Libs.kotlin_standard_lib_jdk_8
 }
 
 sourceCompatibility = Versions.java

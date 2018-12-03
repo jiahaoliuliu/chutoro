@@ -19,4 +19,11 @@ public interface ITransactionsRepository {
      * @return a list of transactions
      */
     LiveData<? extends List<? extends ITransaction>> retrieveTransactionsList();
+
+    /**
+     * Adding a new transaction
+     * @param transaction
+     * @return
+     */
+    Single<Boolean> addTransaction(ITransaction transaction);
 }

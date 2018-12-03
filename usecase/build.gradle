@@ -36,6 +36,8 @@ dependencies {
     implementation Libs.dagger_support
     annotationProcessor AnnotationProcessor.dagger
     kapt Libs.dagger_kotlin
+    implementation Libs.rxjava
+    implementation Libs.rxAndroid
 
     implementation Libs.kotlin_standard_lib_jdk_8
 

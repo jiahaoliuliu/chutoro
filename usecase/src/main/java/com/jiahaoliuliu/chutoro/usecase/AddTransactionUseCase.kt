@@ -3,19 +3,32 @@ package com.jiahaoliuliu.chutoro.usecase
 import android.text.TextUtils
 import com.jiahaoliuliu.chutoro.datalayer.transactionsrepository.ITransactionsRepository
 import com.jiahaoliuliu.chutoro.entity.Transaction
+import io.reactivex.Single
+import java.lang.IllegalArgumentException
 
 class AddTransactionUseCase(private val transactionsRepository: ITransactionsRepository) {
 
-    fun execute(destination: String, source: String, quantity: String, currency: String) {
-        if (isAllDataValid(destination, source, quantity, currency)) {
-            val transaction = Transaction()
+    // TODO: Create a special class for Quantity
+    fun execute(destination: String, source: String, quantityString: String, currency: String, date: Long): Single<Boolean> {
+        if (isAllDataValid(destination, source, quantityString, currency, date)) {
+            // Quantity
+            val quantity = parseQuantity(quantityString)
+
+            val transaction = Transaction(quantity, currency, source, destination, date)
+            return transactionsRepository.addTransaction(transaction)
+        } else {
+            return Single.error(IllegalArgumentException("The parameters are not correct"))
         }
     }
 
+    private fun parseQuantity(quantityString: String): Int {
+        return (quantityString.toFloat() * 100.0) as Int
+    }
+
     private fun isAllDataValid(destination: String, source: String, quantity: String,
-                               currency: String): Boolean {
+                               currency: String, date: Long): Boolean {
         return isDestinationValid(destination) && isSourceValid(source) &&
-                isQuantityValid(quantity) && isCurrencyValid(currency)
+                isQuantityValid(quantity) && isCurrencyValid(currency) && isDateValid(date)
     }
 
     private fun isDestinationValid(destination: String): Boolean {
@@ -32,6 +45,10 @@ class AddTransactionUseCase(private val transactionsRepository: ITransactionsRep
 
     private fun isCurrencyValid(currency: String): Boolean {
         return !TextUtils.isEmpty(currency)
+    }
+
+    private fun isDateValid(date: Long): Boolean {
+        return date > 0
     }
 
 }

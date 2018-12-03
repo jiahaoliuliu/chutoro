@@ -16,10 +16,10 @@ import java.util.List;
 public abstract class TransactionsDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    public abstract void insert(PersistentTransaction persistentTransaction);
+    public abstract long insert(PersistentTransaction persistentTransaction);
 
-    public void insert(ITransaction transaction) {
-        insert(new PersistentTransaction(transaction));
+    public long insert(ITransaction transaction) {
+        return insert(new PersistentTransaction(transaction));
     }
 
     @Query("Select * from transactions where smsId == :smsId")
@@ -34,11 +34,32 @@ public abstract class TransactionsDao {
 
     public void insertIfDoesNotExist(List<? extends ITransaction> transactionsList) {
         for (ITransaction transaction: transactionsList) {
-            PersistentTransaction persistentTransaction = getTransactionPerSmsId(transaction.getSmsId());
-            if (persistentTransaction == null) {
-                insert(transaction);
-            }
         }
+    }
+
+    /**
+     * // TODO: Extract all the logic outside of the DAO and create unit test for it
+     * Inserting the transaction.
+     * @param transaction The transaction to be inserted
+     * @return
+     *      True if the transaction has been inserted or
+     *      True if there is already a transaction with the same sms id in the database
+     *      False if there is any problem on the insertion
+     */
+    public boolean insertIfDoesNotExist(ITransaction transaction) {
+        // If the transaction is not from the sms
+        if (!transaction.isFromSms()) {
+            PersistentTransaction persistentTransaction = new PersistentTransaction(transaction);
+            return insert(persistentTransaction) > 0;
+        }
+
+        // If the transaction is from SMS
+        PersistentTransaction persistentTransaction = getTransactionPerSmsId(transaction.getSmsId());
+        if (persistentTransaction == null) {
+            return insert(transaction) > 0;
+        }
+
+        return true;
     }
 
     @Delete

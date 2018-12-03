@@ -6,21 +6,20 @@ import android.view.View
 import android.widget.*
 import com.jiahaoliuliu.chutoro.R
 import com.jiahaoliuliu.chutoro.ui.MainApplication
+import com.jiahaoliuliu.chutoro.entity.Currency
 
 import kotlinx.android.synthetic.main.activity_add_transaction.*
+import java.lang.IllegalArgumentException
+import java.util.*
 import javax.inject.Inject
 
 class AddTransactionActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         AddTransactionContract.View {
-
-    companion object {
-        private const val DEFAULT_CURRENCY = "Dirhams"
-    }
-
     @Inject
     lateinit var presenter: AddTransactionContract.Presenter
 
-    var currency: String = DEFAULT_CURRENCY
+    private val defaultCurrency = Currency.AED
+    private var currency = defaultCurrency
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,8 +49,9 @@ class AddTransactionActivity : AppCompatActivity(), AdapterView.OnItemSelectedLi
 
         val addTransactionButton = findViewById<Button>(R.id.add)
         addTransactionButton.setOnClickListener { _ ->
+            // TODO: Pass the date
             presenter.addTransactionIfCorrect(destinationED.text.toString(), sourceED.text.toString(),
-                    quantity.text.toString(), currency)
+                    quantity.text.toString(), currency, Date().time)
         }
 
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_close)
@@ -60,10 +60,29 @@ class AddTransactionActivity : AppCompatActivity(), AdapterView.OnItemSelectedLi
 
     // Spinner
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        currency = parent?.getItemAtPosition(position) as String
+        if (position >= 0 && position < Currency.values().size) {
+            currency = Currency.values()[position]
+        }
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
-        currency = DEFAULT_CURRENCY
+        currency = defaultCurrency
+    }
+
+    override fun onInsertionCorrect() {
+        Toast.makeText(this, "The transaction has been correctly inserted",
+                Toast.LENGTH_LONG).show()
+        finish()
+    }
+
+    override fun showInsertionError(exception: IllegalArgumentException) {
+        Toast.makeText(this,
+                "Error inserting the transaction ${exception.localizedMessage}",
+                Toast.LENGTH_LONG).show()
+    }
+
+    override fun onDestroy() {
+        presenter?.dispose()
+        super.onDestroy()
     }
 }
