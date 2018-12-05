@@ -34,6 +34,7 @@ public abstract class TransactionsDao {
 
     public void insertIfDoesNotExist(List<? extends ITransaction> transactionsList) {
         for (ITransaction transaction: transactionsList) {
+            insertIfDoesNotExist(transaction);
         }
     }
 
