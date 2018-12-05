@@ -50,6 +50,13 @@ public class ADCBSmsParametersFactoryTest {
     private static final String PATTERN_2_SMS_DESTINATION = "ATM-MARINA MALL DXB";
     private static final String PATTERN_2_SMS_BODY = "AED1200.00 withdrawn from acc. XXX132001 on Nov 16 2018  9:40AM at ATM-MARINA MALL DXB. Avl.Bal.AED29349.34. Be cautious with large amt. of cash.";
 
+    private static final long PATTERN_2_SMS_2_ID = 6543;
+    private static final int PATTERN_2_SMS_2_QUANTITY = 800000;
+    private static final long PATTERN_2_SMS_2_DATE = 1543423200000l;
+    private static final String PATTERN_2_SMS_2_CURRENCY = "AED";
+    private static final String PATTERN_2_SMS_2_DESTINATION = "ATM-RTAMOEDXB";
+    private static final String PATTERN_2_SMS_2_BODY = "AED8000.00 withdrawn from acc. XXX132001 on Nov 28 2018  8:40PM at ATM-RTAMOEDXB. Avl.Bal.AED21348.34. Be cautious with large amt. of cash.";
+
     private ADCBSmsParametersFactory adcbSmsParametersFactory;
     private SmsParserHelper smsParserHelper;
 
@@ -98,10 +105,6 @@ public class ADCBSmsParametersFactoryTest {
 
         // Verify the results
         assertEquals(1, transactionList.size());
-//        Transaction rightTransaction = new Transaction(PATTERN_1_CURRENCY_SMS_ID,
-//                PATTERN_1_CURRENCY_SMS_QUANTITY, PATTERN_1_CURRENCY_SMS_CURRENCY, SOURCE,
-//                PATTERN_1_CURRENCY_SMS_DESTINATION, PATTERN_1_CURRENCY_SMS_DATE);
-
         Transaction rightTransaction =
                 new TransactionBuilder()
                         .setSmsId(PATTERN_1_CURRENCY_SMS_ID)
@@ -128,8 +131,6 @@ public class ADCBSmsParametersFactoryTest {
 
         // Verify the results
         assertEquals(1, transactionList.size());
-//        Transaction rightTransaction = new Transaction(PATTERN_2_SMS_ID, PATTERN_2_SMS_QUANTITY,
-//                PATTERN_2_SMS_CURRENCY, SOURCE, PATTERN_2_SMS_DESTINATION, PATTERN_2_SMS_DATE);
         Transaction rightTransaction =
                 new TransactionBuilder()
                         .setSmsId(PATTERN_2_SMS_ID)
@@ -138,6 +139,32 @@ public class ADCBSmsParametersFactoryTest {
                         .setSource(SOURCE)
                         .setDestination(PATTERN_2_SMS_DESTINATION)
                         .setDate(PATTERN_2_SMS_DATE)
+                        .build();
+
+        assertEquals(rightTransaction, transactionList.get(0));
+    }
+
+    @Test
+    public void testPattern2_Sms2() {
+        // Prepare the data
+        Sms sms = new Sms(PATTERN_2_SMS_2_ID, PATTERN_2_SMS_2_BODY, PATTERN_2_SMS_2_DATE);
+
+        // Execute the method
+        List<Transaction> transactionList =
+                smsParserHelper.mapSmsListToTransactionsList(
+                        Arrays.asList(sms),
+                        adcbSmsParametersFactory.createSmsParserParametersList());
+
+        // Verify the results
+        assertEquals(1, transactionList.size());
+        Transaction rightTransaction =
+                new TransactionBuilder()
+                        .setSmsId(PATTERN_2_SMS_2_ID)
+                        .setQuantity(PATTERN_2_SMS_2_QUANTITY)
+                        .setCurrency(PATTERN_2_SMS_2_CURRENCY)
+                        .setSource(SOURCE)
+                        .setDestination(PATTERN_2_SMS_2_DESTINATION)
+                        .setDate(PATTERN_2_SMS_2_DATE)
                         .build();
 
         assertEquals(rightTransaction, transactionList.get(0));

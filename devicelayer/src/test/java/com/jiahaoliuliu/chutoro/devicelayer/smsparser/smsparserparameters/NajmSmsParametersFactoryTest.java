@@ -63,8 +63,6 @@ public class NajmSmsParametersFactoryTest {
 
         // Verify the results
         assertEquals(1, transactionList.size());
-//        Transaction rightTransaction = new Transaction(PATTERN_1_SMS_ID, PATTERN_1_SMS_QUANTITY,
-//                PATTERN_1_SMS_CURRENCY, SOURCE, PATTERN_1_SMS_DESTINATION, PATTERN_1_SMS_DATE);
         Transaction rightTransaction =
                 new TransactionBuilder()
                         .setSmsId(PATTERN_1_SMS_ID)
@@ -92,9 +90,6 @@ public class NajmSmsParametersFactoryTest {
 
         // Verify the results
         assertEquals(1, transactionList.size());
-//        Transaction rightTransaction = new Transaction(PATTERN_1_CURRENCY_SMS_ID,
-//                PATTERN_1_CURRENCY_SMS_QUANTITY, PATTERN_1_CURRENCY_SMS_CURRENCY, SOURCE,
-//                PATTERN_1_CURRENCY_SMS_DESTINATION, PATTERN_1_CURRENCY_SMS_DATE);
         Transaction rightTransaction =
                 new TransactionBuilder()
                         .setSmsId(PATTERN_1_CURRENCY_SMS_ID)

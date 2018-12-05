@@ -130,7 +130,7 @@ public class SmsParserHelper {
         try {
             date = simpleDateFormatter.parse(matcher.group(smsParserParameters.getPositionDate())).getTime();
         } catch (ParseException parseException) {
-            throw new IllegalArgumentException("Error parsing the date");
+            System.out.println("Error parsing the date. Using the default one");
         } catch (IndexOutOfBoundsException indexOutOfBoundException) {
             System.out.println("The date is not specified correctly. Using the one that comes from the sms");
         }
