@@ -34,7 +34,10 @@ public class TransactionsRepository implements ITransactionsRepository {
 
     @Override
     public Single<Boolean> addTransaction(ITransaction transaction) {
-        return Single.just(transactionsDatabase.transactionsDao().insertIfDoesNotExist(transaction));
+        return Single.defer(() -> Single.just(
+                transactionsDatabase
+                        .transactionsDao()
+                        .insertIfDoesNotExist(transaction)));
     }
 
     private void updateTransactionsList() {
