@@ -32,7 +32,7 @@ public class TransactionBuilder {
 
     public TransactionBuilder setQuantity(String quantityString) {
         try {
-            int quantity = Integer.valueOf(quantityString.trim());
+            float quantity = Float.parseFloat(quantityString.trim());
             return setQuantity(quantity);
         } catch (NumberFormatException numberFormatException) {
             throw new IllegalArgumentException("The quantity " + quantityString + " to be set " +
@@ -62,7 +62,7 @@ public class TransactionBuilder {
     }
 
     public TransactionBuilder setCurrency(String currency) {
-        checkTextNotEmptyOrThrowIllegalArgumentException(currency);
+        checkTextNotEmptyOrThrowIllegalArgumentException(currency, "currency");
 
         for (Currency currencyEnum : Currency.values()) {
             if (currencyEnum.toString().equals(currency)) {
@@ -80,13 +80,13 @@ public class TransactionBuilder {
     }
 
     public TransactionBuilder setSource(String source) {
-        checkTextNotEmptyOrThrowIllegalArgumentException(source);
+        checkTextNotEmptyOrThrowIllegalArgumentException(source, "source");
         this.source = source;
         return this;
     }
 
     public TransactionBuilder setDestination(String destination) {
-        checkTextNotEmptyOrThrowIllegalArgumentException(source);
+        checkTextNotEmptyOrThrowIllegalArgumentException(destination, "destination");
         this.destination = destination;
         return this;
     }
@@ -109,13 +109,13 @@ public class TransactionBuilder {
         }
 
         // Currency
-        checkTextNotEmptyOrThrowIllegalStateException(currency);
+        checkTextNotEmptyOrThrowIllegalStateException(currency, "currency");
 
         // Source
-        checkTextNotEmptyOrThrowIllegalStateException(source);
+        checkTextNotEmptyOrThrowIllegalStateException(source, "source");
 
         // Destination
-        checkTextNotEmptyOrThrowIllegalStateException(destination);
+        checkTextNotEmptyOrThrowIllegalStateException(destination, "destination");
 
         if (date == Transaction.DEFAULT_DATE) {
             throw new IllegalMonitorStateException("The date need to be set");
@@ -124,19 +124,17 @@ public class TransactionBuilder {
         return new Transaction(smsId, quantity, currency, source, destination, date);
     }
 
-    // TODO: Improve the error message
-    private boolean checkTextNotEmptyOrThrowIllegalArgumentException(String text) {
+    private boolean checkTextNotEmptyOrThrowIllegalArgumentException(String text, String fieldName) {
         if (text == null || text.isEmpty()) {
-            throw new IllegalArgumentException("The text cannot be empty");
+            throw new IllegalArgumentException("The " + fieldName + " cannot be empty");
         }
 
         return true;
     }
 
-    // TODO: Improve the error message
-    private boolean checkTextNotEmptyOrThrowIllegalStateException(String text) {
+    private boolean checkTextNotEmptyOrThrowIllegalStateException(String text, String fieldName) {
         if (text == null || text.isEmpty()) {
-            throw new IllegalStateException("The text cannot be empty");
+            throw new IllegalStateException("The " + fieldName + " cannot be empty");
         }
 
         return true;
