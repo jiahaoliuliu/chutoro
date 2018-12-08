@@ -8,11 +8,11 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import java.lang.IllegalArgumentException
 
-class AddTransactionPresenterKotlin(private val addTransactionUseCase: AddTransactionUseCase):
+class AddTransactionPresenter(private val addTransactionUseCase: AddTransactionUseCase):
         AddTransactionContract.Presenter {
 
     companion object {
-        private const val TAG = "AddTransactionPresenterKotlin"
+        private const val TAG = "AddTransactionPresenter"
     }
 
     private var view: AddTransactionContract.View? = null
@@ -26,19 +26,19 @@ class AddTransactionPresenterKotlin(private val addTransactionUseCase: AddTransa
             destination: String, source: String, quantity: String, currency: Currency, date: Long){
         compositeDisposable.add(addTransactionUseCase.execute(destination, source, quantity, currency, date)
             .subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(AndroidSchedulers.mainThread())
             .subscribe({resultBoolean ->
-//                if (resultBoolean) {
-//                    Log.e(TAG, "Transaction inserted correctly: $destination $source $quantity $currency $date")
-//                    view?.onInsertionCorrect()
-//                }
+                if (resultBoolean) {
+                    Log.e(TAG, "Transaction inserted correctly: $destination $source $quantity $currency $date")
+                    view?.onInsertionCorrect()
+                }
             }, {throwable ->
-//                if (throwable is IllegalArgumentException) {
-//                    view?.showInsertionError(throwable)
-//                } else {
+                if (throwable is IllegalArgumentException) {
+                    view?.showInsertionError(throwable)
+                } else {
                     Log.e(TAG, "Error adding the transaction ", throwable)
-//            }
-    }))
+            }
+        }))
     }
 
     override fun dispose() {
