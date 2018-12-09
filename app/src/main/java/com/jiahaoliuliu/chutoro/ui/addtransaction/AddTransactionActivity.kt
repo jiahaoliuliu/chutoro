@@ -16,14 +16,20 @@ import javax.inject.Inject
 import android.widget.AdapterView
 import android.widget.Toast
 import android.widget.AdapterView.OnItemSelectedListener
+import com.jiahaoliuliu.chutoro.entity.Source
 
 class AddTransactionActivity : AppCompatActivity(), //AdapterView.OnItemSelectedListener,
         AddTransactionContract.View {
     @Inject
     lateinit var presenter: AddTransactionContract.Presenter
 
+    // Currency
     private val defaultCurrency = Currency.AED
     private var currency = defaultCurrency
+
+    // Source
+    private val defaultSource = Source.ADCB
+    private var source = defaultSource
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,9 +42,11 @@ class AddTransactionActivity : AppCompatActivity(), //AdapterView.OnItemSelected
 
         // Link the views
         val destinationED = findViewById<EditText>(R.id.destination)
-        val sourceED = findViewById<EditText>(R.id.source)
+        val sourceSpinner = findViewById<Spinner>(R.id.source)
         val quantity = findViewById<EditText>(R.id.quantity)
         val currencySpinner = findViewById<Spinner>(R.id.currency)
+
+        // Set the spinner for the currency
         ArrayAdapter.createFromResource(
                 this,
                 R.array.currencies_array,
@@ -51,7 +59,6 @@ class AddTransactionActivity : AppCompatActivity(), //AdapterView.OnItemSelected
         }
 
         currencySpinner.onItemSelectedListener = object : OnItemSelectedListener {
-
             override fun onItemSelected(adapterView: AdapterView<*>, view: View,
                                         position: Int, id: Long) {
                 if (position >= 0 && position < Currency.values().size) {
@@ -64,10 +71,35 @@ class AddTransactionActivity : AppCompatActivity(), //AdapterView.OnItemSelected
             }
         }
 
+        // Set the spinner for the source
+        ArrayAdapter.createFromResource(
+                this,
+                R.array.source_array,
+                android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            sourceSpinner.adapter = adapter
+        }
+
+        sourceSpinner.onItemSelectedListener = object : OnItemSelectedListener {
+            override fun onItemSelected(adapterView: AdapterView<*>, view: View,
+                                        position: Int, id: Long) {
+                if (position >= 0 && position < Source.values().size) {
+                    source = Source.values()[position]
+                }
+            }
+
+            override fun onNothingSelected(adapterView: AdapterView<*>) {
+                source = defaultSource
+            }
+        }
+
         val addTransactionButton = findViewById<Button>(R.id.add)
         addTransactionButton.setOnClickListener { _ ->
             // TODO: Pass the date
-            presenter.addTransactionIfCorrect(destinationED.text.toString(), sourceED.text.toString(),
+            presenter.addTransactionIfCorrect(destinationED.text.toString(), source,
                     quantity.text.toString(), currency, Date().time)
         }
 

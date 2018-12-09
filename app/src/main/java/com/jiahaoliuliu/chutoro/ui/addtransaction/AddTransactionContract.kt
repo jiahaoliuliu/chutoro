@@ -1,6 +1,7 @@
 package com.jiahaoliuliu.chutoro.ui.addtransaction
 
 import com.jiahaoliuliu.chutoro.entity.Currency
+import com.jiahaoliuliu.chutoro.entity.Source
 import java.lang.IllegalArgumentException
 
 interface AddTransactionContract {
@@ -21,7 +22,7 @@ interface AddTransactionContract {
 
         fun addTransactionIfCorrect(
                 destination: String,
-                source: String,
+                source: Source,
                 quantity: String,
                 currency: Currency,
                 date: Long)

@@ -8,7 +8,6 @@ import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.storagelayer.TransactionsDatabase;
 
 import java.util.List;
-import java.util.concurrent.Callable;
 
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;

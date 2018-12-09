@@ -2,6 +2,7 @@ package com.jiahaoliuliu.chutoro.ui.addtransaction
 
 import android.util.Log
 import com.jiahaoliuliu.chutoro.entity.Currency
+import com.jiahaoliuliu.chutoro.entity.Source
 import com.jiahaoliuliu.chutoro.usecase.AddTransactionUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -23,7 +24,7 @@ class AddTransactionPresenter(private val addTransactionUseCase: AddTransactionU
     }
 
     override fun addTransactionIfCorrect(
-            destination: String, source: String, quantity: String, currency: Currency, date: Long){
+            destination: String, source: Source, quantity: String, currency: Currency, date: Long){
         compositeDisposable.add(addTransactionUseCase.execute(destination, source, quantity, currency, date)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

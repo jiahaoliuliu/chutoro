@@ -22,7 +22,7 @@
         android:layout_marginRight="5dp"
         />
 
-    <EditText
+    <Spinner
         android:id="@+id/source"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
