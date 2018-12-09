@@ -42,6 +42,6 @@ class AddTransactionPresenter(private val addTransactionUseCase: AddTransactionU
     }
 
     override fun dispose() {
-        compositeDisposable.dispose()
+        compositeDisposable.clear()
     }
 }

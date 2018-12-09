@@ -2,6 +2,7 @@ package com.jiahaoliuliu.chutoro.ui.addtransaction
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import com.jiahaoliuliu.chutoro.R
@@ -54,7 +55,8 @@ class AddTransactionActivity : AppCompatActivity(), AdapterView.OnItemSelectedLi
                     quantity.text.toString(), currency, Date().time)
         }
 
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_close)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
         title = getString(R.string.add_transaction_title)
     }
 
@@ -79,6 +81,21 @@ class AddTransactionActivity : AppCompatActivity(), AdapterView.OnItemSelectedLi
         Toast.makeText(this,
                 "Error inserting the transaction ${exception.localizedMessage}",
                 Toast.LENGTH_LONG).show()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 
     override fun onDestroy() {

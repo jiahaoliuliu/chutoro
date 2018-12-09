@@ -35,7 +35,8 @@ public class TransactionsRepository implements ITransactionsRepository {
 
     @Override
     public Single<Boolean> addTransaction(ITransaction transaction) {
-        return Single.fromCallable(() -> transactionsDatabase.transactionsDao().insertIfDoesNotExist(transaction));
+        return Single.fromCallable(
+                () -> transactionsDatabase.transactionsDao().insertIfDoesNotExist(transaction));
     }
 
     private void updateTransactionsList() {
