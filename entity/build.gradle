@@ -5,7 +5,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     compile "org.jetbrains.kotlin:kotlin-stdlib"
 
-//    implementation Libs.kotlin_standard_lib_jdk_8
+    testImplementation Tests.junit
+    testImplementation Tests.mockito
 }
 
 sourceCompatibility = Versions.java
