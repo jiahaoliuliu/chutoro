@@ -129,7 +129,7 @@ public class TransactionBuilder {
         checkTextNotEmptyOrThrowIllegalStateException(destination, "destination");
 
         if (date == Transaction.DEFAULT_DATE) {
-            throw new IllegalMonitorStateException("The date need to be set");
+            throw new IllegalStateException("The date need to be set");
         }
 
         return new Transaction(smsId, quantity, currency, source, destination, date);
