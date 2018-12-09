@@ -81,7 +81,18 @@ public class TransactionBuilder {
 
     public TransactionBuilder setSource(String source) {
         checkTextNotEmptyOrThrowIllegalArgumentException(source, "source");
-        this.source = source;
+
+        for (Source sourceEnum: Source.values()) {
+            if (sourceEnum.toString().equals(source)) {
+                return setSource(sourceEnum);
+            }
+        }
+
+        throw new IllegalArgumentException("The source cannot be recognized " + source);
+    }
+
+    public TransactionBuilder setSource(Source source) {
+        this.source = source.toString();
         return this;
     }
 
