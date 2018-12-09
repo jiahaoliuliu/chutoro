@@ -54,7 +54,7 @@ class AddTransactionActivity : AppCompatActivity(), AdapterView.OnItemSelectedLi
                     quantity.text.toString(), currency, Date().time)
         }
 
-        supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_close)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_close)
         title = getString(R.string.add_transaction_title)
     }
 
