@@ -29,7 +29,7 @@ class AddTransactionPresenter(private val addTransactionUseCase: AddTransactionU
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({resultBoolean ->
                 if (resultBoolean) {
-                    Log.e(TAG, "Transaction inserted correctly: $destination $source $quantity $currency $date")
+                    Log.v(TAG, "Transaction inserted correctly: $destination $source $quantity $currency $date")
                     view?.onInsertionCorrect()
                 }
             }, {throwable ->
