@@ -8,6 +8,7 @@ import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.storagelayer.TransactionsDatabase;
 
 import java.util.List;
+import java.util.concurrent.Callable;
 
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
@@ -34,10 +35,7 @@ public class TransactionsRepository implements ITransactionsRepository {
 
     @Override
     public Single<Boolean> addTransaction(ITransaction transaction) {
-        return Single.defer(() -> Single.just(
-                transactionsDatabase
-                        .transactionsDao()
-                        .insertIfDoesNotExist(transaction)));
+        return Single.fromCallable(() -> transactionsDatabase.transactionsDao().insertIfDoesNotExist(transaction));
     }
 
     private void updateTransactionsList() {
