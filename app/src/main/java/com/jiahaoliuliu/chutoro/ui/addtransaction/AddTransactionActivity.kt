@@ -23,10 +23,20 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
 
     companion object {
         private const val DATE_FORMAT_DATE = "dd MMMM yyyy"
+        private const val DATE_FORMAT_HOUR = "HH:mm"
     }
 
     @Inject
     lateinit var presenter: AddTransactionContract.Presenter
+
+    // Views
+    private lateinit var destinationED: EditText
+    private lateinit var sourceSpinner: Spinner
+    private lateinit var quantity: EditText
+    private lateinit var currencySpinner: Spinner
+    private lateinit var dateTV: TextView
+    private lateinit var hourTV: TextView
+    private lateinit var addTransactionButton: Button
 
     // Currency
     private val defaultCurrency = Currency.AED
@@ -36,7 +46,10 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
     private val defaultSource = Source.ADCB
     private var source = defaultSource
 
-    private val simpleDateFormatter = SimpleDateFormat(DATE_FORMAT_DATE)
+    private val simpleDateFormatterDate = SimpleDateFormat(DATE_FORMAT_DATE)
+    private val simpleDateFormatterHour = SimpleDateFormat(DATE_FORMAT_HOUR)
+    private var time = Date()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,19 +61,37 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
         presenter.setView(this)
 
         // Link the views
-        val destinationED = findViewById<EditText>(R.id.destination)
-        val sourceSpinner = findViewById<Spinner>(R.id.source)
-        val quantity = findViewById<EditText>(R.id.quantity)
-        val currencySpinner = findViewById<Spinner>(R.id.currency)
-        val dateTV = findViewById<TextView>(R.id.date_tv)
-        val timeTV = findViewById<TextView>(R.id.time_tv)
+        linkViews()
 
-        // Set the values for the views
+        setupViews()
+    }
+
+    private fun setupViews() {
+        setupActionBar()
+        setupCurrency()
+        setupSource()
+        setupDate()
+        setupHour()
+        setupAddButton()
+    }
+
+    private fun linkViews() {
+        destinationED = findViewById(R.id.destination)
+        sourceSpinner = findViewById(R.id.source)
+        quantity = findViewById(R.id.quantity)
+        currencySpinner = findViewById(R.id.currency)
+        dateTV = findViewById(R.id.date_tv)
+        hourTV = findViewById(R.id.hour_tv)
+        addTransactionButton = findViewById(R.id.add)
+    }
+
+    private fun setupActionBar() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         title = getString(R.string.add_transaction_title)
+    }
 
-        // Set the spinner for the currency
+    private fun setupCurrency() {
         ArrayAdapter.createFromResource(
                 this,
                 R.array.currencies_array,
@@ -84,8 +115,9 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
                 currency = defaultCurrency
             }
         }
+    }
 
-        // Set the spinner for the source
+    private fun setupSource() {
         ArrayAdapter.createFromResource(
                 this,
                 R.array.source_array,
@@ -109,19 +141,12 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
                 source = defaultSource
             }
         }
+    }
 
-        val addTransactionButton = findViewById<Button>(R.id.add)
-        addTransactionButton.setOnClickListener { _ ->
-            // TODO: Pass the date
-            presenter.addTransactionIfCorrect(destinationED.text.toString(), source,
-                    quantity.text.toString(), currency, Date().time)
-        }
-
-        val now = Date()
-        dateTV.text = simpleDateFormatter.format(now)
-
+    private fun setupDate() {
+        dateTV.text = simpleDateFormatterDate.format(time)
         dateTV.setOnClickListener({
-            // TODO
+
         })
     }
 
@@ -135,6 +160,18 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
         Toast.makeText(this,
                 "Error inserting the transaction ${exception.localizedMessage}",
                 Toast.LENGTH_LONG).show()
+    }
+
+    private fun setupHour() {
+        hourTV.text = simpleDateFormatterHour.format(time)
+    }
+
+    private fun setupAddButton() {
+        addTransactionButton.setOnClickListener { _ ->
+            // TODO: Pass the date
+            presenter.addTransactionIfCorrect(destinationED.text.toString(), source,
+                    quantity.text.toString(), currency, Date().time)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
