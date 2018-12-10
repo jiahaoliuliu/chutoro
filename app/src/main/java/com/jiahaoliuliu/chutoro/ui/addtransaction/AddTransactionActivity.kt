@@ -1,6 +1,7 @@
 package com.jiahaoliuliu.chutoro.ui.addtransaction
 
 import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem
@@ -53,6 +54,7 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
     private val simpleDateFormatterHour = SimpleDateFormat(DATE_FORMAT_HOUR)
     private var date = Date()
     private var datePickerDialog: DatePickerDialog? = null
+    private var timePickerDialog: TimePickerDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -165,15 +167,42 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
         return DatePickerDialog(this,
-                DatePickerDialog.OnDateSetListener {_, year, monthOfYear, dayOfMonth ->
-                    val newCalendar = Calendar.getInstance()
-                    newCalendar.set(Calendar.YEAR, year)
-                    newCalendar.set(Calendar.MONTH, monthOfYear)
-                    newCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                    date = newCalendar.time
-                    dateTV.text = simpleDateFormatterDate.format(date)
-                    // TODO: Restrict the calendar to only the past
+            DatePickerDialog.OnDateSetListener {_, year, monthOfYear, dayOfMonth ->
+                val newCalendar = Calendar.getInstance()
+                newCalendar.set(Calendar.YEAR, year)
+                newCalendar.set(Calendar.MONTH, monthOfYear)
+                newCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                date = newCalendar.time
+                dateTV.text = simpleDateFormatterDate.format(date)
+                // TODO: Restrict the calendar to only the past
         }, year, month, day)
+    }
+
+    private fun setupHour() {
+        hourTV.text = simpleDateFormatterHour.format(date)
+        hourTV.setOnClickListener{ _ ->
+            if (timePickerDialog == null) {
+                timePickerDialog = createTimePickerDialog()
+            }
+
+            timePickerDialog?.show()
+        }
+    }
+
+    private fun createTimePickerDialog(): TimePickerDialog {
+        val calendar = Calendar.getInstance()
+        calendar.time = date
+        val hour = calendar.get(Calendar.HOUR_OF_DAY)
+        val minutes = calendar.get(Calendar.MINUTE)
+
+        return TimePickerDialog(this, TimePickerDialog.OnTimeSetListener {_, hourOfDay, minute ->
+            val newCalendar = Calendar.getInstance()
+            newCalendar.time = date
+            newCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
+            newCalendar.set(Calendar.MINUTE, minute)
+            date = newCalendar.time
+            hourTV.text = simpleDateFormatterHour.format(date)
+        }, hour, minutes, true)
     }
 
     override fun onInsertionCorrect() {
@@ -188,15 +217,10 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
                 Toast.LENGTH_LONG).show()
     }
 
-    private fun setupHour() {
-        hourTV.text = simpleDateFormatterHour.format(date)
-    }
-
     private fun setupAddButton() {
         addTransactionButton.setOnClickListener { _ ->
-            // TODO: Pass the date
             presenter.addTransactionIfCorrect(destinationED.text.toString(), source,
-                    quantity.text.toString(), currency, Date().time)
+                    quantity.text.toString(), currency, date.time)
         }
     }
 
