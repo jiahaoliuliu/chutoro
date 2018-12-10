@@ -3,7 +3,6 @@ package com.jiahaoliuliu.chutoro.ui.addtransaction
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
@@ -52,7 +51,7 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
     // Date & hour
     private val simpleDateFormatterDate = SimpleDateFormat(DATE_FORMAT_DATE)
     private val simpleDateFormatterHour = SimpleDateFormat(DATE_FORMAT_HOUR)
-    private var time = Date()
+    private var date = Date()
     private var datePickerDialog: DatePickerDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -148,7 +147,7 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
     }
 
     private fun setupDate() {
-        dateTV.text = simpleDateFormatterDate.format(time)
+        dateTV.text = simpleDateFormatterDate.format(date)
         dateTV.setOnClickListener { _ ->
             if (datePickerDialog == null) {
                 datePickerDialog = createDatePickerDialog()
@@ -159,14 +158,21 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
     }
 
     private fun createDatePickerDialog(): DatePickerDialog {
-        val c = Calendar.getInstance()
-        val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)
-        val day = c.get(Calendar.DAY_OF_MONTH)
+        val calendar = Calendar.getInstance()
+        calendar.time = date
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
 
         return DatePickerDialog(this,
-                DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-            // Display Selected date in textbox
+                DatePickerDialog.OnDateSetListener {_, year, monthOfYear, dayOfMonth ->
+                    val newCalendar = Calendar.getInstance()
+                    newCalendar.set(Calendar.YEAR, year)
+                    newCalendar.set(Calendar.MONTH, monthOfYear)
+                    newCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                    date = newCalendar.time
+                    dateTV.text = simpleDateFormatterDate.format(date)
+                    // TODO: Restrict the calendar to only the past
         }, year, month, day)
     }
 
@@ -183,7 +189,7 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
     }
 
     private fun setupHour() {
-        hourTV.text = simpleDateFormatterHour.format(time)
+        hourTV.text = simpleDateFormatterHour.format(date)
     }
 
     private fun setupAddButton() {
