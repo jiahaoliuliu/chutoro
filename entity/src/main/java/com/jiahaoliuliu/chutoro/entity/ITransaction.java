@@ -9,6 +9,12 @@ public interface ITransaction {
     long getSmsId();
 
     /**
+     * If the current transaction is from the result of parsing a sms
+     * @return
+     */
+    boolean isFromSms();
+
+    /**
      * Get transactions quantity. Since float does not operate very well in Java, it is using
      * int with 2 decimals instead
      * @return The quantity used * 100

@@ -2,6 +2,10 @@ package com.jiahaoliuliu.chutoro.entity;
 
 public class Transaction implements ITransaction {
 
+    protected static final long DEFAULT_SMS_ID = -1;
+    protected static final int DEFAULT_QUANTITY = -1;
+    protected static final long DEFAULT_DATE = -1l;
+
     private final long smsId;
     private final int quantity;
     private final String currency;
@@ -9,7 +13,7 @@ public class Transaction implements ITransaction {
     private final String destination;
     private final long date;
 
-    public Transaction(long smsId, int quantity, String currency, String source, String destination,
+    protected Transaction(long smsId, int quantity, String currency, String source, String destination,
                        long date) {
         this.smsId = smsId;
         this.quantity = quantity;
@@ -22,6 +26,11 @@ public class Transaction implements ITransaction {
     @Override
     public long getSmsId() {
         return smsId;
+    }
+
+    @Override
+    public boolean isFromSms() {
+        return smsId != DEFAULT_SMS_ID;
     }
 
     @Override

@@ -38,7 +38,8 @@ object Versions {
 object Libs {
     // Core
     val support_appcompat_v7 = "com.android.support:appcompat-v7:${Versions.support_lib}"
-    val kotlin_standard_lib_jdk_8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    val support_design = "com.android.support:design:${Versions.support_lib}"
+    val kotlin_standard_lib_jdk_8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
     val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     val retrofit_rxjava_adapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
     val rxjava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"
@@ -47,6 +48,7 @@ object Libs {
 
     val dagger = "com.google.dagger:dagger:${Versions.dagger}"
     val dagger_support = "com.google.dagger:dagger-android-support:${Versions.dagger}"
+    val dagger_kotlin = "com.google.dagger:dagger-compiler:${Versions.dagger}"
     val gson = "com.google.code.gson:gson:${Versions.gson}"
 
     val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"

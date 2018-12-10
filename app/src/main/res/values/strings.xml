@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Chutoro</string>
+    <string name="title_activity_add_transaction">AddTransactionActivity</string>
+    <string name="source">Bank</string>
+    <string name="destination">Shop</string>
+    <string name="quantity">quantity</string>
+    <string name="currency">Currency</string>
+    <string name="add_transaction_title">Add transaction</string>
+    <string name="add_transaction_add_button">Add</string>
+
+    <!-- The order of the currencies need to match the enum Currency in the entity module -->
+    <string-array name="currencies_array">
+        <item>Dirhams</item>
+        <item>Euros</item>
+        <item>Dollars</item>
+    </string-array>
+
+    <!-- The order of the sources need to match the enum Source in the entity module -->
+    <string-array name="source_array">
+        <item>ADCB</item>
+        <item>Najm</item>
+    </string-array>
+
 </resources>

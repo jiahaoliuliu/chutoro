@@ -1,4 +1,7 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion Versions.compileSdkVersion
@@ -32,6 +35,11 @@ dependencies {
     implementation Libs.dagger
     implementation Libs.dagger_support
     annotationProcessor AnnotationProcessor.dagger
+    kapt Libs.dagger_kotlin
+    implementation Libs.rxjava
+    implementation Libs.rxAndroid
+
+    implementation Libs.kotlin_standard_lib_jdk_8
 
     implementation Libs.liveData
     annotationProcessor AnnotationProcessor.liveData
@@ -42,4 +50,7 @@ dependencies {
     testImplementation Tests.junit
     androidTestImplementation Tests.testRunner
     androidTestImplementation Tests.espresso
+}
+repositories {
+    mavenCentral()
 }

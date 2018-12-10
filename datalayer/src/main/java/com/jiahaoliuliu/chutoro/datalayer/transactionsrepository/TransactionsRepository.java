@@ -9,6 +9,7 @@ import com.jiahaoliuliu.chutoro.storagelayer.TransactionsDatabase;
 
 import java.util.List;
 
+import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
 
 public class TransactionsRepository implements ITransactionsRepository {
@@ -29,6 +30,12 @@ public class TransactionsRepository implements ITransactionsRepository {
     public LiveData<? extends List<? extends ITransaction>> retrieveTransactionsList() {
         updateTransactionsList();
         return allTransactions;
+    }
+
+    @Override
+    public Single<Boolean> addTransaction(ITransaction transaction) {
+        return Single.fromCallable(
+                () -> transactionsDatabase.transactionsDao().insertIfDoesNotExist(transaction));
     }
 
     private void updateTransactionsList() {

@@ -67,7 +67,6 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
             layoutTransactionBinding.executePendingBindings();
             layoutTransactionBinding.date.setText(parseDate(transaction.getDate()));
             layoutTransactionBinding.quantity.setText(parseQuantity(transaction.getQuantity()));
-
         }
 
         private String parseDate(long date) {

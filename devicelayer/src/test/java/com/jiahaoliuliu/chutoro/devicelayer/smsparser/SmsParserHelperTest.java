@@ -2,6 +2,7 @@ package com.jiahaoliuliu.chutoro.devicelayer.smsparser;
 
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.SmsParserParameters;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
+import com.jiahaoliuliu.chutoro.entity.TransactionBuilder;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -66,8 +67,14 @@ public class SmsParserHelperTest {
 
         // Verify the results
         assertEquals(1, transactionList.size());
-        Transaction rightTransaction = new Transaction(SMS_1_ID, SMS_1_QUANTITY, SMS_1_CURRENCY,
-                SOURCE, SMS_1_DESTINATION, SMS_1_DATE);
+        Transaction rightTransaction = new TransactionBuilder()
+                    .setSmsId(SMS_1_ID)
+                    .setQuantity(SMS_1_QUANTITY)
+                    .setCurrency(SMS_1_CURRENCY)
+                    .setSource(SOURCE)
+                    .setDestination(SMS_1_DESTINATION)
+                    .setDate(SMS_1_DATE)
+                    .build();
         assertEquals(rightTransaction, transactionList.get(0));
     }
 

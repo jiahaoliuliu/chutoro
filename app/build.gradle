@@ -1,4 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion Versions.compileSdkVersion
@@ -22,7 +25,7 @@ android {
         targetCompatibility Versions.androidJavaVersion
     }
 
-    dataBinding{
+    dataBinding {
         enabled = true
     }
 }
@@ -30,12 +33,12 @@ android {
 configurations.all {
     resolutionStrategy.eachDependency {
         DependencyResolveDetails details ->
-        def requested = details.requested
-        if (requested.group == "com.android.support") {
-            if (!requested.name.startsWith("multidex")) {
-                details.useVersion "26.+"
+            def requested = details.requested
+            if (requested.group == "com.android.support") {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion "26.+"
+                }
             }
-        }
     }
 }
 
@@ -51,12 +54,18 @@ dependencies {
     // Core libraries
     implementation Libs.support_appcompat_v7
     annotationProcessor AnnotationProcessor.support
+    implementation Libs.support_design
     implementation Libs.rxjava
     implementation Libs.rxAndroid
+
     implementation Libs.dagger
     implementation Libs.dagger_support
+    kapt Libs.dagger_kotlin
     annotationProcessor AnnotationProcessor.dagger
+
     implementation Libs.picasso
+
+    implementation Libs.kotlin_standard_lib_jdk_8
 
     // Optional
     implementation Libs.cardView
