@@ -9,6 +9,8 @@
     tools:context=".ui.addtransaction.AddTransactionActivity"
     tools:showIn="@layout/activity_add_transaction"
     android:orientation="vertical"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
     >
 
     <EditText
@@ -18,8 +20,6 @@
         android:hint="@string/destination"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         />
 
     <Spinner
@@ -29,8 +29,6 @@
         android:hint="@string/source"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         />
 
     <EditText
@@ -41,8 +39,6 @@
         android:inputType="numberDecimal"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         />
     <Spinner
         android:id="@+id/currency"
@@ -50,9 +46,37 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         />
+    <!-- Date and time picker -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        >
+        <!-- Date picker -->
+        <TextView
+            android:id="@+id/date_tv"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            tools:text="10th November 2018"
+            android:gravity="center"
+            android:text="10th November 2018"
+            />
+        <!-- Time picker -->
+        <TextView
+            android:id="@+id/time_tv"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            tools:text="16:25"
+            android:gravity="center"
+            android:text="16:25"
+            />
+    </LinearLayout>
+
     <Button
         android:id="@+id/add"
         android:layout_width="match_parent"
@@ -60,8 +84,5 @@
         android:text="@string/add_transaction_add_button"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         />
-    <!-- TODO Add Date and time picker -->
 </LinearLayout>

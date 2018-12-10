@@ -17,9 +17,14 @@ import android.widget.AdapterView
 import android.widget.Toast
 import android.widget.AdapterView.OnItemSelectedListener
 import com.jiahaoliuliu.chutoro.entity.Source
+import java.text.SimpleDateFormat
 
-class AddTransactionActivity : AppCompatActivity(), //AdapterView.OnItemSelectedListener,
-        AddTransactionContract.View {
+class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View {
+
+    companion object {
+        private const val DATE_FORMAT_DATE = "dd MMMM yyyy"
+    }
+
     @Inject
     lateinit var presenter: AddTransactionContract.Presenter
 
@@ -30,6 +35,8 @@ class AddTransactionActivity : AppCompatActivity(), //AdapterView.OnItemSelected
     // Source
     private val defaultSource = Source.ADCB
     private var source = defaultSource
+
+    private val simpleDateFormatter = SimpleDateFormat(DATE_FORMAT_DATE)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +52,13 @@ class AddTransactionActivity : AppCompatActivity(), //AdapterView.OnItemSelected
         val sourceSpinner = findViewById<Spinner>(R.id.source)
         val quantity = findViewById<EditText>(R.id.quantity)
         val currencySpinner = findViewById<Spinner>(R.id.currency)
+        val dateTV = findViewById<TextView>(R.id.date_tv)
+        val timeTV = findViewById<TextView>(R.id.time_tv)
+
+        // Set the values for the views
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        title = getString(R.string.add_transaction_title)
 
         // Set the spinner for the currency
         ArrayAdapter.createFromResource(
@@ -103,9 +117,12 @@ class AddTransactionActivity : AppCompatActivity(), //AdapterView.OnItemSelected
                     quantity.text.toString(), currency, Date().time)
         }
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
-        title = getString(R.string.add_transaction_title)
+        val now = Date()
+        dateTV.text = simpleDateFormatter.format(now)
+
+        dateTV.setOnClickListener({
+            // TODO
+        })
     }
 
     override fun onInsertionCorrect() {
