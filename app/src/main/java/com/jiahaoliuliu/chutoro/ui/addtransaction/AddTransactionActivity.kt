@@ -1,7 +1,9 @@
 package com.jiahaoliuliu.chutoro.ui.addtransaction
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
@@ -22,6 +24,7 @@ import java.text.SimpleDateFormat
 class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View {
 
     companion object {
+        private const val TAG = "AddTransactionActivity"
         private const val DATE_FORMAT_DATE = "dd MMMM yyyy"
         private const val DATE_FORMAT_HOUR = "HH:mm"
     }
@@ -46,10 +49,11 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
     private val defaultSource = Source.ADCB
     private var source = defaultSource
 
+    // Date & hour
     private val simpleDateFormatterDate = SimpleDateFormat(DATE_FORMAT_DATE)
     private val simpleDateFormatterHour = SimpleDateFormat(DATE_FORMAT_HOUR)
     private var time = Date()
-
+    private var datePickerDialog: DatePickerDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -145,9 +149,25 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
 
     private fun setupDate() {
         dateTV.text = simpleDateFormatterDate.format(time)
-        dateTV.setOnClickListener({
+        dateTV.setOnClickListener { _ ->
+            if (datePickerDialog == null) {
+                datePickerDialog = createDatePickerDialog()
+            }
 
-        })
+            datePickerDialog?.show()
+        }
+    }
+
+    private fun createDatePickerDialog(): DatePickerDialog {
+        val c = Calendar.getInstance()
+        val year = c.get(Calendar.YEAR)
+        val month = c.get(Calendar.MONTH)
+        val day = c.get(Calendar.DAY_OF_MONTH)
+
+        return DatePickerDialog(this,
+                DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+            // Display Selected date in textbox
+        }, year, month, day)
     }
 
     override fun onInsertionCorrect() {
