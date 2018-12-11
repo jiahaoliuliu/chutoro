@@ -43,7 +43,7 @@ public class TransactionsRepository implements ITransactionsRepository {
             .subscribe(transactionsList -> {
                 transactionsDatabase.transactionsDao().insertIfDoesNotExist(transactionsList);
             }, throwable -> {
-                Timber.e("Error getting the transactions List", throwable);
+                Timber.e(throwable, "Error getting the transactions List");
             });
     }
 }
