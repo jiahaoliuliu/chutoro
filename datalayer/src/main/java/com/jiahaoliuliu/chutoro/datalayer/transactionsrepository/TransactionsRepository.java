@@ -27,7 +27,6 @@ public class TransactionsRepository implements ITransactionsRepository {
 
     @Override
     public LiveData<? extends List<? extends ITransaction>> retrieveTransactionsList() {
-        updateTransactionsList();
         return allTransactions;
     }
 
@@ -37,7 +36,8 @@ public class TransactionsRepository implements ITransactionsRepository {
                 () -> transactionsDatabase.transactionsDao().insertIfDoesNotExist(transaction));
     }
 
-    private void updateTransactionsList() {
+    @Override
+    public void updateTransactionsList() {
         commonTransactionsProvider.provideTransactionsList()
             .subscribeOn(Schedulers.io())
             .subscribe(transactionsList -> {

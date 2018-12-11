@@ -31,6 +31,11 @@ public interface TransactionsListContract {
         LiveData<? extends List<? extends ITransaction>> retrieveTransactionsList();
 
         /**
+         * Method used to update the existing transactions list
+         */
+        void updateTransactionsList();
+
+        /**
          * Dispose all the retained memory
          */
         void dispose();

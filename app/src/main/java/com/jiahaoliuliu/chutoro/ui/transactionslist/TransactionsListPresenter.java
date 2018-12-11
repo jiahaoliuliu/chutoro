@@ -1,10 +1,10 @@
 package com.jiahaoliuliu.chutoro.ui.transactionslist;
 
-import android.annotation.SuppressLint;
 import android.arch.lifecycle.LiveData;
 
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.usecase.RetrieveTransactionsListUseCase;
+import com.jiahaoliuliu.chutoro.usecase.UpdateTransactionsUseCase;
 
 import java.util.List;
 
@@ -15,9 +15,12 @@ public class TransactionsListPresenter implements TransactionsListContract.Prese
     private TransactionsListContract.View view;
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private final RetrieveTransactionsListUseCase retrieveTransactionsListUseCase;
+    private final UpdateTransactionsUseCase updateTransactionsUseCase;
 
-    public TransactionsListPresenter(RetrieveTransactionsListUseCase retrieveTransactionsListUseCase) {
+    public TransactionsListPresenter(RetrieveTransactionsListUseCase retrieveTransactionsListUseCase,
+                                     UpdateTransactionsUseCase updateTransactionsUseCase) {
         this.retrieveTransactionsListUseCase = retrieveTransactionsListUseCase;
+        this.updateTransactionsUseCase = updateTransactionsUseCase;
     }
 
     @Override
@@ -28,6 +31,11 @@ public class TransactionsListPresenter implements TransactionsListContract.Prese
     @Override
     public LiveData<? extends List<? extends ITransaction>> retrieveTransactionsList() {
         return retrieveTransactionsListUseCase.execute();
+    }
+
+    @Override
+    public void updateTransactionsList() {
+        updateTransactionsUseCase.execute();
     }
 
     @Override

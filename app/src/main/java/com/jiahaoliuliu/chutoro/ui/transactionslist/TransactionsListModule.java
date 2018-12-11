@@ -1,6 +1,7 @@
 package com.jiahaoliuliu.chutoro.ui.transactionslist;
 
 import com.jiahaoliuliu.chutoro.usecase.RetrieveTransactionsListUseCase;
+import com.jiahaoliuliu.chutoro.usecase.UpdateTransactionsUseCase;
 
 import javax.inject.Singleton;
 
@@ -13,7 +14,9 @@ public class TransactionsListModule {
     @Provides
     @Singleton
     TransactionsListContract.Presenter providePresenter(
-            RetrieveTransactionsListUseCase retrieveTransactionsListUseCase) {
-        return new TransactionsListPresenter(retrieveTransactionsListUseCase);
+            RetrieveTransactionsListUseCase retrieveTransactionsListUseCase,
+            UpdateTransactionsUseCase updateTransactionsUseCase) {
+        return new TransactionsListPresenter(retrieveTransactionsListUseCase,
+                updateTransactionsUseCase);
     }
 }
