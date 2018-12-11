@@ -69,7 +69,7 @@ public class TransactionsListActivity extends AppCompatActivity implements Trans
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // Nothing
+                    // Do nothing
                 } else {
                     // permission denied
                     // TODO: Show the screen to request the permission
