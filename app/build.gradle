@@ -64,6 +64,7 @@ dependencies {
     annotationProcessor AnnotationProcessor.dagger
 
     implementation Libs.picasso
+    implementation Libs.timber
 
     implementation Libs.kotlin_standard_lib_jdk_8
 

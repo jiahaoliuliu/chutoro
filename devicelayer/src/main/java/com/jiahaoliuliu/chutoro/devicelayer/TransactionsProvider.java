@@ -17,10 +17,9 @@ import java.util.Collections;
 import java.util.List;
 
 import io.reactivex.Single;
+import timber.log.Timber;
 
 public class TransactionsProvider {
-
-    private static final String TAG = "AbsTransactionsProvider";
 
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_ADDRESS = "address";
@@ -71,7 +70,7 @@ public class TransactionsProvider {
     private List<Transaction> getDataFromCursor(Cursor cursor) {
         // Try to move the cursor to the first position
         if (!cursor.moveToFirst()) {
-            Log.v(TAG, "The user does not have any sms");
+            Timber.v("The user does not have any sms");
             cursor.close();
             return Collections.emptyList();
         }
@@ -86,7 +85,7 @@ public class TransactionsProvider {
                 smsList.add(sms);
                 // To catch any error on Getting the data from the cursor
             } catch (IllegalArgumentException illegalArgumentException) {
-                Log.w(TAG, "Error getting sms message from content resolver ", illegalArgumentException);
+                Timber.e(illegalArgumentException,"Error getting sms message from content resolver ");
             }
         }
         cursor.close();
