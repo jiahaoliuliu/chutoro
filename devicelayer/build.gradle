@@ -30,9 +30,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':entity')
 
+    // Core
     implementation Libs.support_appcompat_v7
-
     implementation Libs.rxjava
+    implementation Libs.timber
 
     implementation Libs.dagger
     implementation Libs.dagger_support

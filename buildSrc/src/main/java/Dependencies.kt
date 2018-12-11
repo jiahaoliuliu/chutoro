@@ -22,6 +22,7 @@ object Versions {
     val gson = "2.8.5"
     val picasso = "2.71828"
     val kotlin = "1.2.71"
+    val timber = "4.7.1"
 
     // Tests
     val junit = "4.12"
@@ -45,6 +46,7 @@ object Libs {
     val rxjava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"
     val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}"
     val rxjava_gson_converter = "com.squareup.retrofit2:converter-gson:${Versions.rxJavaGsonConverter}"
+    val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 
     val dagger = "com.google.dagger:dagger:${Versions.dagger}"
     val dagger_support = "com.google.dagger:dagger-android-support:${Versions.dagger}"

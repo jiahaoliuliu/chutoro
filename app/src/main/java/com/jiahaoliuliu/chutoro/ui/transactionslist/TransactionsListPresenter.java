@@ -8,19 +8,14 @@ import com.jiahaoliuliu.chutoro.usecase.RetrieveTransactionsListUseCase;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 import io.reactivex.disposables.CompositeDisposable;
 
 public class TransactionsListPresenter implements TransactionsListContract.Presenter {
-
-    private static final String TAG = "TransactionsListPresenter";
 
     private TransactionsListContract.View view;
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private final RetrieveTransactionsListUseCase retrieveTransactionsListUseCase;
 
-//    @Inject
     public TransactionsListPresenter(RetrieveTransactionsListUseCase retrieveTransactionsListUseCase) {
         this.retrieveTransactionsListUseCase = retrieveTransactionsListUseCase;
     }
@@ -30,7 +25,6 @@ public class TransactionsListPresenter implements TransactionsListContract.Prese
         this.view = view;
     }
 
-    @SuppressLint("LongLogTag")
     @Override
     public LiveData<? extends List<? extends ITransaction>> retrieveTransactionsList() {
         return retrieveTransactionsListUseCase.execute();

@@ -1,7 +1,6 @@
 package com.jiahaoliuliu.chutoro.datalayer.transactionsrepository;
 
 import android.arch.lifecycle.LiveData;
-import android.util.Log;
 
 import com.jiahaoliuliu.chutoro.devicelayer.CommonTransactionsProvider;
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
@@ -11,10 +10,10 @@ import java.util.List;
 
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
+import timber.log.Timber;
 
 public class TransactionsRepository implements ITransactionsRepository {
 
-    private static final String TAG = "TransactionsRepository";
     private final TransactionsDatabase transactionsDatabase;
     private final CommonTransactionsProvider commonTransactionsProvider;
     private LiveData<? extends List<? extends ITransaction>> allTransactions;
@@ -44,7 +43,7 @@ public class TransactionsRepository implements ITransactionsRepository {
             .subscribe(transactionsList -> {
                 transactionsDatabase.transactionsDao().insertIfDoesNotExist(transactionsList);
             }, throwable -> {
-                Log.e(TAG, "Error getting the transactions List", throwable);
+                Timber.e("Error getting the transactions List", throwable);
             });
     }
 }

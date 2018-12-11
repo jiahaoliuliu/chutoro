@@ -32,9 +32,10 @@ dependencies {
     implementation project(path: ':storagelayer')
     implementation project(path: ':devicelayer')
 
+    // Core
     implementation Libs.support_appcompat_v7
-
     implementation Libs.rxjava
+    implementation Libs.timber
 
     // Dagger
     implementation Libs.dagger

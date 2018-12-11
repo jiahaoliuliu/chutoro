@@ -21,7 +21,6 @@ import javax.inject.Inject;
 
 public class TransactionsListActivity extends AppCompatActivity implements TransactionsListContract.View {
 
-    private static final String TAG = "TransactionsListActivity";
     private static final int REQUEST_CODE_FOR_READ_SMS_PERMISSION = 1;
     private static final int REQUEST_CODE_FOR_ADD_NEW_TRANSACTIONS = 1000;
 
