@@ -52,21 +52,13 @@ public class TransactionsListActivity extends AppCompatActivity implements Trans
         recyclerView.setAdapter(transactionsListAdapter);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         presenter.setView(this);
+        presenter.retrieveTransactionsList().observe(this,
+            transactionsList -> transactionsListAdapter.setTransactionsList(transactionsList)
+        );
 
-        // TODO: Handle this better
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS)
-                != PackageManager.PERMISSION_GRANTED) {
-            // Permission is not granted
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.READ_SMS},
-                    REQUEST_CODE_FOR_READ_SMS_PERMISSION);
-        } else {
-            presenter.retrieveTransactionsList().observe(this,
-                    transactionsList -> {
-                        transactionsListAdapter.setTransactionsList(transactionsList);
-                }
-            );
-        }
+        // Request for permission
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_SMS},
+                REQUEST_CODE_FOR_READ_SMS_PERMISSION);
     }
 
     @Override
@@ -77,14 +69,10 @@ public class TransactionsListActivity extends AppCompatActivity implements Trans
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // permission was granted
-                    presenter.retrieveTransactionsList().observe(this,
-                            transactionsList -> {
-                                transactionsListAdapter.setTransactionsList(transactionsList);
-                            });
+                    // Nothing
                 } else {
                     // permission denied
-                    finish();
+                    // TODO: Show the screen to request the permission
                 }
                 return;
             }
@@ -93,6 +81,22 @@ public class TransactionsListActivity extends AppCompatActivity implements Trans
             // permissions this app might request.
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (isReadSMSPermissionGuaranteed()) {
+            presenter.updateTransactionsList();
+        } else {
+            // TODO: Show the user a dialog to request for permissions
+        }
+    }
+
+    private boolean isReadSMSPermissionGuaranteed() {
+        return ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS)
+                == PackageManager.PERMISSION_GRANTED;
+    }
+
     @Override
     protected void onDestroy() {
         presenter.dispose();
