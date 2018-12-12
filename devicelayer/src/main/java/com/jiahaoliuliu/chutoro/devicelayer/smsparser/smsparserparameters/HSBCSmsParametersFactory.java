@@ -9,10 +9,10 @@ public class HSBCSmsParametersFactory implements ISmsParametersFactory {
     private static final String SOURCE = "HSBC";
 
     // Pattern 1
-    // Example You made a purchase of AED 49 at MCDONALDS -DXB AIRPORT AE  with your Najm Credit Card xxxxxxxxxxxx2933. Avl Limit AED 45117.
-    private static final String PATTERN_1 = "You made a purchase of (.*?) at (.*?)  with your (.*?)\\.";
-    private static final int PATTERN_1_POSITION_QUANTITY = 1;
-    private static final int PATTERN_1_POSITION_DESTINATION = 2;
+    // Example: Your Credit Card ending with ***1880 has been used for AED 5.73 on 09/12/2018 at SPINNEYS DUBAI LLC. Your available limit is AED 9414.74
+    private static final String PATTERN_1 = "Your Credit Card ending with (.*?) has been used for (.*?) on (.*?) at (.*?)\\.";
+    private static final int PATTERN_1_POSITION_QUANTITY = 2;
+    private static final int PATTERN_1_POSITION_DESTINATION = 3;
     // The date is not shown on the sms. In this case, the received date of the sms will be used
     private static final int PATTERN_1_POSITION_DATE = -1;
     private static final String PATTERN_1_DATE_FORMAT = "";
