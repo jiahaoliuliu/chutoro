@@ -5,14 +5,14 @@ import java.util.List;
 
 public class HSBCSmsParametersFactory implements ISmsParametersFactory {
 
-    private static final String SENDER = "HSBC";
+    private static final String SENDER = "HSBC-UAE";
     private static final String SOURCE = "HSBC";
 
     // Pattern 1
     // Example: Your Credit Card ending with ***1880 has been used for AED 5.73 on 09/12/2018 at SPINNEYS DUBAI LLC. Your available limit is AED 9414.74
-    private static final String PATTERN_1 = "Your Credit Card ending with (.*?) has been used for (.*?) on (.*?) at (.*?)\\.";
+    private static final String PATTERN_1 = "From HSBC: Your Credit Card ending with (.*?) has been used for (.*?) on (.*?) at (.*?)\\.";
     private static final int PATTERN_1_POSITION_QUANTITY = 2;
-    private static final int PATTERN_1_POSITION_DESTINATION = 3;
+    private static final int PATTERN_1_POSITION_DESTINATION = 4;
     // The date is not shown on the sms. In this case, the received date of the sms will be used
     private static final int PATTERN_1_POSITION_DATE = -1;
     private static final String PATTERN_1_DATE_FORMAT = "";

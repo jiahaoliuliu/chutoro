@@ -29,7 +29,7 @@ class HSBCSmsParametersFactoryTest {
         private val PATTERN_1_SMS_DATE = 1543522832854L
         private val PATTERN_1_SMS_CURRENCY = "AED"
         private val PATTERN_1_SMS_DESTINATION = "SPINNEYS DUBAI LLC"
-        private val PATTERN_1_SMS_BODY = "Your Credit Card ending with ***1880 has been used for AED 5.73 on 09/12/2018 at SPINNEYS DUBAI LLC. Your available limit is AED 9414.74"
+        private val PATTERN_1_SMS_BODY = "From HSBC: Your Credit Card ending with ***1880 has been used for AED 5.73 on 09/12/2018 at SPINNEYS DUBAI LLC. Your available limit is AED 9414.74"
 
         // Pattern 1 (Other currency)
         private val PATTERN_1_CURRENCY_SMS_ID: Long = 6543
