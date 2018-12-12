@@ -105,7 +105,7 @@ public class SmsParserHelper {
     private float parseQuantity(SmsParserParameters smsParserParameters, Matcher matcher) {
         String quantityAndCurrencyString = matcher.group(smsParserParameters.getPositionQuantity());
         try {
-            return Float.valueOf(quantityAndCurrencyString.substring(SIZE_OF_CURRENCY_SYMBOL).trim());
+            return Float.valueOf(quantityAndCurrencyString.substring(SIZE_OF_CURRENCY_SYMBOL).trim().replace(",", ""));
         } catch (NumberFormatException numberFormatException) {
             throw new IllegalArgumentException("Error formatting the quantity " + quantityAndCurrencyString);
         }

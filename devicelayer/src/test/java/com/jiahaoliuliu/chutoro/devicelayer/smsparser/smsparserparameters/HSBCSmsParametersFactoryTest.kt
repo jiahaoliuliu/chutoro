@@ -38,6 +38,15 @@ class HSBCSmsParametersFactoryTest {
         private val PATTERN_1_CURRENCY_SMS_CURRENCY = "EUR"
         private val PATTERN_1_CURRENCY_SMS_DESTINATION = "WIKIMEDIA EUR US"
         private val PATTERN_1_CURRENCY_SMS_BODY = "You made a purchase of EUR 25 at WIKIMEDIA EUR US  with your Najm Credit Card xxxxxxxxxxxx2933. Avl Limit AED 48209.62."
+
+        // Pattern 2
+        private val PATTERN_2_SMS_ID: Long = 6543
+        private val PATTERN_2_SMS_QUANTITY = 140000
+        private val PATTERN_2_SMS_DATE = 1542346800000L
+        private val PATTERN_2_SMS_CURRENCY = "AED"
+        private val PATTERN_2_SMS_DESTINATION = "ATM Cash Withdrawal"
+        private val PATTERN_2_SMS_BODY = "From HSBC: 10MAR2018 ATM Cash Withdrawal from 036-791***-001 AED 1,400.00- Your available balance is AED 32,143.67"
+
     }
 
     private val hsbcSmsParametersFactory: HSBCSmsParametersFactory = HSBCSmsParametersFactory()
@@ -96,4 +105,29 @@ class HSBCSmsParametersFactoryTest {
 //        assertEquals(rightTransaction, transactionList[0])
 //    }
 //
+
+    @Test
+    fun testPattern2() {
+        // Prepare the data
+        val sms = Sms(PATTERN_2_SMS_ID, PATTERN_2_SMS_BODY, PATTERN_2_SMS_DATE)
+
+        // Execute the method
+        val transactionList = smsParserHelper.mapSmsListToTransactionsList(
+                Arrays.asList(sms),
+                hsbcSmsParametersFactory.createSmsParserParametersList())
+
+        // Verify the results
+        assertEquals(1, transactionList.size.toLong())
+        val rightTransaction = TransactionBuilder()
+                .setSmsId(PATTERN_2_SMS_ID)
+                .setQuantity(PATTERN_2_SMS_QUANTITY)
+                .setCurrency(PATTERN_2_SMS_CURRENCY)
+                .setSource(SOURCE)
+                .setDestination(PATTERN_2_SMS_DESTINATION)
+                .setDate(PATTERN_2_SMS_DATE)
+                .build()
+
+        assertEquals(rightTransaction, transactionList[0])
+    }
+
 }
