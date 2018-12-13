@@ -20,7 +20,6 @@ import static org.junit.Assert.assertEquals;
  * this is the core system test test
  */
 @RunWith(MockitoJUnitRunner.class)
-
 public class ADCBSmsParametersFactoryTest {
 
     private static final String SOURCE = "ADCB";

@@ -15,19 +15,25 @@ public class CommonTransactionsProvider {
 
     private final TransactionsProvider adcbTransactionsProvider;
     private final TransactionsProvider najmTransactionsProvider;
+    private final TransactionsProvider hsbcTransactionsProvider;
 
-    public CommonTransactionsProvider(TransactionsProvider adcbTransactionsProvider,
-                                      TransactionsProvider najmTransactionsProvider) {
+    public CommonTransactionsProvider(
+            TransactionsProvider adcbTransactionsProvider,
+            TransactionsProvider najmTransactionsProvider,
+            TransactionsProvider hsbcTransactionsProvider) {
         this.adcbTransactionsProvider = adcbTransactionsProvider;
         this.najmTransactionsProvider = najmTransactionsProvider;
+        this.hsbcTransactionsProvider = hsbcTransactionsProvider;
     }
 
     public Single<List<Transaction>> provideTransactionsList() {
         return Single.zip(
                 adcbTransactionsProvider.provideTransactions(),
                 najmTransactionsProvider.provideTransactions(),
-                (transactions, transactions2) -> {
+                hsbcTransactionsProvider.provideTransactions(),
+                (transactions, transactions2, transactions3) -> {
                     transactions.addAll(transactions2);
+                    transactions.addAll(transactions3);
                     return transactions;
                 });
     }

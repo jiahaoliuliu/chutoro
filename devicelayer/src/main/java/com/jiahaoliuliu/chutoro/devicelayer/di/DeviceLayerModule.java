@@ -6,6 +6,7 @@ import com.jiahaoliuliu.chutoro.devicelayer.CommonTransactionsProvider;
 import com.jiahaoliuliu.chutoro.devicelayer.TransactionsProvider;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.SmsParserHelper;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.ADCBSmsParametersFactory;
+import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.HSBCSmsParametersFactory;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.ISmsParametersFactory;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.NajmSmsParametersFactory;
 
@@ -25,6 +26,10 @@ public class DeviceLayerModule {
     private static final String QUALIFIED_NAME_SMS_PARSER_PARAMETERS_FACTORY_NAJM = "NajmSmsParserParametersFactory";
     private static final String QUALIFIED_NAME_TRANSACTIONS_PROVIDER_NAJM = "NajmTransactionsProvider";
 
+    // HSBC
+    private static final String QUALIFIED_NAME_SMS_PARSER_PARAMETERS_FACTORY_HSBC = "HSBCSmsParserParametersFactory";
+    private static final String QUALIFIED_NAME_TRANSACTIONS_PROVIDER_HSBC = "HSBCTransactionsProvider";
+
     @Provides
     SmsParserHelper provideSmsParserHelper() {
         return new SmsParserHelper();
@@ -40,6 +45,12 @@ public class DeviceLayerModule {
     @Named(QUALIFIED_NAME_SMS_PARSER_PARAMETERS_FACTORY_NAJM)
     ISmsParametersFactory provideNajmSmsParserParametersFactory() {
         return new NajmSmsParametersFactory();
+    }
+
+    @Provides
+    @Named(QUALIFIED_NAME_SMS_PARSER_PARAMETERS_FACTORY_HSBC)
+    ISmsParametersFactory provideHSBCSmsParserParametersFactory() {
+        return new HSBCSmsParametersFactory();
     }
 
     @Provides
@@ -61,9 +72,20 @@ public class DeviceLayerModule {
     }
 
     @Provides
+    @Named(QUALIFIED_NAME_TRANSACTIONS_PROVIDER_HSBC)
+    TransactionsProvider provideHSBCTransactionsProvider(
+            Context context, SmsParserHelper smsParserHelper,
+            @Named(QUALIFIED_NAME_SMS_PARSER_PARAMETERS_FACTORY_HSBC)
+                    ISmsParametersFactory smsParserParametersFactory) {
+        return new TransactionsProvider(context, smsParserHelper, smsParserParametersFactory);
+    }
+
+    @Provides
     CommonTransactionsProvider provideCommonTransactionsProvider(
             @Named(QUALIFIED_NAME_TRANSACTIONS_PROVIDER_ADCB)TransactionsProvider adcbTransactionsProvider,
-            @Named(QUALIFIED_NAME_TRANSACTIONS_PROVIDER_NAJM)TransactionsProvider najmTransactionsProvider) {
-        return new CommonTransactionsProvider(adcbTransactionsProvider, najmTransactionsProvider);
+            @Named(QUALIFIED_NAME_TRANSACTIONS_PROVIDER_NAJM)TransactionsProvider najmTransactionsProvider,
+            @Named(QUALIFIED_NAME_TRANSACTIONS_PROVIDER_HSBC)TransactionsProvider hsbcTransactionsProvider) {
+        return new CommonTransactionsProvider(adcbTransactionsProvider, najmTransactionsProvider,
+                hsbcTransactionsProvider);
     }
 }

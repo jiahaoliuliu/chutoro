@@ -1,4 +1,7 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion Versions.compileSdkVersion
@@ -35,8 +38,11 @@ dependencies {
     implementation Libs.rxjava
     implementation Libs.timber
 
+    implementation Libs.kotlin_standard_lib_jdk_8
+
     implementation Libs.dagger
     implementation Libs.dagger_support
+    kapt Libs.dagger_kotlin
     annotationProcessor AnnotationProcessor.dagger
 
     testImplementation Tests.junit

@@ -1,6 +1,5 @@
 package com.jiahaoliuliu.chutoro.devicelayer.smsparser;
 
-
 import android.support.annotation.NonNull;
 
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.SmsParserParameters;
@@ -10,7 +9,6 @@ import com.jiahaoliuliu.chutoro.entity.TransactionBuilder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,11 +28,11 @@ public class SmsParserHelper {
 
         // Preconditions
         if (smsList == null) {
-            return Collections.emptyList();
+            return new ArrayList<>();
         }
 
         if (smsParsingParametersList == null) {
-            return Collections.emptyList();
+            return new ArrayList<>();
         }
 
         // FIXME: Optimize this
@@ -50,11 +48,11 @@ public class SmsParserHelper {
             @NonNull List<Sms> smsList,@NonNull SmsParserParameters smsParsingParameters) {
         // Preconditions
         if (smsList == null) {
-            return Collections.emptyList();
+            return new ArrayList<>();
         }
 
         if (smsParsingParameters == null) {
-            return Collections.emptyList();
+            return new ArrayList<>();
         }
 
         List<Transaction> transactionList = new ArrayList<>();
@@ -107,7 +105,7 @@ public class SmsParserHelper {
     private float parseQuantity(SmsParserParameters smsParserParameters, Matcher matcher) {
         String quantityAndCurrencyString = matcher.group(smsParserParameters.getPositionQuantity());
         try {
-            return Float.valueOf(quantityAndCurrencyString.substring(SIZE_OF_CURRENCY_SYMBOL).trim());
+            return Float.valueOf(quantityAndCurrencyString.substring(SIZE_OF_CURRENCY_SYMBOL).trim().replace(",", ""));
         } catch (NumberFormatException numberFormatException) {
             throw new IllegalArgumentException("Error formatting the quantity " + quantityAndCurrencyString);
         }
