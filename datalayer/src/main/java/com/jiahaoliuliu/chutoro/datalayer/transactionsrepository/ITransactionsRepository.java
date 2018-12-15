@@ -27,7 +27,7 @@ public interface ITransactionsRepository {
      * the database get update, LiveData will also update the front-end. So there
      * is not need to return anything.
      */
-    void updateTransactionsList();
+    Single updateTransactionsList();
 
     /**
      * Adding a new transaction

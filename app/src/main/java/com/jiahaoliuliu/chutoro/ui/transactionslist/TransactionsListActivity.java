@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 import com.jiahaoliuliu.chutoro.ui.MainApplication;
 import com.jiahaoliuliu.chutoro.R;
@@ -55,10 +54,17 @@ public class TransactionsListActivity extends AppCompatActivity implements Trans
         presenter.retrieveTransactionsList().observe(this,
             transactionsList -> transactionsListAdapter.setTransactionsList(transactionsList)
         );
+    }
 
-        // Request for permission
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_SMS},
-                REQUEST_CODE_FOR_READ_SMS_PERMISSION);
+    private void updateTransactionsList() {
+        // Request for permission if it is not granted
+        if (isReadSMSPermissionGuaranteed()) {
+            presenter.updateTransactionsList();
+        } else {
+            // Request for the permission
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_SMS},
+                    REQUEST_CODE_FOR_READ_SMS_PERMISSION);
+        }
     }
 
     @Override
@@ -69,27 +75,21 @@ public class TransactionsListActivity extends AppCompatActivity implements Trans
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // Do nothing
+                    // Request to update the list of transactions
+                    presenter.updateTransactionsList();
                 } else {
                     // permission denied
                     // TODO: Show the screen to request the permission
                 }
                 return;
             }
-
-            // other 'case' lines to check for other
-            // permissions this app might request.
         }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (isReadSMSPermissionGuaranteed()) {
-            presenter.updateTransactionsList();
-        } else {
-            // TODO: Show the user a dialog to request for permissions
-        }
+        updateTransactionsList();
     }
 
     private boolean isReadSMSPermissionGuaranteed() {

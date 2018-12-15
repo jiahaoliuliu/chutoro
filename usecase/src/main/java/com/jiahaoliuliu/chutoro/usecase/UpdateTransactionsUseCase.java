@@ -2,6 +2,8 @@ package com.jiahaoliuliu.chutoro.usecase;
 
 import com.jiahaoliuliu.chutoro.datalayer.transactionsrepository.ITransactionsRepository;
 
+import io.reactivex.Single;
+
 public class UpdateTransactionsUseCase {
 
     private final ITransactionsRepository transactionsRepository;
@@ -10,7 +12,7 @@ public class UpdateTransactionsUseCase {
         this.transactionsRepository = transactionsRepository;
     }
 
-    public void execute() {
-        transactionsRepository.updateTransactionsList();
+    public Single execute() {
+        return transactionsRepository.updateTransactionsList();
     }
 }

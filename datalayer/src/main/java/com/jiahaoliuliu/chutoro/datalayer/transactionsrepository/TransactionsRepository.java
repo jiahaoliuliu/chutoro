@@ -37,15 +37,13 @@ public class TransactionsRepository implements ITransactionsRepository {
     }
 
     @Override
-    public void updateTransactionsList() {
+    public Single updateTransactionsList() {
         // TODO: Convert single to observable which emits the elements one by one
         // TODO: Move the call to the presenter
-        Single.fromCallable(() -> commonTransactionsProvider.provideTransactionsList()
-            .subscribeOn(Schedulers.io())
-            .subscribe(transactionsList -> {
-                transactionsDatabase.transactionsDao().insertIfDoesNotExist(transactionsList);
-            }, throwable -> {
-                Timber.e(throwable, "Error getting the transactions List");
-            }));
+        return Single.fromCallable(() -> commonTransactionsProvider.provideTransactionsList())
+            .doOnSuccess(transactionsList -> {
+                Timber.v(transactionsList.toString());
+//                transactionsDatabase.transactionsDao().insertIfDoesNotExist(transactionsList);
+            });
     }
 }

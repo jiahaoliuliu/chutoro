@@ -8,7 +8,10 @@ import com.jiahaoliuliu.chutoro.usecase.UpdateTransactionsUseCase;
 
 import java.util.List;
 
+import io.reactivex.Scheduler;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
+import timber.log.Timber;
 
 public class TransactionsListPresenter implements TransactionsListContract.Presenter {
 
@@ -35,11 +38,18 @@ public class TransactionsListPresenter implements TransactionsListContract.Prese
 
     @Override
     public void updateTransactionsList() {
-        updateTransactionsUseCase.execute();
+        compositeDisposable.add(updateTransactionsUseCase.execute()
+            .subscribeOn(Schedulers.io())
+            .subscribe(transactionsList -> {
+                    Timber.v("Transactions list updated " + transactionsList.toString());
+                },
+                throwable -> {
+                    Timber.e((Throwable)throwable, "Error updating the transactions list");
+                }));
     }
 
     @Override
     public void dispose() {
-        compositeDisposable.dispose();
+        compositeDisposable.clear();
     }
 }
