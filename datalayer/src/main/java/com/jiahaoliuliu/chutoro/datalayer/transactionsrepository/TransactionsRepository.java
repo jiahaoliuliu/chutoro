@@ -9,7 +9,6 @@ import com.jiahaoliuliu.chutoro.storagelayer.TransactionsDatabase;
 import java.util.List;
 
 import io.reactivex.Single;
-import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 
 public class TransactionsRepository implements ITransactionsRepository {

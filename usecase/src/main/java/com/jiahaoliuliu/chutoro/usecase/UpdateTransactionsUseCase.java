@@ -1,7 +1,6 @@
 package com.jiahaoliuliu.chutoro.usecase;
 
 import com.jiahaoliuliu.chutoro.datalayer.transactionsrepository.ITransactionsRepository;
-
 import io.reactivex.Single;
 
 public class UpdateTransactionsUseCase {
