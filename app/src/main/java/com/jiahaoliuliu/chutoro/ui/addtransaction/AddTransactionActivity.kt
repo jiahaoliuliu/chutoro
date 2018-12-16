@@ -112,13 +112,26 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
             override fun onItemSelected(adapterView: AdapterView<*>, view: View,
                                         position: Int, id: Long) {
                 if (position >= 0 && position < Currency.values().size) {
-                    currency = Currency.values()[position]
+                    currency = Currency.values()[mappingCurrencySpinnerWithCurrency(position)]
                 }
             }
 
             override fun onNothingSelected(adapterView: AdapterView<*>) {
                 currency = defaultCurrency
             }
+        }
+    }
+
+    /**
+     * Mapper for the currencies displayed on the screen with the position of the currency on the
+     * Enum Currency
+     */
+    private fun mappingCurrencySpinnerWithCurrency(spinnerPosition: Int):Int {
+        return when (spinnerPosition) {
+            0 -> 0
+            1 -> 48
+            2 -> 148
+            else -> 0
         }
     }
 

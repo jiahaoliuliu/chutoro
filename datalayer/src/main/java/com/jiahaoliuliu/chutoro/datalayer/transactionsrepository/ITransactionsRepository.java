@@ -6,6 +6,7 @@ import com.jiahaoliuliu.chutoro.entity.ITransaction;
 
 import java.util.List;
 
+import io.reactivex.Completable;
 import io.reactivex.Single;
 
 /**
@@ -21,9 +22,19 @@ public interface ITransactionsRepository {
     LiveData<? extends List<? extends ITransaction>> retrieveTransactionsList();
 
     /**
+     * Method used to update the transactions list. More than a method, it is an
+     * order. This is because the method retrieveTransactionsList uses LiveData
+     * to fetch the data from the database. As soon as the transactions list in
+     * the database get update, LiveData will also update the front-end. So there
+     * is not need to return anything.
+     */
+    Completable updateTransactionsList();
+
+    /**
      * Adding a new transaction
      * @param transaction
      * @return
      */
     Single<Boolean> addTransaction(ITransaction transaction);
+
 }

@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 import com.jiahaoliuliu.chutoro.ui.MainApplication;
 import com.jiahaoliuliu.chutoro.R;
@@ -52,20 +51,19 @@ public class TransactionsListActivity extends AppCompatActivity implements Trans
         recyclerView.setAdapter(transactionsListAdapter);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         presenter.setView(this);
+        presenter.retrieveTransactionsList().observe(this,
+            transactionsList -> transactionsListAdapter.setTransactionsList(transactionsList)
+        );
+    }
 
-        // TODO: Handle this better
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS)
-                != PackageManager.PERMISSION_GRANTED) {
-            // Permission is not granted
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.READ_SMS},
-                    REQUEST_CODE_FOR_READ_SMS_PERMISSION);
+    private void updateTransactionsList() {
+        // Request for permission if it is not granted
+        if (isReadSMSPermissionGuaranteed()) {
+            presenter.updateTransactionsList();
         } else {
-            presenter.retrieveTransactionsList().observe(this,
-                    transactionsList -> {
-                        transactionsListAdapter.setTransactionsList(transactionsList);
-                }
-            );
+            // Request for the permission
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_SMS},
+                    REQUEST_CODE_FOR_READ_SMS_PERMISSION);
         }
     }
 
@@ -77,22 +75,28 @@ public class TransactionsListActivity extends AppCompatActivity implements Trans
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // permission was granted
-                    presenter.retrieveTransactionsList().observe(this,
-                            transactionsList -> {
-                                transactionsListAdapter.setTransactionsList(transactionsList);
-                            });
+                    // Request to update the list of transactions
+                    presenter.updateTransactionsList();
                 } else {
                     // permission denied
-                    finish();
+                    // TODO: Show the screen to request the permission
                 }
                 return;
             }
-
-            // other 'case' lines to check for other
-            // permissions this app might request.
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateTransactionsList();
+    }
+
+    private boolean isReadSMSPermissionGuaranteed() {
+        return ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS)
+                == PackageManager.PERMISSION_GRANTED;
+    }
+
     @Override
     protected void onDestroy() {
         presenter.dispose();

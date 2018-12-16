@@ -8,9 +8,8 @@ import com.jiahaoliuliu.chutoro.storagelayer.TransactionsDatabase;
 
 import java.util.List;
 
+import io.reactivex.Completable;
 import io.reactivex.Single;
-import io.reactivex.schedulers.Schedulers;
-import timber.log.Timber;
 
 public class TransactionsRepository implements ITransactionsRepository {
 
@@ -27,7 +26,6 @@ public class TransactionsRepository implements ITransactionsRepository {
 
     @Override
     public LiveData<? extends List<? extends ITransaction>> retrieveTransactionsList() {
-        updateTransactionsList();
         return allTransactions;
     }
 
@@ -37,13 +35,9 @@ public class TransactionsRepository implements ITransactionsRepository {
                 () -> transactionsDatabase.transactionsDao().insertIfDoesNotExist(transaction));
     }
 
-    private void updateTransactionsList() {
-        commonTransactionsProvider.provideTransactionsList()
-            .subscribeOn(Schedulers.io())
-            .subscribe(transactionsList -> {
-                transactionsDatabase.transactionsDao().insertIfDoesNotExist(transactionsList);
-            }, throwable -> {
-                Timber.e(throwable, "Error getting the transactions List");
-            });
+    @Override
+    public Completable updateTransactionsList() {
+        return Completable.fromObservable(commonTransactionsProvider.provideTransactions()
+                .doOnNext(transaction -> transactionsDatabase.transactionsDao().insertIfDoesNotExist(transaction)));
     }
 }
