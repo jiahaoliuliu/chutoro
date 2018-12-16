@@ -87,6 +87,7 @@ public class TransactionsProvider {
                 Timber.v("The user does not have any sms");
                 cursor.close();
                 emitter.onComplete();
+                return;
             }
 
             while(cursor.moveToNext()) {
