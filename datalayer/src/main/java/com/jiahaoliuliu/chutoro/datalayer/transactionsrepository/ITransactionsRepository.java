@@ -6,6 +6,7 @@ import com.jiahaoliuliu.chutoro.entity.ITransaction;
 
 import java.util.List;
 
+import io.reactivex.Completable;
 import io.reactivex.Single;
 
 /**
@@ -27,7 +28,7 @@ public interface ITransactionsRepository {
      * the database get update, LiveData will also update the front-end. So there
      * is not need to return anything.
      */
-    Single updateTransactionsList();
+    Completable updateTransactionsList();
 
     /**
      * Adding a new transaction

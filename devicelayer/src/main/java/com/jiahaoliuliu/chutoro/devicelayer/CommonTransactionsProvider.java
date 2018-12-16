@@ -1,10 +1,11 @@
 package com.jiahaoliuliu.chutoro.devicelayer;
 
+
 import com.jiahaoliuliu.chutoro.entity.Transaction;
 
 import java.util.List;
 
-import io.reactivex.Single;
+import io.reactivex.Observable;
 
 /**
  * The common transaction provider for all the banks.
@@ -26,15 +27,16 @@ public class CommonTransactionsProvider {
         this.hsbcTransactionsProvider = hsbcTransactionsProvider;
     }
 
-    public Single<List<Transaction>> provideTransactionsList() {
-        return Single.zip(
-                adcbTransactionsProvider.provideTransactions(),
-                najmTransactionsProvider.provideTransactions(),
-                hsbcTransactionsProvider.provideTransactions(),
-                (transactions, transactions2, transactions3) -> {
-                    transactions.addAll(transactions2);
-                    transactions.addAll(transactions3);
-                    return transactions;
-                });
+    public Observable<Transaction> provideTransactions() {
+        return adcbTransactionsProvider.provideTransactions();
+//        return Single.zip(
+//                adcbTransactionsProvider.provideTransactions(),
+//                najmTransactionsProvider.provideTransactions(),
+//                hsbcTransactionsProvider.provideTransactions(),
+//                (transactions, transactions2, transactions3) -> {
+//                    transactions.addAll(transactions2);
+//                    transactions.addAll(transactions3);
+//                    return transactions;
+//                });
     }
 }

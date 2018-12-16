@@ -8,8 +8,10 @@ import com.jiahaoliuliu.chutoro.usecase.UpdateTransactionsUseCase;
 
 import java.util.List;
 
+import io.reactivex.CompletableObserver;
 import io.reactivex.Scheduler;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 
@@ -38,14 +40,25 @@ public class TransactionsListPresenter implements TransactionsListContract.Prese
 
     @Override
     public void updateTransactionsList() {
-        compositeDisposable.add(updateTransactionsUseCase.execute()
+        updateTransactionsUseCase.execute()
             .subscribeOn(Schedulers.io())
-            .subscribe(transactionsList -> {
-                    Timber.v("Transactions list updated " + transactionsList.toString());
-                },
-                throwable -> {
-                    Timber.e((Throwable)throwable, "Error updating the transactions list");
-                }));
+            .subscribe(new CompletableObserver() {
+                @Override
+                public void onSubscribe(Disposable d) {
+                    // Nothing to do here
+                    Timber.v("Trying to update the transactions list");
+                }
+
+                @Override
+                public void onComplete() {
+                    Timber.v("Transactions list completed");
+                }
+
+                @Override
+                public void onError(Throwable e) {
+                    Timber.e(e,"Error updating the transactions list");
+                }
+            });
     }
 
     @Override
