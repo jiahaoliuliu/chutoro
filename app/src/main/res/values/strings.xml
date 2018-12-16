@@ -9,6 +9,7 @@
     <string name="add_transaction_add_button">Add</string>
 
     <!-- The order of the currencies need to match the enum Currency in the entity module -->
+    <!-- Do not alter the order -->
     <string-array name="currencies_array">
         <item>Dirhams</item>
         <item>Euros</item>
@@ -16,9 +17,11 @@
     </string-array>
 
     <!-- The order of the sources need to match the enum Source in the entity module -->
+    <!-- Do not alter the order -->
     <string-array name="source_array">
         <item>ADCB</item>
         <item>Najm</item>
+        <item>HSBC</item>
     </string-array>
 
 </resources>

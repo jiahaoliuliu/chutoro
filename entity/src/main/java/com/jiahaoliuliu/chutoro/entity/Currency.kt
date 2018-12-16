@@ -2,8 +2,10 @@ package com.jiahaoliuliu.chutoro.entity
 
 // Currencies according to ISO 4217
 //https://www.iso.org/iso-4217-currency-codes.html
+// DO not update the position. If it is absolutely needed, update the mapper on
+// AddTransactionActivity(mappingCurrencySpinnerWithCurrency)
 enum class Currency {
-    AED,
+    AED, // 0
     AFN,
     ALL,
     AMD,
@@ -51,7 +53,7 @@ enum class Currency {
     EGP,
     ERN,
     ETB,
-    EUR,
+    EUR, // 48
     FJD,
     FKP,
     GBP,
@@ -151,7 +153,7 @@ enum class Currency {
     TZS,
     UAH,
     UGX,
-    USD,
+    USD, // 148
     USN,
     UYI,
     UYU,

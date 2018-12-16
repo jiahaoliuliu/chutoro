@@ -4,15 +4,12 @@ import android.arch.lifecycle.LiveData;
 
 import com.jiahaoliuliu.chutoro.devicelayer.CommonTransactionsProvider;
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
-import com.jiahaoliuliu.chutoro.entity.Transaction;
 import com.jiahaoliuliu.chutoro.storagelayer.TransactionsDatabase;
 
 import java.util.List;
 
 import io.reactivex.Completable;
 import io.reactivex.Single;
-import io.reactivex.functions.Consumer;
-import timber.log.Timber;
 
 public class TransactionsRepository implements ITransactionsRepository {
 
@@ -42,13 +39,5 @@ public class TransactionsRepository implements ITransactionsRepository {
     public Completable updateTransactionsList() {
         return Completable.fromObservable(commonTransactionsProvider.provideTransactions()
                 .doOnNext(transaction -> transactionsDatabase.transactionsDao().insertIfDoesNotExist(transaction)));
-
-//        // TODO: Convert single to observable which emits the elements one by one
-//        // TODO: Move the call to the presenter
-//        return Single.fromCallable(() -> commonTransactionsProvider.provideTransactionsList())
-//            .doOnSuccess(transactionsList -> {
-//                Timber.v(transactionsList.toString());
-////                transactionsDatabase.transactionsDao().insertIfDoesNotExist(transactionsList);
-//            });
     }
 }
