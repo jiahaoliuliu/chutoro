@@ -31,16 +31,5 @@ public class CommonTransactionsProvider {
         return Observable.merge(adcbTransactionsProvider.provideTransactions(),
                 najmTransactionsProvider.provideTransactions(),
                 hsbcTransactionsProvider.provideTransactions());
-//
-//        return adcbTransactionsProvider.provideTransactions();
-//        return Single.zip(
-//                adcbTransactionsProvider.provideTransactions(),
-//                najmTransactionsProvider.provideTransactions(),
-//                hsbcTransactionsProvider.provideTransactions(),
-//                (transactions, transactions2, transactions3) -> {
-//                    transactions.addAll(transactions2);
-//                    transactions.addAll(transactions3);
-//                    return transactions;
-//                });
     }
 }

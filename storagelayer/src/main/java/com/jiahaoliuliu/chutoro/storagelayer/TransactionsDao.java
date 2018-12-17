@@ -28,14 +28,8 @@ public abstract class TransactionsDao {
     @Update(onConflict = OnConflictStrategy.IGNORE)
     public abstract void update(PersistentTransaction persistentTransaction);
 
-    public void update(ITransaction transaction) {
+    public synchronized void update(ITransaction transaction) {
         update(new PersistentTransaction(transaction));
-    }
-
-    public void insertIfDoesNotExist(List<? extends ITransaction> transactionsList) {
-        for (ITransaction transaction: transactionsList) {
-            insertIfDoesNotExist(transaction);
-        }
     }
 
     /**
@@ -47,7 +41,7 @@ public abstract class TransactionsDao {
      *      True if there is already a transaction with the same sms id in the database
      *      False if there is any problem on the insertion
      */
-    public boolean insertIfDoesNotExist(ITransaction transaction) {
+    public synchronized boolean insertIfDoesNotExist(ITransaction transaction) {
         // If the transaction is not from the sms
         if (!transaction.isFromSms()) {
             PersistentTransaction persistentTransaction = new PersistentTransaction(transaction);
