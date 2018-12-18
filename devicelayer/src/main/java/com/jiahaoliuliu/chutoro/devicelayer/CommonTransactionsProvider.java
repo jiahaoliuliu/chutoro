@@ -14,22 +14,27 @@ import io.reactivex.Observable;
  */
 public class CommonTransactionsProvider {
 
+    // TODO: Transform it into a list
     private final TransactionsProvider adcbTransactionsProvider;
     private final TransactionsProvider najmTransactionsProvider;
     private final TransactionsProvider hsbcTransactionsProvider;
+    private final TransactionsProvider emiratesNBDTransactionsProvider;
 
     public CommonTransactionsProvider(
             TransactionsProvider adcbTransactionsProvider,
             TransactionsProvider najmTransactionsProvider,
-            TransactionsProvider hsbcTransactionsProvider) {
+            TransactionsProvider hsbcTransactionsProvider,
+            TransactionsProvider emiratesNBDTransactionsProvider) {
         this.adcbTransactionsProvider = adcbTransactionsProvider;
         this.najmTransactionsProvider = najmTransactionsProvider;
         this.hsbcTransactionsProvider = hsbcTransactionsProvider;
+        this.emiratesNBDTransactionsProvider = emiratesNBDTransactionsProvider;
     }
 
     public Observable<Transaction> provideTransactions() {
         return Observable.merge(adcbTransactionsProvider.provideTransactions(),
                 najmTransactionsProvider.provideTransactions(),
-                hsbcTransactionsProvider.provideTransactions());
+                hsbcTransactionsProvider.provideTransactions(),
+                emiratesNBDTransactionsProvider.provideTransactions());
     }
 }
