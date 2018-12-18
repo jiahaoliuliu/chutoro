@@ -20,6 +20,16 @@ public class EmiratesNBDParametersFactory implements ISmsParametersFactory {
     private static final int PATTERN_1_POSITION_DATE = -1;
     private static final String PATTERN_1_DATE_FORMAT = "";
 
+    // Pattern 2
+    // Example:
+    // Dear JADFLKJAD , you have made a cardless cash withdrawal of AED 700 from your account at Burj Al Salam. The available account balance is AED 54,751.77
+    private static final String PATTERN_2 = "Dear (.*), you have made a (.*?) of (.*?) from your account at (.*?)\\.";
+    private static final int PATTERN_2_POSITION_QUANTITY = 3;
+    private static final int PATTERN_2_POSITION_DESTINATION = 4;
+    // The date is not shown on the sms. In this case, the received date of the sms will be used
+    private static final int PATTERN_2_POSITION_DATE = -1;
+    private static final String PATTERN_2_DATE_FORMAT = "";
+
     @Override
     public String getSmsSender() {
         return SENDER;
@@ -31,6 +41,10 @@ public class EmiratesNBDParametersFactory implements ISmsParametersFactory {
                 PATTERN_1, PATTERN_1_DATE_FORMAT, PATTERN_1_POSITION_QUANTITY,
                 PATTERN_1_POSITION_DESTINATION, PATTERN_1_POSITION_DATE, SOURCE);
 
-        return Arrays.asList(smsParserParameters1);
+        SmsParserParameters smsParserParameters2 = new SmsParserParameters(
+                PATTERN_2, PATTERN_2_DATE_FORMAT, PATTERN_2_POSITION_QUANTITY,
+                PATTERN_2_POSITION_DESTINATION, PATTERN_2_POSITION_DATE, SOURCE);
+
+        return Arrays.asList(smsParserParameters1, smsParserParameters2);
     }
 }

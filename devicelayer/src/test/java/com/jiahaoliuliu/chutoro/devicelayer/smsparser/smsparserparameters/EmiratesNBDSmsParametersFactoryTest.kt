@@ -29,6 +29,13 @@ class EmiratesNBDSmsParametersFactoryTest {
         private val PATTERN_1_SMS_DESTINATION = "ZOOM SITE 6562 BURJ AL SA, DUBAI"
         private val PATTERN_1_SMS_BODY = "Purchase of AED 26.75 with Debit Card ending 6819 at ZOOM SITE 6562 BURJ AL SA, DUBAI. Avl Balance is AED 54,520.42."
 
+        // Pattern 2
+        private val PATTERN_2_SMS_ID: Long = 6543
+        private val PATTERN_2_SMS_QUANTITY = 70000
+        private val PATTERN_2_SMS_DATE = 1542346800000L
+        private val PATTERN_2_SMS_CURRENCY = "AED"
+        private val PATTERN_2_SMS_DESTINATION = "Burj Al Salam"
+        private val PATTERN_2_SMS_BODY = "Dear JADFLKJAD , you have made a cardless cash withdrawal of AED 700 from your account at Burj Al Salam. The available account balance is AED 54,751.77"
     }
 
     private val emiratesNBDParametersFactory = EmiratesNBDParametersFactory()
@@ -86,28 +93,27 @@ class EmiratesNBDSmsParametersFactoryTest {
 //        assertEquals(rightTransaction, transactionList[0])
 //    }
 
-//    @Test
-//    fun testPattern2() {
-//        // Prepare the data
-//        val sms = Sms(PATTERN_2_SMS_ID, PATTERN_2_SMS_BODY, PATTERN_2_SMS_DATE)
-//
-//        // Execute the method
-//        val transactionList = smsParserHelper.mapSmsListToTransactionsList(
-//                Arrays.asList(sms),
-//                hsbcSmsParametersFactory.createSmsParserParametersList())
-//
-//        // Verify the results
-//        assertEquals(1, transactionList.size.toLong())
-//        val rightTransaction = TransactionBuilder()
-//                .setSmsId(PATTERN_2_SMS_ID)
-//                .setQuantity(PATTERN_2_SMS_QUANTITY)
-//                .setCurrency(PATTERN_2_SMS_CURRENCY)
-//                .setSource(SOURCE)
-//                .setDestination(PATTERN_2_SMS_DESTINATION)
-//                .setDate(PATTERN_2_SMS_DATE)
-//                .build()
-//
-//        assertEquals(rightTransaction, transactionList[0])
-//    }
+    @Test
+    fun testPattern2() {
+        // Prepare the data
+        val sms = Sms(PATTERN_2_SMS_ID, PATTERN_2_SMS_BODY, PATTERN_2_SMS_DATE)
+
+        // Execute the method
+        val transaction = smsParserHelper.parseSmsToTransaction(sms,
+                emiratesNBDParametersFactory.createSmsParserParametersList())
+
+        // Verify the results
+        assertNotNull(transaction)
+        val rightTransaction = TransactionBuilder()
+                .setSmsId(PATTERN_2_SMS_ID)
+                .setQuantity(PATTERN_2_SMS_QUANTITY)
+                .setCurrency(PATTERN_2_SMS_CURRENCY)
+                .setSource(SOURCE)
+                .setDestination(PATTERN_2_SMS_DESTINATION)
+                .setDate(PATTERN_2_SMS_DATE)
+                .build()
+
+        assertEquals(rightTransaction, transaction)
+    }
 
 }
