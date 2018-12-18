@@ -21,6 +21,14 @@ public class SmsParserHelper {
 
     public Transaction parseSmsToTransaction(Sms sms, List<SmsParserParameters> smsParserParametersList) {
 
+        if (sms == null) {
+            throw new IllegalArgumentException("The sms cannot be null");
+        }
+
+        if (smsParserParametersList == null) {
+            throw new IllegalArgumentException("The sms parameters list cannot be null");
+        }
+
         for (SmsParserParameters smsParserParameter: smsParserParametersList) {
             try {
                 return parseSmsToTransaction(sms, smsParserParameter, new SimpleDateFormat(smsParserParameter.getDateFormat()));
@@ -64,6 +72,10 @@ public class SmsParserHelper {
 
     @NonNull
     private Matcher matches(Sms sms, SmsParserParameters smsParserParameters) {
+        if (sms == null) {
+            throw new IllegalArgumentException("The sms cannot be null");
+        }
+
         Pattern pattern = Pattern.compile(smsParserParameters.getPattern());
         Matcher matcher = pattern.matcher(sms.getBody());
         // If the pattern is not correct

@@ -10,10 +10,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.Arrays;
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * This is a test against the sms patterns in the factory. More than a unit test
@@ -71,13 +69,12 @@ public class ADCBSmsParametersFactoryTest {
         Sms sms = new Sms(PATTERN_1_SMS_ID, PATTERN_1_SMS_BODY, PATTERN_1_SMS_DATE);
 
         // Execute the method
-        List<Transaction> transactionList =
-                smsParserHelper.mapSmsListToTransactionsList(
-                        Arrays.asList(sms),
+        Transaction transaction =
+                smsParserHelper.parseSmsToTransaction(sms,
                         adcbSmsParametersFactory.createSmsParserParametersList());
 
         // Verify the results
-        assertEquals(1, transactionList.size());
+        assertNotNull(transaction);
         Transaction rightTransaction =
                 new TransactionBuilder()
                     .setSmsId(PATTERN_1_SMS_ID)
@@ -87,7 +84,7 @@ public class ADCBSmsParametersFactoryTest {
                     .setDestination(PATTERN_1_SMS_DESTINATION)
                     .setDate(PATTERN_1_SMS_DATE)
                     .build();
-        assertEquals(rightTransaction, transactionList.get(0));
+        assertEquals(rightTransaction, transaction);
     }
 
     @Test
@@ -97,13 +94,12 @@ public class ADCBSmsParametersFactoryTest {
                 PATTERN_1_CURRENCY_SMS_DATE);
 
         // Execute the method
-        List<Transaction> transactionList =
-                smsParserHelper.mapSmsListToTransactionsList(
-                        Arrays.asList(sms),
+        Transaction transaction =
+                smsParserHelper.parseSmsToTransaction(sms,
                         adcbSmsParametersFactory.createSmsParserParametersList());
 
         // Verify the results
-        assertEquals(1, transactionList.size());
+        assertNotNull(transaction);
         Transaction rightTransaction =
                 new TransactionBuilder()
                         .setSmsId(PATTERN_1_CURRENCY_SMS_ID)
@@ -114,7 +110,7 @@ public class ADCBSmsParametersFactoryTest {
                         .setDate(PATTERN_1_CURRENCY_SMS_DATE)
                         .build();
 
-        assertEquals(rightTransaction, transactionList.get(0));
+        assertEquals(rightTransaction, transaction);
     }
 
     @Test
@@ -123,13 +119,12 @@ public class ADCBSmsParametersFactoryTest {
         Sms sms = new Sms(PATTERN_2_SMS_ID, PATTERN_2_SMS_BODY, PATTERN_2_SMS_DATE);
 
         // Execute the method
-        List<Transaction> transactionList =
-                smsParserHelper.mapSmsListToTransactionsList(
-                        Arrays.asList(sms),
+        Transaction transaction =
+                smsParserHelper.parseSmsToTransaction(sms,
                         adcbSmsParametersFactory.createSmsParserParametersList());
 
         // Verify the results
-        assertEquals(1, transactionList.size());
+        assertNotNull(transaction);
         Transaction rightTransaction =
                 new TransactionBuilder()
                         .setSmsId(PATTERN_2_SMS_ID)
@@ -140,7 +135,7 @@ public class ADCBSmsParametersFactoryTest {
                         .setDate(PATTERN_2_SMS_DATE)
                         .build();
 
-        assertEquals(rightTransaction, transactionList.get(0));
+        assertEquals(rightTransaction, transaction);
     }
 
     @Test
@@ -149,13 +144,12 @@ public class ADCBSmsParametersFactoryTest {
         Sms sms = new Sms(PATTERN_2_SMS_2_ID, PATTERN_2_SMS_2_BODY, PATTERN_2_SMS_2_DATE);
 
         // Execute the method
-        List<Transaction> transactionList =
-                smsParserHelper.mapSmsListToTransactionsList(
-                        Arrays.asList(sms),
+        Transaction transaction =
+                smsParserHelper.parseSmsToTransaction(sms,
                         adcbSmsParametersFactory.createSmsParserParametersList());
 
         // Verify the results
-        assertEquals(1, transactionList.size());
+        assertNotNull(transaction);
         Transaction rightTransaction =
                 new TransactionBuilder()
                         .setSmsId(PATTERN_2_SMS_2_ID)
@@ -166,6 +160,6 @@ public class ADCBSmsParametersFactoryTest {
                         .setDate(PATTERN_2_SMS_2_DATE)
                         .build();
 
-        assertEquals(rightTransaction, transactionList.get(0));
+        assertEquals(rightTransaction, transaction);
     }
 }

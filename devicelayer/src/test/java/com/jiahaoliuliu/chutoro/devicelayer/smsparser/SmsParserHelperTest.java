@@ -13,6 +13,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -60,13 +62,12 @@ public class SmsParserHelperTest {
                 POSITION_QUANTITY, POSITION_DESTINATION, POSITION_DATE, SOURCE);
 
         // Execute the method
-        List<Transaction> transactionList =
-                smsParserHelper.mapSmsListToTransactionsList(
-                        Arrays.asList(sms),
+        Transaction transaction =
+                smsParserHelper.parseSmsToTransaction(sms,
                         Arrays.asList(smsParserParameters));
 
         // Verify the results
-        assertEquals(1, transactionList.size());
+        assertNotNull(transaction);
         Transaction rightTransaction = new TransactionBuilder()
                     .setSmsId(SMS_1_ID)
                     .setQuantity(SMS_1_QUANTITY)
@@ -75,37 +76,30 @@ public class SmsParserHelperTest {
                     .setDestination(SMS_1_DESTINATION)
                     .setDate(SMS_1_DATE)
                     .build();
-        assertEquals(rightTransaction, transactionList.get(0));
+        assertEquals(rightTransaction, transaction);
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void mapSmsListToTransactionsList_SmsListNull() {
         // Prepare the data
         SmsParserParameters smsParserParameters = createSmsParserParameters(PATTERN_1, DATE_FORMAT,
                 POSITION_QUANTITY, POSITION_DESTINATION, POSITION_DATE, SOURCE);
 
         // Execute the method
-        List<Transaction> transactionList =
-                smsParserHelper.mapSmsListToTransactionsList(
+        Transaction transaction =
+                smsParserHelper.parseSmsToTransaction(
                         null,
                         Arrays.asList(smsParserParameters));
-
-        // Verify the results
-        assertEquals(0, transactionList.size());
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void mapSmsListToTransactionsList_SmsParametersNull() {
         // Prepare the data
         Sms sms = new Sms(SMS_1_ID, SMS_1_BODY, SMS_1_DATE);
 
         // Execute the method
-        List<Transaction> transactionList =
-                smsParserHelper.mapSmsListToTransactionsList(
-                        Arrays.asList(sms), null);
-
-        // Verify the results
-        assertEquals(0, transactionList.size());
+        Transaction transaction =
+                smsParserHelper.parseSmsToTransaction(sms, null);
     }
 
     @Test
@@ -116,13 +110,12 @@ public class SmsParserHelperTest {
                 POSITION_QUANTITY, POSITION_DESTINATION, POSITION_DATE, SOURCE);
 
         // Execute the method
-        List<Transaction> transactionList =
-                smsParserHelper.mapSmsListToTransactionsList(
-                        Arrays.asList(sms),
+        Transaction transaction =
+                smsParserHelper.parseSmsToTransaction(sms,
                         Arrays.asList(smsParserParameters));
 
         // Verify the results
-        assertEquals(0, transactionList.size());
+        assertNull(transaction);
     }
 
     @Test
@@ -133,13 +126,12 @@ public class SmsParserHelperTest {
                 DATE_FORMAT_WRONG, POSITION_QUANTITY_WRONG, POSITION_DESTINATION, POSITION_DATE, SOURCE);
 
         // Execute the method
-        List<Transaction> transactionList =
-                smsParserHelper.mapSmsListToTransactionsList(
-                        Arrays.asList(sms),
+        Transaction transaction =
+                smsParserHelper.parseSmsToTransaction(sms,
                         Arrays.asList(smsParserParameters));
 
         // Verify the results
-        assertEquals(0, transactionList.size());
+        assertNull(transaction);
     }
 
     @Test
@@ -150,13 +142,12 @@ public class SmsParserHelperTest {
                 POSITION_QUANTITY_WRONG, POSITION_DESTINATION, POSITION_DATE, SOURCE);
 
         // Execute the method
-        List<Transaction> transactionList =
-                smsParserHelper.mapSmsListToTransactionsList(
-                        Arrays.asList(sms),
+        Transaction transaction =
+                smsParserHelper.parseSmsToTransaction(sms,
                         Arrays.asList(smsParserParameters));
 
         // Verify the results
-        assertEquals(0, transactionList.size());
+        assertNull(transaction);
     }
 
     @Test
@@ -167,13 +158,12 @@ public class SmsParserHelperTest {
                 POSITION_QUANTITY, POSITION_DESTINATION_WRONG, POSITION_DATE, SOURCE);
 
         // Execute the method
-        List<Transaction> transactionList =
-                smsParserHelper.mapSmsListToTransactionsList(
-                        Arrays.asList(sms),
+        Transaction transaction =
+                smsParserHelper.parseSmsToTransaction(sms,
                         Arrays.asList(smsParserParameters));
 
         // Verify the results
-        assertEquals(0, transactionList.size());
+        assertNull(transaction);
     }
 
     @Test
@@ -184,13 +174,20 @@ public class SmsParserHelperTest {
                 POSITION_QUANTITY, POSITION_DESTINATION, POSITION_DATE_WRONG, SOURCE);
 
         // Execute the method
-        List<Transaction> transactionList =
-                smsParserHelper.mapSmsListToTransactionsList(
-                        Arrays.asList(sms),
+        Transaction transaction =
+                smsParserHelper.parseSmsToTransaction(sms,
                         Arrays.asList(smsParserParameters));
 
         // Verify the results
-        assertEquals(0, transactionList.size());
+        Transaction rightTransaction = new TransactionBuilder()
+                .setSmsId(SMS_1_ID)
+                .setQuantity(SMS_1_QUANTITY)
+                .setCurrency(SMS_1_CURRENCY)
+                .setSource(SOURCE)
+                .setDestination(SMS_1_DESTINATION)
+                .setDate(SMS_1_DATE)
+                .build();
+        assertEquals(rightTransaction, transaction);
     }
 
     private SmsParserParameters createSmsParserParameters(
