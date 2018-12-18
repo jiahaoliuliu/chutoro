@@ -23,15 +23,15 @@ class EmiratesNBDSmsParametersFactoryTest {
 
         // Pattern 1
         private val PATTERN_1_SMS_ID: Long = 6543
-        private val PATTERN_1_SMS_QUANTITY = 573
+        private val PATTERN_1_SMS_QUANTITY = 2675
         private val PATTERN_1_SMS_DATE = 1543522832854L
         private val PATTERN_1_SMS_CURRENCY = "AED"
-        private val PATTERN_1_SMS_DESTINATION = "SPINNEYS DUBAI LLC"
-        private val PATTERN_1_SMS_BODY = "From HSBC: Your Credit Card ending with ***1880 has been used for AED 5.73 on 09/12/2018 at SPINNEYS DUBAI LLC. Your available limit is AED 9414.74"
+        private val PATTERN_1_SMS_DESTINATION = "ZOOM SITE 6562 BURJ AL SA, DUBAI"
+        private val PATTERN_1_SMS_BODY = "Purchase of AED 26.75 with Debit Card ending 6819 at ZOOM SITE 6562 BURJ AL SA, DUBAI. Avl Balance is AED 54,520.42."
 
     }
 
-    private val hsbcSmsParametersFactory: HSBCSmsParametersFactory = HSBCSmsParametersFactory()
+    private val emiratesNBDParametersFactory = EmiratesNBDParametersFactory()
     private val smsParserHelper: SmsParserHelper = SmsParserHelper()
 
     @Before
@@ -45,7 +45,7 @@ class EmiratesNBDSmsParametersFactoryTest {
 
         // Execute the method
         val transaction = smsParserHelper.parseSmsToTransaction(sms,
-                hsbcSmsParametersFactory.createSmsParserParametersList())
+                emiratesNBDParametersFactory.createSmsParserParametersList())
 
         // Verify the results
         assertNotNull(transaction)

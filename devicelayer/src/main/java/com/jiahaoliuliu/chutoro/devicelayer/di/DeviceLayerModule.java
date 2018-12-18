@@ -6,7 +6,7 @@ import com.jiahaoliuliu.chutoro.devicelayer.CommonTransactionsProvider;
 import com.jiahaoliuliu.chutoro.devicelayer.TransactionsProvider;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.SmsParserHelper;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.ADCBSmsParametersFactory;
-import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.EmirtesNBDParametersFactory;
+import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.EmiratesNBDParametersFactory;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.HSBCSmsParametersFactory;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.ISmsParametersFactory;
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.NajmSmsParametersFactory;
@@ -83,7 +83,7 @@ public class DeviceLayerModule {
     @Provides
     @Named(QUALIFIED_NAME_SMS_PARSER_PARAMETERS_FACTORY_EMIRATES_NBD)
     ISmsParametersFactory provideEmiratesNBDSmsParserParametersFactory() {
-        return new EmirtesNBDParametersFactory();
+        return new EmiratesNBDParametersFactory();
     }
 
     @Provides
