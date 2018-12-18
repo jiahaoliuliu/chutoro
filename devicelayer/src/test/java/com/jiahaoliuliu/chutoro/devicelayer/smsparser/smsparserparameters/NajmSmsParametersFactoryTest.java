@@ -10,10 +10,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.Arrays;
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * This is a test against the sms patterns in the factory. More than a unit test
@@ -56,13 +54,12 @@ public class NajmSmsParametersFactoryTest {
         Sms sms = new Sms(PATTERN_1_SMS_ID, PATTERN_1_SMS_BODY, PATTERN_1_SMS_DATE);
 
         // Execute the method
-        List<Transaction> transactionList =
-                smsParserHelper.mapSmsListToTransactionsList(
-                        Arrays.asList(sms),
+        Transaction transaction =
+                smsParserHelper.parseSmsToTransaction(sms,
                         najmSmsParametersFactory.createSmsParserParametersList());
 
         // Verify the results
-        assertEquals(1, transactionList.size());
+        assertNotNull(transaction);
         Transaction rightTransaction =
                 new TransactionBuilder()
                         .setSmsId(PATTERN_1_SMS_ID)
@@ -73,7 +70,7 @@ public class NajmSmsParametersFactoryTest {
                         .setDate(PATTERN_1_SMS_DATE)
                         .build();
 
-        assertEquals(rightTransaction, transactionList.get(0));
+        assertEquals(rightTransaction, transaction);
     }
 
     @Test
@@ -83,13 +80,12 @@ public class NajmSmsParametersFactoryTest {
                 PATTERN_1_CURRENCY_SMS_DATE);
 
         // Execute the method
-        List<Transaction> transactionList =
-                smsParserHelper.mapSmsListToTransactionsList(
-                        Arrays.asList(sms),
+        Transaction transaction =
+                smsParserHelper.parseSmsToTransaction(sms,
                         najmSmsParametersFactory.createSmsParserParametersList());
 
         // Verify the results
-        assertEquals(1, transactionList.size());
+        assertNotNull(transaction);
         Transaction rightTransaction =
                 new TransactionBuilder()
                         .setSmsId(PATTERN_1_CURRENCY_SMS_ID)
@@ -100,6 +96,6 @@ public class NajmSmsParametersFactoryTest {
                         .setDate(PATTERN_1_CURRENCY_SMS_DATE)
                         .build();
 
-        assertEquals(rightTransaction, transactionList.get(0));
+        assertEquals(rightTransaction, transaction);
     }
 }

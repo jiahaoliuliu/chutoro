@@ -9,9 +9,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner
 
-import java.util.Arrays
-
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 
 /**
  * This is a test against the sms patterns in the factory. More than a unit test
@@ -62,12 +61,11 @@ class HSBCSmsParametersFactoryTest {
         val sms = Sms(PATTERN_1_SMS_ID, PATTERN_1_SMS_BODY, PATTERN_1_SMS_DATE)
 
         // Execute the method
-        val transactionList = smsParserHelper.mapSmsListToTransactionsList(
-                Arrays.asList(sms),
+        val transaction = smsParserHelper.parseSmsToTransaction(sms,
                 hsbcSmsParametersFactory.createSmsParserParametersList())
 
         // Verify the results
-        assertEquals(1, transactionList.size.toLong())
+        assertNotNull(transaction)
         val rightTransaction = TransactionBuilder()
                 .setSmsId(PATTERN_1_SMS_ID)
                 .setQuantity(PATTERN_1_SMS_QUANTITY)
@@ -77,7 +75,7 @@ class HSBCSmsParametersFactoryTest {
                 .setDate(PATTERN_1_SMS_DATE)
                 .build()
 
-        assertEquals(rightTransaction, transactionList[0])
+        assertEquals(rightTransaction, transaction)
     }
 
     @Test
@@ -87,12 +85,11 @@ class HSBCSmsParametersFactoryTest {
                 PATTERN_1_CURRENCY_SMS_DATE)
 
         // Execute the method
-        val transactionList = smsParserHelper.mapSmsListToTransactionsList(
-                Arrays.asList(sms),
+        val transaction = smsParserHelper.parseSmsToTransaction(sms,
                 hsbcSmsParametersFactory.createSmsParserParametersList())
 
         // Verify the results
-        assertEquals(1, transactionList.size.toLong())
+        assertNotNull(transaction)
         val rightTransaction = TransactionBuilder()
                 .setSmsId(PATTERN_1_CURRENCY_SMS_ID)
                 .setQuantity(PATTERN_1_CURRENCY_SMS_QUANTITY)
@@ -102,7 +99,7 @@ class HSBCSmsParametersFactoryTest {
                 .setDate(PATTERN_1_CURRENCY_SMS_DATE)
                 .build()
 
-        assertEquals(rightTransaction, transactionList[0])
+        assertEquals(rightTransaction, transaction)
     }
 
 
@@ -112,12 +109,11 @@ class HSBCSmsParametersFactoryTest {
         val sms = Sms(PATTERN_2_SMS_ID, PATTERN_2_SMS_BODY, PATTERN_2_SMS_DATE)
 
         // Execute the method
-        val transactionList = smsParserHelper.mapSmsListToTransactionsList(
-                Arrays.asList(sms),
+        val transaction = smsParserHelper.parseSmsToTransaction(sms,
                 hsbcSmsParametersFactory.createSmsParserParametersList())
 
         // Verify the results
-        assertEquals(1, transactionList.size.toLong())
+        assertNotNull(transaction)
         val rightTransaction = TransactionBuilder()
                 .setSmsId(PATTERN_2_SMS_ID)
                 .setQuantity(PATTERN_2_SMS_QUANTITY)
@@ -127,7 +123,7 @@ class HSBCSmsParametersFactoryTest {
                 .setDate(PATTERN_2_SMS_DATE)
                 .build()
 
-        assertEquals(rightTransaction, transactionList[0])
+        assertEquals(rightTransaction, transaction)
     }
 
 }
