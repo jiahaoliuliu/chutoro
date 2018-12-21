@@ -1,54 +1,73 @@
 package com.jiahaoliuliu.chutoro.entity.destination;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * The destination where the money of the transaction went.
- * It is the branch. All the destination will have a {@link DestinationDetails}, which is the
- * Company behind that branch.
+ * The details about a destination. If the {@link Destination} is about the branch, this class
+ * describes the Company behind that branch.
  *
- * All the branches are eligible to have its own location and destination, but most of the cases
- * it is empty.
+ * The name and the category is compulsory.
  */
-public class Destination {
+public class DestinationDetails {
 
-    /**
-     * Destination name. It is usually a branch name
-     */
+    @NotNull
     private String name;
 
-    /**
-     * Independent latitude and longitude, if exist
-     */
+    @NotNull
+    private String category;
+
     @Nullable
     private long latitude;
 
-    /**
-     * Independent latitude and longitude, if exist
-     */
     @Nullable
     private long longitude;
 
-    /**
-     * Independent description, if exists
-     */
     @Nullable
     private String description;
 
-    public Destination(String name) {
+    /**
+     * Compulsory constructor
+     * @param name
+     * @param category
+     */
+    protected DestinationDetails(@NotNull String name, @NotNull String category) {
         this.name = name;
+        setCategory(category);
     }
 
-    // Optional constructor
-    public Destination(String name, @Nullable long latitude, @Nullable long longitude, @Nullable String description) {
+    /**
+     * Optional constructor
+     */
+    protected DestinationDetails(@NotNull String name, @NotNull String category, @Nullable long latitude,
+                              @Nullable long longitude, @Nullable String description) {
         this.name = name;
+        setCategory(category);
         this.latitude = latitude;
         this.longitude = longitude;
         this.description = description;
     }
 
+    private void setCategory(String categoryString) {
+        for (Category category: Category.values()) {
+            if (category.toString().equalsIgnoreCase(categoryString)) {
+                this.category = category.toString();
+                return;
+            }
+        }
+
+        throw new IllegalArgumentException("The category of the destination details cannot be " +
+                "recognized");
+    }
+
+    @NotNull
     public String getName() {
         return name;
+    }
+
+    @NotNull
+    public String getCategory() {
+        return category;
     }
 
     @Nullable
@@ -71,17 +90,19 @@ public class Destination {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Destination that = (Destination) o;
+        DestinationDetails that = (DestinationDetails) o;
 
         if (latitude != that.latitude) return false;
         if (longitude != that.longitude) return false;
-        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (!name.equals(that.name)) return false;
+        if (!category.equals(that.category)) return false;
         return description != null ? description.equals(that.description) : that.description == null;
     }
 
     @Override
     public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
+        int result = name.hashCode();
+        result = 31 * result + category.hashCode();
         result = 31 * result + (int) (latitude ^ (latitude >>> 32));
         result = 31 * result + (int) (longitude ^ (longitude >>> 32));
         result = 31 * result + (description != null ? description.hashCode() : 0);
@@ -90,8 +111,9 @@ public class Destination {
 
     @Override
     public String toString() {
-        return "Destination{" +
+        return "DestinationDetails{" +
                 "name='" + name + '\'' +
+                ", category='" + category + '\'' +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
                 ", description='" + description + '\'' +
