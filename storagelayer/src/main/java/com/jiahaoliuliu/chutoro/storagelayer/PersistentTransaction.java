@@ -14,8 +14,21 @@ public class PersistentTransaction extends Transaction {
     @NonNull
     private long id;
 
-    public PersistentTransaction(long smsId, int quantity, String currency,
-                                 String source, String destination, long date) {
+    /**
+     * Persistent transaction constructor. This should be accessible from the Storage layer because
+     * there is not basic check for the parameters, so this should only be filled with the data that
+     * comes from the database.
+     * @param smsId     The id of the sms, if the data comes from the sms
+     * @param quantity  The quantity of the transaction
+     * @param currency  The currency which the transaction is made. The currency must be one of the
+     *                  {@link com.jiahaoliuliu.chutoro.entity.Currency}
+     * @param source    The source where the transaction comes from. It must be one of the
+     *                  {@link com.jiahaoliuliu.chutoro.entity.Source}
+     * @param destination   The destination where the transaction went
+     * @param date      The date when the transaction has happened
+     */
+    public PersistentTransaction(long smsId, int quantity, @NonNull String currency,
+                                 @NonNull String source, @NonNull String destination, long date) {
         super(smsId, quantity, currency, source, destination, date);
     }
 
