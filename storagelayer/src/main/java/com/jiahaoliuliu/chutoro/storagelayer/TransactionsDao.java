@@ -65,4 +65,18 @@ public abstract class TransactionsDao {
 
     @Query("Select * from transactions order by date desc")
     public abstract LiveData<List<PersistentTransaction>> getAllTransactions();
+
+    // TODO: Update getAllTransactions using the follow query and returning TransactionShown
+//    https://developer.android.com/training/data-storage/room/accessing-data#java
+//    @Query("SELECT user.name AS userName, pet.name AS petName " +
+//            "FROM user, pet " +
+//            "WHERE user.id = pet.user_id")
+//    public LiveData<List<UserPet>> loadUserAndPetNames();
+//
+//    // You can also define this class in a separate file, as long as you add the
+//    // "public" access modifier.
+//    static class UserPet {
+//        public String userName;
+//        public String petName;
+//    }
 }

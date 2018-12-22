@@ -7,6 +7,10 @@ import android.support.annotation.NonNull;
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
 
+/**
+ * The persistent version of the transactions. This is how the transactions
+ * are shown on the app
+ */
 @Entity(tableName = "transactions")
 public class PersistentTransaction extends Transaction {
 
