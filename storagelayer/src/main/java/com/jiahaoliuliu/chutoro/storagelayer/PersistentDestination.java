@@ -31,6 +31,14 @@ public class PersistentDestination extends Destination {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setDetailsId(long detailsId) {
+        this.detailsId = detailsId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
