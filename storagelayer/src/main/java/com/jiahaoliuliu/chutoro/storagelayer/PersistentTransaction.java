@@ -42,10 +42,6 @@ public class PersistentTransaction extends Transaction {
         return id;
     }
 
-    public void setId(@NonNull long id) {
-        this.id = id;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
