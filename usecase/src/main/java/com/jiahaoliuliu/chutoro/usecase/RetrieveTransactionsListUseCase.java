@@ -2,8 +2,8 @@ package com.jiahaoliuliu.chutoro.usecase;
 
 import android.arch.lifecycle.LiveData;
 
-import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.datalayer.transactionsrepository.ITransactionsRepository;
+import com.jiahaoliuliu.chutoro.storagelayer.ITransactionShown;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class RetrieveTransactionsListUseCase {
         this.ITransactionsRepository = ITransactionsRepository;
     }
 
-    public LiveData<? extends List<? extends ITransaction>> execute() {
+    public LiveData<? extends List<? extends ITransactionShown>> execute() {
         return ITransactionsRepository.retrieveTransactionsList();
     }
 }

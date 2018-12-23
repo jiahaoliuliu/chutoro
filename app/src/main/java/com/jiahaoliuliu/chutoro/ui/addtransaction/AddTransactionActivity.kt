@@ -253,7 +253,7 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
     }
 
     override fun onDestroy() {
-        presenter?.dispose()
+        presenter.dispose()
         super.onDestroy()
     }
 }

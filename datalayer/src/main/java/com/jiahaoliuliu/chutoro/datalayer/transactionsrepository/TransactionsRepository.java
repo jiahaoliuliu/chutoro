@@ -4,6 +4,7 @@ import android.arch.lifecycle.LiveData;
 
 import com.jiahaoliuliu.chutoro.devicelayer.CommonTransactionsProvider;
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
+import com.jiahaoliuliu.chutoro.storagelayer.ITransactionShown;
 import com.jiahaoliuliu.chutoro.storagelayer.MainDatabase;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class TransactionsRepository implements ITransactionsRepository {
 
     private final MainDatabase mainDatabase;
     private final CommonTransactionsProvider commonTransactionsProvider;
-    private LiveData<? extends List<? extends ITransaction>> allTransactions;
+    private LiveData<? extends List<? extends ITransactionShown>> allTransactions;
 
     public TransactionsRepository(MainDatabase mainDatabase,
                                   CommonTransactionsProvider commonTransactionsProvider) {
@@ -25,7 +26,7 @@ public class TransactionsRepository implements ITransactionsRepository {
     }
 
     @Override
-    public LiveData<? extends List<? extends ITransaction>> retrieveTransactionsList() {
+    public LiveData<? extends List<? extends ITransactionShown>> retrieveTransactionsList() {
         return allTransactions;
     }
 

@@ -22,7 +22,7 @@ public abstract class TransactionsDao {
         return insert(new PersistentTransaction(transaction));
     }
 
-    @Query("Select * from transactions where smsId == :smsId")
+    @Query("Select * from Transactions where smsId == :smsId")
     public abstract PersistentTransaction getTransactionPerSmsId(long smsId);
 
     @Update(onConflict = OnConflictStrategy.IGNORE)
@@ -60,18 +60,25 @@ public abstract class TransactionsDao {
     @Delete
     public abstract void delete(PersistentTransaction itemImpl);
 
-    @Query("Delete from transactions")
+    @Query("Delete from Transactions")
     public abstract void deleteAllItems();
 
-    @Query("Select " +
-            "transactions.quantity AS quantity, " +
-            "transactions.currency AS currency, " +
-            "transactions.source   AS source, " +
-            "transactions.destination AS destination, " +
-            "transactions.date     AS date, " +
-            " "+
-            "  from transactions order by date desc")
-    public abstract LiveData<List<ITransactionShown>> getAllTransactions();
+    @Query("Select Transactions.quantity AS quantity, " +
+            "Transactions.currency AS currency, " +
+            "Transactions.source   AS source, " +
+            "Transactions.destination AS destination, " +
+            "Transactions.date     AS date, " +
+            "Destinations.name     AS destinationName, "+
+            "Destinations.latitude AS destinationLatitude," +
+            "Destinations.longitude AS destinationLongitude, " +
+            "Destinations.Description AS destinationDescription, " +
+            "DestinationGroups.name AS destinationGroupName, " +
+            "DestinationGroups.category AS destinationGroupCategory, " +
+            "DestinationGroups.latitude AS destinationGroupLatitude, " +
+            "DestinationGroups.longitude AS destinationGroupLongitude, " +
+            "DestinationGroups.description AS destinationGroupDescription " +
+            "  from Transactions, Destinations, DestinationGroups order by date desc")
+    public abstract LiveData<List<TransactionShown>> getAllTransactions();
 
     // TODO: Update getAllTransactions using the follow query and returning TransactionShown
 //    https://developer.android.com/training/data-storage/room/accessing-data#java

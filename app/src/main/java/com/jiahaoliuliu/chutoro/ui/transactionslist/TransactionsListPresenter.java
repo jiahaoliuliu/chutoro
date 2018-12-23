@@ -3,6 +3,7 @@ package com.jiahaoliuliu.chutoro.ui.transactionslist;
 import android.arch.lifecycle.LiveData;
 
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
+import com.jiahaoliuliu.chutoro.storagelayer.ITransactionShown;
 import com.jiahaoliuliu.chutoro.usecase.RetrieveTransactionsListUseCase;
 import com.jiahaoliuliu.chutoro.usecase.UpdateTransactionsUseCase;
 
@@ -34,7 +35,7 @@ public class TransactionsListPresenter implements TransactionsListContract.Prese
     }
 
     @Override
-    public LiveData<? extends List<? extends ITransaction>> retrieveTransactionsList() {
+    public LiveData<? extends List<? extends ITransactionShown>> retrieveTransactionsList() {
         return retrieveTransactionsListUseCase.execute();
     }
 

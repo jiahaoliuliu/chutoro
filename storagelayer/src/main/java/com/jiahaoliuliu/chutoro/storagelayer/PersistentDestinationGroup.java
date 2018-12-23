@@ -9,7 +9,7 @@ import com.jiahaoliuliu.chutoro.entity.destination.DestinationGroup;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-@Entity(tableName = "Destination_Group")
+@Entity(tableName = "DestinationGroups")
 public class PersistentDestinationGroup extends DestinationGroup {
 
     @PrimaryKey(autoGenerate = true)

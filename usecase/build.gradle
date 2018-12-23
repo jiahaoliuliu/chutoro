@@ -29,6 +29,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':entity')
     implementation project(path: ':datalayer')
+    // This is needed in order to import ITransactionShown into the use case module
+    implementation project(path: ':storagelayer')
 
     implementation Libs.support_appcompat_v7
 

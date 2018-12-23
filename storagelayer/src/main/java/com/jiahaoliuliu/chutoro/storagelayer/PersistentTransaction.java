@@ -11,7 +11,7 @@ import com.jiahaoliuliu.chutoro.entity.Transaction;
  * The persistent version of the transactions. This is how the transactions
  * are shown on the app
  */
-@Entity(tableName = "transactions")
+@Entity(tableName = "Transactions")
 public class PersistentTransaction extends Transaction {
 
     @PrimaryKey(autoGenerate = true)

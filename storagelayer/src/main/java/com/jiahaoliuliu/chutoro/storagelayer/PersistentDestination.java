@@ -2,6 +2,7 @@ package com.jiahaoliuliu.chutoro.storagelayer;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
 import com.jiahaoliuliu.chutoro.entity.destination.Destination;
@@ -16,7 +17,8 @@ import org.jetbrains.annotations.Nullable;
         childColumns = "groupId",
         onUpdate = CASCADE,
         onDelete = RESTRICT),
-    tableName = "Destination")
+    tableName = "Destinations",
+    indices = {@Index("groupId")}) // Special index for group id since it is a foreign key
 public class PersistentDestination extends Destination {
 
     @PrimaryKey(autoGenerate = true)
