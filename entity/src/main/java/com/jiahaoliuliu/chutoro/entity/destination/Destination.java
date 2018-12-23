@@ -1,20 +1,23 @@
 package com.jiahaoliuliu.chutoro.entity.destination;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
  * The destination where the money of the transaction went.
- * It is the branch. All the destination will have a {@link DestinationDetails}, which is the
+ * It is the branch. All the destination will have a {@link DestinationGroup}, which is the
  * Company behind that branch.
  *
  * All the branches are eligible to have its own location and destination, but most of the cases
  * it is empty.
  */
+
 public class Destination {
 
     /**
      * Destination name. It is usually a branch name
      */
+    @NotNull
     private String name;
 
     /**

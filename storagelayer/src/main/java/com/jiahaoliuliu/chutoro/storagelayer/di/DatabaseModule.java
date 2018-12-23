@@ -2,7 +2,7 @@ package com.jiahaoliuliu.chutoro.storagelayer.di;
 
 import android.content.Context;
 
-import com.jiahaoliuliu.chutoro.storagelayer.TransactionsDatabase;
+import com.jiahaoliuliu.chutoro.storagelayer.MainDatabase;
 
 import javax.inject.Singleton;
 
@@ -14,7 +14,7 @@ public class DatabaseModule {
 
     @Provides
     @Singleton
-    TransactionsDatabase provideTransactionDatabase(Context context) {
-        return TransactionsDatabase.getInstance(context);
+    MainDatabase provideTransactionDatabase(Context context) {
+        return MainDatabase.getInstance(context);
     }
 }

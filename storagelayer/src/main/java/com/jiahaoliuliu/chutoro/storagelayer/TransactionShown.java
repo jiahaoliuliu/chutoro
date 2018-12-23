@@ -15,7 +15,7 @@ import org.jetbrains.annotations.Nullable;
  * won't be hardly reflected on the presentation layer (remember that
  * livedata requires a compulsory lifecycle owner)
  */
-public class TransactionShown {
+public class TransactionShown implements ITransactionShown {
 
     // TODO: Encapsulate those fields if later it proves to work with the
     // room queries
@@ -38,19 +38,103 @@ public class TransactionShown {
     @Nullable
     public String destinationDescription;
 
-    // Destination details
+    // Destination group
     @NotNull
-    public String destinationDetailsName;
+    public String destinationGroupName;
 
     @NotNull
-    public String destinationDetailsCategory;
+    public String destinationGroupCategory;
 
     @Nullable
-    public long destinationDetailsLatitude;
+    public long destinationGroupLatitude;
 
     @Nullable
-    public long destinationDetailsLongitude;
+    public long destinationGroupLongitude;
 
     @Nullable
-    public String destinationDetailsDescription;
+    public String destinationGroupDescription;
+
+    @NotNull
+    @Override
+    public int getQuantity() {
+        return quantity;
+    }
+
+    @NotNull
+    @Override
+    public String getCurrency() {
+        return currency;
+    }
+
+    @NotNull
+    @Override
+    public String getSource() {
+        return source;
+    }
+
+    @NotNull
+    @Override
+    public String getDestination() {
+        return destination;
+    }
+
+    @NotNull
+    @Override
+    public long getDate() {
+        return date;
+    }
+
+    @NotNull
+    @Override
+    public String getDestinationName() {
+        return destinationName;
+    }
+
+    @Nullable
+    @Override
+    public long getDestinationLatitude() {
+        return destinationLatitude;
+    }
+
+    @Nullable
+    @Override
+    public long getDestinationLongitude() {
+        return destinationLongitude;
+    }
+
+    @Nullable
+    @Override
+    public String getDestinationDescription() {
+        return destinationDescription;
+    }
+
+    @NotNull
+    @Override
+    public String getDestinationGroupName() {
+        return destinationGroupName;
+    }
+
+    @NotNull
+    @Override
+    public String getDestinationGroupCategory() {
+        return destinationGroupCategory;
+    }
+
+    @Nullable
+    @Override
+    public long getDestinationGroupLatitude() {
+        return destinationGroupLatitude;
+    }
+
+    @Nullable
+    @Override
+    public long getDestinationGroupLongitude() {
+        return destinationGroupLongitude;
+    }
+
+    @Nullable
+    @Override
+    public String getDestinationGroupDescription() {
+        return destinationGroupDescription;
+    }
 }

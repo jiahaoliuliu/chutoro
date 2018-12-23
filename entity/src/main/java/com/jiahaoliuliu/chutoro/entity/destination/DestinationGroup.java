@@ -4,12 +4,12 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * The details about a destination. If the {@link Destination} is about the branch, this class
+ * The group which the destination belongs. If the {@link Destination} is about the branch, this class
  * describes the Company behind that branch.
  *
  * The name and the category is compulsory.
  */
-public class DestinationDetails {
+public class DestinationGroup {
 
     @NotNull
     private String name;
@@ -31,7 +31,7 @@ public class DestinationDetails {
      * @param name
      * @param category
      */
-    protected DestinationDetails(@NotNull String name, @NotNull String category) {
+    protected DestinationGroup(@NotNull String name, @NotNull String category) {
         this.name = name;
         setCategory(category);
     }
@@ -39,8 +39,8 @@ public class DestinationDetails {
     /**
      * Optional constructor
      */
-    protected DestinationDetails(@NotNull String name, @NotNull String category, @Nullable long latitude,
-                              @Nullable long longitude, @Nullable String description) {
+    protected DestinationGroup(@NotNull String name, @NotNull String category, @Nullable long latitude,
+                               @Nullable long longitude, @Nullable String description) {
         this.name = name;
         setCategory(category);
         this.latitude = latitude;
@@ -56,7 +56,7 @@ public class DestinationDetails {
             }
         }
 
-        throw new IllegalArgumentException("The category of the destination details cannot be " +
+        throw new IllegalArgumentException("The category of the destination group cannot be " +
                 "recognized");
     }
 
@@ -90,7 +90,7 @@ public class DestinationDetails {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        DestinationDetails that = (DestinationDetails) o;
+        DestinationGroup that = (DestinationGroup) o;
 
         if (latitude != that.latitude) return false;
         if (longitude != that.longitude) return false;
@@ -111,7 +111,7 @@ public class DestinationDetails {
 
     @Override
     public String toString() {
-        return "DestinationDetails{" +
+        return "DestinationGroup{" +
                 "name='" + name + '\'' +
                 ", category='" + category + '\'' +
                 ", latitude=" + latitude +

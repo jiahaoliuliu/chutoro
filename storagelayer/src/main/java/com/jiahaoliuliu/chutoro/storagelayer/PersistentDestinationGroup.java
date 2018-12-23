@@ -4,19 +4,21 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-import com.jiahaoliuliu.chutoro.entity.destination.DestinationDetails;
+import com.jiahaoliuliu.chutoro.entity.destination.DestinationGroup;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-@Entity
-public class PersistentDestinationDetails extends DestinationDetails {
+@Entity(tableName = "Destination_Group")
+public class PersistentDestinationGroup extends DestinationGroup {
 
     @PrimaryKey(autoGenerate = true)
     @NonNull
     private long id;
 
-    protected PersistentDestinationDetails(@NotNull String name, @NotNull String category, @Nullable long latitude, @Nullable long longitude, @Nullable String description) {
+    protected PersistentDestinationGroup(
+            @NotNull String name, @NotNull String category, @Nullable long latitude,
+            @Nullable long longitude, @Nullable String description) {
         super(name, category, latitude, longitude, description);
     }
 
@@ -35,7 +37,7 @@ public class PersistentDestinationDetails extends DestinationDetails {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        PersistentDestinationDetails that = (PersistentDestinationDetails) o;
+        PersistentDestinationGroup that = (PersistentDestinationGroup) o;
 
         return id == that.id;
     }
@@ -49,7 +51,7 @@ public class PersistentDestinationDetails extends DestinationDetails {
 
     @Override
     public String toString() {
-        return "PersistentDestinationDetails{" +
+        return "PersistentDestinationGroup{" +
                 "id=" + id +
                 ", " + super.toString() +
                 '}';

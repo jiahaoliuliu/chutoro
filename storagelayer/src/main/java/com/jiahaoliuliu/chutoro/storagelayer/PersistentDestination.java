@@ -11,19 +11,21 @@ import static android.arch.persistence.room.ForeignKey.RESTRICT;
 
 import org.jetbrains.annotations.Nullable;
 
-@Entity(foreignKeys = @ForeignKey(entity = PersistentDestinationDetails.class,
+@Entity(foreignKeys = @ForeignKey(entity = PersistentDestinationGroup.class,
         parentColumns = "id",
-        childColumns = "detailsID",
+        childColumns = "groupId",
         onUpdate = CASCADE,
-        onDelete = RESTRICT))
+        onDelete = RESTRICT),
+    tableName = "Destination")
 public class PersistentDestination extends Destination {
 
     @PrimaryKey(autoGenerate = true)
     private long id;
 
-    private long detailsId;
+    private long groupId;
 
-    public PersistentDestination(String name, @Nullable long latitude, @Nullable long longitude, @Nullable String description) {
+    public PersistentDestination(String name, @Nullable long latitude, @Nullable long longitude,
+                                 @Nullable String description) {
         super(name, latitude, longitude, description);
     }
 
@@ -35,8 +37,12 @@ public class PersistentDestination extends Destination {
         this.id = id;
     }
 
-    public void setDetailsId(long detailsId) {
-        this.detailsId = detailsId;
+    public long getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(long groupId) {
+        this.groupId = groupId;
     }
 
     @Override
@@ -48,14 +54,14 @@ public class PersistentDestination extends Destination {
         PersistentDestination that = (PersistentDestination) o;
 
         if (id != that.id) return false;
-        return detailsId == that.detailsId;
+        return groupId == that.groupId;
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
         result = 31 * result + (int) (id ^ (id >>> 32));
-        result = 31 * result + (int) (detailsId ^ (detailsId >>> 32));
+        result = 31 * result + (int) (groupId ^ (groupId >>> 32));
         return result;
     }
 
@@ -63,7 +69,7 @@ public class PersistentDestination extends Destination {
     public String toString() {
         return "PersistentDestination{" +
                 "id=" + id +
-                ", detailsId=" + detailsId +
+                ", groupId=" + groupId +
                 ", " + super.toString() +
                 '}';
     }

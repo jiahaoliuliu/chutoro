@@ -63,8 +63,15 @@ public abstract class TransactionsDao {
     @Query("Delete from transactions")
     public abstract void deleteAllItems();
 
-    @Query("Select * from transactions order by date desc")
-    public abstract LiveData<List<PersistentTransaction>> getAllTransactions();
+    @Query("Select " +
+            "transactions.quantity AS quantity, " +
+            "transactions.currency AS currency, " +
+            "transactions.source   AS source, " +
+            "transactions.destination AS destination, " +
+            "transactions.date     AS date, " +
+            " "+
+            "  from transactions order by date desc")
+    public abstract LiveData<List<ITransactionShown>> getAllTransactions();
 
     // TODO: Update getAllTransactions using the follow query and returning TransactionShown
 //    https://developer.android.com/training/data-storage/room/accessing-data#java
