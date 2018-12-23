@@ -64,6 +64,13 @@ public abstract class TransactionsDao {
     @Query("Delete from Transactions")
     public abstract void deleteAllItems();
 
+    /**
+     * Query used to (left) join the transactions table with the destinations
+     * tables and destinationGroups table.
+     * More data here: https://developer.android.com/training/data-storage/room/accessing-data#java
+     * @return
+     *      Live data about the left join between Transactions, Destinations and DestinationGroups
+     */
     @Query("Select Transactions.quantity AS quantity, " +
             "Transactions.currency AS currency, " +
             "Transactions.source   AS source, " +
@@ -78,23 +85,12 @@ public abstract class TransactionsDao {
             "DestinationGroups.latitude AS destinationGroupLatitude, " +
             "DestinationGroups.longitude AS destinationGroupLongitude, " +
             "DestinationGroups.description AS destinationGroupDescription " +
-            "  from Transactions, Destinations, DestinationGroups order by date desc")
+            "  from Transactions " +
+            // Left join with Destinations so if it does not exist, the destinations fields will be null
+            "  left join Destinations on Transactions.destination = Destinations.codeName " +
+            // Left join with DestinationGroups so if Destinations is null, those fields will be null as well
+            "  left join DestinationGroups on Destinations.groupId = DestinationGroups.id " +
+            // Order
+            "  order by date desc")
     public abstract LiveData<List<TransactionShown>> getAllTransactions();
-
-    @Query("Select * from Transactions order by date desc")
-    public abstract LiveData<List<PersistentTransaction>> getAllPlainTransactions();
-
-    // TODO: Update getAllTransactions using the follow query and returning TransactionShown
-//    https://developer.android.com/training/data-storage/room/accessing-data#java
-//    @Query("SELECT user.name AS userName, pet.name AS petName " +
-//            "FROM user, pet " +
-//            "WHERE user.id = pet.user_id")
-//    public LiveData<List<UserPet>> loadUserAndPetNames();
-//
-//    // You can also define this class in a separate file, as long as you add the
-//    // "public" access modifier.
-//    static class UserPet {
-//        public String userName;
-//        public String petName;
-//    }
 }

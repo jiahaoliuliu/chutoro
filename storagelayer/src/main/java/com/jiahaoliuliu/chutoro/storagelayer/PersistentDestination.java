@@ -10,6 +10,7 @@ import com.jiahaoliuliu.chutoro.entity.destination.Destination;
 import static android.arch.persistence.room.ForeignKey.CASCADE;
 import static android.arch.persistence.room.ForeignKey.RESTRICT;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 @Entity(foreignKeys = @ForeignKey(entity = PersistentDestinationGroup.class,
@@ -25,6 +26,12 @@ public class PersistentDestination extends Destination {
     private long id;
 
     private long groupId;
+
+    /**
+     * The code name which appears on the sms
+     */
+    @NotNull
+    private String codeName;
 
     public PersistentDestination(String name, @Nullable long latitude, @Nullable long longitude,
                                  @Nullable String description) {
@@ -47,6 +54,16 @@ public class PersistentDestination extends Destination {
         this.groupId = groupId;
     }
 
+    @NotNull
+    public String getCodeName() {
+        return codeName;
+    }
+
+    public void setCodeName(@NotNull String codeName) {
+        this.codeName = codeName;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -56,7 +73,8 @@ public class PersistentDestination extends Destination {
         PersistentDestination that = (PersistentDestination) o;
 
         if (id != that.id) return false;
-        return groupId == that.groupId;
+        if (groupId != that.groupId) return false;
+        return codeName.equals(that.codeName);
     }
 
     @Override
@@ -64,6 +82,7 @@ public class PersistentDestination extends Destination {
         int result = super.hashCode();
         result = 31 * result + (int) (id ^ (id >>> 32));
         result = 31 * result + (int) (groupId ^ (groupId >>> 32));
+        result = 31 * result + codeName.hashCode();
         return result;
     }
 
@@ -72,6 +91,7 @@ public class PersistentDestination extends Destination {
         return "PersistentDestination{" +
                 "id=" + id +
                 ", groupId=" + groupId +
+                ", codeName='" + codeName + '\'' +
                 ", " + super.toString() +
                 '}';
     }
