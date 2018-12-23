@@ -9,6 +9,7 @@ import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
+import com.jiahaoliuliu.chutoro.entity.Transaction;
 
 import java.util.List;
 
@@ -79,6 +80,9 @@ public abstract class TransactionsDao {
             "DestinationGroups.description AS destinationGroupDescription " +
             "  from Transactions, Destinations, DestinationGroups order by date desc")
     public abstract LiveData<List<TransactionShown>> getAllTransactions();
+
+    @Query("Select * from Transactions order by date desc")
+    public abstract LiveData<List<PersistentTransaction>> getAllPlainTransactions();
 
     // TODO: Update getAllTransactions using the follow query and returning TransactionShown
 //    https://developer.android.com/training/data-storage/room/accessing-data#java

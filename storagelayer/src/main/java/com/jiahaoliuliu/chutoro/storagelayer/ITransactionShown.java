@@ -3,6 +3,10 @@ package com.jiahaoliuliu.chutoro.storagelayer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * TODO: This interface should be extended from {@link com.jiahaoliuliu.chutoro.entity.ITransaction}
+ * and IDestination (to be created) and IDestinationGroup (to be created)
+ */
 public interface ITransactionShown {
 
     @NotNull
