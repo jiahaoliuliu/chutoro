@@ -123,6 +123,11 @@ public class TransactionShown implements ITransactionShown {
         return destinationGroupCategory;
     }
 
+    @Override
+    public boolean hasDestinationGroupCategory() {
+        return destinationGroupCategory != null && !destinationGroupCategory.isEmpty();
+    }
+
     @Nullable
     @Override
     public long getDestinationGroupLatitude() {
