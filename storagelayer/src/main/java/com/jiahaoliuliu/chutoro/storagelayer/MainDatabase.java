@@ -2,7 +2,7 @@ package com.jiahaoliuliu.chutoro.storagelayer;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.jiahaoliuliu.chutoro.entity.destination.Category;
 

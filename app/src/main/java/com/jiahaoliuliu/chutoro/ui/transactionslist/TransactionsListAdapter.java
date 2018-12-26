@@ -1,15 +1,11 @@
 package com.jiahaoliuliu.chutoro.ui.transactionslist;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.jiahaoliuliu.chutoro.databinding.LayoutTransactionBinding;
-import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.storagelayer.ITransactionShown;
-import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

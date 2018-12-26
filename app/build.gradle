@@ -29,19 +29,6 @@ android {
         enabled = true
     }
 }
-
-configurations.all {
-    resolutionStrategy.eachDependency {
-        DependencyResolveDetails details ->
-            def requested = details.requested
-            if (requested.group == "com.android.support") {
-                if (!requested.name.startsWith("multidex")) {
-                    details.useVersion "26.+"
-                }
-            }
-    }
-}
-
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(path: ':entity')
@@ -52,10 +39,10 @@ dependencies {
     implementation project(path: ':devicelayer')
 
     // Core libraries
-    implementation Libs.support_appcompat_v7
+    implementation Libs.app_compat
     annotationProcessor AnnotationProcessor.support
     kapt AnnotationProcessor.support
-    implementation Libs.support_design
+    implementation Libs.android_material
     implementation Libs.rxjava
     implementation Libs.rxAndroid
 

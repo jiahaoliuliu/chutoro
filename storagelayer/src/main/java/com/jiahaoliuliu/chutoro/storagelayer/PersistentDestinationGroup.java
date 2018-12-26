@@ -1,6 +1,6 @@
 package com.jiahaoliuliu.chutoro.storagelayer;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.jiahaoliuliu.chutoro.entity.destination.DestinationGroup;
 

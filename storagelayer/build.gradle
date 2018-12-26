@@ -29,13 +29,11 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':entity')
 
-    implementation Libs.support_appcompat_v7
+    implementation Libs.app_compat
 
     // Dagger
     implementation Libs.dagger
     annotationProcessor AnnotationProcessor.dagger
-
-    implementation Libs.support_appcompat_v7
 
     // RxJava
     implementation Libs.rxjava

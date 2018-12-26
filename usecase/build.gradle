@@ -32,7 +32,7 @@ dependencies {
     // This is needed in order to import ITransactionShown into the use case module
     implementation project(path: ':storagelayer')
 
-    implementation Libs.support_appcompat_v7
+    implementation Libs.app_compat
 
     implementation Libs.dagger
     implementation Libs.dagger_support
