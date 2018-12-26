@@ -1,11 +1,10 @@
 package com.jiahaoliuliu.chutoro.storagelayer;
 
-import androidx.annotation.NonNull;
-
 import com.jiahaoliuliu.chutoro.entity.destination.DestinationGroup;
 
 import org.jetbrains.annotations.NotNull;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 

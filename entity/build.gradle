@@ -7,6 +7,12 @@ dependencies {
 
     testImplementation Tests.junit
     testImplementation Tests.mockito
+
+    // Room -> Only to ignore a field in DestinationGroup.
+    // This is not possible technically on other way
+    implementation Libs.room
+    implementation Libs.roomRxJava
+    annotationProcessor AnnotationProcessor.room
 }
 
 sourceCompatibility = Versions.java
