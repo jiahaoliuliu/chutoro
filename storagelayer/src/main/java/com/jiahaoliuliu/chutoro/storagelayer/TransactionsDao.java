@@ -9,7 +9,6 @@ import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
-import com.jiahaoliuliu.chutoro.entity.Transaction;
 
 import java.util.List;
 
@@ -24,7 +23,7 @@ public abstract class TransactionsDao {
     }
 
     @Query("Select * from Transactions where smsId == :smsId")
-    public abstract PersistentTransaction getTransactionPerSmsId(long smsId);
+    public abstract PersistentTransaction getTransactionBySmsId(long smsId);
 
     @Update(onConflict = OnConflictStrategy.IGNORE)
     public abstract void update(PersistentTransaction persistentTransaction);
@@ -50,8 +49,8 @@ public abstract class TransactionsDao {
         }
 
         // If the transaction is from SMS
-        PersistentTransaction persistentTransaction = getTransactionPerSmsId(transaction.getSmsId());
-        if (persistentTransaction == null) {
+        PersistentTransaction existingPersistentTransaction = getTransactionBySmsId(transaction.getSmsId());
+        if (existingPersistentTransaction == null) {
             return insert(transaction) > 0;
         }
 
@@ -59,7 +58,7 @@ public abstract class TransactionsDao {
     }
 
     @Delete
-    public abstract void delete(PersistentTransaction itemImpl);
+    public abstract void delete(PersistentTransaction persistentTransaction);
 
     @Query("Delete from Transactions")
     public abstract void deleteAllItems();

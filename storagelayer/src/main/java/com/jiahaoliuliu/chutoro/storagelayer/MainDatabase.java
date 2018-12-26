@@ -5,6 +5,8 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
+import com.jiahaoliuliu.chutoro.entity.destination.DestinationGroup;
+
 @Database(entities = {
         PersistentTransaction.class,
         PersistentDestination.class,
@@ -16,6 +18,8 @@ public abstract class MainDatabase extends RoomDatabase {
     private static MainDatabase instance;
 
     public abstract TransactionsDao transactionsDao();
+    public abstract DestinationDao destinationDao();
+    public abstract DestinationGroupDao destinationGroupDao();
 
     public static synchronized MainDatabase getInstance(Context context) {
         if (instance == null) {
