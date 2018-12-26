@@ -1,22 +1,19 @@
 package com.jiahaoliuliu.chutoro.storagelayer;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
-import android.arch.persistence.room.Index;
-import android.arch.persistence.room.PrimaryKey;
-
 import com.jiahaoliuliu.chutoro.entity.destination.Destination;
 
-import static android.arch.persistence.room.ForeignKey.CASCADE;
-import static android.arch.persistence.room.ForeignKey.RESTRICT;
-
 import org.jetbrains.annotations.NotNull;
+
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Index;
+import androidx.room.PrimaryKey;
 
 @Entity(foreignKeys = @ForeignKey(entity = PersistentDestinationGroup.class,
         parentColumns = "id",
         childColumns = "groupId",
-        onUpdate = CASCADE,
-        onDelete = RESTRICT),
+        onUpdate = ForeignKey.CASCADE,
+        onDelete = ForeignKey.RESTRICT),
     tableName = "Destinations",
     indices = {@Index("groupId")}) // Special index for group id since it is a foreign key
 public class PersistentDestination extends Destination {

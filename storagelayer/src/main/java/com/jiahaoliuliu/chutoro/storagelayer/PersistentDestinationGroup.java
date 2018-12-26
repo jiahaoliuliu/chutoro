@@ -1,12 +1,13 @@
 package com.jiahaoliuliu.chutoro.storagelayer;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
 import com.jiahaoliuliu.chutoro.entity.destination.DestinationGroup;
 
 import org.jetbrains.annotations.NotNull;
+
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "DestinationGroups")
 public class PersistentDestinationGroup extends DestinationGroup {

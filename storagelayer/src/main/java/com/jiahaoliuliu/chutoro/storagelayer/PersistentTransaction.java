@@ -1,11 +1,12 @@
 package com.jiahaoliuliu.chutoro.storagelayer;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
+
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 /**
  * The persistent version of the transactions. This is how the transactions

@@ -1,15 +1,15 @@
 package com.jiahaoliuliu.chutoro.storagelayer;
 
-import android.arch.persistence.db.SupportSQLiteDatabase;
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
 import com.jiahaoliuliu.chutoro.entity.destination.Category;
-import com.jiahaoliuliu.chutoro.entity.destination.DestinationGroup;
+
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 @Database(entities = {
         PersistentTransaction.class,
@@ -41,6 +41,8 @@ public abstract class MainDatabase extends RoomDatabase {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
+
+
             new PopulateDbAsyncTask(instance).execute();
         }
 

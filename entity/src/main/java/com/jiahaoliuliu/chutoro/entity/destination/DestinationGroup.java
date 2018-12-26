@@ -26,6 +26,9 @@ public class DestinationGroup {
     @Nullable
     protected String description;
 
+//    @Nullable
+//    private Destination[] destinations;
+
     /**
      * Compulsory constructor
      * @param name
@@ -85,38 +88,48 @@ public class DestinationGroup {
         return description;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+//    @Nullable
+//    public Destination[] getDestinations() {
+//        return destinations;
+//    }
 
-        DestinationGroup that = (DestinationGroup) o;
-
-        if (latitude != that.latitude) return false;
-        if (longitude != that.longitude) return false;
-        if (!name.equals(that.name)) return false;
-        if (!category.equals(that.category)) return false;
-        return description != null ? description.equals(that.description) : that.description == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + category.hashCode();
-        result = 31 * result + (int) (latitude ^ (latitude >>> 32));
-        result = 31 * result + (int) (longitude ^ (longitude >>> 32));
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "DestinationGroup{" +
-                "name='" + name + '\'' +
-                ", category='" + category + '\'' +
-                ", latitude=" + latitude +
-                ", longitude=" + longitude +
-                ", description='" + description + '\'' +
-                '}';
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//
+//        DestinationGroup that = (DestinationGroup) o;
+//
+//        if (latitude != that.latitude) return false;
+//        if (longitude != that.longitude) return false;
+//        if (!name.equals(that.name)) return false;
+//        if (!category.equals(that.category)) return false;
+//        if (description != null ? !description.equals(that.description) : that.description != null)
+//            return false;
+//        // Probably incorrect - comparing Object[] arrays with Arrays.equals
+//        return Arrays.equals(destinations, that.destinations);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        int result = name.hashCode();
+//        result = 31 * result + category.hashCode();
+//        result = 31 * result + (int) (latitude ^ (latitude >>> 32));
+//        result = 31 * result + (int) (longitude ^ (longitude >>> 32));
+//        result = 31 * result + (description != null ? description.hashCode() : 0);
+//        result = 31 * result + Arrays.hashCode(destinations);
+//        return result;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "DestinationGroup{" +
+//                "name='" + name + '\'' +
+//                ", category='" + category + '\'' +
+//                ", latitude=" + latitude +
+//                ", longitude=" + longitude +
+//                ", description='" + description + '\'' +
+//                ", destinations=" + Arrays.toString(destinations) +
+//                '}';
+//    }
 }

@@ -15,7 +15,7 @@ object Versions {
     val recyclerView = "28.0.0"
     val retrofit = "2.4.0"
     val liveData = "1.1.1"
-    val room = "1.1.1"
+    val room = "2.1.0-alpha03"
     val viewModel = "1.1.1"
     val lifeCycleExtensions = "1.1.1"
     val dagger = "2.19"
@@ -62,9 +62,9 @@ object Libs {
     val cardView = "com.android.support:cardview-v7:${Versions.cardView}"
     val recyclerView = "com.android.support:recyclerview-v7:${Versions.recyclerView}"
     val liveData = "android.arch.lifecycle:livedata:${Versions.liveData}"
-    val room = "android.arch.persistence.room:runtime:${Versions.room}"
-    val roomRxJava = "android.arch.persistence.room:rxjava2:${Versions.room}"
-    val roomGuava = "android.arch.persistence.room:guava:${Versions.room}"
+    val room = "androidx.room:room-runtime:${Versions.room}"
+    val roomRxJava = "androidx.room:room-rxjava2:${Versions.room}"
+    val roomGuava = "androidx.room:room-guava:${Versions.room}"
     val viewModel = "android.arch.lifecycle:viewmodel:${Versions.viewModel}"
     val lifeCycleExtension = "android.arch.lifecycle:extensions:${Versions.lifeCycleExtensions}"
 }
@@ -72,7 +72,7 @@ object Libs {
 object AnnotationProcessor {
     val support = "com.android.support:support-annotations:${Versions.support_lib}"
     val liveData = "android.arch.lifecycle:compiler:${Versions.liveData}"
-    val room = "android.arch.persistence.room:compiler:${Versions.room}"
+    val room = "androidx.room:room-compiler:${Versions.room}"
     val dagger = "com.google.dagger:dagger-compiler:${Versions.dagger}"
 }
 
