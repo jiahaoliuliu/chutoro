@@ -1,7 +1,7 @@
 package com.jiahaoliuliu.chutoro.usecase;
 
 import com.jiahaoliuliu.chutoro.datalayer.transactionsrepository.ITransactionsRepository;
-import com.jiahaoliuliu.chutoro.storagelayer.ITransactionShown;
+import com.jiahaoliuliu.chutoro.storagelayer.ui.ITransactionShown;
 
 import java.util.List;
 

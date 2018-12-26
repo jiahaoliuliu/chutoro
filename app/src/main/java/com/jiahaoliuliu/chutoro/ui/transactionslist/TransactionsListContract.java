@@ -1,6 +1,6 @@
 package com.jiahaoliuliu.chutoro.ui.transactionslist;
 
-import com.jiahaoliuliu.chutoro.storagelayer.ITransactionShown;
+import com.jiahaoliuliu.chutoro.storagelayer.ui.ITransactionShown;
 
 import java.util.List;
 

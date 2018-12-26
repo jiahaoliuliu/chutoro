@@ -1,4 +1,4 @@
-package com.jiahaoliuliu.chutoro.storagelayer;
+package com.jiahaoliuliu.chutoro.storagelayer.destination;
 
 import com.jiahaoliuliu.chutoro.entity.destination.Destination;
 

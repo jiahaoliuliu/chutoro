@@ -1,6 +1,6 @@
 package com.jiahaoliuliu.chutoro.ui.transactionslist;
 
-import com.jiahaoliuliu.chutoro.storagelayer.ITransactionShown;
+import com.jiahaoliuliu.chutoro.storagelayer.ui.ITransactionShown;
 import com.jiahaoliuliu.chutoro.usecase.RetrieveTransactionsListUseCase;
 import com.jiahaoliuliu.chutoro.usecase.UpdateTransactionsUseCase;
 

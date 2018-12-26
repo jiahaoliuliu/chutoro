@@ -1,6 +1,7 @@
 package com.jiahaoliuliu.chutoro.storagelayer;
 
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
+import com.jiahaoliuliu.chutoro.storagelayer.ui.TransactionShown;
 
 import java.util.List;
 

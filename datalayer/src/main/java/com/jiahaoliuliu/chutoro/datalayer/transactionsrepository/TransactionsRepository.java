@@ -2,7 +2,7 @@ package com.jiahaoliuliu.chutoro.datalayer.transactionsrepository;
 
 import com.jiahaoliuliu.chutoro.devicelayer.CommonTransactionsProvider;
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
-import com.jiahaoliuliu.chutoro.storagelayer.ITransactionShown;
+import com.jiahaoliuliu.chutoro.storagelayer.ui.ITransactionShown;
 import com.jiahaoliuliu.chutoro.storagelayer.MainDatabase;
 
 import java.util.List;

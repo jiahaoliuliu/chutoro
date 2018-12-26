@@ -4,6 +4,10 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import com.jiahaoliuliu.chutoro.entity.destination.Category;
+import com.jiahaoliuliu.chutoro.storagelayer.destination.DestinationDao;
+import com.jiahaoliuliu.chutoro.storagelayer.destination.DestinationGroupDao;
+import com.jiahaoliuliu.chutoro.storagelayer.destination.PersistentDestination;
+import com.jiahaoliuliu.chutoro.storagelayer.destination.PersistentDestinationGroup;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;

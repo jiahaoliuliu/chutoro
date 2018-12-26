@@ -4,7 +4,7 @@
         <import type="android.view.View"/>
         <variable
             name="transaction"
-            type="com.jiahaoliuliu.chutoro.storagelayer.ITransactionShown" />
+            type="com.jiahaoliuliu.chutoro.storagelayer.ui.ITransactionShown" />
     </data>
 
     <androidx.cardview.widget.CardView

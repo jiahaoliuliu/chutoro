@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.jiahaoliuliu.chutoro.databinding.LayoutTransactionBinding;
-import com.jiahaoliuliu.chutoro.storagelayer.ITransactionShown;
+import com.jiahaoliuliu.chutoro.storagelayer.ui.ITransactionShown;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

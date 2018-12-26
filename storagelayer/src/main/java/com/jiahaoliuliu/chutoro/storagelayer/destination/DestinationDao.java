@@ -1,4 +1,4 @@
-package com.jiahaoliuliu.chutoro.storagelayer;
+package com.jiahaoliuliu.chutoro.storagelayer.destination;
 
 import androidx.room.Dao;
 import androidx.room.Delete;

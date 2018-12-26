@@ -1,4 +1,4 @@
-package com.jiahaoliuliu.chutoro.storagelayer;
+package com.jiahaoliuliu.chutoro.storagelayer.ui;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
