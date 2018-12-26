@@ -75,6 +75,9 @@ public class TransactionShown implements ITransactionShown {
     @NotNull
     @Override
     public String getDestination() {
+        if (destinationGroupName != null && !destinationGroupName.isEmpty()) {
+            return destinationGroupName;
+        }
         return destination;
     }
 
