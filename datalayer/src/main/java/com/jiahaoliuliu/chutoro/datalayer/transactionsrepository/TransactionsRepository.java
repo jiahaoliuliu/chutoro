@@ -1,7 +1,5 @@
 package com.jiahaoliuliu.chutoro.datalayer.transactionsrepository;
 
-import android.arch.lifecycle.LiveData;
-
 import com.jiahaoliuliu.chutoro.devicelayer.CommonTransactionsProvider;
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.storagelayer.ITransactionShown;
@@ -9,6 +7,7 @@ import com.jiahaoliuliu.chutoro.storagelayer.MainDatabase;
 
 import java.util.List;
 
+import androidx.lifecycle.LiveData;
 import io.reactivex.Completable;
 import io.reactivex.Single;
 

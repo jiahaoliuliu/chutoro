@@ -1,11 +1,11 @@
 package com.jiahaoliuliu.chutoro.usecase;
 
-import android.arch.lifecycle.LiveData;
-
 import com.jiahaoliuliu.chutoro.datalayer.transactionsrepository.ITransactionsRepository;
 import com.jiahaoliuliu.chutoro.storagelayer.ITransactionShown;
 
 import java.util.List;
+
+import androidx.lifecycle.LiveData;
 
 public class RetrieveTransactionsListUseCase {
 

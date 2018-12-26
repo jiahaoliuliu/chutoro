@@ -1,16 +1,13 @@
 package com.jiahaoliuliu.chutoro.ui.transactionslist;
 
-import android.arch.lifecycle.LiveData;
-
-import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.storagelayer.ITransactionShown;
 import com.jiahaoliuliu.chutoro.usecase.RetrieveTransactionsListUseCase;
 import com.jiahaoliuliu.chutoro.usecase.UpdateTransactionsUseCase;
 
 import java.util.List;
 
+import androidx.lifecycle.LiveData;
 import io.reactivex.CompletableObserver;
-import io.reactivex.Scheduler;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;

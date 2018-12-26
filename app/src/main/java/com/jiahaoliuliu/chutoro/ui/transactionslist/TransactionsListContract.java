@@ -1,13 +1,10 @@
 package com.jiahaoliuliu.chutoro.ui.transactionslist;
 
-import android.arch.lifecycle.LiveData;
-
-import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.storagelayer.ITransactionShown;
 
 import java.util.List;
 
-import io.reactivex.Single;
+import androidx.lifecycle.LiveData;
 
 /**
  * Contract for MVP

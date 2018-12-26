@@ -14,7 +14,7 @@ object Versions {
     val cardView = "28.0.0"
     val recyclerView = "28.0.0"
     val retrofit = "2.4.0"
-    val liveData = "1.1.1"
+    val liveData = "2.0.0"
     val room = "2.1.0-alpha03"
     val viewModel = "1.1.1"
     val lifeCycleExtensions = "1.1.1"
@@ -61,7 +61,7 @@ object Libs {
     // Optional
     val cardView = "com.android.support:cardview-v7:${Versions.cardView}"
     val recyclerView = "com.android.support:recyclerview-v7:${Versions.recyclerView}"
-    val liveData = "android.arch.lifecycle:livedata:${Versions.liveData}"
+    val liveData = "androidx.lifecycle:lifecycle-livedata:${Versions.liveData}"
     val room = "androidx.room:room-runtime:${Versions.room}"
     val roomRxJava = "androidx.room:room-rxjava2:${Versions.room}"
     val roomGuava = "androidx.room:room-guava:${Versions.room}"
@@ -71,7 +71,7 @@ object Libs {
 
 object AnnotationProcessor {
     val support = "com.android.support:support-annotations:${Versions.support_lib}"
-    val liveData = "android.arch.lifecycle:compiler:${Versions.liveData}"
+    val liveData = "androidx.lifecycle:lifecycle-compiler:${Versions.liveData}"
     val room = "androidx.room:room-compiler:${Versions.room}"
     val dagger = "com.google.dagger:dagger-compiler:${Versions.dagger}"
 }
