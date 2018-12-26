@@ -2,10 +2,10 @@ package com.jiahaoliuliu.chutoro.storagelayer;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import androidx.annotation.NonNull;
 
 import com.jiahaoliuliu.chutoro.entity.destination.Category;
 
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
@@ -28,10 +28,10 @@ public abstract class MainDatabase extends RoomDatabase {
     public static synchronized MainDatabase getInstance(Context context) {
         if (instance == null) {
             instance = Room.databaseBuilder(context.getApplicationContext(),
-                    MainDatabase.class, MainDatabase.DATABASE_NAME)
-                    .fallbackToDestructiveMigration()
-                    .addCallback(roomCallback)
-                    .build();
+                MainDatabase.class, MainDatabase.DATABASE_NAME)
+                .fallbackToDestructiveMigration()
+                .addCallback(roomCallback)
+                .build();
         }
 
         return instance;
@@ -41,8 +41,7 @@ public abstract class MainDatabase extends RoomDatabase {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
-
-
+            PersistentDestinationGroup[] persistentDestinationGroups = createPersistentGroups();
             new PopulateDbAsyncTask(instance).execute();
         }
 
@@ -52,6 +51,11 @@ public abstract class MainDatabase extends RoomDatabase {
             // TODO: Update the content of the database
         }
     };
+
+    private static PersistentDestinationGroup[] createPersistentGroups() {
+
+        return null;
+    }
 
     private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
         private final DestinationDao destinationDao;
