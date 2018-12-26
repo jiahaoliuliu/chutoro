@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import com.jiahaoliuliu.chutoro.entity.destination.DestinationGroup;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 @Entity(tableName = "DestinationGroups")
 public class PersistentDestinationGroup extends DestinationGroup {
@@ -16,11 +15,15 @@ public class PersistentDestinationGroup extends DestinationGroup {
     @NonNull
     private long id;
 
-    protected PersistentDestinationGroup(
-            @NotNull String name, @NotNull String category, @Nullable long latitude,
-            @Nullable long longitude, @Nullable String description) {
-        super(name, category, latitude, longitude, description);
+    protected PersistentDestinationGroup(@NotNull String name, @NotNull String category) {
+        super(name, category);
     }
+
+//    protected PersistentDestinationGroup(
+//            @NotNull String name, @NotNull String category, @Nullable long latitude,
+//            @Nullable long longitude, @Nullable String description) {
+//        super(name, category, latitude, longitude, description);
+//    }
 
     @NonNull
     public long getId() {
@@ -29,6 +32,31 @@ public class PersistentDestinationGroup extends DestinationGroup {
 
     public void setId(@NonNull long id) {
         this.id = id;
+    }
+
+    // This is required by Room
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // This is required by Room
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    // This is required by Room
+    public void setLatitude(long latitude) {
+        this.latitude = latitude;
+    }
+
+    // This is required by Room
+    public void setLongitude(long longitude) {
+        this.longitude = longitude;
+    }
+
+    // This is required by Room
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override

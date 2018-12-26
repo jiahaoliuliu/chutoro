@@ -11,7 +11,6 @@ import static android.arch.persistence.room.ForeignKey.CASCADE;
 import static android.arch.persistence.room.ForeignKey.RESTRICT;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 @Entity(foreignKeys = @ForeignKey(entity = PersistentDestinationGroup.class,
         parentColumns = "id",
@@ -25,6 +24,7 @@ public class PersistentDestination extends Destination {
     @PrimaryKey(autoGenerate = true)
     private long id;
 
+    @NotNull
     private long groupId;
 
     /**
@@ -33,10 +33,18 @@ public class PersistentDestination extends Destination {
     @NotNull
     private String codeName;
 
-    public PersistentDestination(String name, @Nullable long latitude, @Nullable long longitude,
-                                 @Nullable String description) {
-        super(name, latitude, longitude, description);
+    public PersistentDestination(long groupId, String codeName, String name) {
+        super(name);
+        this.groupId = groupId;
+        this.codeName = codeName;
     }
+
+//    public PersistentDestination(long groupId, String codeName, String name, @Nullable long latitude, @Nullable long longitude,
+//                                 @Nullable String description) {
+//        super(name, latitude, longitude, description);
+//        this.groupId = groupId;
+//        this.codeName = codeName;
+//    }
 
     public long getId() {
         return id;
@@ -59,10 +67,30 @@ public class PersistentDestination extends Destination {
         return codeName;
     }
 
+    // This is required by Room
     public void setCodeName(@NotNull String codeName) {
         this.codeName = codeName;
     }
 
+    // This is required by Room
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // This is required by Room
+    public void setLatitude(long latitude) {
+        this.latitude = latitude;
+    }
+
+    // This is required by Room
+    public void setLongitude(long longitude) {
+        this.longitude = longitude;
+    }
+
+    // This is required by Room
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     @Override
     public boolean equals(Object o) {

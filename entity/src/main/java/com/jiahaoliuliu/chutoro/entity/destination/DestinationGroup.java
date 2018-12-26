@@ -12,19 +12,19 @@ import org.jetbrains.annotations.Nullable;
 public class DestinationGroup {
 
     @NotNull
-    private String name;
+    protected String name;
 
     @NotNull
-    private String category;
+    protected String category;
 
     @Nullable
-    private long latitude;
+    protected long latitude;
 
     @Nullable
-    private long longitude;
+    protected long longitude;
 
     @Nullable
-    private String description;
+    protected String description;
 
     /**
      * Compulsory constructor

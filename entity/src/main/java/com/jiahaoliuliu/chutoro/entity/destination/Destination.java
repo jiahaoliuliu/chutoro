@@ -18,25 +18,25 @@ public class Destination {
      * Destination name. It is usually a branch name
      */
     @NotNull
-    private String name;
+    protected String name;
 
     /**
      * Independent latitude and longitude, if exist
      */
     @Nullable
-    private long latitude;
+    protected long latitude;
 
     /**
      * Independent latitude and longitude, if exist
      */
     @Nullable
-    private long longitude;
+    protected long longitude;
 
     /**
      * Independent description, if exists
      */
     @Nullable
-    private String description;
+    protected String description;
 
     public Destination(String name) {
         this.name = name;
