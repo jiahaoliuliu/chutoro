@@ -45,6 +45,7 @@ dependencies {
 
     implementation Libs.liveData
     annotationProcessor AnnotationProcessor.liveData
+    kapt AnnotationProcessor.liveData
 
     testImplementation Tests.junit
     testImplementation Tests.mockito
