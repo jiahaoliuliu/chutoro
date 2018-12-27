@@ -33,7 +33,8 @@ object Versions {
     // Others
     val java = "8"
     val androidJavaVersion = 1.8
-    val gradle = "3.2.0"
+    val gradle = "3.2.1"
+    val gradleKotlin = "1.2.71"
 }
 
 object Libs {
@@ -57,6 +58,7 @@ object Libs {
 
     // Others
     val gradle_plugin = "com.android.tools.build:gradle:${Versions.gradle}"
+    val gradle_kotlin_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.gradleKotlin}"
 
     // Optional
     val cardView = "androidx.cardview:cardview:${Versions.cardView}"
