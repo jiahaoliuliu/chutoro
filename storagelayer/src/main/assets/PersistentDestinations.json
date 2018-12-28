@@ -55,6 +55,72 @@
           "latitude": 0,
           "longitude": 0,
           "description": ""
+        },
+        {
+          "id": 3001,
+          "groupId": 3,
+          "codeName": "ATM-DXBMarinaBranch",
+          "name": "Marina",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Google Play",
+      "category": "ENTERTAINMENT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 4000,
+          "groupId": 4,
+          "codeName": "GOOGLE*GAMELOFT INC,G.CO HELPPAY#-US",
+          "name": "",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Prey Inc",
+      "category": "INSURANCE",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 5000,
+          "groupId": 5,
+          "codeName": "PREY, INC.,SAN FRANCISCO-US",
+          "name": "",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Kindle",
+      "category": "ENTERTAINMENT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 6000,
+          "groupId": 6,
+          "codeName": "Kindle Svcs,08004961081-LU",
+          "name": "",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
         }
       ]
     }
