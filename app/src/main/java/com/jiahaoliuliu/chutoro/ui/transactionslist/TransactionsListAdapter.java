@@ -1,6 +1,5 @@
 package com.jiahaoliuliu.chutoro.ui.transactionslist;
 
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -11,6 +10,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import androidx.recyclerview.widget.RecyclerView;
+import timber.log.Timber;
 
 public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsListAdapter.TransactionHolder>{
 
@@ -62,6 +64,9 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
         public void bind(ITransactionShown transactionShown) {
             layoutTransactionBinding.setTransaction(transactionShown);
             layoutTransactionBinding.executePendingBindings();
+            if (!transactionShown.hasDestinationName() || !transactionShown.hasDestinationGroupName()) {
+                Timber.w("Transaction destination not recognized " + transactionShown.getDestination());
+            }
             layoutTransactionBinding.date.setText(parseDate(transactionShown.getDate()));
             layoutTransactionBinding.quantity.setText(parseQuantity(transactionShown.getQuantity()));
         }

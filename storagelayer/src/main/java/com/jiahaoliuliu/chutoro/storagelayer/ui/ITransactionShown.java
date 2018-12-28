@@ -41,6 +41,8 @@ public interface ITransactionShown {
     @NotNull
     String getDestinationGroupName();
 
+    boolean hasDestinationGroupName();
+
     @NotNull
     String getDestinationGroupCategory();
 

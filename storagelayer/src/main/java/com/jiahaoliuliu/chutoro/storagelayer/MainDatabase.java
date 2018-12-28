@@ -76,13 +76,13 @@ public abstract class MainDatabase extends RoomDatabase {
     private static Observable<Boolean> insertPersistentDestinationGroup(
             DestinationGroupDao destinationGroupDao, DestinationDao destinationDao,
             PersistentDestinationGroup persistentDestinationGroup) {
-        return Observable.fromCallable(() -> destinationGroupDao.insertIfDoesNotExist(persistentDestinationGroup))
+        return Observable.fromCallable(() -> destinationGroupDao.insertOrUpdate(persistentDestinationGroup))
                 .flatMap(__ -> insertPersistentDestinations(destinationDao, persistentDestinationGroup));
     }
 
     private static Observable<Boolean> insertPersistentDestinations(
             DestinationDao destinationDao, PersistentDestinationGroup persistentDestinationGroup) {
             return Observable.fromIterable(persistentDestinationGroup.getPersistentDestinations())
-                .map(destinationDao::insertIfDoesNotExist);
+                .map(destinationDao::insertOrUpdate);
     }
 }

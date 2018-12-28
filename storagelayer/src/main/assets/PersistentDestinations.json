@@ -13,7 +13,16 @@
           "id": 1000,
           "groupId": 1,
           "codeName": "BlueSnap,London-GB",
-          "name": "",
+          "name": "London",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 1001,
+          "groupId": 1,
+          "codeName": "BlueSnap GB",
+          "name": "London",
           "latitude": 0,
           "longitude": 0,
           "description": ""
@@ -32,7 +41,7 @@
           "id": 2000,
           "groupId": 2,
           "codeName": "Wikimedia8776009454 US",
-          "name": "",
+          "name": "US",
           "latitude": 0,
           "longitude": 0,
           "description": ""
@@ -60,7 +69,25 @@
           "id": 3001,
           "groupId": 3,
           "codeName": "ATM-DXBMarinaBranch",
-          "name": "Marina",
+          "name": "Dubai Marina",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 3002,
+          "groupId": 3,
+          "codeName": "ATM-MARINA MALL DXB",
+          "name": "Marina mall",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 3003,
+          "groupId": 3,
+          "codeName": "ATM-RTADXBMARINA",
+          "name": "Dubai marina metro",
           "latitude": 0,
           "longitude": 0,
           "description": ""
@@ -79,7 +106,16 @@
           "id": 4000,
           "groupId": 4,
           "codeName": "GOOGLE*GAMELOFT INC,G.CO HELPPAY#-US",
-          "name": "",
+          "name": "GAMELOFT",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 4001,
+          "groupId": 4,
+          "codeName": "GOOGLE*IDREAMS,G.CO HELPPAY#-US",
+          "name": "Infinite Dreams",
           "latitude": 0,
           "longitude": 0,
           "description": ""
@@ -98,7 +134,7 @@
           "id": 5000,
           "groupId": 5,
           "codeName": "PREY, INC.,SAN FRANCISCO-US",
-          "name": "",
+          "name": "San francisco",
           "latitude": 0,
           "longitude": 0,
           "description": ""
@@ -118,6 +154,243 @@
           "groupId": 6,
           "codeName": "Kindle Svcs,08004961081-LU",
           "name": "",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Carrefour",
+      "category": "SUPERMARKET",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 7000,
+          "groupId": 7,
+          "codeName": "CARREFOUR MKT MARINA C AE",
+          "name": "Dubai Marina",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 7001,
+          "groupId": 7,
+          "codeName": "CARREFOUR AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Spinneys",
+      "category": "SUPERMARKET",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 8000,
+          "groupId": 8,
+          "codeName": "SPINNEYS DUBAI LLC AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "RTA - Road and Transport Authority Dubai",
+      "category": "TRANSPORT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 9000,
+          "groupId": 9,
+          "codeName": "ROAD & TRA WORLD TRAD AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "National Taxi",
+      "category": "TRANSPORT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 10000,
+          "groupId": 10,
+          "codeName": "NATIONAL TAXI AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Sun and Sand Sports",
+      "category": "CLOTHING",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 11000,
+          "groupId": 11,
+          "codeName": "SUN AND SAND SPORTS LL AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Sharaf DG",
+      "category": "ELECTRONICS",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 12000,
+          "groupId": 12,
+          "codeName": "SHARAF D G -WEST-171128 AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Mumuso",
+      "category": "SUPERMARKET",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 13000,
+          "groupId": 13,
+          "codeName": "MUMUSO GENERAL TRD-DEI AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Steak on fries cafeteria",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 14000,
+          "groupId": 14,
+          "codeName": "STEAK ON FRIES CAFETRIA AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Virgin Megastore",
+      "category": "ENTERTAINMENT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 15000,
+          "groupId": 15,
+          "codeName": "V STAR MULTIMEDI-828007 AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Little Bangkok",
+      "category": "ENTERTAINMENT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 16000,
+          "groupId": 16,
+          "codeName": "LITTLE BANGKOK AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "The H hotel",
+      "category": "TRAVEL",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 17000,
+          "groupId": 17,
+          "codeName": "THE H HOTEL AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Careem",
+      "category": "TRANSPORT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 18000,
+          "groupId": 18,
+          "codeName": "CAREEM NETWORKS FZ L,DUBAI-AE",
+          "name": "Dubai",
           "latitude": 0,
           "longitude": 0,
           "description": ""
