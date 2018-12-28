@@ -5,7 +5,7 @@ import com.jiahaoliuliu.chutoro.entity.destination.DestinationGroup;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Arrays;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
@@ -15,7 +15,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "DestinationGroups")
 public class PersistentDestinationGroup extends DestinationGroup {
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     @NonNull
     private long id;
 
@@ -26,12 +26,13 @@ public class PersistentDestinationGroup extends DestinationGroup {
      * TODO: Check for TypeConverter to see if it is possible to insert the list
      * of Persistent destinations automatically
      */
-    @Nullable
+    @NotNull
     @Ignore
-    protected PersistentDestination[] persistentDestinations;
+    protected List<PersistentDestination> persistentDestinations;
 
-    protected PersistentDestinationGroup(@NotNull String name, @NotNull String category) {
+    protected PersistentDestinationGroup(@NonNull long id, @NotNull String name, @NotNull String category) {
         super(name, category);
+        this.id = id;
     }
 
 //    protected PersistentDestinationGroup(
@@ -74,12 +75,12 @@ public class PersistentDestinationGroup extends DestinationGroup {
         this.description = description;
     }
 
-    @Nullable
-    public PersistentDestination[] getPersistentDestinations() {
+    @NotNull
+    public List<PersistentDestination> getPersistentDestinations() {
         return persistentDestinations;
     }
 
-    public void setPersistentDestinations(@Nullable PersistentDestination[] persistentDestinations) {
+    public void setPersistentDestinations(@Nullable List<PersistentDestination> persistentDestinations) {
         this.persistentDestinations = persistentDestinations;
     }
 
@@ -92,15 +93,14 @@ public class PersistentDestinationGroup extends DestinationGroup {
         PersistentDestinationGroup that = (PersistentDestinationGroup) o;
 
         if (id != that.id) return false;
-        // Probably incorrect - comparing Object[] arrays with Arrays.equals
-        return Arrays.equals(persistentDestinations, that.persistentDestinations);
+        return persistentDestinations != null ? persistentDestinations.equals(that.persistentDestinations) : that.persistentDestinations == null;
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
         result = 31 * result + (int) (id ^ (id >>> 32));
-        result = 31 * result + Arrays.hashCode(persistentDestinations);
+        result = 31 * result + (persistentDestinations != null ? persistentDestinations.hashCode() : 0);
         return result;
     }
 
@@ -108,7 +108,7 @@ public class PersistentDestinationGroup extends DestinationGroup {
     public String toString() {
         return "PersistentDestinationGroup{" +
                 "id=" + id +
-                ", persistentDestinations=" + Arrays.toString(persistentDestinations) +
+                ", persistentDestinations=" + persistentDestinations +
                 ", " + super.toString() +
                 '}';
     }

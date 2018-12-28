@@ -1,11 +1,10 @@
 package com.jiahaoliuliu.chutoro.storagelayer;
 
 import android.content.Context;
-import android.os.AsyncTask;
 
-import com.jiahaoliuliu.chutoro.entity.destination.Category;
 import com.jiahaoliuliu.chutoro.storagelayer.destination.DestinationDao;
 import com.jiahaoliuliu.chutoro.storagelayer.destination.DestinationGroupDao;
+import com.jiahaoliuliu.chutoro.storagelayer.destination.DestinationsProvider;
 import com.jiahaoliuliu.chutoro.storagelayer.destination.PersistentDestination;
 import com.jiahaoliuliu.chutoro.storagelayer.destination.PersistentDestinationGroup;
 
@@ -14,6 +13,10 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
+import io.reactivex.Observable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
+import timber.log.Timber;
 
 @Database(entities = {
         PersistentTransaction.class,
@@ -24,6 +27,7 @@ public abstract class MainDatabase extends RoomDatabase {
     public static final String DATABASE_NAME = "Chutoro.sqlite";
 
     private static MainDatabase instance;
+    private static DestinationsProvider destinationsProvider;
 
     public abstract TransactionsDao transactionsDao();
     public abstract DestinationDao destinationDao();
@@ -31,6 +35,7 @@ public abstract class MainDatabase extends RoomDatabase {
 
     public static synchronized MainDatabase getInstance(Context context) {
         if (instance == null) {
+            destinationsProvider = new DestinationsProvider();
             instance = Room.databaseBuilder(context.getApplicationContext(),
                 MainDatabase.class, MainDatabase.DATABASE_NAME)
                 .fallbackToDestructiveMigration()
@@ -45,8 +50,15 @@ public abstract class MainDatabase extends RoomDatabase {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
-            PersistentDestinationGroup[] persistentDestinationGroups = createPersistentGroups();
-            new PopulateDbAsyncTask(instance).execute();
+            // Initialize the database
+            DestinationGroupDao destinationGroupDao = instance.destinationGroupDao();
+            DestinationDao destinationDao = instance.destinationDao();
+            Disposable disposable = Observable.fromIterable(destinationsProvider.providePersistentDestinationGroups())
+                .flatMap(persistentDestinationGroup -> insertPersistentDestinationGroup(
+                        destinationGroupDao, destinationDao, persistentDestinationGroup))
+                .subscribeOn(Schedulers.io())
+                .subscribe(aBoolean -> Timber.v("Data inserted into the database " + aBoolean),
+                        throwable -> Timber.e(throwable, "Error inserting the data into the database"));
         }
 
         @Override
@@ -56,31 +68,16 @@ public abstract class MainDatabase extends RoomDatabase {
         }
     };
 
-    private static PersistentDestinationGroup[] createPersistentGroups() {
-
-        return null;
+    private static Observable<Boolean> insertPersistentDestinationGroup(
+            DestinationGroupDao destinationGroupDao, DestinationDao destinationDao,
+            PersistentDestinationGroup persistentDestinationGroup) {
+        return Observable.fromCallable(() -> destinationGroupDao.insert(persistentDestinationGroup))
+                .flatMap(__ -> insertPersistentDestinations(destinationDao, persistentDestinationGroup));
     }
 
-    private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
-        private final DestinationDao destinationDao;
-        private final DestinationGroupDao destinationGroupDao;
-
-        private PopulateDbAsyncTask(MainDatabase mainDatabase) {
-            this.destinationDao = mainDatabase.destinationDao();
-            this.destinationGroupDao = mainDatabase.destinationGroupDao();
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            PersistentDestinationGroup persistentDestinationGroup =
-                    new PersistentDestinationGroup("TeachMeNow", Category.EDUCATION.toString());
-            long teachMeNowId = destinationGroupDao.insert(persistentDestinationGroup);
-
-            PersistentDestination persistentDestination =
-                    new PersistentDestination(teachMeNowId, "BlueSnap,London-GB", "Main");
-
-            destinationDao.insert(persistentDestination);
-            return null;
-        }
+    private static Observable<Boolean> insertPersistentDestinations(
+            DestinationDao destinationDao, PersistentDestinationGroup persistentDestinationGroup) {
+            return Observable.fromIterable(persistentDestinationGroup.getPersistentDestinations())
+                .map(destinationDao::insertIfDoesNotExist);
     }
 }

@@ -18,7 +18,8 @@ import androidx.room.PrimaryKey;
     indices = {@Index("groupId")}) // Special index for group id since it is a foreign key
 public class PersistentDestination extends Destination {
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
+    @NotNull
     private long id;
 
     @NotNull
@@ -30,8 +31,9 @@ public class PersistentDestination extends Destination {
     @NotNull
     private String codeName;
 
-    public PersistentDestination(long groupId, String codeName, String name) {
+    public PersistentDestination(long id, long groupId, String codeName, String name) {
         super(name);
+        this.id = id;
         this.groupId = groupId;
         this.codeName = codeName;
     }

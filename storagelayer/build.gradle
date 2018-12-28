@@ -29,6 +29,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':entity')
 
+    // Core
     implementation Libs.app_compat
 
     // Dagger
@@ -47,6 +48,10 @@ dependencies {
     implementation Libs.liveData
     annotationProcessor AnnotationProcessor.liveData
 
+    // Others
+    implementation Libs.timber
+
+    // Test
     testImplementation Tests.junit
     androidTestImplementation Tests.testRunner
     androidTestImplementation Tests.espresso
