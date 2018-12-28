@@ -1,21 +1,39 @@
 package com.jiahaoliuliu.chutoro.storagelayer;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
 
-@Entity(tableName = "transactions")
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+/**
+ * The persistent version of the transactions. This is how the transactions
+ * are shown on the app
+ */
+@Entity(tableName = "Transactions")
 public class PersistentTransaction extends Transaction {
 
     @PrimaryKey(autoGenerate = true)
     @NonNull
     private long id;
 
-    public PersistentTransaction(long smsId, int quantity, String currency,
-                                 String source, String destination, long date) {
+    /**
+     * Persistent transaction constructor. This should be accessible from the Storage layer because
+     * there is not basic check for the parameters, so this should only be filled with the data that
+     * comes from the database.
+     * @param smsId     The id of the sms, if the data comes from the sms
+     * @param quantity  The quantity of the transaction
+     * @param currency  The currency which the transaction is made. The currency must be one of the
+     *                  {@link com.jiahaoliuliu.chutoro.entity.Currency}
+     * @param source    The source where the transaction comes from. It must be one of the
+     *                  {@link com.jiahaoliuliu.chutoro.entity.Source}
+     * @param destination   The destination where the transaction went
+     * @param date      The date when the transaction has happened
+     */
+    public PersistentTransaction(long smsId, int quantity, @NonNull String currency,
+                                 @NonNull String source, @NonNull String destination, long date) {
         super(smsId, quantity, currency, source, destination, date);
     }
 

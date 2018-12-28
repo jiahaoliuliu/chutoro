@@ -1,43 +1,43 @@
 package com.jiahaoliuliu.chutoro.datalayer.transactionsrepository;
 
-import android.arch.lifecycle.LiveData;
-
 import com.jiahaoliuliu.chutoro.devicelayer.CommonTransactionsProvider;
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
-import com.jiahaoliuliu.chutoro.storagelayer.TransactionsDatabase;
+import com.jiahaoliuliu.chutoro.storagelayer.ui.ITransactionShown;
+import com.jiahaoliuliu.chutoro.storagelayer.MainDatabase;
 
 import java.util.List;
 
+import androidx.lifecycle.LiveData;
 import io.reactivex.Completable;
 import io.reactivex.Single;
 
 public class TransactionsRepository implements ITransactionsRepository {
 
-    private final TransactionsDatabase transactionsDatabase;
+    private final MainDatabase mainDatabase;
     private final CommonTransactionsProvider commonTransactionsProvider;
-    private LiveData<? extends List<? extends ITransaction>> allTransactions;
+    private LiveData<? extends List<? extends ITransactionShown>> allTransactions;
 
-    public TransactionsRepository(TransactionsDatabase transactionsDatabase,
+    public TransactionsRepository(MainDatabase mainDatabase,
                                   CommonTransactionsProvider commonTransactionsProvider) {
-        this.transactionsDatabase = transactionsDatabase;
+        this.mainDatabase = mainDatabase;
         this.commonTransactionsProvider = commonTransactionsProvider;
-        allTransactions = transactionsDatabase.transactionsDao().getAllTransactions();
+        allTransactions = mainDatabase.transactionsDao().getAllTransactions();
     }
 
     @Override
-    public LiveData<? extends List<? extends ITransaction>> retrieveTransactionsList() {
+    public LiveData<? extends List<? extends ITransactionShown>> retrieveTransactionsList() {
         return allTransactions;
     }
 
     @Override
     public Single<Boolean> addTransaction(ITransaction transaction) {
         return Single.fromCallable(
-                () -> transactionsDatabase.transactionsDao().insertIfDoesNotExist(transaction));
+                () -> mainDatabase.transactionsDao().insertIfDoesNotExist(transaction));
     }
 
     @Override
     public Completable updateTransactionsList() {
         return Completable.fromObservable(commonTransactionsProvider.provideTransactions()
-                .doOnNext(transaction -> transactionsDatabase.transactionsDao().insertIfDoesNotExist(transaction)));
+                .doOnNext(transaction -> mainDatabase.transactionsDao().insertIfDoesNotExist(transaction)));
     }
 }

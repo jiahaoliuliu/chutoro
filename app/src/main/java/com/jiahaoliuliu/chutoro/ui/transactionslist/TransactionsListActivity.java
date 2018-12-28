@@ -3,22 +3,24 @@ package com.jiahaoliuliu.chutoro.ui.transactionslist;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
-import com.jiahaoliuliu.chutoro.ui.MainApplication;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.jiahaoliuliu.chutoro.R;
+import com.jiahaoliuliu.chutoro.ui.MainApplication;
 import com.jiahaoliuliu.chutoro.ui.addtransaction.AddTransactionActivity;
 
 import javax.inject.Inject;
 
-public class TransactionsListActivity extends AppCompatActivity implements TransactionsListContract.View {
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+public class TransactionsListActivity extends AppCompatActivity implements
+        TransactionsListContract.View {
 
     private static final int REQUEST_CODE_FOR_READ_SMS_PERMISSION = 1;
     private static final int REQUEST_CODE_FOR_ADD_NEW_TRANSACTIONS = 1000;

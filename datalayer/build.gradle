@@ -33,7 +33,7 @@ dependencies {
     implementation project(path: ':devicelayer')
 
     // Core
-    implementation Libs.support_appcompat_v7
+    implementation Libs.app_compat
     implementation Libs.rxjava
     implementation Libs.timber
 

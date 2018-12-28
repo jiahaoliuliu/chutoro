@@ -1,6 +1,6 @@
 package com.jiahaoliuliu.chutoro.devicelayer.smsparser;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.SmsParserParameters;
 import com.jiahaoliuliu.chutoro.entity.Transaction;

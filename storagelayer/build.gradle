@@ -29,13 +29,12 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':entity')
 
-    implementation Libs.support_appcompat_v7
+    // Core
+    implementation Libs.app_compat
 
     // Dagger
     implementation Libs.dagger
     annotationProcessor AnnotationProcessor.dagger
-
-    implementation Libs.support_appcompat_v7
 
     // RxJava
     implementation Libs.rxjava
@@ -49,6 +48,11 @@ dependencies {
     implementation Libs.liveData
     annotationProcessor AnnotationProcessor.liveData
 
+    // Others
+    implementation Libs.timber
+    implementation Libs.gson
+
+    // Test
     testImplementation Tests.junit
     androidTestImplementation Tests.testRunner
     androidTestImplementation Tests.espresso
