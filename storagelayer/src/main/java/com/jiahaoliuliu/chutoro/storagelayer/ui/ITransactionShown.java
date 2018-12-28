@@ -27,6 +27,8 @@ public interface ITransactionShown {
     @NotNull
     String getDestinationName();
 
+    boolean hasDestinationName();
+
     @Nullable
     long getDestinationLatitude();
 

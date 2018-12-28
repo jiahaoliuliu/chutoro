@@ -1,4 +1,5 @@
 {
+  "lastUpdateTime": "1545979298000",
   "persistentDestinationGroups": [
     {
       "id": 1,
@@ -37,7 +38,25 @@
           "description": ""
         }
       ]
+    },
+    {
+      "id": 3,
+      "name": "ADCB",
+      "category": "BANK",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 3000,
+          "groupId": 3,
+          "codeName": "ATM-MOE BRN DXB 1",
+          "name": "Mall of Emirates",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
     }
-  ],
-  "lastUpdateTime": "1545979298000"
+  ]
 }

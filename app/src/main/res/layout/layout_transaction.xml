@@ -63,12 +63,31 @@
                         />
                 </LinearLayout>
             </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{transaction.destinationGroupCategory}"
+                android:orientation="horizontal"
                 android:visibility="@{transaction.hasDestinationGroupCategory()? View.VISIBLE: View.GONE}"
-                />
+                >
+                <!-- Destination group category, if the destination has been recognized -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@{transaction.destinationGroupCategory}"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    tools:text="EDUCATION"
+                    />
+                <!-- Destination name, if exist -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{transaction.hasDestinationName()? View.VISIBLE: View.GONE}"
+                    android:text="@{transaction.destinationName}"
+                    tools:text="Marina"
+                    />
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

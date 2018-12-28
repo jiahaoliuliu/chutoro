@@ -93,6 +93,11 @@ public class TransactionShown implements ITransactionShown {
         return destinationName;
     }
 
+    @Override
+    public boolean hasDestinationName() {
+        return destinationName != null && !destinationName.isEmpty();
+    }
+
     @Nullable
     @Override
     public long getDestinationLatitude() {
