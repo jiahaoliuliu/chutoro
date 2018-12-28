@@ -13,6 +13,16 @@ public abstract class DestinationGroupDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     public abstract long insert(PersistentDestinationGroup persistentDestinationGroup);
 
+    public synchronized boolean insertIfDoesNotExist(PersistentDestinationGroup persistentDestinationGroup) {
+        PersistentDestinationGroup existingPersistentDestinationGroup =
+                getDestinationGroupById(persistentDestinationGroup.getId());
+        if (existingPersistentDestinationGroup == null) {
+            return insert(persistentDestinationGroup) > 0;
+        }
+
+        return true;
+    }
+
     @Query("Select * from DestinationGroups where id == :id")
     public abstract PersistentDestinationGroup getDestinationGroupById(long id);
 

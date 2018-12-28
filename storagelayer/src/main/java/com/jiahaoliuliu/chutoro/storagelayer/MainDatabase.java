@@ -56,7 +56,8 @@ public abstract class MainDatabase extends RoomDatabase {
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
-            // TODO: Update the content of the database
+            // TODO: Update the content of the database properly
+            initializeDatabase();
         }
     };
 
@@ -75,7 +76,7 @@ public abstract class MainDatabase extends RoomDatabase {
     private static Observable<Boolean> insertPersistentDestinationGroup(
             DestinationGroupDao destinationGroupDao, DestinationDao destinationDao,
             PersistentDestinationGroup persistentDestinationGroup) {
-        return Observable.fromCallable(() -> destinationGroupDao.insert(persistentDestinationGroup))
+        return Observable.fromCallable(() -> destinationGroupDao.insertIfDoesNotExist(persistentDestinationGroup))
                 .flatMap(__ -> insertPersistentDestinations(destinationDao, persistentDestinationGroup));
     }
 
