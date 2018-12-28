@@ -50,6 +50,7 @@ dependencies {
 
     // Others
     implementation Libs.timber
+    implementation Libs.gson
 
     // Test
     testImplementation Tests.junit

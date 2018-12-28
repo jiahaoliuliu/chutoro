@@ -1,39 +1,42 @@
 {
-  "data": [
+  "persistentDestinationGroups": [
     {
-      "id":1,
+      "id": 1,
       "name": "TeachMeNow",
       "category": "EDUCATION",
-      "latitude": 0.0,
-      "longitude": 0.0,
+      "latitude": 0,
+      "longitude": 0,
       "description": "",
-      "persistentDestination": [
+      "persistentDestinations": [
         {
           "id": 1000,
-          "groupId":1,
+          "groupId": 1,
           "codeName": "BlueSnap,London-GB",
           "name": "",
-          "latitude": 0.0,
-          "longitude": 0.0,
+          "latitude": 0,
+          "longitude": 0,
           "description": ""
-        }]
-    }, {
-      "id":2,
+        }
+      ]
+    },
+    {
+      "id": 2,
       "name": "Wikipedia",
       "category": "EDUCATION",
-      "latitude": 0.0,
-      "longitude": 0.0,
+      "latitude": 0,
+      "longitude": 0,
       "description": "",
-      "persistentDestination": [
+      "persistentDestinations": [
         {
           "id": 2000,
           "groupId": 2,
           "codeName": "Wikimedia8776009454 US",
           "name": "",
-          "latitude": 0.0,
-          "longitude": 0.0,
+          "latitude": 0,
+          "longitude": 0,
           "description": ""
-        }]
+        }
+      ]
     }
   ],
   "lastUpdateTime": "1545979298000"

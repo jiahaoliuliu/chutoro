@@ -35,7 +35,7 @@ public abstract class MainDatabase extends RoomDatabase {
 
     public static synchronized MainDatabase getInstance(Context context) {
         if (instance == null) {
-            destinationsProvider = new DestinationsProvider();
+            destinationsProvider = new DestinationsProvider(context);
             instance = Room.databaseBuilder(context.getApplicationContext(),
                 MainDatabase.class, MainDatabase.DATABASE_NAME)
                 .fallbackToDestructiveMigration()
@@ -50,15 +50,7 @@ public abstract class MainDatabase extends RoomDatabase {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
-            // Initialize the database
-            DestinationGroupDao destinationGroupDao = instance.destinationGroupDao();
-            DestinationDao destinationDao = instance.destinationDao();
-            Disposable disposable = Observable.fromIterable(destinationsProvider.providePersistentDestinationGroups())
-                .flatMap(persistentDestinationGroup -> insertPersistentDestinationGroup(
-                        destinationGroupDao, destinationDao, persistentDestinationGroup))
-                .subscribeOn(Schedulers.io())
-                .subscribe(aBoolean -> Timber.v("Data inserted into the database " + aBoolean),
-                        throwable -> Timber.e(throwable, "Error inserting the data into the database"));
+            initializeDatabase();
         }
 
         @Override
@@ -67,6 +59,18 @@ public abstract class MainDatabase extends RoomDatabase {
             // TODO: Update the content of the database
         }
     };
+
+    private static void initializeDatabase() {
+        // Initialize the database
+        DestinationGroupDao destinationGroupDao = instance.destinationGroupDao();
+        DestinationDao destinationDao = instance.destinationDao();
+        Disposable disposable = Observable.fromIterable(destinationsProvider.providePersistentDestinationGroups())
+                .flatMap(persistentDestinationGroup -> insertPersistentDestinationGroup(
+                        destinationGroupDao, destinationDao, persistentDestinationGroup))
+                .subscribeOn(Schedulers.io())
+                .subscribe(aBoolean -> Timber.v("Data inserted into the database " + aBoolean),
+                        throwable -> Timber.e(throwable, "Error inserting the data into the database"));
+    }
 
     private static Observable<Boolean> insertPersistentDestinationGroup(
             DestinationGroupDao destinationGroupDao, DestinationDao destinationDao,
