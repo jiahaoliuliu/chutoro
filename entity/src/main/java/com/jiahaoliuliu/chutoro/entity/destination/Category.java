@@ -13,10 +13,9 @@ public enum Category {
     HOUSE,
     INSURANCE,
     OTHERS,
-    OFFICE,
     PET,
     RESTAURANT,
     SUPERMARKET,
     TRANSPORT,
-    TRAVEL,
+    TRAVEL
 }
