@@ -1,10 +1,10 @@
 package com.jiahaoliuliu.chutoro.storagelayer;
 
-import androidx.annotation.NonNull;
-
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -32,14 +32,15 @@ public class PersistentTransaction extends Transaction {
      * @param destination   The destination where the transaction went
      * @param date      The date when the transaction has happened
      */
-    public PersistentTransaction(long smsId, int quantity, @NonNull String currency,
+    public PersistentTransaction(long smsId, @Nullable String originalSms, int quantity, @NonNull String currency,
                                  @NonNull String source, @NonNull String destination, long date) {
-        super(smsId, quantity, currency, source, destination, date);
+        super(smsId, originalSms, quantity, currency, source, destination, date);
     }
 
     public PersistentTransaction(ITransaction transaction) {
-        super(transaction.getSmsId(), transaction.getQuantity(), transaction.getCurrency(),
-                transaction.getSource(), transaction.getDestination(), transaction.getDate());
+        super(transaction.getSmsId(), transaction.getOriginalSms(), transaction.getQuantity(),
+                transaction.getCurrency(), transaction.getSource(), transaction.getDestination(),
+                transaction.getDate());
     }
 
     @NonNull

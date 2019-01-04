@@ -1,5 +1,7 @@
 package com.jiahaoliuliu.chutoro.entity;
 
+import org.jetbrains.annotations.Nullable;
+
 public interface ITransaction {
 
     /**
@@ -13,6 +15,15 @@ public interface ITransaction {
      * @return
      */
     boolean isFromSms();
+
+    /**
+     * Get the original sms which this data is based on. If this field is not null, the SMS id
+     * must exist
+     * @return
+     *      The original SMS
+     */
+    @Nullable
+    String getOriginalSms();
 
     /**
      * Get transactions quantity. Since float does not operate very well in Java, it is using
