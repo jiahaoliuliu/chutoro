@@ -33,7 +33,7 @@
                     android:layout_height="wrap_content"
                     style="@style/TextAppearance.AppCompat.Large"
                     tools:text="Destination"
-                    android:text="@{transaction.destination}"
+                    android:text="@{transaction.hasDestinationGroupName()? transaction.destinationGroupName: transaction.destination}"
                     android:layout_weight="1"
                     android:maxLines="2"
                     android:ellipsize="end"
@@ -63,12 +63,31 @@
                         />
                 </LinearLayout>
             </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{transaction.destinationGroupCategory}"
+                android:orientation="horizontal"
                 android:visibility="@{transaction.hasDestinationGroupCategory()? View.VISIBLE: View.GONE}"
-                />
+                >
+                <!-- Destination group category, if the destination has been recognized -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@{transaction.destinationGroupCategory}"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    tools:text="EDUCATION"
+                    />
+                <!-- Destination name, if exist -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{transaction.hasDestinationName()? View.VISIBLE: View.GONE}"
+                    android:text="@{transaction.destinationName}"
+                    tools:text="Marina"
+                    />
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,7 +98,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="04/11/2018"
-                    android:paddingTop="10dp"
                     android:layout_weight="1"
                     />
 
@@ -87,7 +105,6 @@
                     android:id="@+id/source"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
                     tools:text="Source"
                     android:layout_alignParentRight="true"
                     android:text="@{transaction.source}"

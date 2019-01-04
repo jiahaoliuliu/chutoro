@@ -27,6 +27,8 @@ public interface ITransactionShown {
     @NotNull
     String getDestinationName();
 
+    boolean hasDestinationName();
+
     @Nullable
     long getDestinationLatitude();
 
@@ -38,6 +40,8 @@ public interface ITransactionShown {
 
     @NotNull
     String getDestinationGroupName();
+
+    boolean hasDestinationGroupName();
 
     @NotNull
     String getDestinationGroupCategory();

@@ -75,9 +75,6 @@ public class TransactionShown implements ITransactionShown {
     @NotNull
     @Override
     public String getDestination() {
-        if (destinationGroupName != null && !destinationGroupName.isEmpty()) {
-            return destinationGroupName;
-        }
         return destination;
     }
 
@@ -91,6 +88,11 @@ public class TransactionShown implements ITransactionShown {
     @Override
     public String getDestinationName() {
         return destinationName;
+    }
+
+    @Override
+    public boolean hasDestinationName() {
+        return destinationName != null && !destinationName.isEmpty();
     }
 
     @Nullable
@@ -115,6 +117,11 @@ public class TransactionShown implements ITransactionShown {
     @Override
     public String getDestinationGroupName() {
         return destinationGroupName;
+    }
+
+    @Override
+    public boolean hasDestinationGroupName() {
+        return destinationGroupName != null && !destinationGroupName.isEmpty();
     }
 
     @NotNull

@@ -2,8 +2,8 @@ package com.jiahaoliuliu.chutoro.datalayer.transactionsrepository;
 
 import com.jiahaoliuliu.chutoro.devicelayer.CommonTransactionsProvider;
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
-import com.jiahaoliuliu.chutoro.storagelayer.ui.ITransactionShown;
 import com.jiahaoliuliu.chutoro.storagelayer.MainDatabase;
+import com.jiahaoliuliu.chutoro.storagelayer.ui.ITransactionShown;
 
 import java.util.List;
 
@@ -38,6 +38,7 @@ public class TransactionsRepository implements ITransactionsRepository {
     @Override
     public Completable updateTransactionsList() {
         return Completable.fromObservable(commonTransactionsProvider.provideTransactions()
-                .doOnNext(transaction -> mainDatabase.transactionsDao().insertIfDoesNotExist(transaction)));
+                .doOnNext(transaction -> mainDatabase.transactionsDao().insertIfDoesNotExist(transaction)
+                ));
     }
 }

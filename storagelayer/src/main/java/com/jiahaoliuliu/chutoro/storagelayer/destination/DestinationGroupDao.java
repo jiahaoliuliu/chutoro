@@ -13,21 +13,21 @@ public abstract class DestinationGroupDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     public abstract long insert(PersistentDestinationGroup persistentDestinationGroup);
 
-    public synchronized boolean insertIfDoesNotExist(PersistentDestinationGroup persistentDestinationGroup) {
+    public synchronized boolean insertOrUpdate(PersistentDestinationGroup persistentDestinationGroup) {
         PersistentDestinationGroup existingPersistentDestinationGroup =
                 getDestinationGroupById(persistentDestinationGroup.getId());
         if (existingPersistentDestinationGroup == null) {
             return insert(persistentDestinationGroup) > 0;
+        } else {
+            return update(persistentDestinationGroup) > 0;
         }
-
-        return true;
     }
 
     @Query("Select * from DestinationGroups where id == :id")
     public abstract PersistentDestinationGroup getDestinationGroupById(long id);
 
     @Update(onConflict = OnConflictStrategy.IGNORE)
-    public abstract void update(PersistentDestinationGroup persistentDestinationGroup);
+    public abstract int update(PersistentDestinationGroup persistentDestinationGroup);
 
     @Delete
     public abstract void delete(PersistentDestinationGroup persistentDestinationGroup);

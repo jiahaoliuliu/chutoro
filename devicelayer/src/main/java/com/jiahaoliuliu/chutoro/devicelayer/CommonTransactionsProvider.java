@@ -3,8 +3,6 @@ package com.jiahaoliuliu.chutoro.devicelayer;
 
 import com.jiahaoliuliu.chutoro.entity.Transaction;
 
-import java.util.List;
-
 import io.reactivex.Observable;
 
 /**
@@ -14,7 +12,6 @@ import io.reactivex.Observable;
  */
 public class CommonTransactionsProvider {
 
-    // TODO: Transform it into a list
     private final TransactionsProvider adcbTransactionsProvider;
     private final TransactionsProvider najmTransactionsProvider;
     private final TransactionsProvider hsbcTransactionsProvider;

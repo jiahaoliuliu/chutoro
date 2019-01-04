@@ -17,15 +17,15 @@ public abstract class DestinationDao {
     public abstract PersistentDestination getDestinationByCodeName(String codeName);
 
     @Update(onConflict = OnConflictStrategy.IGNORE)
-    public abstract void update(PersistentDestination persistentDestination);
+    public abstract int update(PersistentDestination persistentDestination);
 
-    public synchronized boolean insertIfDoesNotExist(PersistentDestination persistentDestination) {
+    public synchronized boolean insertOrUpdate(PersistentDestination persistentDestination) {
         PersistentDestination existingPersistentDestination = getDestinationByCodeName(persistentDestination.getCodeName());
         if (existingPersistentDestination == null) {
             return insert(persistentDestination) > 0;
+        } else {
+            return update(persistentDestination) > 0;
         }
-
-        return true;
     }
 
     @Delete

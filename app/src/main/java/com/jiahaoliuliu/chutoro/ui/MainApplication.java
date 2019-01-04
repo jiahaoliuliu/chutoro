@@ -2,6 +2,8 @@ package com.jiahaoliuliu.chutoro.ui;
 
 import android.app.Application;
 
+import timber.log.Timber;
+
 public class MainApplication extends Application {
 
     private static MainComponent mainComponent;
@@ -12,6 +14,7 @@ public class MainApplication extends Application {
         mainComponent = DaggerMainComponent.builder()
             .applicationModule(new ApplicationModule(this))
             .build();
+        Timber.plant(new Timber.DebugTree());
     }
 
     public static MainComponent getMainComponent() {
