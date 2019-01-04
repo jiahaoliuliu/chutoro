@@ -3,8 +3,8 @@ object Versions {
     val compileSdkVersion = 28
     val minSdkVersion = 15
     val targetSdkVersion = 28
-    val versionCode = 1
-    val versionName = "1.0"
+    val versionCode = 2
+    val versionName = "Broughton"
 
     // Libs
     val support_lib = "1.0.0"
