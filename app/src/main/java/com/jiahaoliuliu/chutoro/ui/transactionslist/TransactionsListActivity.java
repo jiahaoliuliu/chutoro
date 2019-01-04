@@ -1,24 +1,30 @@
 package com.jiahaoliuliu.chutoro.ui.transactionslist;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
-import com.jiahaoliuliu.chutoro.ui.MainApplication;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.jiahaoliuliu.chutoro.BuildConfig;
 import com.jiahaoliuliu.chutoro.R;
+import com.jiahaoliuliu.chutoro.ui.MainApplication;
+import com.jiahaoliuliu.chutoro.ui.addtransaction.AddTransactionActivity;
 
 import javax.inject.Inject;
 
-public class TransactionsListActivity extends AppCompatActivity implements TransactionsListContract.View {
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-    private static final String TAG = "TransactionsListActivity";
+public class TransactionsListActivity extends AppCompatActivity implements
+        TransactionsListContract.View {
+
     private static final int REQUEST_CODE_FOR_READ_SMS_PERMISSION = 1;
+    private static final int REQUEST_CODE_FOR_ADD_NEW_TRANSACTIONS = 1000;
 
     @Inject
     protected TransactionsListContract.Presenter presenter;
@@ -33,26 +39,38 @@ public class TransactionsListActivity extends AppCompatActivity implements Trans
 
         MainApplication.getMainComponent().inject(this);
 
+        // Link the views
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
+
+        FloatingActionButton buttonAddTransactions = findViewById(R.id.button_add_note);
+        if (!BuildConfig.SHOW_ADD_TRANSACTION_BUTTON) {
+            buttonAddTransactions.hide();
+        }
+
+        buttonAddTransactions.setOnClickListener(v -> {
+            Intent intent = new Intent(this, AddTransactionActivity.class);
+            startActivityForResult(intent, REQUEST_CODE_FOR_ADD_NEW_TRANSACTIONS);
+        });
 
         transactionsListAdapter = new TransactionsListAdapter();
         recyclerView.setAdapter(transactionsListAdapter);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         presenter.setView(this);
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS)
-                != PackageManager.PERMISSION_GRANTED) {
-            // Permission is not granted
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.READ_SMS},
-                    REQUEST_CODE_FOR_READ_SMS_PERMISSION);
+        presenter.retrieveTransactionsList().observe(this,
+            transactionsList -> transactionsListAdapter.setTransactionsList(transactionsList)
+        );
+    }
+
+    private void updateTransactionsList() {
+        // Request for permission if it is not granted
+        if (isReadSMSPermissionGuaranteed()) {
+            presenter.updateTransactionsList();
         } else {
-            presenter.retrieveTransactionsList().observe(this,
-                    transactionsList -> {
-                        transactionsListAdapter.setTransactionsList(transactionsList);
-                }
-            );
+            // Request for the permission
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_SMS},
+                    REQUEST_CODE_FOR_READ_SMS_PERMISSION);
         }
     }
 
@@ -64,22 +82,28 @@ public class TransactionsListActivity extends AppCompatActivity implements Trans
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // permission was granted
-                    presenter.retrieveTransactionsList().observe(this,
-                            transactionsList -> {
-                                transactionsListAdapter.setTransactionsList(transactionsList);
-                            });
+                    // Request to update the list of transactions
+                    presenter.updateTransactionsList();
                 } else {
                     // permission denied
-                    finish();
+                    // TODO: Show the screen to request the permission
                 }
                 return;
             }
-
-            // other 'case' lines to check for other
-            // permissions this app might request.
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateTransactionsList();
+    }
+
+    private boolean isReadSMSPermissionGuaranteed() {
+        return ContextCompat.checkSelfPermission(this, Manifest.permission.READ_SMS)
+                == PackageManager.PERMISSION_GRANTED;
+    }
+
     @Override
     protected void onDestroy() {
         presenter.dispose();

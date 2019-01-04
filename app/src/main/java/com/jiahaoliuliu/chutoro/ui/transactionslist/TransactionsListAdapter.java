@@ -1,29 +1,28 @@
 package com.jiahaoliuliu.chutoro.ui.transactionslist;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.jiahaoliuliu.chutoro.databinding.LayoutTransactionBinding;
-import com.jiahaoliuliu.chutoro.entity.ITransaction;
-import com.squareup.picasso.Picasso;
+import com.jiahaoliuliu.chutoro.storagelayer.ui.ITransactionShown;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import androidx.recyclerview.widget.RecyclerView;
+import timber.log.Timber;
+
 public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsListAdapter.TransactionHolder>{
 
-    private List<? extends ITransaction> transactionsList;
+    private List<? extends ITransactionShown> transactionsList;
 
     public TransactionsListAdapter() {
         this.transactionsList = new ArrayList<>();
     }
 
-    public void setTransactionsList(List<? extends ITransaction> transactionsList) {
+    public void setTransactionsList(List<? extends ITransactionShown> transactionsList) {
         this.transactionsList = transactionsList;
         notifyDataSetChanged();
     }
@@ -41,8 +40,8 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
 
     @Override
     public void onBindViewHolder(TransactionHolder holder, int position) {
-        ITransaction ITransaction = transactionsList.get(position);
-        holder.bind(ITransaction);
+        ITransactionShown transactionShown = transactionsList.get(position);
+        holder.bind(transactionShown);
     }
 
     @Override
@@ -52,7 +51,6 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
 
     class TransactionHolder extends RecyclerView.ViewHolder {
         private static final String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
-        private static final String CURRENCY = "AED";
 
         private LayoutTransactionBinding layoutTransactionBinding;
         private SimpleDateFormat simpleDateFormatter;
@@ -63,12 +61,14 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
             simpleDateFormatter = new SimpleDateFormat(DATE_FORMAT);
         }
 
-        public void bind(ITransaction transaction) {
-            layoutTransactionBinding.setTransaction(transaction);
+        public void bind(ITransactionShown transactionShown) {
+            layoutTransactionBinding.setTransaction(transactionShown);
             layoutTransactionBinding.executePendingBindings();
-            layoutTransactionBinding.date.setText(parseDate(transaction.getDate()));
-            layoutTransactionBinding.quantity.setText(parseQuantity(transaction.getQuantity()));
-
+            if (!transactionShown.hasDestinationName() || !transactionShown.hasDestinationGroupName()) {
+                Timber.w("Transaction destination not recognized " + transactionShown.getDestinationCodeName());
+            }
+            layoutTransactionBinding.date.setText(parseDate(transactionShown.getDate()));
+            layoutTransactionBinding.quantity.setText(parseQuantity(transactionShown.getQuantity()));
         }
 
         private String parseDate(long date) {
@@ -77,7 +77,7 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
 
         private String parseQuantity(int quantity) {
             double quantityDouble = quantity/100d;
-            return String.format("%.2f", quantityDouble) + CURRENCY;
+            return String.format("%.2f", quantityDouble);
         }
     }
 }

@@ -1,0 +1,20 @@
+Nowadays we have multiple credit cards and even when the bank has a good application, it is hard to find an application which works with all the banks.
+
+Another alternative is to have a generic app which tracks the expenses, but the process of recording each one of the expenses is very much tedious.
+
+Since we receive an SMS per each one of the transactions, I created this app to read and interprets the SMS that the banks send to us and convert them into expenses automatically.
+
+The list of banks accepted are:
+- ADCB
+- Emirates NBD
+- HSBC
+- Najam
+
+In the nearly future we will add more banks.
+
+In order to make the app interprets the list of SMS, we classified their content automatically and compare them with our list. But this list is far away from complete. So if you see content that does not have any category, please report it to us on WhatsApp to +971525939781
+
+Regarding your financial information, don't worry, they are safe. We don't upload them to the internet and this project is completely open source, meaning that anyone can read its source code to find out what it does.
+You can find it here: https://github.com/jiahaoliuliu/chutoro
+
+If you have any suggestions to improve this app or if there is any content that the app is unable to classify, you can talk to me directly on WhatsApp on +971525939781 or send me an email to jiahaoliuliu@gmail.com

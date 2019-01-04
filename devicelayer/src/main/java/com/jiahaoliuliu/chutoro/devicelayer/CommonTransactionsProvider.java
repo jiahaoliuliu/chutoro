@@ -1,11 +1,9 @@
 package com.jiahaoliuliu.chutoro.devicelayer;
 
-import com.jiahaoliuliu.chutoro.entity.ITransaction;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.jiahaoliuliu.chutoro.entity.Transaction;
 
-import io.reactivex.Single;
+import io.reactivex.Observable;
 
 /**
  * The common transaction provider for all the banks.
@@ -14,13 +12,26 @@ import io.reactivex.Single;
  */
 public class CommonTransactionsProvider {
 
-    private final ITransactionsProvider adcbTransactionsProvider;
+    private final TransactionsProvider adcbTransactionsProvider;
+    private final TransactionsProvider najmTransactionsProvider;
+    private final TransactionsProvider hsbcTransactionsProvider;
+    private final TransactionsProvider emiratesNBDTransactionsProvider;
 
-    public CommonTransactionsProvider(ITransactionsProvider adcbTransactionsProvider) {
+    public CommonTransactionsProvider(
+            TransactionsProvider adcbTransactionsProvider,
+            TransactionsProvider najmTransactionsProvider,
+            TransactionsProvider hsbcTransactionsProvider,
+            TransactionsProvider emiratesNBDTransactionsProvider) {
         this.adcbTransactionsProvider = adcbTransactionsProvider;
+        this.najmTransactionsProvider = najmTransactionsProvider;
+        this.hsbcTransactionsProvider = hsbcTransactionsProvider;
+        this.emiratesNBDTransactionsProvider = emiratesNBDTransactionsProvider;
     }
 
-    public Single<? extends List<? extends ITransaction>> provideTransactionsList() {
-        return adcbTransactionsProvider.provideTransactions();
+    public Observable<Transaction> provideTransactions() {
+        return Observable.merge(adcbTransactionsProvider.provideTransactions(),
+                najmTransactionsProvider.provideTransactions(),
+                hsbcTransactionsProvider.provideTransactions(),
+                emiratesNBDTransactionsProvider.provideTransactions());
     }
 }

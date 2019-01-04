@@ -1,43 +1,44 @@
 package com.jiahaoliuliu.chutoro.datalayer.transactionsrepository;
 
-import android.arch.lifecycle.LiveData;
-import android.util.Log;
-
 import com.jiahaoliuliu.chutoro.devicelayer.CommonTransactionsProvider;
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
-import com.jiahaoliuliu.chutoro.storagelayer.TransactionsDatabase;
+import com.jiahaoliuliu.chutoro.storagelayer.MainDatabase;
+import com.jiahaoliuliu.chutoro.storagelayer.ui.ITransactionShown;
 
 import java.util.List;
 
-import io.reactivex.schedulers.Schedulers;
+import androidx.lifecycle.LiveData;
+import io.reactivex.Completable;
+import io.reactivex.Single;
 
 public class TransactionsRepository implements ITransactionsRepository {
 
-    private static final String TAG = "TransactionsRepository";
-    private final TransactionsDatabase transactionsDatabase;
+    private final MainDatabase mainDatabase;
     private final CommonTransactionsProvider commonTransactionsProvider;
-    private LiveData<? extends List<? extends ITransaction>> allTransactions;
+    private LiveData<? extends List<? extends ITransactionShown>> allTransactions;
 
-    public TransactionsRepository(TransactionsDatabase transactionsDatabase,
+    public TransactionsRepository(MainDatabase mainDatabase,
                                   CommonTransactionsProvider commonTransactionsProvider) {
-        this.transactionsDatabase = transactionsDatabase;
+        this.mainDatabase = mainDatabase;
         this.commonTransactionsProvider = commonTransactionsProvider;
-        allTransactions = transactionsDatabase.transactionsDao().getAllTransactions();
+        allTransactions = mainDatabase.transactionsDao().getAllTransactions();
     }
 
     @Override
-    public LiveData<? extends List<? extends ITransaction>> retrieveTransactionsList() {
-        updateTransactionsList();
+    public LiveData<? extends List<? extends ITransactionShown>> retrieveTransactionsList() {
         return allTransactions;
     }
 
-    private void updateTransactionsList() {
-        commonTransactionsProvider.provideTransactionsList()
-            .subscribeOn(Schedulers.io())
-            .subscribe(transactionsList -> {
-                transactionsDatabase.transactionsDao().insertIfDoesNotExist(transactionsList);
-            }, throwable -> {
-                Log.e(TAG, "Error getting the transactions List");
-            });
+    @Override
+    public Single<Boolean> addTransaction(ITransaction transaction) {
+        return Single.fromCallable(
+                () -> mainDatabase.transactionsDao().insertIfDoesNotExist(transaction));
+    }
+
+    @Override
+    public Completable updateTransactionsList() {
+        return Completable.fromObservable(commonTransactionsProvider.provideTransactions()
+                .doOnNext(transaction -> mainDatabase.transactionsDao().insertIfDoesNotExist(transaction)
+                ));
     }
 }

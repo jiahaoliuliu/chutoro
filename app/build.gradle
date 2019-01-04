@@ -1,4 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion Versions.compileSdkVersion
@@ -14,6 +17,16 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "SHOW_ADD_TRANSACTION_BUTTON", "false"
+            resValue "bool", "allowBackup", "true"
+            resValue "bool", "fullBackupOnly", "true"
+        }
+
+        debug {
+            minifyEnabled false
+            buildConfigField "boolean", "SHOW_ADD_TRANSACTION_BUTTON", "false"
+            resValue "bool", "allowBackup", "false"
+            resValue "bool", "fullBackupOnly", "false"
         }
     }
 
@@ -22,23 +35,10 @@ android {
         targetCompatibility Versions.androidJavaVersion
     }
 
-    dataBinding{
+    dataBinding {
         enabled = true
     }
 }
-
-configurations.all {
-    resolutionStrategy.eachDependency {
-        DependencyResolveDetails details ->
-        def requested = details.requested
-        if (requested.group == "com.android.support") {
-            if (!requested.name.startsWith("multidex")) {
-                details.useVersion "26.+"
-            }
-        }
-    }
-}
-
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(path: ':entity')
@@ -49,20 +49,29 @@ dependencies {
     implementation project(path: ':devicelayer')
 
     // Core libraries
-    implementation Libs.support_appcompat_v7
+    implementation Libs.app_compat
     annotationProcessor AnnotationProcessor.support
+    kapt AnnotationProcessor.support
+    implementation Libs.android_material
     implementation Libs.rxjava
     implementation Libs.rxAndroid
+
     implementation Libs.dagger
     implementation Libs.dagger_support
+    kapt Libs.dagger_kotlin
     annotationProcessor AnnotationProcessor.dagger
+
     implementation Libs.picasso
+    implementation Libs.timber
+
+    implementation Libs.kotlin_standard_lib_jdk_8
 
     // Optional
     implementation Libs.cardView
     implementation Libs.recyclerView
     implementation Libs.liveData
     annotationProcessor AnnotationProcessor.liveData
+    kapt AnnotationProcessor.liveData
 
     // Unit tests
     testImplementation Tests.junit

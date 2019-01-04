@@ -1,24 +1,46 @@
 package com.jiahaoliuliu.chutoro.entity;
 
+import org.jetbrains.annotations.Nullable;
+
 public class Transaction implements ITransaction {
 
+    protected static final long DEFAULT_SMS_ID = -1;
+    protected static final int DEFAULT_QUANTITY = -1;
+    protected static final long DEFAULT_DATE = -1l;
+
     private final long smsId;
+    private final String originalSms;
     private final int quantity;
+    private final String currency;
     private final String source;
-    private final String destination;
+    private final String destinationCodeName;
     private final long date;
 
-    public Transaction(long smsId, int quantity, String source, String destination, long date) {
+    protected Transaction(long smsId, String originalSms, int quantity, String currency, String source,
+                          String destinationCodeName, long date) {
         this.smsId = smsId;
+        this.originalSms = originalSms;
         this.quantity = quantity;
+        this.currency = currency;
         this.source = source;
-        this.destination = destination;
+        this.destinationCodeName = destinationCodeName;
         this.date = date;
     }
 
     @Override
     public long getSmsId() {
         return smsId;
+    }
+
+    @Override
+    public boolean isFromSms() {
+        return smsId != DEFAULT_SMS_ID;
+    }
+
+    @Nullable
+    @Override
+    public String getOriginalSms() {
+        return originalSms;
     }
 
     @Override
@@ -32,13 +54,18 @@ public class Transaction implements ITransaction {
     }
 
     @Override
-    public String getDestination() {
-        return destination;
+    public String getDestinationCodeName() {
+        return destinationCodeName;
     }
 
     @Override
     public long getDate() {
         return date;
+    }
+
+    @Override
+    public String getCurrency() {
+        return currency;
     }
 
     @Override
@@ -51,16 +78,22 @@ public class Transaction implements ITransaction {
         if (smsId != that.smsId) return false;
         if (quantity != that.quantity) return false;
         if (date != that.date) return false;
+        if (originalSms != null ? !originalSms.equals(that.originalSms) : that.originalSms != null)
+            return false;
+        if (currency != null ? !currency.equals(that.currency) : that.currency != null)
+            return false;
         if (source != null ? !source.equals(that.source) : that.source != null) return false;
-        return destination != null ? destination.equals(that.destination) : that.destination == null;
+        return destinationCodeName != null ? destinationCodeName.equals(that.destinationCodeName) : that.destinationCodeName == null;
     }
 
     @Override
     public int hashCode() {
         int result = (int) (smsId ^ (smsId >>> 32));
+        result = 31 * result + (originalSms != null ? originalSms.hashCode() : 0);
         result = 31 * result + quantity;
+        result = 31 * result + (currency != null ? currency.hashCode() : 0);
         result = 31 * result + (source != null ? source.hashCode() : 0);
-        result = 31 * result + (destination != null ? destination.hashCode() : 0);
+        result = 31 * result + (destinationCodeName != null ? destinationCodeName.hashCode() : 0);
         result = 31 * result + (int) (date ^ (date >>> 32));
         return result;
     }
@@ -69,9 +102,11 @@ public class Transaction implements ITransaction {
     public String toString() {
         return "Transaction{" +
                 "smsId=" + smsId +
+                ", originalSms='" + originalSms + '\'' +
                 ", quantity=" + quantity +
+                ", currency='" + currency + '\'' +
                 ", source='" + source + '\'' +
-                ", destination='" + destination + '\'' +
+                ", destinationCodeName='" + destinationCodeName + '\'' +
                 ", date=" + date +
                 '}';
     }

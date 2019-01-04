@@ -1,68 +1,122 @@
 package com.jiahaoliuliu.chutoro.devicelayer.smsparser;
 
-
-import com.jiahaoliuliu.chutoro.entity.ITransaction;
+import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.SmsParserParameters;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
+import com.jiahaoliuliu.chutoro.entity.TransactionBuilder;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import androidx.annotation.NonNull;
 
 /**
  * Use case created to map the list of sms to a list of any other data
  */
 public class SmsParserHelper {
-    public SmsParserHelper() {}
+    // Based on ISO_4217, all the currency should have 3 letters
+    private static final int SIZE_OF_CURRENCY_SYMBOL = 3;
 
-    public List<ITransaction> mapSmsListToTransactionsList(List<Sms> smsList,
-                                                           SmsParserParameters smsParsingParameters) {
-        SimpleDateFormat simpleDateFormatter = new SimpleDateFormat(smsParsingParameters.getDateFormat());
-        List<ITransaction> transactionList = new ArrayList<>();
-        for (Sms sms: smsList) {
+    public Transaction parseSmsToTransaction(Sms sms, List<SmsParserParameters> smsParserParametersList) {
+
+        if (sms == null) {
+            throw new IllegalArgumentException("The sms cannot be null");
+        }
+
+        if (smsParserParametersList == null) {
+            throw new IllegalArgumentException("The sms parameters list cannot be null");
+        }
+
+        for (SmsParserParameters smsParserParameter: smsParserParametersList) {
             try {
-                ITransaction transaction = parseSmsToTransaction(sms, smsParsingParameters, simpleDateFormatter);
-                transactionList.add(transaction);
+                return parseSmsToTransaction(sms, smsParserParameter, new SimpleDateFormat(smsParserParameter.getDateFormat()));
             } catch (IllegalArgumentException illegalArgumentException) {
                 System.out.println("Error mapping sms to transactions");
+            } catch (IndexOutOfBoundsException indexOutOfBoundsException) {
+                System.out.println("Error mapping sms to transactions. The index requested is out of bounds");
             }
         }
-        return transactionList;
+
+        // TODO: Reaching this point will stop the parser because the mapper shouldn't return a null
+        // This is possible if the currency used is none of the expected one
+        return null;
     }
 
-    private ITransaction parseSmsToTransaction(Sms sms, SmsParserParameters smsParserParameters,
+    private Transaction parseSmsToTransaction(Sms sms, SmsParserParameters smsParserParameters,
                                               SimpleDateFormat simpleDateFormatter) {
+        Matcher matcher = matches(sms, smsParserParameters);
+
+        // Quantity
+        float quantity = parseQuantity(smsParserParameters, matcher);
+
+        // Currency
+        String currency = parseCurrency(smsParserParameters, matcher);
+
+        // Destination
+        String destination = matcher.group(smsParserParameters.getPositionDestination());
+
+        // Date
+        long date = parseDate(sms, smsParserParameters, simpleDateFormatter, matcher);
+
+        return new TransactionBuilder()
+                .setSmsId(sms.getId())
+                .setOriginalSms(sms.getBody())
+                .setSource(smsParserParameters.getSource())
+                .setDestination(destination)
+                .setQuantity(quantity)
+                .setCurrency(currency)
+                .setDate(date)
+                .build();
+    }
+
+    @NonNull
+    private Matcher matches(Sms sms, SmsParserParameters smsParserParameters) {
+        if (sms == null) {
+            throw new IllegalArgumentException("The sms cannot be null");
+        }
+
         Pattern pattern = Pattern.compile(smsParserParameters.getPattern());
         Matcher matcher = pattern.matcher(sms.getBody());
         // If the pattern is not correct
         if (!matcher.find()) {
             throw new IllegalArgumentException("Error parsing the sms. It cannot be recognized");
         }
+        return matcher;
+    }
 
-        // Quantity
-        String quantityString = matcher.group(smsParserParameters.getPositionQuantity());
-        int quantity;
+    private float parseQuantity(SmsParserParameters smsParserParameters, Matcher matcher) {
+        String quantityAndCurrencyString = matcher.group(smsParserParameters.getPositionQuantity());
         try {
-            float quantityFloat = Float.valueOf(quantityString);
-            // Get the quantity which is only with 2 zeros
-            quantity = (int) (quantityFloat*100f);
+            return Float.valueOf(quantityAndCurrencyString.substring(SIZE_OF_CURRENCY_SYMBOL).trim().replace(",", ""));
         } catch (NumberFormatException numberFormatException) {
-            throw new IllegalArgumentException("Error formating the quantity " + quantityString);
+            throw new IllegalArgumentException("Error formatting the quantity " + quantityAndCurrencyString);
+        }
+    }
+
+    private String parseCurrency(SmsParserParameters smsParserParameters, Matcher matcher) {
+        String quantityAndCurrencyString = matcher.group(smsParserParameters.getPositionQuantity());
+
+        return quantityAndCurrencyString.substring(0, SIZE_OF_CURRENCY_SYMBOL);
+    }
+
+    private long parseDate(Sms sms, SmsParserParameters smsParserParameters,
+                           SimpleDateFormat simpleDateFormatter, Matcher matcher) {
+        long date = sms.getDate();
+        // If the position is unknown, then use the one that comes from the sms
+        if (smsParserParameters.getPositionDate() == -1) {
+            return date;
         }
 
-        // Destination
-        String destination = matcher.group(smsParserParameters.getPositionDestination());
-
-        // Date
-        long date;
         try {
             date = simpleDateFormatter.parse(matcher.group(smsParserParameters.getPositionDate())).getTime();
         } catch (ParseException parseException) {
-            throw new IllegalArgumentException("Error parsing the date");
+            System.out.println("Error parsing the date. Using the default one");
+        } catch (IndexOutOfBoundsException indexOutOfBoundException) {
+            System.out.println("The date is not specified correctly. Using the one that comes from the sms");
         }
 
-        return new Transaction(sms.getId(), quantity, smsParserParameters.getSource(), destination, date);
+        return date;
     }
 }

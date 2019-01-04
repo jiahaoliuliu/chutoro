@@ -1,0 +1,2397 @@
+{
+  "lastUpdateTime": "1545979298000",
+  "persistentDestinationGroups": [
+    {
+      "id": 1,
+      "name": "TeachMeNow",
+      "category": "EDUCATION",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 1000,
+          "groupId": 1,
+          "codeName": "BlueSnap,London-GB",
+          "name": "London",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 1001,
+          "groupId": 1,
+          "codeName": "BlueSnap GB",
+          "name": "London",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Wikipedia",
+      "category": "EDUCATION",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 2000,
+          "groupId": 2,
+          "codeName": "Wikimedia8776009454 US",
+          "name": "US",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 2001,
+          "groupId": 2,
+          "codeName": "WIKIMEDIA EUR US",
+          "name": "US",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "ADCB",
+      "category": "BANK",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 3000,
+          "groupId": 3,
+          "codeName": "ATM-MOE BRN DXB 1",
+          "name": "Mall of Emirates",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 3001,
+          "groupId": 3,
+          "codeName": "ATM-DXBMarinaBranch",
+          "name": "Dubai Marina",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 3002,
+          "groupId": 3,
+          "codeName": "ATM-MARINA MALL DXB",
+          "name": "Marina mall",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 3003,
+          "groupId": 3,
+          "codeName": "ATM-RTADXBMARINA",
+          "name": "Dubai marina metro",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 3004,
+          "groupId": 3,
+          "codeName": "ATM-RTAMOEDXB",
+          "name": "Dubai MOE metro",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 3005,
+          "groupId": 3,
+          "codeName": "ATM-UAE Exch Media          D",
+          "name": "UAE exchange Media city",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Google Play",
+      "category": "ENTERTAINMENT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 4000,
+          "groupId": 4,
+          "codeName": "GOOGLE*GAMELOFT INC,G.CO HELPPAY#-US",
+          "name": "GAMELOFT",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 4001,
+          "groupId": 4,
+          "codeName": "GOOGLE*IDREAMS,G.CO HELPPAY#-US",
+          "name": "Infinite Dreams",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 4002,
+          "groupId": 4,
+          "codeName": "GOOGLE *SERVICES,g.co/helppay#-GB",
+          "name": "Services",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 4003,
+          "groupId": 4,
+          "codeName": "GOOGLE*ALGORITHMS,G.CO HELPPAY#-US",
+          "name": "Algorithms",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 4004,
+          "groupId": 4,
+          "codeName": "GOOGLE*PLAY,G.CO HELPPAY#-US",
+          "name": "",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 4005,
+          "groupId": 4,
+          "codeName": "GOOGLE*IRONHIDE,G.CO HELPPAY#-US",
+          "name": "Iron hide",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 4006,
+          "groupId": 4,
+          "codeName": "GOOGLE *Google Stora,g.co/helppay#-GB",
+          "name": "",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Prey Inc",
+      "category": "INSURANCE",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 5000,
+          "groupId": 5,
+          "codeName": "PREY, INC.,SAN FRANCISCO-US",
+          "name": "San francisco",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Kindle",
+      "category": "ENTERTAINMENT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 6000,
+          "groupId": 6,
+          "codeName": "Kindle Svcs,08004961081-LU",
+          "name": "",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Carrefour",
+      "category": "SUPERMARKET",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 7000,
+          "groupId": 7,
+          "codeName": "CARREFOUR MKT MARINA C AE",
+          "name": "Dubai Marina",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 7001,
+          "groupId": 7,
+          "codeName": "CARREFOUR AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 7002,
+          "groupId": 7,
+          "codeName": "CARREFOUR-MALL OF THE AE",
+          "name": "Mall of Emirates",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 7003,
+          "groupId": 7,
+          "codeName": "CARREFOUR MARKET MARIN AE",
+          "name": "Dubai Marina",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 7004,
+          "groupId": 7,
+          "codeName": "CARREFOUR MARKET RED D AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 7005,
+          "groupId": 7,
+          "codeName": "CARREFOUR-MOE AE",
+          "name": "Mall of Emirates",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Spinneys",
+      "category": "SUPERMARKET",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 8000,
+          "groupId": 8,
+          "codeName": "SPINNEYS DUBAI LLC AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 8001,
+          "groupId": 8,
+          "codeName": "SPINNEYS DUBAI LLC,DUBAI-AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "RTA - Road and Transport Authority Dubai",
+      "category": "TRANSPORT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 9000,
+          "groupId": 9,
+          "codeName": "ROAD & TRA WORLD TRAD AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 9001,
+          "groupId": 9,
+          "codeName": "RTA-DUBAI METRO-TVM WO AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 9002,
+          "groupId": 9,
+          "codeName": "STATION 7 - MINA SEYAH AE",
+          "name": "Mina Seyah",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 9003,
+          "groupId": 9,
+          "codeName": "ROAD & TRA DXB METRO- AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 9004,
+          "groupId": 9,
+          "codeName": "RTA-DUBAI METRO-TVM MA AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 9005,
+          "groupId": 9,
+          "codeName": "STATION 10 - KNOWLEDGE AE",
+          "name": "Knowledge village",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 9006,
+          "groupId": 9,
+          "codeName": "RTA-DUBAI METRO-TVM0,DUBAI-AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 9007,
+          "groupId": 9,
+          "codeName": "DUBAI METRO AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "National Taxi",
+      "category": "TRANSPORT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 10000,
+          "groupId": 10,
+          "codeName": "NATIONAL TAXI AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Sun and Sand Sports",
+      "category": "CLOTHING",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 11000,
+          "groupId": 11,
+          "codeName": "SUN AND SAND SPORTS LL AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 11001,
+          "groupId": 11,
+          "codeName": "SSS FOL AL QUOZ AE",
+          "name": "Al Quoz UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Sharaf DG",
+      "category": "ELECTRONICS",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 12000,
+          "groupId": 12,
+          "codeName": "SHARAF D G -WEST-171128 AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Mumuso",
+      "category": "SUPERMARKET",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 13000,
+          "groupId": 13,
+          "codeName": "MUMUSO GENERAL TRD-DEI AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Steak on fries cafeteria",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 14000,
+          "groupId": 14,
+          "codeName": "STEAK ON FRIES CAFETRIA AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Virgin Megastore",
+      "category": "ENTERTAINMENT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 15000,
+          "groupId": 15,
+          "codeName": "V STAR MULTIMEDI-828007 AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Little Bangkok",
+      "category": "ENTERTAINMENT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 16000,
+          "groupId": 16,
+          "codeName": "LITTLE BANGKOK AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "The H hotel",
+      "category": "TRAVEL",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 17000,
+          "groupId": 17,
+          "codeName": "THE H HOTEL AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Careem",
+      "category": "TRANSPORT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 18000,
+          "groupId": 18,
+          "codeName": "CAREEM NETWORKS FZ L,DUBAI-AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Duty free",
+      "category": "TRAVEL",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 19000,
+          "groupId": 19,
+          "codeName": "DUBAI DUTY FREE 429 AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 19001,
+          "groupId": 19,
+          "codeName": "DUBAI DUTY FREE 426 AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 19002,
+          "groupId": 19,
+          "codeName": "DUBAI DUTY FREE 1305 AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 19003,
+          "groupId": 19,
+          "codeName": "DUBAI DUTY FREE 691,Dubai-AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 19004,
+          "groupId": 19,
+          "codeName": "DUBAI DUTY FREE 426,Dubai-AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 19005,
+          "groupId": 19,
+          "codeName": "DUBAI DUTY FREE 1324,Dubai-AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 19006,
+          "groupId": 19,
+          "codeName": "DUBAI DUTY FREE 1327,Dubai-AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "OSN Gulf",
+      "category": "ENTERTAINMENT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 20000,
+          "groupId": 20,
+          "codeName": "OSN - Gulf DTH FZ LL,043677888-AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Hotel Hobo",
+      "category": "TRAVEL",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 21000,
+          "groupId": 21,
+          "codeName": "HOTEL HOBO AS,STOCKHOLM-SE",
+          "name": "Stockholm",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Danfo Toilet",
+      "category": "TRAVEL",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 22000,
+          "groupId": 22,
+          "codeName": "NYA*Danfo SE",
+          "name": "Stockholm",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Express VPN",
+      "category": "COMMUNICATION",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 23000,
+          "groupId": 23,
+          "codeName": "EXPRESSVPN.COM,310-6018492-US",
+          "name": "USA",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },{
+          "id": 23001,
+          "groupId": 23,
+          "codeName": "EXPRESSVPN,310-601-8492-US",
+          "name": "USA",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "McDonalds",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 24000,
+          "groupId": 24,
+          "codeName": "MCDONALDS -DXB AIRPORT AE",
+          "name": "Dubai Airport",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Brand for less",
+      "category": "SUPERMARKET",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 25000,
+          "groupId": 25,
+          "codeName": "BRANDS FOR LESS LCC,DUBAI-AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Xiao Wei Yang",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 26000,
+          "groupId": 26,
+          "codeName": "XIAO WEI YANG INTERN,DUBAI-AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 26001,
+          "groupId": 26,
+          "codeName": "XIAO WEI YANG INTERNAT AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Fresh Berry",
+      "category": "SUPERMARKET",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 27000,
+          "groupId": 27,
+          "codeName": "FRESH BERRY SUPERMARKE AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "name": "Lucid Chart",
+      "category": "ENTERTAINMENT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 28000,
+          "groupId": 28,
+          "codeName": "LUCIDCHART COM CHARG,SOUTH JORDAN-US",
+          "name": "USA",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },{
+          "id": 28001,
+          "groupId": 28,
+          "codeName": "LUCID SOFTWARE INC,SOUTH JORDAN-US",
+          "name": "USA",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Papa Murphy's Pizza",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 29000,
+          "groupId": 29,
+          "codeName": "MOHAMED AALY MAG-317012 AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Waitrose",
+      "category": "SUPERMARKET",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 30000,
+          "groupId": 30,
+          "codeName": "WAITROSE-FINEFARE AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "name": "M.H. Alshaya Co",
+      "category": "OTHERS",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 31000,
+          "groupId": 31,
+          "codeName": "M H AL SHAYA CO -472126 AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "name": "Salt",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 32000,
+          "groupId": 32,
+          "codeName": "FIND SALT RESTUARANT L AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "name": "Eton institute",
+      "category": "EDUCATION",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 33000,
+          "groupId": 33,
+          "codeName": "Eton Institute FZE AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 33001,
+          "groupId": 33,
+          "codeName": "ETON EDUCATIONAL INSTI AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 33002,
+          "groupId": 33,
+          "codeName": "ETON INSTITUTE FZ LLC AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "name": "Blizzard",
+      "category": "ENTERTAINMENT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 34000,
+          "groupId": 34,
+          "codeName": "Blizzard Entertainment Bl FR",
+          "name": "USA",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "name": "Sheraton",
+      "category": "TRAVEL",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 35000,
+          "groupId": 35,
+          "codeName": "SHERATON GRAND HOTEL AE",
+          "name": "Grand hotel UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "name": "Burguer King",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 36000,
+          "groupId": 36,
+          "codeName": "FIRST FOOD SERVICES LLC AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },{
+          "id": 36001,
+          "groupId": 36,
+          "codeName": "BURGER KING SZEGED,SZEGED-HU",
+          "name": "Szeged, Hungary",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "name": "Dubai Taxi",
+      "category": "TRANSPORT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 37000,
+          "groupId": 37,
+          "codeName": "DUBAI TAXI AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "name": "Costa coffee",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 38000,
+          "groupId": 38,
+          "codeName": "COSTA COFFEE AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "name": "Pizza Express",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 39000,
+          "groupId": 39,
+          "codeName": "JORDANA RESTPIZZA EXPRE AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "name": "Dubai Autodrome",
+      "category": "ENTERTAINMENT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 40000,
+          "groupId": 40,
+          "codeName": "DUBAI AUTODROME AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "name": "Aster pharmacy",
+      "category": "HEALTH",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 41000,
+          "groupId": 41,
+          "codeName": "ASTER PHARMACY 130 AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 41001,
+          "groupId": 41,
+          "codeName": "NEW ASTER PHARMACY JLT AE",
+          "name": "JLT",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 41002,
+          "groupId": 41,
+          "codeName": "ASTER PHARMACY 150 BR AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "name": "Al Amoor",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 42000,
+          "groupId": 42,
+          "codeName": "ALAMOOR EXPRESS,DUBAI-AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "name": "Shami",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 43000,
+          "groupId": 43,
+          "codeName": "SHAMI GOURMET RESTAURA AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "name": "Cars Taxi",
+      "category": "TRANSPORT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 44000,
+          "groupId": 44,
+          "codeName": "CARS TAXI SERVICES CO AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "name": "Emarat Petro Station",
+      "category": "TRANSPORT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 45000,
+          "groupId": 45,
+          "codeName": "EMARAT-AL ITTIHAD(6855 AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "name": "Aster health care",
+      "category": "HEALTH",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 46000,
+          "groupId": 46,
+          "codeName": "DM HEALTH CARE LLC JLT AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Optimal fitness",
+      "category": "HEALTH",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 47000,
+          "groupId": 47,
+          "codeName": "OPTIMAL FITNESS -761406 AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "name": "Metro taxi",
+      "category": "TRANSPORT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 48000,
+          "groupId": 48,
+          "codeName": "METRO TAXI AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "name": "Barbecue delights",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 49000,
+          "groupId": 49,
+          "codeName": "BARBECUE DELIGHTS(BR) AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "name": "MerkoCash",
+      "category": "SUPERMARKET",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 50000,
+          "groupId": 50,
+          "codeName": "MERKOCASH ILLESCAS ES",
+          "name": "Illescas, Spain",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "name": "Mercadona",
+      "category": "SUPERMARKET",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 51000,
+          "groupId": 51,
+          "codeName": "MERCADONA ILLESCAS ES",
+          "name": "Illescas, Spain",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "name": "Toys R Us ",
+      "category": "ENTERTAINMENT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 52000,
+          "groupId": 52,
+          "codeName": "TOYS RUS IBERIA S.A. ES",
+          "name": "Spain",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "name": "Game",
+      "category": "ENTERTAINMENT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 53000,
+          "groupId": 53,
+          "codeName": "GAME ES",
+          "name": "Spain",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "name": "Startup grind",
+      "category": "EDUCATION",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 54000,
+          "groupId": 54,
+          "codeName": "WWW STARTUPGRIND COM,PALO ALTO-US",
+          "name": "USA",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "name": "Park N shop",
+      "category": "SUPERMARKET",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 55000,
+          "groupId": 55,
+          "codeName": "PARK N SHOP AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "name": "Aswaaq supermarket",
+      "category": "SUPERMARKET",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 56000,
+          "groupId": 56,
+          "codeName": "ASWAAQ AL SOUFOUH AE",
+          "name": "Al soufouh",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "name": "Bizzare gents salon",
+      "category": "HEALTH",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 57000,
+          "groupId": 57,
+          "codeName": "BIZZARE GENTS SALON AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "name": "Emirates souvenir shop",
+      "category": "GIFT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 58000,
+          "groupId": 58,
+          "codeName": "EK/DNATA-SOUVENIR SHOP AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "name": "Royal Orchid",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 59000,
+          "groupId": 59,
+          "codeName": "ROYAL ORCHID RESTAURAN AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "name": "Vietnamese foodies",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 60000,
+          "groupId": 60,
+          "codeName": "VIETNAMESE FOODIES AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "name": "Arabia taxi",
+      "category": "TRANSPORT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 61000,
+          "groupId": 61,
+          "codeName": "ARABIA TAXI AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "name": "Turkish Airlines",
+      "category": "TRAVEL",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 62000,
+          "groupId": 62,
+          "codeName": "TURKISH AIRLINE US",
+          "name": "",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "name": "Pegasus Airlines",
+      "category": "TRAVEL",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 63000,
+          "groupId": 63,
+          "codeName": "PEGASUS AIRLINES US",
+          "name": "",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "name": "My tickets",
+      "category": "TRAVEL",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 64000,
+          "groupId": 64,
+          "codeName": "HTTPS://MYTICKETS.AE/ AT",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "name": "The sum of us",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 65000,
+          "groupId": 65,
+          "codeName": "THE SUM OF US RESTAURA AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "name": "Alison Nelson",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 66000,
+          "groupId": 66,
+          "codeName": "ALISON NELSON S -711214 AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "name": "Apple store",
+      "category": "ELECTRONICS",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 67000,
+          "groupId": 67,
+          "codeName": "Apple Store AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "name": "Web sequential diagram",
+      "category": "OFFICE",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 68000,
+          "groupId": 68,
+          "codeName": "WEBSEQUENCEDIAGRAMS CA",
+          "name": "USA",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "name": "Zoom",
+      "category": "SUPERMARKET",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 69000,
+          "groupId": 69,
+          "codeName": "ZOOM SITE 6564 BURJ AL AE",
+          "name": "Burj Al Salam",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 69001,
+          "groupId": 69,
+          "codeName": "ZOOM MARKET 6590 AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "name": "Mi Store",
+      "category": "ELECTRONICS",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 70000,
+          "groupId": 70,
+          "codeName": "MI STORE PARQUESUR ES",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "name": "Lego Store",
+      "category": "ENTERTAINMENT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 71000,
+          "groupId": 71,
+          "codeName": "LEGO PARQUE SUR ES",
+          "name": "ParqueSur Spain",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "name": "Umami",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 72000,
+          "groupId": 72,
+          "codeName": "UMAMI RESTAURANT AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "name": "Fast stitch",
+      "category": "CLOTHING",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 73000,
+          "groupId": 73,
+          "codeName": "FAST STITCH TAILORING AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "name": "Atlantis the palm",
+      "category": "TRAVEL",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 74000,
+          "groupId": 74,
+          "codeName": "ATLANTIS THE PALM,DUBA AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "name": "Miniso",
+      "category": "GIFT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 75000,
+          "groupId": 75,
+          "codeName": "MINISO GENRAL TRD. LLC AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },{
+          "id": 75001,
+          "groupId": 75,
+          "codeName": "MINISO GENERAL TRD. LL AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "name": "PlayStation network",
+      "category": "ENTERTAINMENT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 76000,
+          "groupId": 76,
+          "codeName": "PlaystationNetwork GB",
+          "name": "GB",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "name": "Call it Spring",
+      "category": "CLOTHING",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 77000,
+          "groupId": 77,
+          "codeName": "CALL IT SPRING  -710511 AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "name": "Shoe mart",
+      "category": "CLOTHING",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 78000,
+          "groupId": 78,
+          "codeName": "SHOE MART-CENTRE-710523 AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },
+        {
+          "id": 78001,
+          "groupId": 78,
+          "codeName": "SHOE MART-CENTRE-710,DUBAI-AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "name": "Abu Dhabi Islamic Bank",
+      "category": "BANK",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 79000,
+          "groupId": 79,
+          "codeName": "ATM-ADIB METRO DIC",
+          "name": "Internet center metro",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "name": "LockStock & Barrel",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 80000,
+          "groupId": 80,
+          "codeName": "LOCKSTOCK & BARREL AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "name": "Emirates NBD",
+      "category": "BANK",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 81000,
+          "groupId": 81,
+          "codeName": "ATM-EMIRATES BANK INTL    DUB",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "name": "Dubizzle",
+      "category": "Others",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 82000,
+          "groupId": 82,
+          "codeName": "dubizzle.com AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },{
+          "id": 82001,
+          "groupId": 82,
+          "codeName": "dubizzle.com,DUBAI-AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "name": "Amazon",
+      "category": "ELECTRONICS",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 83000,
+          "groupId": 83,
+          "codeName": "Amazon Digital Dwnld,866-321-8851-LU",
+          "name": "Digital",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },{
+          "id": 83001,
+          "groupId": 83,
+          "codeName": "AMAZON MKTPLACE PMTS,AMAZON.COM-US",
+          "name": "Digital",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "name": "Centro bill",
+      "category": "ELECTRONICS",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 84000,
+          "groupId": 84,
+          "codeName": "CENTROBILL.COM US",
+          "name": "Digital",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 85,
+      "name": "Renshis fitness",
+      "category": "HEALTH",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 85000,
+          "groupId": 85,
+          "codeName": "RENSHIS FITNESS CENT,DUBAI-AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "name": "Cappuccini italiani",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 86000,
+          "groupId": 86,
+          "codeName": "CAPPUCCINI ITALIANI RE AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "name": "Starbucks",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 87000,
+          "groupId": 87,
+          "codeName": "MOHD HUMOOD AL S-226101 AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "name": "Virgin Mobile",
+      "category": "COMMUNICATION",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 88000,
+          "groupId": 88,
+          "codeName": "VIRGIN MOBILE (EITC),DUBAI-AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "name": "Memories of hungary",
+      "category": "GIFT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 89000,
+          "groupId": 89,
+          "codeName": "MEMORIES OF HUNGARY,BUDAPEST-HU",
+          "name": "Budapest",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 90,
+      "name": "Paulay Downtown",
+      "category": "TRAVEL",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 90000,
+          "groupId": 90,
+          "codeName": "PAULAY DOWNTOWN,BUDAPEST-HU",
+          "name": "Budapest",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 91,
+      "name": "Tesco",
+      "category": "SUPERMARKET",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 91000,
+          "groupId": 91,
+          "codeName": "TESCO 41029,SZEGED-HU",
+          "name": "Szeged, Hungary",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "name": "GoDaddy.com",
+      "category": "ELECTRONICS",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 92000,
+          "groupId": 92,
+          "codeName": "PAYPAL *GODADDY.COM,35314369001-GB",
+          "name": "Paypal",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        },{
+          "id": 92001,
+          "groupId": 92,
+          "codeName": "DNH*GODADDY.COM EURO,480-5058855-US",
+          "name": "",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 93,
+      "name": "Decathlon",
+      "category": "CLOTHING",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 93000,
+          "groupId": 93,
+          "codeName": "DECATHLON AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 94,
+      "name": "Royal China",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 94000,
+          "groupId": 94,
+          "codeName": "ROYAL CHINA-DUBAI,DUBAI-AE",
+          "name": "Dubai",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 95,
+      "name": "HiPhone Telecom",
+      "category": "COMMUNICATION",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 95000,
+          "groupId": 95,
+          "codeName": "HI PHONE TELECOM-12 AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 96,
+      "name": "Emirates Flight catering",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 96000,
+          "groupId": 96,
+          "codeName": "EMIRATES FLIGHT CATERI AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 97,
+      "name": "Minutes Services",
+      "category": "HOUSE",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 97000,
+          "groupId": 97,
+          "codeName": "MINUTES SERVICES WATCH AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 98,
+      "name": "Horizon coffee",
+      "category": "RESTAURANT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 98000,
+          "groupId": 98,
+          "codeName": "HORIZON CAFE AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 99,
+      "name": "Wizz Airlines",
+      "category": "TRAVEL",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 99000,
+          "groupId": 99,
+          "codeName": "WIZZ AIR HUNGARY KFT,BUDAPEST, HUN-HU",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "name": "Steam Games",
+      "category": "ENTERTAINMENT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 100000,
+          "groupId": 100,
+          "codeName": "STEAMGAMES.COM,425-952-2985-GB",
+          "name": "GB",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 101,
+      "name": "Bakemart plus",
+      "category": "SUPERMARKET",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 101000,
+          "groupId": 101,
+          "codeName": "BAKEMART PLUS   -739805 AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "name": "Roxy Cinema",
+      "category": "ENTERTAINMENT",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 102000,
+          "groupId": 102,
+          "codeName": "ROXY CINEMA AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "name": "Queen Inn Hotel",
+      "category": "TRAVEL",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 103000,
+          "groupId": 103,
+          "codeName": "QUEEN INN HOTEL AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "name": "Souq.com",
+      "category": "SUPERMARKET",
+      "latitude": 0,
+      "longitude": 0,
+      "description": "",
+      "persistentDestinations": [
+        {
+          "id": 104000,
+          "groupId": 104,
+          "codeName": "SOUQ.COM FZ LLC,DUBAI-AE",
+          "name": "UAE",
+          "latitude": 0,
+          "longitude": 0,
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

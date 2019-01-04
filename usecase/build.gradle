@@ -1,4 +1,7 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion Versions.compileSdkVersion
@@ -9,7 +12,7 @@ android {
         versionCode Versions.versionCode
         versionName Versions.versionName
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner Tests.testInstrumentationRunner
 
     }
 
@@ -26,15 +29,23 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':entity')
     implementation project(path: ':datalayer')
+    // This is needed in order to import ITransactionShown into the use case module
+    implementation project(path: ':storagelayer')
 
-    implementation Libs.support_appcompat_v7
+    implementation Libs.app_compat
 
     implementation Libs.dagger
     implementation Libs.dagger_support
     annotationProcessor AnnotationProcessor.dagger
+    kapt Libs.dagger_kotlin
+    implementation Libs.rxjava
+    implementation Libs.rxAndroid
+
+    implementation Libs.kotlin_standard_lib_jdk_8
 
     implementation Libs.liveData
     annotationProcessor AnnotationProcessor.liveData
+    kapt AnnotationProcessor.liveData
 
     testImplementation Tests.junit
     testImplementation Tests.mockito
@@ -42,4 +53,7 @@ dependencies {
     testImplementation Tests.junit
     androidTestImplementation Tests.testRunner
     androidTestImplementation Tests.espresso
+}
+repositories {
+    mavenCentral()
 }
