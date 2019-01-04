@@ -31,4 +31,7 @@ public abstract class DestinationGroupDao {
 
     @Delete
     public abstract void delete(PersistentDestinationGroup persistentDestinationGroup);
+
+    @Query("Delete from DestinationGroups")
+    public abstract void deleteAllDestinationGroups();
 }

@@ -13,7 +13,7 @@ import androidx.room.PrimaryKey;
         parentColumns = "id",
         childColumns = "groupId",
         onUpdate = ForeignKey.CASCADE,
-        onDelete = ForeignKey.RESTRICT),
+        onDelete = ForeignKey.CASCADE),
     tableName = "Destinations",
     indices = {@Index("groupId")}) // Special index for group id since it is a foreign key
 public class PersistentDestination extends Destination {

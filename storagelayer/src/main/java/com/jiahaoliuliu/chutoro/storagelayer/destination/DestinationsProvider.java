@@ -19,6 +19,7 @@ public class DestinationsProvider {
 
     private final Context context;
     private final Gson gson;
+    private PersistentDestinationGroupsUpdate persistentDestinationGroupsUpdate;
 
     public DestinationsProvider(Context context) {
         this.context = context;
@@ -26,22 +27,35 @@ public class DestinationsProvider {
     }
 
     public List<PersistentDestinationGroup> providePersistentDestinationGroups() {
-        return parseJsonFromFile();
+        return getPersistentDestinationGroupsUpdate() == null? new ArrayList<>():
+                persistentDestinationGroupsUpdate.getPersistentDestinationGroups();
     }
 
-    private List<PersistentDestinationGroup> parseJsonFromFile() {
+    public long provideNewDatabaseUpdateTime() {
+        return getPersistentDestinationGroupsUpdate() == null? 0:
+                persistentDestinationGroupsUpdate.getLastUpdateTime();
+    }
+
+    private PersistentDestinationGroupsUpdate getPersistentDestinationGroupsUpdate() {
+        if (persistentDestinationGroupsUpdate == null) {
+            persistentDestinationGroupsUpdate = parseJsonFromFile();
+        }
+
+        return persistentDestinationGroupsUpdate;
+    }
+
+    private PersistentDestinationGroupsUpdate parseJsonFromFile() {
         try {
             InputStream inputStream = context.getAssets().open("PersistentDestinations.json");
             byte[] formArray = new byte[inputStream.available()];
             inputStream.read(formArray);
             inputStream.close();
             String persistentDestinationsFileJson = new String(formArray);
-            PersistentDestinationGroupsUpdate persistentDestinationGroupsUpdate =
-                    gson.fromJson(persistentDestinationsFileJson, PersistentDestinationGroupsUpdate.class);
-            return persistentDestinationGroupsUpdate.getPersistentDestinationGroups();
+            return gson.fromJson(persistentDestinationsFileJson, PersistentDestinationGroupsUpdate.class);
         } catch (IOException e) {
             Timber.e(e, "Unable to read the persistent destinations");
         }
-        return new ArrayList<>();
+
+        return null;
     }
 }

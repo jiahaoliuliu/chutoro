@@ -7,6 +7,8 @@ import com.jiahaoliuliu.chutoro.storagelayer.destination.DestinationGroupDao;
 import com.jiahaoliuliu.chutoro.storagelayer.destination.DestinationsProvider;
 import com.jiahaoliuliu.chutoro.storagelayer.destination.PersistentDestination;
 import com.jiahaoliuliu.chutoro.storagelayer.destination.PersistentDestinationGroup;
+import com.jiahaoliuliu.chutoro.storagelayer.preferences.Preferences;
+import com.jiahaoliuliu.chutoro.storagelayer.preferences.PreferencesKey;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;
@@ -14,6 +16,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import io.reactivex.Observable;
+import io.reactivex.Single;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
@@ -33,7 +36,10 @@ public abstract class MainDatabase extends RoomDatabase {
     public abstract DestinationDao destinationDao();
     public abstract DestinationGroupDao destinationGroupDao();
 
-    public static synchronized MainDatabase getInstance(Context context) {
+    private static Preferences preferences;
+
+    public static synchronized MainDatabase getInstance(Context context, Preferences newPreferences) {
+        preferences = newPreferences;
         if (instance == null) {
             destinationsProvider = new DestinationsProvider(context);
             instance = Room.databaseBuilder(context.getApplicationContext(),
@@ -48,18 +54,30 @@ public abstract class MainDatabase extends RoomDatabase {
 
     private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback() {
         @Override
-        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-            super.onCreate(db);
-            initializeDatabase();
-        }
-
-        @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
-            // TODO: Update the content of the database properly
-            initializeDatabase();
+            updateDatabaseIfNeeded();
         }
     };
+
+    private static void updateDatabaseIfNeeded() {
+        DestinationGroupDao destinationGroupDao = instance.destinationGroupDao();
+        DestinationDao destinationDao = instance.destinationDao();
+        Disposable disposable = Single.fromCallable(() -> destinationsProvider.provideNewDatabaseUpdateTime())
+            .subscribeOn(Schedulers.io())
+            .subscribe(newDatabaseUpdateTime -> {
+                if (newDatabaseUpdateTime > preferences.get(PreferencesKey.KEY_DATABASE_LAST_UPDATE_TIME, 0)) {
+                    Timber.v("The new database update time is newer than the old one. Updating everything");
+                    destinationGroupDao.deleteAllDestinationGroups();
+                    destinationDao.deleteAllDestinations();
+                    initializeDatabase();
+                } else {
+                    Timber.v("The new database update time is not newer than the old time");
+                }
+            }, throwable -> {
+                Timber.e(throwable, "Error trying to update the database");
+            });
+    }
 
     private static void initializeDatabase() {
         // Initialize the database
@@ -69,8 +87,15 @@ public abstract class MainDatabase extends RoomDatabase {
                 .flatMap(persistentDestinationGroup -> insertPersistentDestinationGroup(
                         destinationGroupDao, destinationDao, persistentDestinationGroup))
                 .subscribeOn(Schedulers.io())
-                .subscribe(aBoolean -> Timber.v("Data inserted into the database " + aBoolean),
-                        throwable -> Timber.e(throwable, "Error inserting the data into the database"));
+                .subscribe(aBoolean -> {
+                    Timber.v("Data inserted into the database " + aBoolean);
+
+                    }, throwable -> Timber.e(throwable, "Error inserting the data into the database"),
+                    () -> {
+                        Timber.i("Database completely initialized");
+                        preferences.set(PreferencesKey.KEY_DATABASE_LAST_UPDATE_TIME,
+                                destinationsProvider.provideNewDatabaseUpdateTime());
+                    });
     }
 
     private static Observable<Boolean> insertPersistentDestinationGroup(

@@ -30,4 +30,7 @@ public abstract class DestinationDao {
 
     @Delete
     public abstract void delete(PersistentDestination persistentDestination);
+
+    @Query("Delete from Destinations")
+    public abstract void deleteAllDestinations();
 }
