@@ -48,7 +48,7 @@ public interface ITransaction {
      * Where the money goes
      * @return
      */
-    String getDestination();
+    String getDestinationCodeName();
 
     /**
      * When the operation was made

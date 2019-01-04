@@ -74,7 +74,7 @@ public abstract class TransactionsDao {
     @Query("Select Transactions.quantity AS quantity, " +
             "Transactions.currency AS currency, " +
             "Transactions.source   AS source, " +
-            "Transactions.destination AS destination, " +
+            "Transactions.destinationCodeName AS destinationCodeName, " +
             "Transactions.date     AS date, " +
             "Destinations.name     AS destinationName, "+
             "Destinations.latitude AS destinationLatitude," +
@@ -87,7 +87,7 @@ public abstract class TransactionsDao {
             "DestinationGroups.description AS destinationGroupDescription " +
             "  from Transactions " +
             // Left join with Destinations so if it does not exist, the destinations fields will be null
-            "  left join Destinations on Transactions.destination = Destinations.codeName " +
+            "  left join Destinations on Transactions.destinationCodeName = Destinations.codeName " +
             // Left join with DestinationGroups so if Destinations is null, those fields will be null as well
             "  left join DestinationGroups on Destinations.groupId = DestinationGroups.id " +
             // Order

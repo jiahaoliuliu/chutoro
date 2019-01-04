@@ -13,17 +13,17 @@ public class Transaction implements ITransaction {
     private final int quantity;
     private final String currency;
     private final String source;
-    private final String destination;
+    private final String destinationCodeName;
     private final long date;
 
     protected Transaction(long smsId, String originalSms, int quantity, String currency, String source,
-                          String destination, long date) {
+                          String destinationCodeName, long date) {
         this.smsId = smsId;
         this.originalSms = originalSms;
         this.quantity = quantity;
         this.currency = currency;
         this.source = source;
-        this.destination = destination;
+        this.destinationCodeName = destinationCodeName;
         this.date = date;
     }
 
@@ -54,8 +54,8 @@ public class Transaction implements ITransaction {
     }
 
     @Override
-    public String getDestination() {
-        return destination;
+    public String getDestinationCodeName() {
+        return destinationCodeName;
     }
 
     @Override
@@ -83,7 +83,7 @@ public class Transaction implements ITransaction {
         if (currency != null ? !currency.equals(that.currency) : that.currency != null)
             return false;
         if (source != null ? !source.equals(that.source) : that.source != null) return false;
-        return destination != null ? destination.equals(that.destination) : that.destination == null;
+        return destinationCodeName != null ? destinationCodeName.equals(that.destinationCodeName) : that.destinationCodeName == null;
     }
 
     @Override
@@ -93,7 +93,7 @@ public class Transaction implements ITransaction {
         result = 31 * result + quantity;
         result = 31 * result + (currency != null ? currency.hashCode() : 0);
         result = 31 * result + (source != null ? source.hashCode() : 0);
-        result = 31 * result + (destination != null ? destination.hashCode() : 0);
+        result = 31 * result + (destinationCodeName != null ? destinationCodeName.hashCode() : 0);
         result = 31 * result + (int) (date ^ (date >>> 32));
         return result;
     }
@@ -106,7 +106,7 @@ public class Transaction implements ITransaction {
                 ", quantity=" + quantity +
                 ", currency='" + currency + '\'' +
                 ", source='" + source + '\'' +
-                ", destination='" + destination + '\'' +
+                ", destinationCodeName='" + destinationCodeName + '\'' +
                 ", date=" + date +
                 '}';
     }
