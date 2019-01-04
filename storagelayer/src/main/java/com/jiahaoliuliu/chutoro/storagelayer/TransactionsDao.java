@@ -62,7 +62,7 @@ public abstract class TransactionsDao {
     public abstract void delete(PersistentTransaction persistentTransaction);
 
     @Query("Delete from Transactions")
-    public abstract void deleteAllItems();
+    public abstract void deleteAllTransactions();
 
     /**
      * Query used to (left) join the transactions table with the destinations
