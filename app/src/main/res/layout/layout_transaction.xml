@@ -28,12 +28,12 @@
                 android:orientation="horizontal"
                 >
                 <TextView
-                    android:id="@+id/destination"
+                    android:id="@+id/destinationCodeName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/TextAppearance.AppCompat.Large"
                     tools:text="Destination"
-                    android:text="@{transaction.hasDestinationGroupName()? transaction.destinationGroupName: transaction.destination}"
+                    android:text="@{transaction.hasDestinationGroupName()? transaction.destinationGroupName: transaction.destinationCodeName}"
                     android:layout_weight="1"
                     android:maxLines="2"
                     android:ellipsize="end"
@@ -69,7 +69,7 @@
                 android:orientation="horizontal"
                 android:visibility="@{transaction.hasDestinationGroupCategory()? View.VISIBLE: View.GONE}"
                 >
-                <!-- Destination group category, if the destination has been recognized -->
+                <!-- Destination group category, if the destinationCodeName has been recognized -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

@@ -29,17 +29,17 @@ public class PersistentTransaction extends Transaction {
      *                  {@link com.jiahaoliuliu.chutoro.entity.Currency}
      * @param source    The source where the transaction comes from. It must be one of the
      *                  {@link com.jiahaoliuliu.chutoro.entity.Source}
-     * @param destination   The destination where the transaction went
+     * @param destinationCodeName   The destination where the transaction went. This is a code name
      * @param date      The date when the transaction has happened
      */
     public PersistentTransaction(long smsId, @Nullable String originalSms, int quantity, @NonNull String currency,
-                                 @NonNull String source, @NonNull String destination, long date) {
-        super(smsId, originalSms, quantity, currency, source, destination, date);
+                                 @NonNull String source, @NonNull String destinationCodeName, long date) {
+        super(smsId, originalSms, quantity, currency, source, destinationCodeName, date);
     }
 
     public PersistentTransaction(ITransaction transaction) {
         super(transaction.getSmsId(), transaction.getOriginalSms(), transaction.getQuantity(),
-                transaction.getCurrency(), transaction.getSource(), transaction.getDestination(),
+                transaction.getCurrency(), transaction.getSource(), transaction.getDestinationCodeName(),
                 transaction.getDate());
     }
 

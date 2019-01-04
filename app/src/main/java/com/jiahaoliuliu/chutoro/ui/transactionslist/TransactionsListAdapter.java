@@ -65,7 +65,7 @@ public class TransactionsListAdapter extends RecyclerView.Adapter<TransactionsLi
             layoutTransactionBinding.setTransaction(transactionShown);
             layoutTransactionBinding.executePendingBindings();
             if (!transactionShown.hasDestinationName() || !transactionShown.hasDestinationGroupName()) {
-                Timber.w("Transaction destination not recognized " + transactionShown.getDestination());
+                Timber.w("Transaction destination not recognized " + transactionShown.getDestinationCodeName());
             }
             layoutTransactionBinding.date.setText(parseDate(transactionShown.getDate()));
             layoutTransactionBinding.quantity.setText(parseQuantity(transactionShown.getQuantity()));

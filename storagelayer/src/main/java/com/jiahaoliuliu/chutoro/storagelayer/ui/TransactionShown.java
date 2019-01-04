@@ -23,7 +23,7 @@ public class TransactionShown implements ITransactionShown {
     public int quantity;
     public String currency;
     public String source;
-    public String destination;
+    public String destinationCodeName;
     public long date;
 
     // Destination
@@ -74,8 +74,8 @@ public class TransactionShown implements ITransactionShown {
 
     @NotNull
     @Override
-    public String getDestination() {
-        return destination;
+    public String getDestinationCodeName() {
+        return destinationCodeName;
     }
 
     @NotNull

@@ -19,7 +19,7 @@ public interface ITransactionShown {
     String getSource();
 
     @NotNull
-    String getDestination();
+    String getDestinationCodeName();
 
     @NotNull
     long getDate();

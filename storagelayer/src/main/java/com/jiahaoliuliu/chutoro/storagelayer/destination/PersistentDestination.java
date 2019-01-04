@@ -25,17 +25,10 @@ public class PersistentDestination extends Destination {
     @NotNull
     private long groupId;
 
-    /**
-     * The code name which appears on the sms
-     */
-    @NotNull
-    private String codeName;
-
-    public PersistentDestination(long id, long groupId, String codeName, String name) {
-        super(name);
+    public PersistentDestination(long id, long groupId, String name, String codeName) {
+        super(name, codeName);
         this.id = id;
         this.groupId = groupId;
-        this.codeName = codeName;
     }
 
 //    public PersistentDestination(long groupId, String codeName, String name, @Nullable long latitude, @Nullable long longitude,
@@ -61,16 +54,6 @@ public class PersistentDestination extends Destination {
         this.groupId = groupId;
     }
 
-    @NotNull
-    public String getCodeName() {
-        return codeName;
-    }
-
-    // This is required by Room
-    public void setCodeName(@NotNull String codeName) {
-        this.codeName = codeName;
-    }
-
     // This is required by Room
     public void setName(String name) {
         this.name = name;
@@ -94,14 +77,13 @@ public class PersistentDestination extends Destination {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof PersistentDestination)) return false;
         if (!super.equals(o)) return false;
 
         PersistentDestination that = (PersistentDestination) o;
 
         if (id != that.id) return false;
-        if (groupId != that.groupId) return false;
-        return codeName.equals(that.codeName);
+        return groupId == that.groupId;
     }
 
     @Override
@@ -109,7 +91,6 @@ public class PersistentDestination extends Destination {
         int result = super.hashCode();
         result = 31 * result + (int) (id ^ (id >>> 32));
         result = 31 * result + (int) (groupId ^ (groupId >>> 32));
-        result = 31 * result + codeName.hashCode();
         return result;
     }
 
@@ -118,7 +99,6 @@ public class PersistentDestination extends Destination {
         return "PersistentDestination{" +
                 "id=" + id +
                 ", groupId=" + groupId +
-                ", codeName='" + codeName + '\'' +
                 ", " + super.toString() +
                 '}';
     }
