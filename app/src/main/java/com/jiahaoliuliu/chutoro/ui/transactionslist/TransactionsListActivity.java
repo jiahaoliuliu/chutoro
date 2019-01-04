@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.jiahaoliuliu.chutoro.BuildConfig;
 import com.jiahaoliuliu.chutoro.R;
 import com.jiahaoliuliu.chutoro.ui.MainApplication;
 import com.jiahaoliuliu.chutoro.ui.addtransaction.AddTransactionActivity;
@@ -43,8 +44,12 @@ public class TransactionsListActivity extends AppCompatActivity implements
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-        FloatingActionButton buttonAddNote = findViewById(R.id.button_add_note);
-        buttonAddNote.setOnClickListener(v -> {
+        FloatingActionButton buttonAddTransactions = findViewById(R.id.button_add_note);
+        if (!BuildConfig.SHOW_ADD_TRANSACTION_BUTTON) {
+            buttonAddTransactions.hide();
+        }
+
+        buttonAddTransactions.setOnClickListener(v -> {
             Intent intent = new Intent(this, AddTransactionActivity.class);
             startActivityForResult(intent, REQUEST_CODE_FOR_ADD_NEW_TRANSACTIONS);
         });
