@@ -9,6 +9,7 @@ public class TransactionBuilder {
 
     // Optional
     private long smsId = Transaction.DEFAULT_SMS_ID;
+    private String originalSms;
 
     // Compulsory
     private int quantity = Transaction.DEFAULT_QUANTITY;
@@ -27,6 +28,12 @@ public class TransactionBuilder {
         }
 
         this.smsId = smsId;
+        return this;
+    }
+
+    public TransactionBuilder setOriginalSms(String originalSms) {
+        checkTextNotEmptyOrThrowIllegalArgumentException(originalSms, "Original SMS");
+        this.originalSms = originalSms;
         return this;
     }
 
@@ -114,6 +121,18 @@ public class TransactionBuilder {
     public Transaction build() {
         // Check the fields. For compulsory fields, if it is not filled, throw an
         // IllegalStateException
+
+        // If the sms id is set, the original sms cannot be null. This is also true on another
+        // way around: If the original sms is not null, the sms id cannot be default
+        if (smsId != Transaction.DEFAULT_SMS_ID) {
+            checkTextNotEmptyOrThrowIllegalStateException(originalSms, "original SMS");
+        }
+
+        if ((originalSms != null || originalSms.isEmpty()) && smsId == Transaction.DEFAULT_SMS_ID) {
+            throw new IllegalStateException("If the original SMS is set, the sms id cannot be the " +
+                    "default one");
+        }
+
         // Quantity
         if (quantity == Transaction.DEFAULT_QUANTITY) {
             throw new IllegalStateException("The quantity need to be set");
@@ -132,7 +151,7 @@ public class TransactionBuilder {
             throw new IllegalStateException("The date need to be set");
         }
 
-        return new Transaction(smsId, quantity, currency, source, destination, date);
+        return new Transaction(smsId, originalSms, quantity, currency, source, destination, date);
     }
 
     private boolean checkTextNotEmptyOrThrowIllegalArgumentException(String text, String fieldName) {

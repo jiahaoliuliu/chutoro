@@ -21,7 +21,7 @@ import timber.log.Timber;
 @Database(entities = {
         PersistentTransaction.class,
         PersistentDestination.class,
-        PersistentDestinationGroup.class}, version = 1, exportSchema = false)
+        PersistentDestinationGroup.class}, version = 2, exportSchema = false)
 public abstract class MainDatabase extends RoomDatabase {
 
     public static final String DATABASE_NAME = "Chutoro.sqlite";

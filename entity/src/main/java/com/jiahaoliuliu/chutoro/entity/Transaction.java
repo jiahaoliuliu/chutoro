@@ -1,5 +1,7 @@
 package com.jiahaoliuliu.chutoro.entity;
 
+import org.jetbrains.annotations.Nullable;
+
 public class Transaction implements ITransaction {
 
     protected static final long DEFAULT_SMS_ID = -1;
@@ -7,15 +9,17 @@ public class Transaction implements ITransaction {
     protected static final long DEFAULT_DATE = -1l;
 
     private final long smsId;
+    private final String originalSms;
     private final int quantity;
     private final String currency;
     private final String source;
     private final String destination;
     private final long date;
 
-    protected Transaction(long smsId, int quantity, String currency, String source, String destination,
-                       long date) {
+    protected Transaction(long smsId, String originalSms, int quantity, String currency, String source,
+                          String destination, long date) {
         this.smsId = smsId;
+        this.originalSms = originalSms;
         this.quantity = quantity;
         this.currency = currency;
         this.source = source;
@@ -31,6 +35,12 @@ public class Transaction implements ITransaction {
     @Override
     public boolean isFromSms() {
         return smsId != DEFAULT_SMS_ID;
+    }
+
+    @Nullable
+    @Override
+    public String getOriginalSms() {
+        return originalSms;
     }
 
     @Override
@@ -68,6 +78,8 @@ public class Transaction implements ITransaction {
         if (smsId != that.smsId) return false;
         if (quantity != that.quantity) return false;
         if (date != that.date) return false;
+        if (originalSms != null ? !originalSms.equals(that.originalSms) : that.originalSms != null)
+            return false;
         if (currency != null ? !currency.equals(that.currency) : that.currency != null)
             return false;
         if (source != null ? !source.equals(that.source) : that.source != null) return false;
@@ -77,8 +89,9 @@ public class Transaction implements ITransaction {
     @Override
     public int hashCode() {
         int result = (int) (smsId ^ (smsId >>> 32));
-        result = 31 * result + (currency != null ? currency.hashCode() : 0);
+        result = 31 * result + (originalSms != null ? originalSms.hashCode() : 0);
         result = 31 * result + quantity;
+        result = 31 * result + (currency != null ? currency.hashCode() : 0);
         result = 31 * result + (source != null ? source.hashCode() : 0);
         result = 31 * result + (destination != null ? destination.hashCode() : 0);
         result = 31 * result + (int) (date ^ (date >>> 32));
@@ -89,8 +102,9 @@ public class Transaction implements ITransaction {
     public String toString() {
         return "Transaction{" +
                 "smsId=" + smsId +
-                ", currency='" + currency + '\'' +
+                ", originalSms='" + originalSms + '\'' +
                 ", quantity=" + quantity +
+                ", currency='" + currency + '\'' +
                 ", source='" + source + '\'' +
                 ", destination='" + destination + '\'' +
                 ", date=" + date +

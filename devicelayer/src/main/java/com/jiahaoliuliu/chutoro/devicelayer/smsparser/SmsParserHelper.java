@@ -1,7 +1,5 @@
 package com.jiahaoliuliu.chutoro.devicelayer.smsparser;
 
-import androidx.annotation.NonNull;
-
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.smsparserparameters.SmsParserParameters;
 import com.jiahaoliuliu.chutoro.entity.Transaction;
 import com.jiahaoliuliu.chutoro.entity.TransactionBuilder;
@@ -11,6 +9,8 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import androidx.annotation.NonNull;
 
 /**
  * Use case created to map the list of sms to a list of any other data
@@ -62,6 +62,7 @@ public class SmsParserHelper {
 
         return new TransactionBuilder()
                 .setSmsId(sms.getId())
+                .setOriginalSms(sms.getBody())
                 .setSource(smsParserParameters.getSource())
                 .setDestination(destination)
                 .setQuantity(quantity)
