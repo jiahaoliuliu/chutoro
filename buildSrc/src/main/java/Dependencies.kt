@@ -23,6 +23,7 @@ object Versions {
     val picasso = "2.71828"
     val kotlin = "1.2.71"
     val timber = "4.7.1"
+    val stetho = "1.5.0"
 
     // Tests
     val junit = "4.12"
@@ -55,6 +56,7 @@ object Libs {
     val gson = "com.google.code.gson:gson:${Versions.gson}"
 
     val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
+    val stetho = "com.facebook.stetho:stetho:${Versions.stetho}"
 
     // Others
     val gradle_plugin = "com.android.tools.build:gradle:${Versions.gradle}"
