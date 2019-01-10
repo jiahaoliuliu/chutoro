@@ -1,10 +1,10 @@
 package com.jiahaoliuliu.chutoro.entity.destination;
 
 public enum Category {
+    BANK,
     CAR,
     CLOTHING,
     COMMUNICATION,
-    BANK,
     EDUCATION,
     ELECTRONICS,
     ENTERTAINMENT,
