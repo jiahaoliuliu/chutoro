@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Chutoro</string>
     <string name="title_activity_add_transaction">AddTransactionActivity</string>
     <string name="source">Bank</string>
     <string name="destination">Shop</string>
