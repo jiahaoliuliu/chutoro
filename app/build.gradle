@@ -21,6 +21,7 @@ android {
             resValue "bool", "allowBackup", "true"
             resValue "bool", "fullBackupOnly", "true"
             resValue "string", "app_name", "Chutoro"
+            buildConfigField "boolean", "ENABLE_STETHO", "false"
         }
 
         debug {
@@ -30,6 +31,7 @@ android {
             resValue "bool", "fullBackupOnly", "false"
             applicationIdSuffix ".debug"
             resValue "string", "app_name", "Chutoro(Debug)"
+            buildConfigField "boolean", "ENABLE_STETHO", "true"
         }
     }
 
@@ -75,6 +77,9 @@ dependencies {
     implementation Libs.liveData
     annotationProcessor AnnotationProcessor.liveData
     kapt AnnotationProcessor.liveData
+
+    // Debug
+    implementation Libs.stetho
 
     // Unit tests
     testImplementation Tests.junit
