@@ -58,27 +58,31 @@ dependencies {
     annotationProcessor AnnotationProcessor.support
     kapt AnnotationProcessor.support
     implementation Libs.android_material
+    implementation Libs.kotlin_standard_lib_jdk_8
+
+    // View
+    implementation Libs.cardView
+    implementation Libs.recyclerView
+    implementation Libs.picasso
+    implementation Libs.hello_charts
+
+    // RxJava
     implementation Libs.rxjava
     implementation Libs.rxAndroid
 
+    // Dagger
     implementation Libs.dagger
     implementation Libs.dagger_support
     kapt Libs.dagger_kotlin
     annotationProcessor AnnotationProcessor.dagger
 
-    implementation Libs.picasso
-    implementation Libs.timber
-
-    implementation Libs.kotlin_standard_lib_jdk_8
-
-    // Optional
-    implementation Libs.cardView
-    implementation Libs.recyclerView
+    // LiveData
     implementation Libs.liveData
     annotationProcessor AnnotationProcessor.liveData
     kapt AnnotationProcessor.liveData
 
     // Debug
+    implementation Libs.timber
     implementation Libs.stetho
 
     // Unit tests

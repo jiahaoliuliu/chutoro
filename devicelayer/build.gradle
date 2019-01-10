@@ -35,16 +35,21 @@ dependencies {
 
     // Core
     implementation Libs.app_compat
-    implementation Libs.rxjava
-    implementation Libs.timber
-
     implementation Libs.kotlin_standard_lib_jdk_8
 
+    // RxJava
+    implementation Libs.rxjava
+
+    // Debug
+    implementation Libs.timber
+
+    // Dagger
     implementation Libs.dagger
     implementation Libs.dagger_support
     kapt Libs.dagger_kotlin
     annotationProcessor AnnotationProcessor.dagger
 
+    // Tests
     testImplementation Tests.junit
     testImplementation Tests.mockito
 

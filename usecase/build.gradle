@@ -13,7 +13,6 @@ android {
         versionName Versions.versionName
 
         testInstrumentationRunner Tests.testInstrumentationRunner
-
     }
 
     buildTypes {
@@ -32,21 +31,26 @@ dependencies {
     // This is needed in order to import ITransactionShown into the use case module
     implementation project(path: ':storagelayer')
 
+    // Core
     implementation Libs.app_compat
+    implementation Libs.kotlin_standard_lib_jdk_8
 
+    // Dagger
     implementation Libs.dagger
     implementation Libs.dagger_support
     annotationProcessor AnnotationProcessor.dagger
     kapt Libs.dagger_kotlin
+
+    // RxJava
     implementation Libs.rxjava
     implementation Libs.rxAndroid
 
-    implementation Libs.kotlin_standard_lib_jdk_8
-
+    // LiveData
     implementation Libs.liveData
     annotationProcessor AnnotationProcessor.liveData
     kapt AnnotationProcessor.liveData
 
+    // Tests
     testImplementation Tests.junit
     testImplementation Tests.mockito
 

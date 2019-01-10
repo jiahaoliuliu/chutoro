@@ -24,6 +24,7 @@ object Versions {
     val kotlin = "1.2.71"
     val timber = "4.7.1"
     val stetho = "1.5.0"
+    val helloChart = "1.5.8"
 
     // Tests
     val junit = "4.12"
@@ -43,34 +44,45 @@ object Libs {
     val app_compat = "androidx.appcompat:appcompat:${Versions.support_lib}"
     val android_material = "com.google.android.material:material:${Versions.support_lib}"
     val kotlin_standard_lib_jdk_8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
-    val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
-    val retrofit_rxjava_adapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
-    val rxjava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"
-    val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}"
-    val rxjava_gson_converter = "com.squareup.retrofit2:converter-gson:${Versions.rxJavaGsonConverter}"
-    val timber = "com.jakewharton.timber:timber:${Versions.timber}"
-
-    val dagger = "com.google.dagger:dagger:${Versions.dagger}"
-    val dagger_support = "com.google.dagger:dagger-android-support:${Versions.dagger}"
-    val dagger_kotlin = "com.google.dagger:dagger-compiler:${Versions.dagger}"
-    val gson = "com.google.code.gson:gson:${Versions.gson}"
-
-    val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
-    val stetho = "com.facebook.stetho:stetho:${Versions.stetho}"
-
-    // Others
     val gradle_plugin = "com.android.tools.build:gradle:${Versions.gradle}"
     val gradle_kotlin_plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.gradleKotlin}"
 
-    // Optional
+    // View
     val cardView = "androidx.cardview:cardview:${Versions.cardView}"
     val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
+    val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
+    val hello_charts = "com.github.lecho:hellocharts-library:${Versions.helloChart}@aar"
+    val viewModel = "android.arch.lifecycle:viewmodel:${Versions.viewModel}"
+    val lifeCycleExtension = "android.arch.lifecycle:extensions:${Versions.lifeCycleExtensions}"
+
+    // RxJava
+    val rxjava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"
+    val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}"
+    val rxjava_gson_converter = "com.squareup.retrofit2:converter-gson:${Versions.rxJavaGsonConverter}"
+
+    // Dagger
+    val dagger = "com.google.dagger:dagger:${Versions.dagger}"
+    val dagger_support = "com.google.dagger:dagger-android-support:${Versions.dagger}"
+    val dagger_kotlin = "com.google.dagger:dagger-compiler:${Versions.dagger}"
+
+    // LiveData
     val liveData = "androidx.lifecycle:lifecycle-livedata:${Versions.liveData}"
+
+    // Debug
+    val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+    val stetho = "com.facebook.stetho:stetho:${Versions.stetho}"
+
+    // Network
+    val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    val retrofit_rxjava_adapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
+
+    // Utils
+    val gson = "com.google.code.gson:gson:${Versions.gson}"
+
+    // Room
     val room = "androidx.room:room-runtime:${Versions.room}"
     val roomRxJava = "androidx.room:room-rxjava2:${Versions.room}"
     val roomGuava = "androidx.room:room-guava:${Versions.room}"
-    val viewModel = "android.arch.lifecycle:viewmodel:${Versions.viewModel}"
-    val lifeCycleExtension = "android.arch.lifecycle:extensions:${Versions.lifeCycleExtensions}"
 }
 
 object AnnotationProcessor {

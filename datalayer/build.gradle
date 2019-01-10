@@ -34,7 +34,11 @@ dependencies {
 
     // Core
     implementation Libs.app_compat
+
+    // RxJava
     implementation Libs.rxjava
+
+    // Debug
     implementation Libs.timber
 
     // Dagger
@@ -50,6 +54,7 @@ dependencies {
     implementation Libs.liveData
     annotationProcessor AnnotationProcessor.liveData
 
+    // Tests
     testImplementation Tests.junit
     androidTestImplementation Tests.testRunner
     androidTestImplementation Tests.espresso

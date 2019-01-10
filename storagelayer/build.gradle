@@ -52,8 +52,10 @@ dependencies {
     implementation Libs.liveData
     annotationProcessor AnnotationProcessor.liveData
 
-    // Others
+    // Debug
     implementation Libs.timber
+
+    // Utils
     implementation Libs.gson
 
     // Test
