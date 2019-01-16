@@ -2,6 +2,7 @@ package com.jiahaoliuliu.chutoro.storagelayer;
 
 import android.content.Context;
 
+import com.jiahaoliuliu.chutoro.storagelayer.destination.CategoriesProvider;
 import com.jiahaoliuliu.chutoro.storagelayer.destination.DestinationDao;
 import com.jiahaoliuliu.chutoro.storagelayer.destination.DestinationGroupDao;
 import com.jiahaoliuliu.chutoro.storagelayer.destination.DestinationsProvider;
@@ -31,6 +32,7 @@ public abstract class MainDatabase extends RoomDatabase {
 
     private static MainDatabase instance;
     private static DestinationsProvider destinationsProvider;
+    private static CategoriesProvider categoriesProvider;
 
     public abstract TransactionsDao transactionsDao();
     public abstract DestinationDao destinationDao();
@@ -42,6 +44,7 @@ public abstract class MainDatabase extends RoomDatabase {
         preferences = newPreferences;
         if (instance == null) {
             destinationsProvider = new DestinationsProvider(context);
+            categoriesProvider = new CategoriesProvider(context);
             instance = Room.databaseBuilder(context.getApplicationContext(),
                 MainDatabase.class, MainDatabase.DATABASE_NAME)
                 .fallbackToDestructiveMigration()
@@ -57,29 +60,44 @@ public abstract class MainDatabase extends RoomDatabase {
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
             updateDestinationsIfNeeded();
+            updateCategoriesIfNeeded();
         }
     };
 
+    private static void updateCategoriesIfNeeded() {
+        Disposable disposable = Single.fromCallable(() -> categoriesProvider.provideNewCategoriesUpdateTime())
+                .subscribeOn(Schedulers.io())
+                .subscribe(newCategoriesUpdateTime -> {
+                    if (newCategoriesUpdateTime >
+                            preferences.get(PreferencesKey.KEY_DATABASE_CATEGORIES_LAST_UPDATE_TIME, 0)) {
+                        Timber.v("The new database categories update time is newer than the " +
+                                "old one. Updating everything");
+                        // TODO: Remove the old values
+                        // Initialize the database with the new values
+                    }
+                }, throwable -> Timber.e(throwable, "Error trying to update the categories in the database"));
+    }
+
     private static void updateDestinationsIfNeeded() {
-        DestinationGroupDao destinationGroupDao = instance.destinationGroupDao();
-        DestinationDao destinationDao = instance.destinationDao();
         Disposable disposable = Single.fromCallable(() -> destinationsProvider.provideNewDestinationsUpdateTime())
             .subscribeOn(Schedulers.io())
-            .subscribe(newDatabaseUpdateTime -> {
-                if (newDatabaseUpdateTime > preferences.get(PreferencesKey.KEY_DATABASE_LAST_UPDATE_TIME, 0)) {
-                    Timber.v("The new database update time is newer than the old one. Updating everything");
-                    destinationGroupDao.deleteAllDestinationGroups();
-                    destinationDao.deleteAllDestinations();
-                    initializeDatabase();
+            .subscribe(newDestinationsUpdateTime -> {
+                if (newDestinationsUpdateTime >
+                        preferences.get(PreferencesKey.KEY_DATABASE_DESTINATIONS_LAST_UPDATE_TIME, 0)) {
+                    Timber.v("The new database destinations update time is newer than the " +
+                            "old one. Updating everything");
+                    instance.destinationGroupDao().deleteAllDestinationGroups();
+                    instance.destinationDao().deleteAllDestinations();
+                    initializeDestinations();
                 } else {
                     Timber.v("The new database update time is not newer than the old time");
                 }
             }, throwable -> {
-                Timber.e(throwable, "Error trying to update the database");
+                Timber.e(throwable, "Error trying to update the destinations in the database");
             });
     }
 
-    private static void initializeDatabase() {
+    private static void initializeDestinations() {
         // Initialize the database
         DestinationGroupDao destinationGroupDao = instance.destinationGroupDao();
         DestinationDao destinationDao = instance.destinationDao();
@@ -93,7 +111,7 @@ public abstract class MainDatabase extends RoomDatabase {
                     }, throwable -> Timber.e(throwable, "Error inserting the data into the database"),
                     () -> {
                         Timber.i("Database completely initialized");
-                        preferences.set(PreferencesKey.KEY_DATABASE_LAST_UPDATE_TIME,
+                        preferences.set(PreferencesKey.KEY_DATABASE_DESTINATIONS_LAST_UPDATE_TIME,
                                 destinationsProvider.provideNewDestinationsUpdateTime());
                     });
     }

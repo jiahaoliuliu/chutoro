@@ -16,6 +16,7 @@ import timber.log.Timber;
  * that it belongs
  */
 public class DestinationsProvider {
+    private static final String JSON_FILE_NAME = "PersistentDestinations.json";
 
     private final Context context;
     private final Gson gson;
@@ -26,16 +27,6 @@ public class DestinationsProvider {
         this.gson = new Gson();
     }
 
-    public List<PersistentDestinationGroup> providePersistentDestinationGroups() {
-        return getPersistentDestinationGroupsUpdate() == null? new ArrayList<>():
-                persistentDestinationGroupsUpdate.getPersistentDestinationGroups();
-    }
-
-    public long provideNewDestinationsUpdateTime() {
-        return getPersistentDestinationGroupsUpdate() == null? 0:
-                persistentDestinationGroupsUpdate.getLastUpdateTime();
-    }
-
     private PersistentDestinationGroupsUpdate getPersistentDestinationGroupsUpdate() {
         if (persistentDestinationGroupsUpdate == null) {
             persistentDestinationGroupsUpdate = parseJsonFromFile();
@@ -44,9 +35,19 @@ public class DestinationsProvider {
         return persistentDestinationGroupsUpdate;
     }
 
+    public long provideNewDestinationsUpdateTime() {
+        return getPersistentDestinationGroupsUpdate() == null? 0:
+                persistentDestinationGroupsUpdate.getLastUpdateTime();
+    }
+
+    public List<PersistentDestinationGroup> providePersistentDestinationGroups() {
+        return getPersistentDestinationGroupsUpdate() == null? new ArrayList<>():
+                persistentDestinationGroupsUpdate.getPersistentDestinationGroups();
+    }
+
     private PersistentDestinationGroupsUpdate parseJsonFromFile() {
         try {
-            InputStream inputStream = context.getAssets().open("PersistentDestinations.json");
+            InputStream inputStream = context.getAssets().open(JSON_FILE_NAME);
             byte[] formArray = new byte[inputStream.available()];
             inputStream.read(formArray);
             inputStream.close();
