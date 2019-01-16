@@ -56,14 +56,14 @@ public abstract class MainDatabase extends RoomDatabase {
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
-            updateDatabaseIfNeeded();
+            updateDestinationsIfNeeded();
         }
     };
 
-    private static void updateDatabaseIfNeeded() {
+    private static void updateDestinationsIfNeeded() {
         DestinationGroupDao destinationGroupDao = instance.destinationGroupDao();
         DestinationDao destinationDao = instance.destinationDao();
-        Disposable disposable = Single.fromCallable(() -> destinationsProvider.provideNewDatabaseUpdateTime())
+        Disposable disposable = Single.fromCallable(() -> destinationsProvider.provideNewDestinationsUpdateTime())
             .subscribeOn(Schedulers.io())
             .subscribe(newDatabaseUpdateTime -> {
                 if (newDatabaseUpdateTime > preferences.get(PreferencesKey.KEY_DATABASE_LAST_UPDATE_TIME, 0)) {
@@ -94,7 +94,7 @@ public abstract class MainDatabase extends RoomDatabase {
                     () -> {
                         Timber.i("Database completely initialized");
                         preferences.set(PreferencesKey.KEY_DATABASE_LAST_UPDATE_TIME,
-                                destinationsProvider.provideNewDatabaseUpdateTime());
+                                destinationsProvider.provideNewDestinationsUpdateTime());
                     });
     }
 

@@ -23,8 +23,6 @@ public class PersistentDestinationGroup extends DestinationGroup {
      * This field is used to link to the list of Persistent destinations when
      * the data is inserted.
      * This field shouldn't be inserted as it into the database
-     * TODO: Check for TypeConverter to see if it is possible to insert the list
-     * of Persistent destinations automatically
      */
     @NotNull
     @Ignore

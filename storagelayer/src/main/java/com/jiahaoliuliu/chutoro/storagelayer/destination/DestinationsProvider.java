@@ -31,7 +31,7 @@ public class DestinationsProvider {
                 persistentDestinationGroupsUpdate.getPersistentDestinationGroups();
     }
 
-    public long provideNewDatabaseUpdateTime() {
+    public long provideNewDestinationsUpdateTime() {
         return getPersistentDestinationGroupsUpdate() == null? 0:
                 persistentDestinationGroupsUpdate.getLastUpdateTime();
     }
