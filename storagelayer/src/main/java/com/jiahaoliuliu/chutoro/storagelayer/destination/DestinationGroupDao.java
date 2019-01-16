@@ -7,6 +7,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
+// TODO: Create an abstract class for the common methods
 @Dao
 public abstract class DestinationGroupDao {
 
@@ -23,7 +24,8 @@ public abstract class DestinationGroupDao {
         }
     }
 
-    @Query("Select * from DestinationGroups where id == :id")
+    @Query("Select * from DestinationGroups left join Category " +
+            "on DestinationGroups.categoryId = Category.id where id == :id ")
     public abstract PersistentDestinationGroup getDestinationGroupById(long id);
 
     @Update(onConflict = OnConflictStrategy.IGNORE)

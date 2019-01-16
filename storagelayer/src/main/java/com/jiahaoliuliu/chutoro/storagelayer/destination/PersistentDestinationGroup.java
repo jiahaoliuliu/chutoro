@@ -9,15 +9,26 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "DestinationGroups")
+@Entity(foreignKeys = @ForeignKey(entity = PersistentCategory.class,
+        parentColumns = "id",
+        childColumns = "categoryId",
+        onUpdate = ForeignKey.CASCADE,
+        onDelete = ForeignKey.CASCADE),
+        tableName = "DestinationGroups",
+        indices = {@Index("categoryId")})
 public class PersistentDestinationGroup extends DestinationGroup {
 
     @PrimaryKey
     @NonNull
     private long id;
+
+    @NotNull
+    private long categoryId;
 
     /**
      * This field is used to link to the list of Persistent destinations when
@@ -46,6 +57,14 @@ public class PersistentDestinationGroup extends DestinationGroup {
 
     public void setId(@NonNull long id) {
         this.id = id;
+    }
+
+    public long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(long categoryId) {
+        this.categoryId = categoryId;
     }
 
     // This is required by Room

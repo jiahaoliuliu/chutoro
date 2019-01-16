@@ -3,6 +3,7 @@ package com.jiahaoliuliu.chutoro.storagelayer;
 import android.content.Context;
 
 import com.jiahaoliuliu.chutoro.storagelayer.destination.CategoriesProvider;
+import com.jiahaoliuliu.chutoro.storagelayer.destination.CategoryDao;
 import com.jiahaoliuliu.chutoro.storagelayer.destination.DestinationDao;
 import com.jiahaoliuliu.chutoro.storagelayer.destination.DestinationGroupDao;
 import com.jiahaoliuliu.chutoro.storagelayer.destination.DestinationsProvider;
@@ -37,6 +38,7 @@ public abstract class MainDatabase extends RoomDatabase {
     public abstract TransactionsDao transactionsDao();
     public abstract DestinationDao destinationDao();
     public abstract DestinationGroupDao destinationGroupDao();
+    public abstract CategoryDao categoryDao();
 
     private static Preferences preferences;
 
@@ -72,10 +74,27 @@ public abstract class MainDatabase extends RoomDatabase {
                             preferences.get(PreferencesKey.KEY_DATABASE_CATEGORIES_LAST_UPDATE_TIME, 0)) {
                         Timber.v("The new database categories update time is newer than the " +
                                 "old one. Updating everything");
-                        // TODO: Remove the old values
+                        instance.categoryDao().deleteAllCategories();
                         // Initialize the database with the new values
+                        initializeCategories();
                     }
                 }, throwable -> Timber.e(throwable, "Error trying to update the categories in the database"));
+    }
+
+    private static void initializeCategories() {
+        // Initialize the category table
+        CategoryDao categoryDao = instance.categoryDao();
+        Disposable disposable = Observable.fromIterable(categoriesProvider.providePersistentCategories())
+                .map(persistentCategory -> categoryDao.insert(persistentCategory))
+                .subscribeOn(Schedulers.io())
+                .subscribe(aBoolean -> {
+                            Timber.v("Data inserted into the database " + aBoolean);
+                        }, throwable -> Timber.e(throwable, "Error inserting the data into the database"),
+                        () -> {
+                            Timber.i("Database completely initialized");
+                            preferences.set(PreferencesKey.KEY_DATABASE_CATEGORIES_LAST_UPDATE_TIME,
+                                    categoriesProvider.provideNewCategoriesUpdateTime());
+                        });
     }
 
     private static void updateDestinationsIfNeeded() {
@@ -98,7 +117,7 @@ public abstract class MainDatabase extends RoomDatabase {
     }
 
     private static void initializeDestinations() {
-        // Initialize the database
+        // Initialize the destination and destination group table
         DestinationGroupDao destinationGroupDao = instance.destinationGroupDao();
         DestinationDao destinationDao = instance.destinationDao();
         Disposable disposable = Observable.fromIterable(destinationsProvider.providePersistentDestinationGroups())
