@@ -7,6 +7,7 @@ import com.jiahaoliuliu.chutoro.storagelayer.destination.CategoryDao;
 import com.jiahaoliuliu.chutoro.storagelayer.destination.DestinationDao;
 import com.jiahaoliuliu.chutoro.storagelayer.destination.DestinationGroupDao;
 import com.jiahaoliuliu.chutoro.storagelayer.destination.DestinationsProvider;
+import com.jiahaoliuliu.chutoro.storagelayer.destination.PersistentCategory;
 import com.jiahaoliuliu.chutoro.storagelayer.destination.PersistentDestination;
 import com.jiahaoliuliu.chutoro.storagelayer.destination.PersistentDestinationGroup;
 import com.jiahaoliuliu.chutoro.storagelayer.preferences.Preferences;
@@ -26,7 +27,9 @@ import timber.log.Timber;
 @Database(entities = {
         PersistentTransaction.class,
         PersistentDestination.class,
-        PersistentDestinationGroup.class}, version = 1, exportSchema = false)
+        PersistentDestinationGroup.class,
+        PersistentCategory.class},
+        version = 1, exportSchema = false)
 public abstract class MainDatabase extends RoomDatabase {
 
     public static final String DATABASE_NAME = "Chutoro.sqlite";

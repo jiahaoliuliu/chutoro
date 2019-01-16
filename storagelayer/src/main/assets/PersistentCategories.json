@@ -1,0 +1,78 @@
+{
+  "lastUpdateTime": "1545979298001",
+  "persistentCategoriesList": [
+    {
+      "id": 1,
+      "name": "Bank",
+      "colour": "#CC2D30"
+    },{
+      "id": 2,
+      "name": "Car",
+      "colour": "#315C1A"
+    },{
+      "id": 3,
+      "name": "Clothing",
+      "colour": "#FFF400"
+    },{
+      "id": 4,
+      "name": "Communication",
+      "colour": "#90E0DC"
+    },{
+      "id": 5,
+      "name": "Education",
+      "colour": "#440063"
+    },{
+      "id": 6,
+      "name": "Electronics",
+      "colour": "#FF9898"
+    },{
+      "id": 7,
+      "name": "Entertainment",
+      "colour": "#B5A3D1"
+    },{
+      "id": 8,
+      "name": "Gift",
+      "colour": "#36200"
+    },{
+      "id": 9,
+      "name": "Health",
+      "colour": "#871A51"
+    },{
+      "id": 10,
+      "name": "House",
+      "colour": "#B2BDBD"
+    },{
+      "id": 11,
+      "name": "Insurance",
+      "colour": "#28286D"
+    },{
+      "id": 12,
+      "name": "Others",
+      "colour": "#A0C1B8"
+    },{
+      "id": 13,
+      "name": "Pet",
+      "colour": "#000033"
+    },{
+      "id": 14,
+      "name": "Restaurant",
+      "colour": "#6FCB9F"
+    },{
+      "id": 15,
+      "name": "Supermarket",
+      "colour": "#F2E5E5"
+    },{
+      "id": 16,
+      "name": "Transport",
+      "colour": "#DE943E"
+    }, {
+      "id": 17,
+      "name": "Travel",
+      "colour": "#660066"
+    }, {
+      "id": 18,
+      "name": "Unknown",
+      "colour": "#FF6F69"
+    }
+  ]
+}
