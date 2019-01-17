@@ -69,7 +69,7 @@ public abstract class TransactionsDao {
      * tables and destinationGroups table.
      * More data here: https://developer.android.com/training/data-storage/room/accessing-data#java
      * @return
-     *      Live data about the left join between Transactions, Destinations and DestinationGroups
+     *      Live data about th  e left join between Transactions, Destinations and DestinationGroups
      */
     @Query("Select Transactions.quantity AS quantity, " +
             "Transactions.currency AS currency, " +
@@ -78,10 +78,10 @@ public abstract class TransactionsDao {
             "Transactions.date     AS date, " +
             "Destinations.name     AS destinationName, "+
             "Destinations.latitude AS destinationLatitude," +
-            "Destinations.longitude AS destinationLongitude, " +
+            "Destinations.longitude AS detstinationLongitude, " +
             "Destinations.Description AS destinationDescription, " +
             "DestinationGroups.name AS destinationGroupName, " +
-            "DestinationGroups.category AS destinationGroupCategory, " +
+            "Category.name AS destinationGroupCategory, " +
             "DestinationGroups.latitude AS destinationGroupLatitude, " +
             "DestinationGroups.longitude AS destinationGroupLongitude, " +
             "DestinationGroups.description AS destinationGroupDescription " +
@@ -90,6 +90,8 @@ public abstract class TransactionsDao {
             "  left join Destinations on Transactions.destinationCodeName = Destinations.codeName " +
             // Left join with DestinationGroups so if Destinations is null, those fields will be null as well
             "  left join DestinationGroups on Destinations.groupId = DestinationGroups.id " +
+            // Left join with Category so if Destinations is null, those fields will be null as well
+            "  left join Category on DestinationGroups.categoryId = Category.id " +
             // Order
             "  order by date desc")
     public abstract LiveData<List<TransactionShown>> getAllTransactions();

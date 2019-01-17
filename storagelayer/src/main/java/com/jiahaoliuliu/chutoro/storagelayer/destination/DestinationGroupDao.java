@@ -26,7 +26,16 @@ public abstract class DestinationGroupDao {
 
 //    @Query("Select * from DestinationGroups left join Category " +
 //            "on DestinationGroups.categoryId = Category.id where id == :id ")
-    @Query("Select * from DestinationGroups where id == :id ")
+    @Query("Select DestinationGroups.id as id, " +
+                  "DestinationGroups.name as name, " +
+                  "Category.id as categoryId, " +
+                  "Category.name as category," +
+                  "DestinationGroups.latitude as latitude, " +
+                  "DestinationGroups.longitude as longitude, " +
+                  "DestinationGroups.description as description " +
+            "from DestinationGroups " +
+            "left join Category on DestinationGroups.categoryId = Category.id " +
+            "where DestinationGroups.id == :id ")
     public abstract PersistentDestinationGroup getDestinationGroupById(long id);
 
     @Update(onConflict = OnConflictStrategy.IGNORE)
