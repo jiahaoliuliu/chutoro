@@ -4,6 +4,7 @@
     {
       "id": 1,
       "name": "TeachMeNow",
+      "categoryId": 5,
       "category": "EDUCATION",
       "latitude": 0,
       "longitude": 0,
@@ -32,6 +33,7 @@
     {
       "id": 2,
       "name": "Wikipedia",
+      "categoryId": 5,
       "category": "EDUCATION",
       "latitude": 0,
       "longitude": 0,
@@ -60,6 +62,7 @@
     {
       "id": 3,
       "name": "ADCB",
+      "categoryId": 1,
       "category": "BANK",
       "latitude": 0,
       "longitude": 0,
@@ -124,6 +127,7 @@
     {
       "id": 4,
       "name": "Google Play",
+      "categoryId": 7,
       "category": "ENTERTAINMENT",
       "latitude": 0,
       "longitude": 0,
@@ -197,6 +201,7 @@
     {
       "id": 5,
       "name": "Prey Inc",
+      "categoryId": 11,
       "category": "INSURANCE",
       "latitude": 0,
       "longitude": 0,
@@ -216,6 +221,7 @@
     {
       "id": 6,
       "name": "Kindle",
+      "categoryId": 7,
       "category": "ENTERTAINMENT",
       "latitude": 0,
       "longitude": 0,
@@ -235,6 +241,7 @@
     {
       "id": 7,
       "name": "Carrefour",
+      "categoryId": 15,
       "category": "SUPERMARKET",
       "latitude": 0,
       "longitude": 0,
@@ -299,6 +306,7 @@
     {
       "id": 8,
       "name": "Spinneys",
+      "categoryId": 15,
       "category": "SUPERMARKET",
       "latitude": 0,
       "longitude": 0,
@@ -327,6 +335,7 @@
     {
       "id": 9,
       "name": "RTA - Road and Transport Authority Dubai",
+      "categoryId": 16,
       "category": "TRANSPORT",
       "latitude": 0,
       "longitude": 0,
@@ -409,6 +418,7 @@
     {
       "id": 10,
       "name": "National Taxi",
+      "categoryId": 16,
       "category": "TRANSPORT",
       "latitude": 0,
       "longitude": 0,
@@ -428,6 +438,7 @@
     {
       "id": 11,
       "name": "Sun and Sand Sports",
+      "categoryId": 3,
       "category": "CLOTHING",
       "latitude": 0,
       "longitude": 0,
@@ -456,6 +467,7 @@
     {
       "id": 12,
       "name": "Sharaf DG",
+      "categoryId": 6,
       "category": "ELECTRONICS",
       "latitude": 0,
       "longitude": 0,
@@ -475,6 +487,7 @@
     {
       "id": 13,
       "name": "Mumuso",
+      "categoryId": 15,
       "category": "SUPERMARKET",
       "latitude": 0,
       "longitude": 0,
@@ -494,6 +507,7 @@
     {
       "id": 14,
       "name": "Steak on fries cafeteria",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -513,6 +527,7 @@
     {
       "id": 15,
       "name": "Virgin Megastore",
+      "categoryId": 7,
       "category": "ENTERTAINMENT",
       "latitude": 0,
       "longitude": 0,
@@ -532,7 +547,8 @@
     {
       "id": 16,
       "name": "Little Bangkok",
-      "category": "ENTERTAINMENT",
+      "categoryId": 14,
+      "category": "Restaurant",
       "latitude": 0,
       "longitude": 0,
       "description": "",
@@ -551,6 +567,7 @@
     {
       "id": 17,
       "name": "The H hotel",
+      "categoryId": 17,
       "category": "TRAVEL",
       "latitude": 0,
       "longitude": 0,
@@ -570,6 +587,7 @@
     {
       "id": 18,
       "name": "Careem",
+      "categoryId": 16,
       "category": "TRANSPORT",
       "latitude": 0,
       "longitude": 0,
@@ -589,6 +607,7 @@
     {
       "id": 19,
       "name": "Duty free",
+      "categoryId": 17,
       "category": "TRAVEL",
       "latitude": 0,
       "longitude": 0,
@@ -662,6 +681,7 @@
     {
       "id": 20,
       "name": "OSN Gulf",
+      "categoryId": 7,
       "category": "ENTERTAINMENT",
       "latitude": 0,
       "longitude": 0,
@@ -681,6 +701,7 @@
     {
       "id": 21,
       "name": "Hotel Hobo",
+      "categoryId": 17,
       "category": "TRAVEL",
       "latitude": 0,
       "longitude": 0,
@@ -700,6 +721,7 @@
     {
       "id": 22,
       "name": "Danfo Toilet",
+      "categoryId": 17,
       "category": "TRAVEL",
       "latitude": 0,
       "longitude": 0,
@@ -719,6 +741,7 @@
     {
       "id": 23,
       "name": "Express VPN",
+      "categoryId": 4,
       "category": "COMMUNICATION",
       "latitude": 0,
       "longitude": 0,
@@ -732,7 +755,8 @@
           "latitude": 0,
           "longitude": 0,
           "description": ""
-        },{
+        },
+        {
           "id": 23001,
           "groupId": 23,
           "codeName": "EXPRESSVPN,310-601-8492-US",
@@ -746,6 +770,7 @@
     {
       "id": 24,
       "name": "McDonalds",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -765,6 +790,7 @@
     {
       "id": 25,
       "name": "Brand for less",
+      "categoryId": 15,
       "category": "SUPERMARKET",
       "latitude": 0,
       "longitude": 0,
@@ -784,6 +810,7 @@
     {
       "id": 26,
       "name": "Xiao Wei Yang",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -812,6 +839,7 @@
     {
       "id": 27,
       "name": "Fresh Berry",
+      "categoryId": 15,
       "category": "SUPERMARKET",
       "latitude": 0,
       "longitude": 0,
@@ -831,7 +859,8 @@
     {
       "id": 28,
       "name": "Lucid Chart",
-      "category": "ENTERTAINMENT",
+      "categoryId": 5,
+      "category": "EDUCATION",
       "latitude": 0,
       "longitude": 0,
       "description": "",
@@ -844,7 +873,8 @@
           "latitude": 0,
           "longitude": 0,
           "description": ""
-        },{
+        },
+        {
           "id": 28001,
           "groupId": 28,
           "codeName": "LUCID SOFTWARE INC,SOUTH JORDAN-US",
@@ -858,6 +888,7 @@
     {
       "id": 29,
       "name": "Papa Murphy's Pizza",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -877,6 +908,7 @@
     {
       "id": 30,
       "name": "Waitrose",
+      "categoryId": 15,
       "category": "SUPERMARKET",
       "latitude": 0,
       "longitude": 0,
@@ -896,6 +928,7 @@
     {
       "id": 31,
       "name": "M.H. Alshaya Co",
+      "categoryId": 12,
       "category": "OTHERS",
       "latitude": 0,
       "longitude": 0,
@@ -915,6 +948,7 @@
     {
       "id": 32,
       "name": "Salt",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -934,6 +968,7 @@
     {
       "id": 33,
       "name": "Eton institute",
+      "categoryId": 5,
       "category": "EDUCATION",
       "latitude": 0,
       "longitude": 0,
@@ -971,6 +1006,7 @@
     {
       "id": 34,
       "name": "Blizzard",
+      "categoryId": 7,
       "category": "ENTERTAINMENT",
       "latitude": 0,
       "longitude": 0,
@@ -990,6 +1026,7 @@
     {
       "id": 35,
       "name": "Sheraton",
+      "categoryId": 17,
       "category": "TRAVEL",
       "latitude": 0,
       "longitude": 0,
@@ -1009,6 +1046,7 @@
     {
       "id": 36,
       "name": "Burguer King",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -1022,7 +1060,8 @@
           "latitude": 0,
           "longitude": 0,
           "description": ""
-        },{
+        },
+        {
           "id": 36001,
           "groupId": 36,
           "codeName": "BURGER KING SZEGED,SZEGED-HU",
@@ -1036,6 +1075,7 @@
     {
       "id": 37,
       "name": "Dubai Taxi",
+      "categoryId": 16,
       "category": "TRANSPORT",
       "latitude": 0,
       "longitude": 0,
@@ -1055,6 +1095,7 @@
     {
       "id": 38,
       "name": "Costa coffee",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -1074,6 +1115,7 @@
     {
       "id": 39,
       "name": "Pizza Express",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -1093,6 +1135,7 @@
     {
       "id": 40,
       "name": "Dubai Autodrome",
+      "categoryId": 7,
       "category": "ENTERTAINMENT",
       "latitude": 0,
       "longitude": 0,
@@ -1112,6 +1155,7 @@
     {
       "id": 41,
       "name": "Aster pharmacy",
+      "categoryId": 9,
       "category": "HEALTH",
       "latitude": 0,
       "longitude": 0,
@@ -1149,6 +1193,7 @@
     {
       "id": 42,
       "name": "Al Amoor",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -1168,6 +1213,7 @@
     {
       "id": 43,
       "name": "Shami",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -1187,6 +1233,7 @@
     {
       "id": 44,
       "name": "Cars Taxi",
+      "categoryId": 16,
       "category": "TRANSPORT",
       "latitude": 0,
       "longitude": 0,
@@ -1206,6 +1253,7 @@
     {
       "id": 45,
       "name": "Emarat Petro Station",
+      "categoryId": 16,
       "category": "TRANSPORT",
       "latitude": 0,
       "longitude": 0,
@@ -1225,6 +1273,7 @@
     {
       "id": 46,
       "name": "Aster health care",
+      "categoryId": 9,
       "category": "HEALTH",
       "latitude": 0,
       "longitude": 0,
@@ -1244,6 +1293,7 @@
     {
       "id": 47,
       "name": "Optimal fitness",
+      "categoryId": 9,
       "category": "HEALTH",
       "latitude": 0,
       "longitude": 0,
@@ -1263,6 +1313,7 @@
     {
       "id": 48,
       "name": "Metro taxi",
+      "categoryId": 16,
       "category": "TRANSPORT",
       "latitude": 0,
       "longitude": 0,
@@ -1282,6 +1333,7 @@
     {
       "id": 49,
       "name": "Barbecue delights",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -1301,6 +1353,7 @@
     {
       "id": 50,
       "name": "MerkoCash",
+      "categoryId": 15,
       "category": "SUPERMARKET",
       "latitude": 0,
       "longitude": 0,
@@ -1320,6 +1373,7 @@
     {
       "id": 51,
       "name": "Mercadona",
+      "categoryId": 15,
       "category": "SUPERMARKET",
       "latitude": 0,
       "longitude": 0,
@@ -1339,6 +1393,7 @@
     {
       "id": 52,
       "name": "Toys R Us ",
+      "categoryId": 7,
       "category": "ENTERTAINMENT",
       "latitude": 0,
       "longitude": 0,
@@ -1358,6 +1413,7 @@
     {
       "id": 53,
       "name": "Game",
+      "categoryId": 7,
       "category": "ENTERTAINMENT",
       "latitude": 0,
       "longitude": 0,
@@ -1377,6 +1433,7 @@
     {
       "id": 54,
       "name": "Startup grind",
+      "categoryId": 5,
       "category": "EDUCATION",
       "latitude": 0,
       "longitude": 0,
@@ -1396,6 +1453,7 @@
     {
       "id": 55,
       "name": "Park N shop",
+      "categoryId": 15,
       "category": "SUPERMARKET",
       "latitude": 0,
       "longitude": 0,
@@ -1415,6 +1473,7 @@
     {
       "id": 56,
       "name": "Aswaaq supermarket",
+      "categoryId": 15,
       "category": "SUPERMARKET",
       "latitude": 0,
       "longitude": 0,
@@ -1434,6 +1493,7 @@
     {
       "id": 57,
       "name": "Bizzare gents salon",
+      "categoryId": 9,
       "category": "HEALTH",
       "latitude": 0,
       "longitude": 0,
@@ -1453,6 +1513,7 @@
     {
       "id": 58,
       "name": "Emirates souvenir shop",
+      "categoryId": 8,
       "category": "GIFT",
       "latitude": 0,
       "longitude": 0,
@@ -1472,6 +1533,7 @@
     {
       "id": 59,
       "name": "Royal Orchid",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -1491,6 +1553,7 @@
     {
       "id": 60,
       "name": "Vietnamese foodies",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -1510,6 +1573,7 @@
     {
       "id": 61,
       "name": "Arabia taxi",
+      "categoryId": 16,
       "category": "TRANSPORT",
       "latitude": 0,
       "longitude": 0,
@@ -1529,6 +1593,7 @@
     {
       "id": 62,
       "name": "Turkish Airlines",
+      "categoryId": 17,
       "category": "TRAVEL",
       "latitude": 0,
       "longitude": 0,
@@ -1548,6 +1613,7 @@
     {
       "id": 63,
       "name": "Pegasus Airlines",
+      "categoryId": 17,
       "category": "TRAVEL",
       "latitude": 0,
       "longitude": 0,
@@ -1567,6 +1633,7 @@
     {
       "id": 64,
       "name": "My tickets",
+      "categoryId": 17,
       "category": "TRAVEL",
       "latitude": 0,
       "longitude": 0,
@@ -1586,6 +1653,7 @@
     {
       "id": 65,
       "name": "The sum of us",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -1605,6 +1673,7 @@
     {
       "id": 66,
       "name": "Alison Nelson",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -1624,6 +1693,7 @@
     {
       "id": 67,
       "name": "Apple store",
+      "categoryId": 6,
       "category": "ELECTRONICS",
       "latitude": 0,
       "longitude": 0,
@@ -1643,7 +1713,8 @@
     {
       "id": 68,
       "name": "Web sequential diagram",
-      "category": "OFFICE",
+      "categoryId": 5,
+      "category": "EDUCATION",
       "latitude": 0,
       "longitude": 0,
       "description": "",
@@ -1662,6 +1733,7 @@
     {
       "id": 69,
       "name": "Zoom",
+      "categoryId": 15,
       "category": "SUPERMARKET",
       "latitude": 0,
       "longitude": 0,
@@ -1690,6 +1762,7 @@
     {
       "id": 70,
       "name": "Mi Store",
+      "categoryId": 6,
       "category": "ELECTRONICS",
       "latitude": 0,
       "longitude": 0,
@@ -1709,6 +1782,7 @@
     {
       "id": 71,
       "name": "Lego Store",
+      "categoryId": 7,
       "category": "ENTERTAINMENT",
       "latitude": 0,
       "longitude": 0,
@@ -1728,6 +1802,7 @@
     {
       "id": 72,
       "name": "Umami",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -1747,6 +1822,7 @@
     {
       "id": 73,
       "name": "Fast stitch",
+      "categoryId": 3,
       "category": "CLOTHING",
       "latitude": 0,
       "longitude": 0,
@@ -1766,6 +1842,7 @@
     {
       "id": 74,
       "name": "Atlantis the palm",
+      "categoryId": 17,
       "category": "TRAVEL",
       "latitude": 0,
       "longitude": 0,
@@ -1785,7 +1862,8 @@
     {
       "id": 75,
       "name": "Miniso",
-      "category": "GIFT",
+      "categoryId": 15,
+      "category": "SUPERMARKET",
       "latitude": 0,
       "longitude": 0,
       "description": "",
@@ -1798,7 +1876,8 @@
           "latitude": 0,
           "longitude": 0,
           "description": ""
-        },{
+        },
+        {
           "id": 75001,
           "groupId": 75,
           "codeName": "MINISO GENERAL TRD. LL AE",
@@ -1812,6 +1891,7 @@
     {
       "id": 76,
       "name": "PlayStation network",
+      "categoryId": 7,
       "category": "ENTERTAINMENT",
       "latitude": 0,
       "longitude": 0,
@@ -1831,6 +1911,7 @@
     {
       "id": 77,
       "name": "Call it Spring",
+      "categoryId": 3,
       "category": "CLOTHING",
       "latitude": 0,
       "longitude": 0,
@@ -1850,6 +1931,7 @@
     {
       "id": 78,
       "name": "Shoe mart",
+      "categoryId": 3,
       "category": "CLOTHING",
       "latitude": 0,
       "longitude": 0,
@@ -1878,6 +1960,7 @@
     {
       "id": 79,
       "name": "Abu Dhabi Islamic Bank",
+      "categoryId": 1,
       "category": "BANK",
       "latitude": 0,
       "longitude": 0,
@@ -1897,6 +1980,7 @@
     {
       "id": 80,
       "name": "LockStock & Barrel",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -1916,6 +2000,7 @@
     {
       "id": 81,
       "name": "Emirates NBD",
+      "categoryId": 1,
       "category": "BANK",
       "latitude": 0,
       "longitude": 0,
@@ -1935,6 +2020,7 @@
     {
       "id": 82,
       "name": "Dubizzle",
+      "categoryId": 12,
       "category": "Others",
       "latitude": 0,
       "longitude": 0,
@@ -1948,7 +2034,8 @@
           "latitude": 0,
           "longitude": 0,
           "description": ""
-        },{
+        },
+        {
           "id": 82001,
           "groupId": 82,
           "codeName": "dubizzle.com,DUBAI-AE",
@@ -1962,6 +2049,7 @@
     {
       "id": 83,
       "name": "Amazon",
+      "categoryId": 6,
       "category": "ELECTRONICS",
       "latitude": 0,
       "longitude": 0,
@@ -1975,7 +2063,8 @@
           "latitude": 0,
           "longitude": 0,
           "description": ""
-        },{
+        },
+        {
           "id": 83001,
           "groupId": 83,
           "codeName": "AMAZON MKTPLACE PMTS,AMAZON.COM-US",
@@ -1989,6 +2078,7 @@
     {
       "id": 84,
       "name": "Centro bill",
+      "categoryId": 6,
       "category": "ELECTRONICS",
       "latitude": 0,
       "longitude": 0,
@@ -2008,6 +2098,7 @@
     {
       "id": 85,
       "name": "Renshis fitness",
+      "categoryId": 9,
       "category": "HEALTH",
       "latitude": 0,
       "longitude": 0,
@@ -2027,6 +2118,7 @@
     {
       "id": 86,
       "name": "Cappuccini italiani",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -2046,6 +2138,7 @@
     {
       "id": 87,
       "name": "Starbucks",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -2065,6 +2158,7 @@
     {
       "id": 88,
       "name": "Virgin Mobile",
+      "categoryId": 4,
       "category": "COMMUNICATION",
       "latitude": 0,
       "longitude": 0,
@@ -2084,6 +2178,7 @@
     {
       "id": 89,
       "name": "Memories of hungary",
+      "categoryId": 8,
       "category": "GIFT",
       "latitude": 0,
       "longitude": 0,
@@ -2103,6 +2198,7 @@
     {
       "id": 90,
       "name": "Paulay Downtown",
+      "categoryId": 17,
       "category": "TRAVEL",
       "latitude": 0,
       "longitude": 0,
@@ -2122,6 +2218,7 @@
     {
       "id": 91,
       "name": "Tesco",
+      "categoryId": 15,
       "category": "SUPERMARKET",
       "latitude": 0,
       "longitude": 0,
@@ -2141,6 +2238,7 @@
     {
       "id": 92,
       "name": "GoDaddy.com",
+      "categoryId": 6,
       "category": "ELECTRONICS",
       "latitude": 0,
       "longitude": 0,
@@ -2154,7 +2252,8 @@
           "latitude": 0,
           "longitude": 0,
           "description": ""
-        },{
+        },
+        {
           "id": 92001,
           "groupId": 92,
           "codeName": "DNH*GODADDY.COM EURO,480-5058855-US",
@@ -2168,6 +2267,7 @@
     {
       "id": 93,
       "name": "Decathlon",
+      "categoryId": 3,
       "category": "CLOTHING",
       "latitude": 0,
       "longitude": 0,
@@ -2187,6 +2287,7 @@
     {
       "id": 94,
       "name": "Royal China",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -2206,6 +2307,7 @@
     {
       "id": 95,
       "name": "HiPhone Telecom",
+      "categoryId": 4,
       "category": "COMMUNICATION",
       "latitude": 0,
       "longitude": 0,
@@ -2225,6 +2327,7 @@
     {
       "id": 96,
       "name": "Emirates Flight catering",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -2244,6 +2347,7 @@
     {
       "id": 97,
       "name": "Minutes Services",
+      "categoryId": 10,
       "category": "HOUSE",
       "latitude": 0,
       "longitude": 0,
@@ -2263,6 +2367,7 @@
     {
       "id": 98,
       "name": "Horizon coffee",
+      "categoryId": 14,
       "category": "RESTAURANT",
       "latitude": 0,
       "longitude": 0,
@@ -2282,6 +2387,7 @@
     {
       "id": 99,
       "name": "Wizz Airlines",
+      "categoryId": 17,
       "category": "TRAVEL",
       "latitude": 0,
       "longitude": 0,
@@ -2301,6 +2407,7 @@
     {
       "id": 100,
       "name": "Steam Games",
+      "categoryId": 7,
       "category": "ENTERTAINMENT",
       "latitude": 0,
       "longitude": 0,
@@ -2320,6 +2427,7 @@
     {
       "id": 101,
       "name": "Bakemart plus",
+      "categoryId": 15,
       "category": "SUPERMARKET",
       "latitude": 0,
       "longitude": 0,
@@ -2339,6 +2447,7 @@
     {
       "id": 102,
       "name": "Roxy Cinema",
+      "categoryId": 7,
       "category": "ENTERTAINMENT",
       "latitude": 0,
       "longitude": 0,
@@ -2358,6 +2467,7 @@
     {
       "id": 103,
       "name": "Queen Inn Hotel",
+      "categoryId": 17,
       "category": "TRAVEL",
       "latitude": 0,
       "longitude": 0,
@@ -2377,6 +2487,7 @@
     {
       "id": 104,
       "name": "Souq.com",
+      "categoryId": 15,
       "category": "SUPERMARKET",
       "latitude": 0,
       "longitude": 0,

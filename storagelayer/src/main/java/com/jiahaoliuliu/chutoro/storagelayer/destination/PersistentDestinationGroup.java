@@ -28,7 +28,7 @@ public class PersistentDestinationGroup extends DestinationGroup {
     private long id;
 
     @NotNull
-    private long categoryId;
+        private long categoryId;
 
     /**
      * This field is used to link to the list of Persistent destinations when
