@@ -28,13 +28,13 @@ public abstract class DestinationGroupDao {
 //            "on DestinationGroups.categoryId = Category.id where id == :id ")
     @Query("Select DestinationGroups.id as id, " +
                   "DestinationGroups.name as name, " +
-                  "Category.id as categoryId, " +
-                  "Category.name as category," +
+                  "Categories.id as categoryId, " +
+                  "Categories.name as category," +
                   "DestinationGroups.latitude as latitude, " +
                   "DestinationGroups.longitude as longitude, " +
                   "DestinationGroups.description as description " +
             "from DestinationGroups " +
-            "left join Category on DestinationGroups.categoryId = Category.id " +
+            "left join Categories on DestinationGroups.categoryId = Categories.id " +
             "where DestinationGroups.id == :id ")
     public abstract PersistentDestinationGroup getDestinationGroupById(long id);
 

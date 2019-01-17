@@ -5,7 +5,7 @@ import org.jetbrains.annotations.NotNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Category")
+@Entity(tableName = "Categories")
 public class PersistentCategory {
 
     @PrimaryKey

@@ -14,7 +14,7 @@ public abstract class CategoryDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     public abstract long insert(PersistentCategory persistentCategory);
 
-    @Query("Select * from Category where id == :id")
+    @Query("Select * from Categories where id == :id")
     public abstract PersistentCategory getPersistentCategoryById(long id);
 
     @Update(onConflict = OnConflictStrategy.IGNORE)
@@ -23,6 +23,6 @@ public abstract class CategoryDao {
     @Delete
     public abstract void delete(PersistentCategory persistentCategory);
 
-    @Query("Delete from Category")
+    @Query("Delete from Categories")
     public abstract void deleteAllCategories();
 }
