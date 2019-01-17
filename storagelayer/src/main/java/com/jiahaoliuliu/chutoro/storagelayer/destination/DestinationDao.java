@@ -13,7 +13,7 @@ public abstract class DestinationDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     public abstract long insert(PersistentDestination persistentDestination);
 
-    @Query("Select * from Destinations where codeName == :codeName")
+    @Query("Select * from " + PersistentDestination.TABLE_NAME + " where codeName == :codeName")
     public abstract PersistentDestination getDestinationByCodeName(String codeName);
 
     @Update(onConflict = OnConflictStrategy.IGNORE)
@@ -31,6 +31,6 @@ public abstract class DestinationDao {
     @Delete
     public abstract void delete(PersistentDestination persistentDestination);
 
-    @Query("Delete from Destinations")
+    @Query("Delete from " + PersistentDestination.TABLE_NAME)
     public abstract void deleteAllDestinations();
 }

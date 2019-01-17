@@ -26,16 +26,18 @@ public abstract class DestinationGroupDao {
 
 //    @Query("Select * from DestinationGroups left join Category " +
 //            "on DestinationGroups.categoryId = Category.id where id == :id ")
-    @Query("Select DestinationGroups.id as id, " +
-                  "DestinationGroups.name as name, " +
-                  "Categories.id as categoryId, " +
-                  "Categories.name as category," +
-                  "DestinationGroups.latitude as latitude, " +
-                  "DestinationGroups.longitude as longitude, " +
-                  "DestinationGroups.description as description " +
-            "from DestinationGroups " +
-            "left join Categories on DestinationGroups.categoryId = Categories.id " +
-            "where DestinationGroups.id == :id ")
+    @Query("Select " + PersistentDestinationGroup.TABLE_NAME + ".id as id, " +
+                  PersistentDestinationGroup.TABLE_NAME + ".name as name, " +
+                  PersistentCategory.TABLE_NAME + ".id as categoryId, " +
+                  PersistentCategory.TABLE_NAME + ".name as category," +
+                  PersistentDestinationGroup.TABLE_NAME + ".latitude as latitude, " +
+                  PersistentDestinationGroup.TABLE_NAME + ".longitude as longitude, " +
+                  PersistentDestinationGroup.TABLE_NAME + ".description as description " +
+            "from " + PersistentDestinationGroup.TABLE_NAME +
+            " left join " + PersistentCategory.TABLE_NAME +
+                " on " + PersistentDestinationGroup.TABLE_NAME + ".categoryId = " +
+                         PersistentCategory.TABLE_NAME + ".id " +
+            "where " + PersistentDestinationGroup.TABLE_NAME + ".id == :id ")
     public abstract PersistentDestinationGroup getDestinationGroupById(long id);
 
     @Update(onConflict = OnConflictStrategy.IGNORE)
@@ -44,6 +46,6 @@ public abstract class DestinationGroupDao {
     @Delete
     public abstract void delete(PersistentDestinationGroup persistentDestinationGroup);
 
-    @Query("Delete from DestinationGroups")
+    @Query("Delete from " + PersistentDestinationGroup.TABLE_NAME)
     public abstract void deleteAllDestinationGroups();
 }

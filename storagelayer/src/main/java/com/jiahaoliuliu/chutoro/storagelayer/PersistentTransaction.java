@@ -8,12 +8,16 @@ import androidx.annotation.Nullable;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import static com.jiahaoliuliu.chutoro.storagelayer.PersistentTransaction.TABLE_NAME;
+
 /**
  * The persistent version of the transactions. This is how the transactions
  * are shown on the app
  */
-@Entity(tableName = "Transactions")
+@Entity(tableName = TABLE_NAME)
 public class PersistentTransaction extends Transaction {
+
+    public static final String TABLE_NAME = "Transactions";
 
     @PrimaryKey(autoGenerate = true)
     @NonNull

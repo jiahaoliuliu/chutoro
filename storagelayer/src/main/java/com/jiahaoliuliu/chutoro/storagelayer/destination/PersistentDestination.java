@@ -9,14 +9,18 @@ import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+import static com.jiahaoliuliu.chutoro.storagelayer.destination.PersistentDestination.TABLE_NAME;
+
 @Entity(foreignKeys = @ForeignKey(entity = PersistentDestinationGroup.class,
         parentColumns = "id",
         childColumns = "groupId",
         onUpdate = ForeignKey.CASCADE,
         onDelete = ForeignKey.CASCADE),
-    tableName = "Destinations",
+    tableName = TABLE_NAME,
     indices = {@Index("groupId")}) // Special index for group id since it is a foreign key
 public class PersistentDestination extends Destination {
+
+    public static final String TABLE_NAME = "Destinations";
 
     @PrimaryKey
     @NotNull

@@ -1,6 +1,9 @@
 package com.jiahaoliuliu.chutoro.storagelayer;
 
 import com.jiahaoliuliu.chutoro.entity.ITransaction;
+import com.jiahaoliuliu.chutoro.storagelayer.destination.PersistentCategory;
+import com.jiahaoliuliu.chutoro.storagelayer.destination.PersistentDestination;
+import com.jiahaoliuliu.chutoro.storagelayer.destination.PersistentDestinationGroup;
 import com.jiahaoliuliu.chutoro.storagelayer.ui.TransactionShown;
 
 import java.util.List;
@@ -23,7 +26,7 @@ public abstract class TransactionsDao {
         return insert(new PersistentTransaction(transaction));
     }
 
-    @Query("Select * from Transactions where smsId == :smsId")
+    @Query("Select * from " + PersistentTransaction.TABLE_NAME + " where smsId == :smsId")
     public abstract PersistentTransaction getTransactionBySmsId(long smsId);
 
     @Update(onConflict = OnConflictStrategy.IGNORE)
@@ -61,7 +64,7 @@ public abstract class TransactionsDao {
     @Delete
     public abstract void delete(PersistentTransaction persistentTransaction);
 
-    @Query("Delete from Transactions")
+    @Query("Delete from " + PersistentTransaction.TABLE_NAME)
     public abstract void deleteAllTransactions();
 
     /**
@@ -71,27 +74,33 @@ public abstract class TransactionsDao {
      * @return
      *      Live data about th  e left join between Transactions, Destinations and DestinationGroups
      */
-    @Query("Select Transactions.quantity AS quantity, " +
-            "Transactions.currency AS currency, " +
-            "Transactions.source   AS source, " +
-            "Transactions.destinationCodeName AS destinationCodeName, " +
-            "Transactions.date     AS date, " +
-            "Destinations.name     AS destinationName, "+
-            "Destinations.latitude AS destinationLatitude," +
-            "Destinations.longitude AS destinationLongitude, " +
-            "Destinations.Description AS destinationDescription, " +
-            "DestinationGroups.name AS destinationGroupName, " +
-            "Categories.name AS destinationGroupCategory, " +
-            "DestinationGroups.latitude AS destinationGroupLatitude, " +
-            "DestinationGroups.longitude AS destinationGroupLongitude, " +
-            "DestinationGroups.description AS destinationGroupDescription " +
-            "  from Transactions " +
+    @Query("Select " + PersistentTransaction.TABLE_NAME + ".quantity AS quantity, " +
+            PersistentTransaction.TABLE_NAME + ".currency AS currency, " +
+            PersistentTransaction.TABLE_NAME + ".source   AS source, " +
+            PersistentTransaction.TABLE_NAME + ".destinationCodeName AS destinationCodeName, " +
+            PersistentTransaction.TABLE_NAME + ".date     AS date, " +
+            PersistentDestination.TABLE_NAME + ".name     AS destinationName, "+
+            PersistentDestination.TABLE_NAME + ".latitude AS destinationLatitude," +
+            PersistentDestination.TABLE_NAME + ".longitude AS destinationLongitude, " +
+            PersistentDestination.TABLE_NAME + ".Description AS destinationDescription, " +
+            PersistentDestinationGroup.TABLE_NAME + ".name AS destinationGroupName, " +
+            PersistentCategory.TABLE_NAME + ".name AS destinationGroupCategory, " +
+            PersistentDestinationGroup.TABLE_NAME + ".latitude AS destinationGroupLatitude, " +
+            PersistentDestinationGroup.TABLE_NAME + ".longitude AS destinationGroupLongitude, " +
+            PersistentDestinationGroup.TABLE_NAME + ".description AS destinationGroupDescription " +
+            "  from " + PersistentTransaction.TABLE_NAME +
             // Left join with Destinations so if it does not exist, the destinations fields will be null
-            "  left join Destinations on Transactions.destinationCodeName = Destinations.codeName " +
+            "  left join " + PersistentDestination.TABLE_NAME +
+                " on " + PersistentTransaction.TABLE_NAME + ".destinationCodeName = " +
+                         PersistentDestination.TABLE_NAME + ".codeName " +
             // Left join with DestinationGroups so if Destinations is null, those fields will be null as well
-            "  left join DestinationGroups on Destinations.groupId = DestinationGroups.id " +
+            "  left join " + PersistentDestinationGroup.TABLE_NAME +
+                " on " + PersistentDestination.TABLE_NAME + ".groupId = " +
+                         PersistentDestinationGroup.TABLE_NAME + ".id " +
             // Left join with Category so if Destinations is null, those fields will be null as well
-            "  left join Categories on DestinationGroups.categoryId = Categories.id " +
+            "  left join " + PersistentCategory.TABLE_NAME +
+                " on " + PersistentDestinationGroup.TABLE_NAME + ".categoryId = " +
+                         PersistentCategory.TABLE_NAME + ".id " +
             // Order
             "  order by date desc")
     public abstract LiveData<List<TransactionShown>> getAllTransactions();

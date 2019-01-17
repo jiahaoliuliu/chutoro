@@ -5,8 +5,12 @@ import org.jetbrains.annotations.NotNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Categories")
+import static com.jiahaoliuliu.chutoro.storagelayer.destination.PersistentCategory.TABLE_NAME;
+
+@Entity(tableName = TABLE_NAME)
 public class PersistentCategory {
+
+    public static final String TABLE_NAME = "Categories";
 
     @PrimaryKey
     @NotNull
