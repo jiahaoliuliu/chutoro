@@ -33,7 +33,7 @@ public class DestinationGroup {
      */
     protected DestinationGroup(@NotNull String name, @NotNull String category) {
         this.name = name;
-        setCategory(category);
+        this.category = category;
     }
 
     /**
@@ -42,22 +42,10 @@ public class DestinationGroup {
     protected DestinationGroup(@NotNull String name, @NotNull String category, @Nullable long latitude,
                                @Nullable long longitude, @Nullable String description) {
         this.name = name;
-        setCategory(category);
+        this.category = category;
         this.latitude = latitude;
         this.longitude = longitude;
         this.description = description;
-    }
-
-    private void setCategory(String categoryString) {
-        for (Category category: Category.values()) {
-            if (category.toString().equalsIgnoreCase(categoryString)) {
-                this.category = category.toString();
-                return;
-            }
-        }
-
-        throw new IllegalArgumentException("The category of the destination group cannot be " +
-                "recognized");
     }
 
     @NotNull
