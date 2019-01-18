@@ -3,7 +3,903 @@
   "persistentCurrencies": [
     {
       "id": 1,
+      "name": "UAE dirham",
       "isoCode": "AED",
+      "conversionToDollar": 272257
+    }, {
+      "id": 2,
+      "name": "Afghan afghani",
+      "isoCode": "AFN",
+      "conversionToDollar": 272257
+    }, {
+      "id": 3,
+      "name": "Albanian lek",
+      "isoCode": "ALL",
+      "conversionToDollar": 272257
+    }, {
+      "id": 4,
+      "name": "Armenian dram",
+      "isoCode": "AMD",
+      "conversionToDollar": 272257
+    }, {
+      "id": 5,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 6,
+      "name": "Angolan kwanza",
+      "isoCode": "AOA",
+      "conversionToDollar": 272257
+    }, {
+      "id": 7,
+      "name": "Argentine peso",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 8,
+      "name": "Australian dollar",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 9,
+      "name": "Aruban florin",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 10,
+      "name": "Azerbaijani manat",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 11,
+      "name": "Bosnia and Herzegovina convertible mark",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 12,
+      "name": "Barbados dollar",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 13,
+      "name": "Bangladeshi taka",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 14,
+      "name": "Bulgarian lev",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 15,
+      "name": "Bahraini dinar",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 16,
+      "name": "Burundian franc",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 17,
+      "name": "Bermudian dollar",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 18,
+      "name": "Brunei dollar",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 19,
+      "name": "Boliviano",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 20,
+      "name": "Bolivian Mvdol (funds code)",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 21,
+      "name": "Brazilian real",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 22,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 23,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 24,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 25,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 26,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 27,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 28,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 29,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 30,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 31,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 32,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 33,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 34,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 35,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id":36,
+      "name": "Angolan kwanza",
+      "isoCode": "AOA",
+      "conversionToDollar": 272257
+    }, {
+      "id": 37,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 38,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 39,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 40,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 41,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 42,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 43,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 44,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 45,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 46,
+      "name": "Angolan kwanza",
+      "isoCode": "AOA",
+      "conversionToDollar": 272257
+    },  {
+      "id": 47,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 48,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 49,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 50,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    },{
+      "id": 51,
+      "name": "UAE dirham",
+      "isoCode": "AED",
+      "conversionToDollar": 272257
+    }, {
+      "id": 52,
+      "name": "Afghan afghani",
+      "isoCode": "AFN",
+      "conversionToDollar": 272257
+    }, {
+      "id": 53,
+      "name": "Albanian lek",
+      "isoCode": "ALL",
+      "conversionToDollar": 272257
+    }, {
+      "id": 54,
+      "name": "Armenian dram",
+      "isoCode": "AMD",
+      "conversionToDollar": 272257
+    }, {
+      "id": 55,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 56,
+      "name": "Angolan kwanza",
+      "isoCode": "AOA",
+      "conversionToDollar": 272257
+    }, {
+      "id": 57,
+      "name": "Argentine peso",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 58,
+      "name": "Australian dollar",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 59,
+      "name": "Aruban florin",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 60,
+      "name": "Azerbaijani manat",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    },{
+      "id": 61,
+      "name": "UAE dirham",
+      "isoCode": "AED",
+      "conversionToDollar": 272257
+    }, {
+      "id": 62,
+      "name": "Afghan afghani",
+      "isoCode": "AFN",
+      "conversionToDollar": 272257
+    }, {
+      "id": 63,
+      "name": "Albanian lek",
+      "isoCode": "ALL",
+      "conversionToDollar": 272257
+    }, {
+      "id": 64,
+      "name": "Armenian dram",
+      "isoCode": "AMD",
+      "conversionToDollar": 272257
+    }, {
+      "id": 65,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 66,
+      "name": "Angolan kwanza",
+      "isoCode": "AOA",
+      "conversionToDollar": 272257
+    }, {
+      "id": 67,
+      "name": "Argentine peso",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 68,
+      "name": "Australian dollar",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 69,
+      "name": "Aruban florin",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 70,
+      "name": "Azerbaijani manat",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    },{
+      "id": 71,
+      "name": "UAE dirham",
+      "isoCode": "AED",
+      "conversionToDollar": 272257
+    }, {
+      "id": 72,
+      "name": "Afghan afghani",
+      "isoCode": "AFN",
+      "conversionToDollar": 272257
+    }, {
+      "id": 73,
+      "name": "Albanian lek",
+      "isoCode": "ALL",
+      "conversionToDollar": 272257
+    }, {
+      "id": 74,
+      "name": "Armenian dram",
+      "isoCode": "AMD",
+      "conversionToDollar": 272257
+    }, {
+      "id": 75,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 76,
+      "name": "Angolan kwanza",
+      "isoCode": "AOA",
+      "conversionToDollar": 272257
+    }, {
+      "id": 77,
+      "name": "Argentine peso",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 78,
+      "name": "Australian dollar",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 79,
+      "name": "Aruban florin",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 80,
+      "name": "Azerbaijani manat",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    },{
+      "id": 81,
+      "name": "UAE dirham",
+      "isoCode": "AED",
+      "conversionToDollar": 272257
+    }, {
+      "id": 82,
+      "name": "Afghan afghani",
+      "isoCode": "AFN",
+      "conversionToDollar": 272257
+    }, {
+      "id": 83,
+      "name": "Albanian lek",
+      "isoCode": "ALL",
+      "conversionToDollar": 272257
+    }, {
+      "id": 84,
+      "name": "Armenian dram",
+      "isoCode": "AMD",
+      "conversionToDollar": 272257
+    }, {
+      "id": 85,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 86,
+      "name": "Angolan kwanza",
+      "isoCode": "AOA",
+      "conversionToDollar": 272257
+    }, {
+      "id": 87,
+      "name": "Argentine peso",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 88,
+      "name": "Australian dollar",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 89,
+      "name": "Aruban florin",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 90,
+      "name": "Azerbaijani manat",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    },{
+      "id": 91,
+      "name": "UAE dirham",
+      "isoCode": "AED",
+      "conversionToDollar": 272257
+    }, {
+      "id": 92,
+      "name": "Afghan afghani",
+      "isoCode": "AFN",
+      "conversionToDollar": 272257
+    }, {
+      "id": 93,
+      "name": "Albanian lek",
+      "isoCode": "ALL",
+      "conversionToDollar": 272257
+    }, {
+      "id": 94,
+      "name": "Armenian dram",
+      "isoCode": "AMD",
+      "conversionToDollar": 272257
+    }, {
+      "id": 95,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 96,
+      "name": "Angolan kwanza",
+      "isoCode": "AOA",
+      "conversionToDollar": 272257
+    }, {
+      "id": 97,
+      "name": "Argentine peso",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 98,
+      "name": "Australian dollar",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 99,
+      "name": "Aruban florin",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 100,
+      "name": "Azerbaijani manat",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    },{
+      "id": 101,
+      "name": "UAE dirham",
+      "isoCode": "AED",
+      "conversionToDollar": 272257
+    }, {
+      "id": 102,
+      "name": "Afghan afghani",
+      "isoCode": "AFN",
+      "conversionToDollar": 272257
+    }, {
+      "id": 103,
+      "name": "Albanian lek",
+      "isoCode": "ALL",
+      "conversionToDollar": 272257
+    }, {
+      "id": 104,
+      "name": "Armenian dram",
+      "isoCode": "AMD",
+      "conversionToDollar": 272257
+    }, {
+      "id": 105,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 106,
+      "name": "Angolan kwanza",
+      "isoCode": "AOA",
+      "conversionToDollar": 272257
+    }, {
+      "id": 107,
+      "name": "Argentine peso",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 108,
+      "name": "Australian dollar",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 109,
+      "name": "Aruban florin",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 110,
+      "name": "Azerbaijani manat",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 111,
+      "name": "Bosnia and Herzegovina convertible mark",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 112,
+      "name": "Barbados dollar",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 113,
+      "name": "Bangladeshi taka",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 114,
+      "name": "Bulgarian lev",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 115,
+      "name": "Bahraini dinar",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 116,
+      "name": "Burundian franc",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 117,
+      "name": "Bermudian dollar",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 118,
+      "name": "Brunei dollar",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 119,
+      "name": "Boliviano",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 120,
+      "name": "Bolivian Mvdol (funds code)",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 121,
+      "name": "Brazilian real",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 122,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 123,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 124,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 125,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 126,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 127,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 128,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 129,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 130,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 131,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 132,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 133,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 134,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 135,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 136,
+      "name": "Angolan kwanza",
+      "isoCode": "AOA",
+      "conversionToDollar": 272257
+    }, {
+      "id": 137,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 138,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 139,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 140,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 141,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 142,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 143,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 144,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 145,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 146,
+      "name": "Angolan kwanza",
+      "isoCode": "AOA",
+      "conversionToDollar": 272257
+    }, {
+      "id": 147,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 148,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 149,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 150,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    },{
+      "id": 151,
+      "name": "UAE dirham",
+      "isoCode": "AED",
+      "conversionToDollar": 272257
+    }, {
+      "id": 152,
+      "name": "Afghan afghani",
+      "isoCode": "AFN",
+      "conversionToDollar": 272257
+    }, {
+      "id": 153,
+      "name": "Albanian lek",
+      "isoCode": "ALL",
+      "conversionToDollar": 272257
+    }, {
+      "id": 154,
+      "name": "Armenian dram",
+      "isoCode": "AMD",
+      "conversionToDollar": 272257
+    }, {
+      "id": 155,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 156,
+      "name": "Angolan kwanza",
+      "isoCode": "AOA",
+      "conversionToDollar": 272257
+    }, {
+      "id": 157,
+      "name": "Argentine peso",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 158,
+      "name": "Australian dollar",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 159,
+      "name": "Aruban florin",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 160,
+      "name": "Azerbaijani manat",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    },{
+      "id": 161,
+      "name": "UAE dirham",
+      "isoCode": "AED",
+      "conversionToDollar": 272257
+    }, {
+      "id": 162,
+      "name": "Afghan afghani",
+      "isoCode": "AFN",
+      "conversionToDollar": 272257
+    }, {
+      "id": 163,
+      "name": "Albanian lek",
+      "isoCode": "ALL",
+      "conversionToDollar": 272257
+    }, {
+      "id": 164,
+      "name": "Armenian dram",
+      "isoCode": "AMD",
+      "conversionToDollar": 272257
+    }, {
+      "id": 165,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 166,
+      "name": "Angolan kwanza",
+      "isoCode": "AOA",
+      "conversionToDollar": 272257
+    }, {
+      "id": 167,
+      "name": "Argentine peso",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 168,
+      "name": "Australian dollar",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 169,
+      "name": "Aruban florin",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 170,
+      "name": "Azerbaijani manat",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    },{
+      "id": 171,
+      "name": "UAE dirham",
+      "isoCode": "AED",
+      "conversionToDollar": 272257
+    }, {
+      "id": 172,
+      "name": "Afghan afghani",
+      "isoCode": "AFN",
+      "conversionToDollar": 272257
+    }, {
+      "id": 173,
+      "name": "Albanian lek",
+      "isoCode": "ALL",
+      "conversionToDollar": 272257
+    }, {
+      "id": 174,
+      "name": "Armenian dram",
+      "isoCode": "AMD",
+      "conversionToDollar": 272257
+    }, {
+      "id": 175,
+      "name": "Netherlands Antillean guilder",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 176,
+      "name": "Angolan kwanza",
+      "isoCode": "AOA",
+      "conversionToDollar": 272257
+    }, {
+      "id": 177,
+      "name": "Argentine peso",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 178,
+      "name": "Australian dollar",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 179,
+      "name": "Aruban florin",
+      "isoCode": "ANG",
+      "conversionToDollar": 272257
+    }, {
+      "id": 180,
+      "name": "Azerbaijani manat",
+      "isoCode": "ANG",
       "conversionToDollar": 272257
     }
   ]

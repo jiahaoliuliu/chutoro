@@ -2,6 +2,7 @@ package com.jiahaoliuliu.chutoro.entity
 
 // Currencies according to ISO 4217
 //https://www.iso.org/iso-4217-currency-codes.html
+//https://en.wikipedia.org/wiki/ISO_4217
 // DO not update the position. If it is absolutely needed, update the mapper on
 // AddTransactionActivity(mappingCurrencySpinnerWithCurrency)
 enum class Currency {

@@ -16,6 +16,9 @@ public class PersistentCurrency {
     @NotNull
     private long id;
 
+    @NotNull
+    private String name;
+
     // The 3 letters ISO 4217 code
     //https://www.iso.org/iso-4217-currency-codes.html
     @NotNull
@@ -26,8 +29,9 @@ public class PersistentCurrency {
     @NotNull
     private int conversionToDollar;
 
-    public PersistentCurrency(@NotNull long id, @NotNull String isoCode, @NotNull int conversionToDollar) {
+    public PersistentCurrency(@NotNull long id, @NotNull String name, @NotNull String isoCode, @NotNull int conversionToDollar) {
         this.id = id;
+        this.name = name;
         this.isoCode = isoCode;
         this.conversionToDollar = conversionToDollar;
     }
@@ -38,6 +42,14 @@ public class PersistentCurrency {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getIsoCode() {
@@ -65,12 +77,14 @@ public class PersistentCurrency {
 
         if (id != that.id) return false;
         if (conversionToDollar != that.conversionToDollar) return false;
+        if (!name.equals(that.name)) return false;
         return isoCode.equals(that.isoCode);
     }
 
     @Override
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + name.hashCode();
         result = 31 * result + isoCode.hashCode();
         result = 31 * result + conversionToDollar;
         return result;
@@ -80,6 +94,7 @@ public class PersistentCurrency {
     public String toString() {
         return "PersistentCurrency{" +
                 "id=" + id +
+                ", name='" + name + '\'' +
                 ", isoCode='" + isoCode + '\'' +
                 ", conversionToDollar=" + conversionToDollar +
                 '}';
