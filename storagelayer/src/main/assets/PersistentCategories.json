@@ -1,7 +1,11 @@
 {
-  "lastUpdateTime": "1545979298001",
+  "lastUpdateTime": "1547820484000",
   "persistentCategoriesList": [
     {
+      "id": 0,
+      "name": "Unknown",
+      "colour": "#FF6F69"
+    }, {
       "id": 1,
       "name": "Bank",
       "colour": "#CC2D30"
@@ -69,10 +73,6 @@
       "id": 17,
       "name": "Travel",
       "colour": "#660066"
-    }, {
-      "id": 18,
-      "name": "Unknown",
-      "colour": "#FF6F69"
     }
   ]
 }

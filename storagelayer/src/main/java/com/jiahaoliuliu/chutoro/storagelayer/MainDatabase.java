@@ -24,12 +24,14 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 
+import static com.jiahaoliuliu.chutoro.storagelayer.MainDatabaseMigration.MIGRATION_1_2;
+
 @Database(entities = {
         PersistentTransaction.class,
         PersistentDestination.class,
         PersistentDestinationGroup.class,
         PersistentCategory.class},
-        version = 1, exportSchema = false)
+        version = 2, exportSchema = false)
 public abstract class MainDatabase extends RoomDatabase {
 
     public static final String DATABASE_NAME = "Chutoro.sqlite";
@@ -52,6 +54,7 @@ public abstract class MainDatabase extends RoomDatabase {
             categoriesProvider = new CategoriesProvider(context);
             instance = Room.databaseBuilder(context.getApplicationContext(),
                 MainDatabase.class, MainDatabase.DATABASE_NAME)
+                .addMigrations(MIGRATION_1_2)
                 .fallbackToDestructiveMigration()
                 .addCallback(roomCallback)
                 .build();
@@ -64,6 +67,8 @@ public abstract class MainDatabase extends RoomDatabase {
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
+            // TODO: Make sure that the categories are inserted before the destinations
+            // because destinations depends on the categories
             updateDestinationsIfNeeded();
             updateCategoriesIfNeeded();
         }

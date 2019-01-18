@@ -20,7 +20,7 @@ import static com.jiahaoliuliu.chutoro.storagelayer.destination.PersistentDestin
         parentColumns = "id",
         childColumns = "categoryId",
         onUpdate = ForeignKey.CASCADE,
-        onDelete = ForeignKey.CASCADE),
+        onDelete = ForeignKey.NO_ACTION),
         tableName = TABLE_NAME,
         indices = {@Index("categoryId")})
 public class PersistentDestinationGroup extends DestinationGroup {

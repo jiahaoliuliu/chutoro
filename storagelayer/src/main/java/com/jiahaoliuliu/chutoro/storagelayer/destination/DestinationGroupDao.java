@@ -24,8 +24,6 @@ public abstract class DestinationGroupDao {
         }
     }
 
-//    @Query("Select * from DestinationGroups left join Category " +
-//            "on DestinationGroups.categoryId = Category.id where id == :id ")
     @Query("Select " + PersistentDestinationGroup.TABLE_NAME + ".id as id, " +
                   PersistentDestinationGroup.TABLE_NAME + ".name as name, " +
                   PersistentCategory.TABLE_NAME + ".id as categoryId, " +
