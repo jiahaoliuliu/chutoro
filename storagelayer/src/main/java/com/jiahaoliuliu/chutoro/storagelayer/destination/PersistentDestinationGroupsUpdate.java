@@ -2,7 +2,6 @@ package com.jiahaoliuliu.chutoro.storagelayer.destination;
 
 import java.util.List;
 
-// This represents a persistent
 public class PersistentDestinationGroupsUpdate {
 
     private final List<PersistentDestinationGroup> persistentDestinationGroups;

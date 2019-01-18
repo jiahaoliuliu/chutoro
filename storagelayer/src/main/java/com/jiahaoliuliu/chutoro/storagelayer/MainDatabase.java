@@ -40,11 +40,13 @@ public abstract class MainDatabase extends RoomDatabase {
     private static MainDatabase instance;
     private static DestinationsProvider destinationsProvider;
     private static CategoriesProvider categoriesProvider;
+    private static CurrenciesProvider currenciesProvider;
 
     public abstract TransactionsDao transactionsDao();
     public abstract DestinationDao destinationDao();
     public abstract DestinationGroupDao destinationGroupDao();
     public abstract CategoryDao categoryDao();
+    public abstract CurrencyDao currencyDao();
 
     private static Preferences preferences;
 
@@ -53,6 +55,7 @@ public abstract class MainDatabase extends RoomDatabase {
         if (instance == null) {
             destinationsProvider = new DestinationsProvider(context);
             categoriesProvider = new CategoriesProvider(context);
+            currenciesProvider = new CurrenciesProvider(context);
             instance = Room.databaseBuilder(context.getApplicationContext(),
                 MainDatabase.class, MainDatabase.DATABASE_NAME)
                 .addMigrations(MIGRATION_1_2)
@@ -72,6 +75,7 @@ public abstract class MainDatabase extends RoomDatabase {
             // because destinations depends on the categories
             updateDestinationsIfNeeded();
             updateCategoriesIfNeeded();
+            updateCurrenciesIfNeeded();
         }
     };
 
@@ -103,6 +107,37 @@ public abstract class MainDatabase extends RoomDatabase {
                             Timber.i("Database completely initialized");
                             preferences.set(PreferencesKey.KEY_DATABASE_CATEGORIES_LAST_UPDATE_TIME,
                                     categoriesProvider.provideNewCategoriesUpdateTime());
+                        });
+    }
+
+    private static void updateCurrenciesIfNeeded() {
+        Disposable disposable = Single.fromCallable(() -> currenciesProvider.provideNewCurrenciesUpdateTime())
+                .subscribeOn(Schedulers.io())
+                .subscribe(newCurrenciesUpdateTime -> {
+                    if (newCurrenciesUpdateTime >
+                            preferences.get(PreferencesKey.KEY_DATABASE_CURRENCIES_LAST_UPDATE_TIME, 0)) {
+                        Timber.v("The new database currencies update time is newer than the " +
+                                "old one. Updating everything");
+                        instance.currencyDao().deleteAllCurrencies();
+                        // Initialize the database with the new values
+                        initializeCurrencies();
+                    }
+                }, throwable -> Timber.e(throwable, "Error trying to update the currencies in the database"));
+    }
+
+    private static void initializeCurrencies() {
+        // Initialize the category table
+        CurrencyDao currencyDao = instance.currencyDao();
+        Disposable disposable = Observable.fromIterable(currenciesProvider.providePersistentCurrencies())
+                .map(persistentCurrency -> currencyDao.insert(persistentCurrency))
+                .subscribeOn(Schedulers.io())
+                .subscribe(aBoolean -> {
+                            Timber.v("Data inserted into the database " + aBoolean);
+                        }, throwable -> Timber.e(throwable, "Error inserting the data into the database"),
+                        () -> {
+                            Timber.i("Database completely initialized");
+                            preferences.set(PreferencesKey.KEY_DATABASE_CURRENCIES_LAST_UPDATE_TIME,
+                                    currenciesProvider.provideNewCurrenciesUpdateTime());
                         });
     }
 

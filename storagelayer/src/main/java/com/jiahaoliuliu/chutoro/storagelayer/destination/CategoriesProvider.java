@@ -11,6 +11,7 @@ import java.util.List;
 
 import timber.log.Timber;
 
+// TODO: Make this class generic
 public class CategoriesProvider {
     private static final String JSON_FILE_NAME = "PersistentCategories.json";
 
@@ -50,7 +51,7 @@ public class CategoriesProvider {
             String persistentCategoriesFileJson = new String(formArray);
             return gson.fromJson(persistentCategoriesFileJson, PersistentCategoryUpdate.class);
         } catch (IOException e) {
-            Timber.e(e, "Unable to read the persistent destinations");
+            Timber.e(e, "Unable to read the persistent categories");
         }
 
         return null;

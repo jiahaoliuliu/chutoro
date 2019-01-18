@@ -15,6 +15,7 @@ import timber.log.Timber;
  * Class used to provide a list of destinations and the groups
  * that it belongs
  */
+// TODO: Make this class generic
 public class DestinationsProvider {
     private static final String JSON_FILE_NAME = "PersistentDestinations.json";
 

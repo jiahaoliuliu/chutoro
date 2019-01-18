@@ -22,13 +22,14 @@ public class PersistentCurrency {
     private String isoCode;
 
     // Conversion regarding Dollar. It is used as base currency
+    // This is the value por 1.000.000 dollars
     @NotNull
-    private int conversionRegardingDollar;
+    private int conversionToDollar;
 
-    public PersistentCurrency(@NotNull long id, @NotNull String isoCode, @NotNull int conversionRegardingDollar) {
+    public PersistentCurrency(@NotNull long id, @NotNull String isoCode, @NotNull int conversionToDollar) {
         this.id = id;
         this.isoCode = isoCode;
-        this.conversionRegardingDollar = conversionRegardingDollar;
+        this.conversionToDollar = conversionToDollar;
     }
 
     public long getId() {
@@ -47,12 +48,12 @@ public class PersistentCurrency {
         this.isoCode = isoCode;
     }
 
-    public int getConversionRegardingDollar() {
-        return conversionRegardingDollar;
+    public int getConversionToDollar() {
+        return conversionToDollar;
     }
 
-    public void setConversionRegardingDollar(int conversionRegardingDollar) {
-        this.conversionRegardingDollar = conversionRegardingDollar;
+    public void setConversionToDollar(int conversionToDollar) {
+        this.conversionToDollar = conversionToDollar;
     }
 
     @Override
@@ -63,7 +64,7 @@ public class PersistentCurrency {
         PersistentCurrency that = (PersistentCurrency) o;
 
         if (id != that.id) return false;
-        if (conversionRegardingDollar != that.conversionRegardingDollar) return false;
+        if (conversionToDollar != that.conversionToDollar) return false;
         return isoCode.equals(that.isoCode);
     }
 
@@ -71,7 +72,7 @@ public class PersistentCurrency {
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
         result = 31 * result + isoCode.hashCode();
-        result = 31 * result + conversionRegardingDollar;
+        result = 31 * result + conversionToDollar;
         return result;
     }
 
@@ -80,7 +81,7 @@ public class PersistentCurrency {
         return "PersistentCurrency{" +
                 "id=" + id +
                 ", isoCode='" + isoCode + '\'' +
-                ", conversionRegardingDollar=" + conversionRegardingDollar +
+                ", conversionToDollar=" + conversionToDollar +
                 '}';
     }
 }
