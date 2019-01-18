@@ -30,7 +30,8 @@ import static com.jiahaoliuliu.chutoro.storagelayer.MainDatabaseMigration.MIGRAT
         PersistentTransaction.class,
         PersistentDestination.class,
         PersistentDestinationGroup.class,
-        PersistentCategory.class},
+        PersistentCategory.class,
+        PersistentCurrency.class},
         version = 2, exportSchema = false)
 public abstract class MainDatabase extends RoomDatabase {
 
