@@ -16,6 +16,9 @@ public abstract class CurrencyDao {
     @Query("Select * from " + PersistentCurrency.TABLE_NAME + " where id == :id")
     public abstract PersistentCurrency getPersistentCurrencyById(long id);
 
+    @Query("Select * from " + PersistentCurrency.TABLE_NAME + " where isoCode == :isoCode")
+    public abstract PersistentCurrency getPersistentCurrencyByIsoCode(String isoCode);
+
     @Update(onConflict = OnConflictStrategy.IGNORE)
     public abstract int update(PersistentCurrency persistentCurrency);
 

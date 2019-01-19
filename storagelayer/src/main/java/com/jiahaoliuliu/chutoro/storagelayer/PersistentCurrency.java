@@ -3,11 +3,13 @@ package com.jiahaoliuliu.chutoro.storagelayer;
 import org.jetbrains.annotations.NotNull;
 
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import static com.jiahaoliuliu.chutoro.storagelayer.PersistentCurrency.TABLE_NAME;
 
-@Entity(tableName = TABLE_NAME)
+@Entity(tableName = TABLE_NAME,
+        indices = {@Index("isoCode")})
 public class PersistentCurrency {
 
     public static final String TABLE_NAME = "Currencies";
