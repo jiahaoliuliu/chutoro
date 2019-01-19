@@ -34,867 +34,867 @@
     }, {
       "id": 7,
       "name": "Argentine peso",
-      "isoCode": "ANG",
+      "isoCode": "ARS",
       "conversionToDollar": 272257
     }, {
       "id": 8,
       "name": "Australian dollar",
-      "isoCode": "ANG",
+      "isoCode": "AUD",
       "conversionToDollar": 272257
     }, {
       "id": 9,
       "name": "Aruban florin",
-      "isoCode": "ANG",
+      "isoCode": "AWG",
       "conversionToDollar": 272257
     }, {
       "id": 10,
       "name": "Azerbaijani manat",
-      "isoCode": "ANG",
+      "isoCode": "AZN",
       "conversionToDollar": 272257
     }, {
       "id": 11,
       "name": "Bosnia and Herzegovina convertible mark",
-      "isoCode": "ANG",
+      "isoCode": "BAM",
       "conversionToDollar": 272257
     }, {
       "id": 12,
       "name": "Barbados dollar",
-      "isoCode": "ANG",
+      "isoCode": "BBD",
       "conversionToDollar": 272257
     }, {
       "id": 13,
       "name": "Bangladeshi taka",
-      "isoCode": "ANG",
+      "isoCode": "BDT",
       "conversionToDollar": 272257
     }, {
       "id": 14,
       "name": "Bulgarian lev",
-      "isoCode": "ANG",
+      "isoCode": "BGN",
       "conversionToDollar": 272257
     }, {
       "id": 15,
       "name": "Bahraini dinar",
-      "isoCode": "ANG",
+      "isoCode": "BHD",
       "conversionToDollar": 272257
     }, {
       "id": 16,
       "name": "Burundian franc",
-      "isoCode": "ANG",
+      "isoCode": "BIF",
       "conversionToDollar": 272257
     }, {
       "id": 17,
       "name": "Bermudian dollar",
-      "isoCode": "ANG",
+      "isoCode": "BMD",
       "conversionToDollar": 272257
     }, {
       "id": 18,
       "name": "Brunei dollar",
-      "isoCode": "ANG",
+      "isoCode": "BND",
       "conversionToDollar": 272257
     }, {
       "id": 19,
       "name": "Boliviano",
-      "isoCode": "ANG",
+      "isoCode": "BOB",
       "conversionToDollar": 272257
     }, {
       "id": 20,
       "name": "Bolivian Mvdol",
-      "isoCode": "ANG",
+      "isoCode": "BOV",
       "conversionToDollar": 272257
     }, {
       "id": 21,
       "name": "Brazilian real",
-      "isoCode": "ANG",
+      "isoCode": "BRL",
       "conversionToDollar": 272257
     }, {
       "id": 22,
       "name": "Bahamian dollar",
-      "isoCode": "ANG",
+      "isoCode": "BSD",
       "conversionToDollar": 272257
     }, {
       "id": 23,
       "name": "Bhutanese ngultrum",
-      "isoCode": "ANG",
+      "isoCode": "BTN",
       "conversionToDollar": 272257
     }, {
       "id": 24,
       "name": "Botswana pula",
-      "isoCode": "ANG",
+      "isoCode": "BWP",
       "conversionToDollar": 272257
     }, {
       "id": 25,
       "name": "Belarusian ruble",
-      "isoCode": "ANG",
+      "isoCode": "BYN",
       "conversionToDollar": 272257
     }, {
       "id": 26,
       "name": "Belize dollar",
-      "isoCode": "ANG",
+      "isoCode": "BZD",
       "conversionToDollar": 272257
     }, {
       "id": 27,
       "name": "Canadian dollar",
-      "isoCode": "ANG",
+      "isoCode": "CAD",
       "conversionToDollar": 272257
     }, {
       "id": 28,
       "name": "Congolese franc",
-      "isoCode": "ANG",
+      "isoCode": "CDF",
       "conversionToDollar": 272257
     }, {
       "id": 29,
       "name": "WIR Euro",
-      "isoCode": "ANG",
+      "isoCode": "CHE",
       "conversionToDollar": 272257
     }, {
       "id": 30,
       "name": "Swiss franc",
-      "isoCode": "ANG",
+      "isoCode": "CHF",
       "conversionToDollar": 272257
     }, {
       "id": 31,
       "name": "WIR Franc",
-      "isoCode": "ANG",
+      "isoCode": "CHW",
       "conversionToDollar": 272257
     }, {
       "id": 32,
       "name": "Unidad de Fomento",
-      "isoCode": "ANG",
+      "isoCode": "CLF",
       "conversionToDollar": 272257
     }, {
       "id": 33,
       "name": "Chilean peso",
-      "isoCode": "ANG",
+      "isoCode": "CLP",
       "conversionToDollar": 272257
     }, {
       "id": 34,
       "name": "Renminbi yuan",
-      "isoCode": "ANG",
+      "isoCode": "CNY",
       "conversionToDollar": 272257
     }, {
       "id": 35,
       "name": "Colombian peso",
-      "isoCode": "ANG",
+      "isoCode": "COP",
       "conversionToDollar": 272257
     }, {
       "id":36,
       "name": "Unidad de Valor Real (UVR)",
-      "isoCode": "AOA",
+      "isoCode": "COU",
       "conversionToDollar": 272257
     }, {
       "id": 37,
       "name": "Costa Rican colon",
-      "isoCode": "ANG",
+      "isoCode": "CRC",
       "conversionToDollar": 272257
     }, {
       "id": 38,
       "name": "Cuban convertible peso",
-      "isoCode": "ANG",
+      "isoCode": "CUC",
       "conversionToDollar": 272257
     }, {
       "id": 39,
       "name": "Cuban peso",
-      "isoCode": "ANG",
+      "isoCode": "CUP",
       "conversionToDollar": 272257
     }, {
       "id": 40,
       "name": "Cape Verde escudo",
-      "isoCode": "ANG",
+      "isoCode": "CVE",
       "conversionToDollar": 272257
     }, {
       "id": 41,
       "name": "Czech koruna",
-      "isoCode": "ANG",
+      "isoCode": "CZK",
       "conversionToDollar": 272257
     }, {
       "id": 42,
       "name": "Djiboutian franc",
-      "isoCode": "ANG",
+      "isoCode": "DJF",
       "conversionToDollar": 272257
     }, {
       "id": 43,
       "name": "Danish krone",
-      "isoCode": "ANG",
+      "isoCode": "DKK",
       "conversionToDollar": 272257
     }, {
       "id": 44,
       "name": "Dominican peso",
-      "isoCode": "ANG",
+      "isoCode": "DOP",
       "conversionToDollar": 272257
     }, {
       "id": 45,
       "name": "Algerian dinar",
-      "isoCode": "ANG",
+      "isoCode": "DZD",
       "conversionToDollar": 272257
     }, {
       "id": 46,
       "name": "Egyptian pound",
-      "isoCode": "AOA",
+      "isoCode": "EGP",
       "conversionToDollar": 272257
     },  {
       "id": 47,
       "name": "Eritrean nakfa",
-      "isoCode": "ANG",
+      "isoCode": "ERN",
       "conversionToDollar": 272257
     }, {
       "id": 48,
       "name": "Ethiopian birr",
-      "isoCode": "ANG",
+      "isoCode": "ETB",
       "conversionToDollar": 272257
     }, {
       "id": 49,
       "name": "Euro",
-      "isoCode": "ANG",
+      "isoCode": "EUR",
       "conversionToDollar": 272257
     }, {
       "id": 50,
       "name": "Fiji dollar",
-      "isoCode": "ANG",
+      "isoCode": "FJD",
       "conversionToDollar": 272257
     },{
       "id": 51,
       "name": "Falkland Islands pound",
-      "isoCode": "AED",
+      "isoCode": "FKP",
       "conversionToDollar": 272257
     }, {
       "id": 52,
       "name": "Pound sterling",
-      "isoCode": "AFN",
+      "isoCode": "GBP",
       "conversionToDollar": 272257
     }, {
       "id": 53,
       "name": "Georgian lari",
-      "isoCode": "ALL",
+      "isoCode": "GEL",
       "conversionToDollar": 272257
     }, {
       "id": 54,
       "name": "Ghanaian cedi",
-      "isoCode": "AMD",
+      "isoCode": "GHS",
       "conversionToDollar": 272257
     }, {
       "id": 55,
       "name": "Gibraltar pound",
-      "isoCode": "ANG",
+      "isoCode": "GIP",
       "conversionToDollar": 272257
     }, {
       "id": 56,
       "name": "Gambian dalasi",
-      "isoCode": "AOA",
+      "isoCode": "GMD",
       "conversionToDollar": 272257
     }, {
       "id": 57,
       "name": "Guinean franc",
-      "isoCode": "ANG",
+      "isoCode": "GNF",
       "conversionToDollar": 272257
     }, {
       "id": 58,
       "name": "Guatemalan quetzal",
-      "isoCode": "ANG",
+      "isoCode": "GTQ",
       "conversionToDollar": 272257
     }, {
       "id": 59,
       "name": "Guyanese dollar",
-      "isoCode": "ANG",
+      "isoCode": "GYD",
       "conversionToDollar": 272257
     }, {
       "id": 60,
       "name": "Hong Kong dollar",
-      "isoCode": "ANG",
+      "isoCode": "HKD",
       "conversionToDollar": 272257
     },{
       "id": 61,
       "name": "Honduran lempira",
-      "isoCode": "AED",
+      "isoCode": "HNL",
       "conversionToDollar": 272257
     }, {
       "id": 62,
       "name": "Croatian kuna",
-      "isoCode": "AFN",
+      "isoCode": "HRK",
       "conversionToDollar": 272257
     }, {
       "id": 63,
       "name": "Haitian gourde",
-      "isoCode": "ALL",
+      "isoCode": "HTG",
       "conversionToDollar": 272257
     }, {
       "id": 64,
       "name": "Hungarian forint",
-      "isoCode": "AMD",
+      "isoCode": "HUF",
       "conversionToDollar": 272257
     }, {
       "id": 65,
       "name": "Indonesian rupiah",
-      "isoCode": "ANG",
+      "isoCode": "IDR",
       "conversionToDollar": 272257
     }, {
       "id": 66,
       "name": "Israeli new shekel",
-      "isoCode": "AOA",
+      "isoCode": "ILS",
       "conversionToDollar": 272257
     }, {
       "id": 67,
       "name": "Indian rupee",
-      "isoCode": "ANG",
+      "isoCode": "INR",
       "conversionToDollar": 272257
     }, {
       "id": 68,
       "name": "Iraqi dinar",
-      "isoCode": "ANG",
+      "isoCode": "IQD",
       "conversionToDollar": 272257
     }, {
       "id": 69,
       "name": "Iranian rial",
-      "isoCode": "ANG",
+      "isoCode": "IRR",
       "conversionToDollar": 272257
     }, {
       "id": 70,
       "name": "Icelandic króna",
-      "isoCode": "ANG",
+      "isoCode": "ISK",
       "conversionToDollar": 272257
     },{
       "id": 71,
       "name": "Jamaican dollar",
-      "isoCode": "AED",
+      "isoCode": "JMD",
       "conversionToDollar": 272257
     }, {
       "id": 72,
       "name": "Jordanian dinar",
-      "isoCode": "AFN",
+      "isoCode": "JOD",
       "conversionToDollar": 272257
     }, {
       "id": 73,
       "name": "Japanese yen",
-      "isoCode": "ALL",
+      "isoCode": "JPY",
       "conversionToDollar": 272257
     }, {
       "id": 74,
       "name": "Kenyan shilling",
-      "isoCode": "AMD",
+      "isoCode": "KES",
       "conversionToDollar": 272257
     }, {
       "id": 75,
       "name": "Kyrgyzstani som",
-      "isoCode": "ANG",
+      "isoCode": "KGS",
       "conversionToDollar": 272257
     }, {
       "id": 76,
       "name": "Cambodian riel",
-      "isoCode": "AOA",
+      "isoCode": "KHR",
       "conversionToDollar": 272257
     }, {
       "id": 77,
       "name": "Comoro franc",
-      "isoCode": "ANG",
+      "isoCode": "KMF",
       "conversionToDollar": 272257
     }, {
       "id": 78,
       "name": "North Korean won",
-      "isoCode": "ANG",
+      "isoCode": "KPW",
       "conversionToDollar": 272257
     }, {
       "id": 79,
       "name": "South Korean won",
-      "isoCode": "ANG",
+      "isoCode": "KRW",
       "conversionToDollar": 272257
     }, {
       "id": 80,
       "name": "Kuwaiti dinar",
-      "isoCode": "ANG",
+      "isoCode": "KWD",
       "conversionToDollar": 272257
     },{
       "id": 81,
       "name": "Cayman Islands dollar",
-      "isoCode": "AED",
+      "isoCode": "KYD",
       "conversionToDollar": 272257
     }, {
       "id": 82,
       "name": "Kazakhstani tenge",
-      "isoCode": "AFN",
+      "isoCode": "KZT",
       "conversionToDollar": 272257
     }, {
       "id": 83,
       "name": "Lao kip",
-      "isoCode": "ALL",
+      "isoCode": "LAK",
       "conversionToDollar": 272257
     }, {
       "id": 84,
       "name": "Lebanese pound",
-      "isoCode": "AMD",
+      "isoCode": "LBP",
       "conversionToDollar": 272257
     }, {
       "id": 85,
       "name": "Sri Lankan rupee",
-      "isoCode": "ANG",
+      "isoCode": "LKR",
       "conversionToDollar": 272257
     }, {
       "id": 86,
       "name": "Liberian dollar",
-      "isoCode": "AOA",
+      "isoCode": "LRD",
       "conversionToDollar": 272257
     }, {
       "id": 87,
       "name": "Lesotho loti",
-      "isoCode": "ANG",
+      "isoCode": "LSL",
       "conversionToDollar": 272257
     }, {
       "id": 88,
       "name": "Libyan dinar",
-      "isoCode": "ANG",
+      "isoCode": "LYD",
       "conversionToDollar": 272257
     }, {
       "id": 89,
       "name": "Moroccan dirham",
-      "isoCode": "ANG",
+      "isoCode": "MAD",
       "conversionToDollar": 272257
     }, {
       "id": 90,
       "name": "Moldovan leu",
-      "isoCode": "ANG",
+      "isoCode": "MDL",
       "conversionToDollar": 272257
     },{
       "id": 91,
       "name": "Malagasy ariary",
-      "isoCode": "AED",
+      "isoCode": "MGA",
       "conversionToDollar": 272257
     }, {
       "id": 92,
       "name": "Macedonian denar",
-      "isoCode": "AFN",
+      "isoCode": "MKD",
       "conversionToDollar": 272257
     }, {
       "id": 93,
       "name": "Myanmar kyat",
-      "isoCode": "ALL",
+      "isoCode": "MMK",
       "conversionToDollar": 272257
     }, {
       "id": 94,
       "name": "Mongolian tögrög",
-      "isoCode": "AMD",
+      "isoCode": "MNT",
       "conversionToDollar": 272257
     }, {
       "id": 95,
       "name": "Macanese pataca",
-      "isoCode": "ANG",
+      "isoCode": "MOP",
       "conversionToDollar": 272257
     }, {
       "id": 96,
       "name": "Mauritanian ouguiya",
-      "isoCode": "AOA",
+      "isoCode": "MRU",
       "conversionToDollar": 272257
     }, {
       "id": 97,
       "name": "Mauritian rupee",
-      "isoCode": "ANG",
+      "isoCode": "MUR",
       "conversionToDollar": 272257
     }, {
       "id": 98,
       "name": "Maldivian rufiyaa",
-      "isoCode": "ANG",
+      "isoCode": "MVR",
       "conversionToDollar": 272257
     }, {
       "id": 99,
       "name": "Malawian kwacha",
-      "isoCode": "ANG",
+      "isoCode": "MWK",
       "conversionToDollar": 272257
     }, {
       "id": 100,
       "name": "Mexican peso",
-      "isoCode": "ANG",
+      "isoCode": "MXN",
       "conversionToDollar": 272257
     },{
       "id": 101,
       "name": "Mexican Unidad de Inversion(UDI)",
-      "isoCode": "AED",
+      "isoCode": "MXV",
       "conversionToDollar": 272257
     }, {
       "id": 102,
       "name": "Malaysian ringgit",
-      "isoCode": "AFN",
+      "isoCode": "MYR",
       "conversionToDollar": 272257
     }, {
       "id": 103,
       "name": "Mozambican metical",
-      "isoCode": "ALL",
+      "isoCode": "MZN",
       "conversionToDollar": 272257
     }, {
       "id": 104,
       "name": "Namibian dollar",
-      "isoCode": "AMD",
+      "isoCode": "NAD",
       "conversionToDollar": 272257
     }, {
       "id": 105,
       "name": "Nigerian naira",
-      "isoCode": "ANG",
+      "isoCode": "NGN",
       "conversionToDollar": 272257
     }, {
       "id": 106,
       "name": "Nicaraguan córdoba",
-      "isoCode": "AOA",
+      "isoCode": "NIO",
       "conversionToDollar": 272257
     }, {
       "id": 107,
       "name": "Norwegian krone",
-      "isoCode": "ANG",
+      "isoCode": "NOK",
       "conversionToDollar": 272257
     }, {
       "id": 108,
       "name": "Nepalese rupee",
-      "isoCode": "ANG",
+      "isoCode": "NPR",
       "conversionToDollar": 272257
     }, {
       "id": 109,
       "name": "New Zealand dollar",
-      "isoCode": "ANG",
+      "isoCode": "NZD",
       "conversionToDollar": 272257
     }, {
       "id": 110,
       "name": "Omani rial",
-      "isoCode": "ANG",
+      "isoCode": "OMR",
       "conversionToDollar": 272257
     }, {
       "id": 111,
       "name": "Panamanian balboa",
-      "isoCode": "ANG",
+      "isoCode": "PAB",
       "conversionToDollar": 272257
     }, {
       "id": 112,
       "name": "Peruvian sol",
-      "isoCode": "ANG",
+      "isoCode": "PEN",
       "conversionToDollar": 272257
     }, {
       "id": 113,
       "name": "Papua New Guinean kina",
-      "isoCode": "ANG",
+      "isoCode": "PGK",
       "conversionToDollar": 272257
     }, {
       "id": 114,
       "name": "Philippine peso",
-      "isoCode": "ANG",
+      "isoCode": "PHP",
       "conversionToDollar": 272257
     }, {
       "id": 115,
       "name": "Pakistani rupee",
-      "isoCode": "ANG",
+      "isoCode": "PKR",
       "conversionToDollar": 272257
     }, {
       "id": 116,
       "name": "Polish złoty",
-      "isoCode": "ANG",
+      "isoCode": "PLN",
       "conversionToDollar": 272257
     }, {
       "id": 117,
       "name": "Paraguayan guaraní",
-      "isoCode": "ANG",
+      "isoCode": "PYG",
       "conversionToDollar": 272257
     }, {
       "id": 118,
       "name": "Qatari riyal",
-      "isoCode": "ANG",
+      "isoCode": "QAR",
       "conversionToDollar": 272257
     }, {
       "id": 119,
       "name": "Romanian leu",
-      "isoCode": "ANG",
+      "isoCode": "RON",
       "conversionToDollar": 272257
     }, {
       "id": 120,
       "name": "Serbian dinar",
-      "isoCode": "ANG",
+      "isoCode": "RSD",
       "conversionToDollar": 272257
     }, {
       "id": 121,
       "name": "Russian ruble",
-      "isoCode": "ANG",
+      "isoCode": "RUB",
       "conversionToDollar": 272257
     }, {
       "id": 122,
       "name": "Rwandan franc",
-      "isoCode": "ANG",
+      "isoCode": "RWF",
       "conversionToDollar": 272257
     }, {
       "id": 123,
       "name": "Saudi riyal",
-      "isoCode": "ANG",
+      "isoCode": "SAR",
       "conversionToDollar": 272257
     }, {
       "id": 124,
       "name": "Solomon Islands dollar",
-      "isoCode": "ANG",
+      "isoCode": "SBD",
       "conversionToDollar": 272257
     }, {
       "id": 125,
       "name": "Seychelles rupee",
-      "isoCode": "ANG",
+      "isoCode": "SCR",
       "conversionToDollar": 272257
     }, {
       "id": 126,
       "name": "Sudanese pound",
-      "isoCode": "ANG",
+      "isoCode": "SDG",
       "conversionToDollar": 272257
     }, {
       "id": 127,
       "name": "Swedish krona",
-      "isoCode": "ANG",
+      "isoCode": "SEK",
       "conversionToDollar": 272257
     }, {
       "id": 128,
       "name": "Singapore dollar",
-      "isoCode": "ANG",
+      "isoCode": "SGD",
       "conversionToDollar": 272257
     }, {
       "id": 129,
       "name": "Saint Helena pound",
-      "isoCode": "ANG",
+      "isoCode": "SHP",
       "conversionToDollar": 272257
     }, {
       "id": 130,
       "name": "Sierra Leonean leone",
-      "isoCode": "ANG",
+      "isoCode": "SLL",
       "conversionToDollar": 272257
     }, {
       "id": 131,
       "name": "Somali shilling",
-      "isoCode": "ANG",
+      "isoCode": "SOS",
       "conversionToDollar": 272257
     }, {
       "id": 132,
       "name": "Surinamese dollar",
-      "isoCode": "ANG",
+      "isoCode": "SRD",
       "conversionToDollar": 272257
     }, {
       "id": 133,
       "name": "South Sudanese pound",
-      "isoCode": "ANG",
+      "isoCode": "SSP",
       "conversionToDollar": 272257
     }, {
       "id": 134,
       "name": "São Tomé and Príncipe dobra",
-      "isoCode": "ANG",
+      "isoCode": "STN",
       "conversionToDollar": 272257
     }, {
       "id": 135,
       "name": "Salvadoran colón",
-      "isoCode": "ANG",
+      "isoCode": "SVC",
       "conversionToDollar": 272257
     }, {
       "id": 136,
       "name": "Syrian pound",
-      "isoCode": "AOA",
+      "isoCode": "SYP",
       "conversionToDollar": 272257
     }, {
       "id": 137,
       "name": "Swazi lilangeni",
-      "isoCode": "ANG",
+      "isoCode": "SZL",
       "conversionToDollar": 272257
     }, {
       "id": 138,
       "name": "Thai baht",
-      "isoCode": "ANG",
+      "isoCode": "THB",
       "conversionToDollar": 272257
     }, {
       "id": 139,
       "name": "Tajikistani somoni",
-      "isoCode": "ANG",
+      "isoCode": "TJS",
       "conversionToDollar": 272257
     }, {
       "id": 140,
       "name": "Turkmenistan manat",
-      "isoCode": "ANG",
+      "isoCode": "TMT",
       "conversionToDollar": 272257
     }, {
       "id": 141,
       "name": "Tunisian dinar",
-      "isoCode": "ANG",
+      "isoCode": "TND",
       "conversionToDollar": 272257
     }, {
       "id": 142,
       "name": "Tongan paʻanga",
-      "isoCode": "ANG",
+      "isoCode": "TOP",
       "conversionToDollar": 272257
     }, {
       "id": 143,
       "name": "Turkish lira",
-      "isoCode": "ANG",
+      "isoCode": "TRY",
       "conversionToDollar": 272257
     }, {
       "id": 144,
       "name": "Trinidad and Tobago dollar",
-      "isoCode": "ANG",
+      "isoCode": "TTD",
       "conversionToDollar": 272257
     }, {
       "id": 145,
       "name": "New Taiwan dollar",
-      "isoCode": "ANG",
+      "isoCode": "TWD",
       "conversionToDollar": 272257
     }, {
       "id": 146,
       "name": "Tanzanian shilling",
-      "isoCode": "AOA",
+      "isoCode": "TZS",
       "conversionToDollar": 272257
     }, {
       "id": 147,
       "name": "Ukrainian hryvnia",
-      "isoCode": "ANG",
+      "isoCode": "UAH",
       "conversionToDollar": 272257
     }, {
       "id": 148,
       "name": "Ugandan shilling",
-      "isoCode": "ANG",
+      "isoCode": "UGX",
       "conversionToDollar": 272257
     }, {
       "id": 149,
       "name": "United States dollar",
-      "isoCode": "ANG",
-      "conversionToDollar": 272257
+      "isoCode": "USD",
+      "conversionToDollar": 1000000
     }, {
       "id": 150,
       "name": "United States dollar (next day)",
-      "isoCode": "ANG",
+      "isoCode": "USN",
       "conversionToDollar": 272257
     },{
       "id": 151,
       "name": "Uruguay Peso en Unidades Indexadas(URUIURUI)",
-      "isoCode": "AED",
+      "isoCode": "UYI",
       "conversionToDollar": 272257
     }, {
       "id": 152,
       "name": "Uruguayan peso",
-      "isoCode": "AFN",
+      "isoCode": "UYU",
       "conversionToDollar": 272257
     }, {
       "id": 153,
       "name": "Unidad previsional",
-      "isoCode": "ALL",
+      "isoCode": "UYW",
       "conversionToDollar": 272257
     }, {
       "id": 154,
       "name": "Uzbekistan som",
-      "isoCode": "AMD",
+      "isoCode": "UZS",
       "conversionToDollar": 272257
     }, {
       "id": 155,
       "name": "Venezuelan bolívar soberano",
-      "isoCode": "ANG",
+      "isoCode": "VES",
       "conversionToDollar": 272257
     }, {
       "id": 156,
       "name": "Vietnamese đồng",
-      "isoCode": "AOA",
+      "isoCode": "VND",
       "conversionToDollar": 272257
     }, {
       "id": 157,
       "name": "Vanuatu vatu",
-      "isoCode": "ANG",
+      "isoCode": "VUV",
       "conversionToDollar": 272257
     }, {
       "id": 158,
       "name": "Samoan tala",
-      "isoCode": "ANG",
+      "isoCode": "WST",
       "conversionToDollar": 272257
     }, {
       "id": 159,
       "name": "CFA franc BEAC",
-      "isoCode": "ANG",
+      "isoCode": "XAF",
       "conversionToDollar": 272257
     }, {
       "id": 160,
       "name": "Silver(one troy ounce)",
-      "isoCode": "ANG",
+      "isoCode": "XAG",
       "conversionToDollar": 272257
     },{
       "id": 161,
       "name": "Gold(one troy ounce)",
-      "isoCode": "AED",
+      "isoCode": "XAU",
       "conversionToDollar": 272257
     }, {
       "id": 162,
       "name": "European Composite Unit(EURCO)",
-      "isoCode": "AFN",
+      "isoCode": "XBA",
       "conversionToDollar": 272257
     }, {
       "id": 163,
       "name": "European Monetary Unit(E.M.U.-6)",
-      "isoCode": "ALL",
+      "isoCode": "XBB",
       "conversionToDollar": 272257
     }, {
       "id": 164,
       "name": "European Unit of Account 9(E.U.A.-9)",
-      "isoCode": "AMD",
+      "isoCode": "XBC",
       "conversionToDollar": 272257
     }, {
       "id": 165,
       "name": "European Unit of Account 17(E.U.A.-17)",
-      "isoCode": "ANG",
+      "isoCode": "XBD",
       "conversionToDollar": 272257
     }, {
       "id": 166,
       "name": "East Caribbean dollar",
-      "isoCode": "AOA",
+      "isoCode": "XCD",
       "conversionToDollar": 272257
     }, {
       "id": 167,
       "name": "Special drawing rights",
-      "isoCode": "ANG",
+      "isoCode": "XDR",
       "conversionToDollar": 272257
     }, {
       "id": 168,
       "name": "CFA franc BCEAO",
-      "isoCode": "ANG",
+      "isoCode": "XOF",
       "conversionToDollar": 272257
     }, {
       "id": 169,
       "name": "Palladium(one troy ounce)",
-      "isoCode": "ANG",
+      "isoCode": "XPD",
       "conversionToDollar": 272257
     }, {
       "id": 170,
       "name": "CFP franc(franc Pacifique)",
-      "isoCode": "ANG",
+      "isoCode": "XPF",
       "conversionToDollar": 272257
     },{
       "id": 171,
       "name": "Platinum(one troy ounce)",
-      "isoCode": "AED",
+      "isoCode": "XPT",
       "conversionToDollar": 272257
     }, {
       "id": 172,
       "name": "SUCRE",
-      "isoCode": "AFN",
+      "isoCode": "XSU",
       "conversionToDollar": 272257
     }, {
       "id": 173,
       "name": "Code reserved for testing purposes",
-      "isoCode": "ALL",
+      "isoCode": "XTS",
       "conversionToDollar": 272257
     }, {
       "id": 174,
       "name": "ADB Unit of Account",
-      "isoCode": "AMD",
+      "isoCode": "XUA",
       "conversionToDollar": 272257
     }, {
       "id": 175,
       "name": "No currency",
-      "isoCode": "ANG",
+      "isoCode": "XXX",
       "conversionToDollar": 272257
     }, {
       "id": 176,
       "name": "Yemeni rial",
-      "isoCode": "AOA",
+      "isoCode": "YER",
       "conversionToDollar": 272257
     }, {
       "id": 177,
       "name": "South African rand",
-      "isoCode": "ANG",
+      "isoCode": "ZAR",
       "conversionToDollar": 272257
     }, {
       "id": 178,
       "name": "Zambian kwacha",
-      "isoCode": "ANG",
+      "isoCode": "ZMW",
       "conversionToDollar": 272257
     }, {
       "id": 179,
       "name": "Zimbabwean dollar",
-      "isoCode": "ANG",
+      "isoCode": "ZWL",
       "conversionToDollar": 272257
     }
   ]
