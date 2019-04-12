@@ -17,7 +17,7 @@ class CitibankSmsParametersFactory implements ISmsParametersFactory {
 
     // Pattern 2
     // Example: Your supplementary Citi Card ending with 2678 spent AED 101.85 at CAREFOUR MARKET DU on 09/04/2019. The available limit is AED 77.04.
-    private static final String PATTERN_2 = "our supplementary Citi Card ending with (.*?) spent (.*?) at (.*?) on (.*?). The available limit is (.*?)."
+    private static final String PATTERN_2 = "Your supplementary Citi Card ending with (.*?) spent (.*?) at (.*?) on (.*?). The available limit is (.*?).";
     private static final String PATTERN_2_DATE_FORMAT = PATTERN_1_DATE_FORMAT;
     private static final int PATTERN_2_POSITION_QUANTITY = 2;
     private static final int PATTERN_2_POSITION_DATE = 4;
@@ -33,7 +33,7 @@ class CitibankSmsParametersFactory implements ISmsParametersFactory {
     private static final String PATTERN_3_DATE_FORMAT = "";
 
     @Override
-    public String getSmsSender() { return SENDER }
+    public String getSmsSender() { return SENDER; }
 
     @Override
     public List<SmsParserParameters> createSmsParserParametersList() {
