@@ -4,5 +4,6 @@ enum class Source {
     ADCB,
     Najm,
     HSBC,
-    EmiratesNBD
+    EmiratesNBD,
+    Citibank
 }
