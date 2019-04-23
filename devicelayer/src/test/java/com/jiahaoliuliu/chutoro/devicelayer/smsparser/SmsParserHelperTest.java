@@ -10,7 +10,6 @@ import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -70,6 +69,7 @@ public class SmsParserHelperTest {
         assertNotNull(transaction);
         Transaction rightTransaction = new TransactionBuilder()
                     .setSmsId(SMS_1_ID)
+                    .setOriginalSms(SMS_1_BODY)
                     .setQuantity(SMS_1_QUANTITY)
                     .setCurrency(SMS_1_CURRENCY)
                     .setSource(SOURCE)
@@ -181,6 +181,7 @@ public class SmsParserHelperTest {
         // Verify the results
         Transaction rightTransaction = new TransactionBuilder()
                 .setSmsId(SMS_1_ID)
+                .setOriginalSms(SMS_1_BODY)
                 .setQuantity(SMS_1_QUANTITY)
                 .setCurrency(SMS_1_CURRENCY)
                 .setSource(SOURCE)
