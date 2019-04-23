@@ -4,8 +4,8 @@ import com.jiahaoliuliu.chutoro.devicelayer.smsparser.Sms
 import com.jiahaoliuliu.chutoro.devicelayer.smsparser.SmsParserHelper
 import com.jiahaoliuliu.chutoro.entity.Source
 import com.jiahaoliuliu.chutoro.entity.TransactionBuilder
-import org.junit.Assert.*
-
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -67,6 +67,7 @@ class EmiratesNBDSmsParametersFactoryTest {
         assertNotNull(transaction)
         val rightTransaction = TransactionBuilder()
                 .setSmsId(PATTERN_1_SMS_ID)
+                .setOriginalSms(PATTERN_1_SMS_BODY)
                 .setQuantity(PATTERN_1_SMS_QUANTITY)
                 .setCurrency(PATTERN_1_SMS_CURRENCY)
                 .setSource(SOURCE)
@@ -91,6 +92,7 @@ class EmiratesNBDSmsParametersFactoryTest {
         assertNotNull(transaction)
         val rightTransaction = TransactionBuilder()
                 .setSmsId(PATTERN_1_CURRENCY_SMS_ID)
+                .setOriginalSms(PATTERN_1_CURRENCY_SMS_BODY)
                 .setQuantity(PATTERN_1_CURRENCY_SMS_QUANTITY)
                 .setCurrency(PATTERN_1_CURRENCY_SMS_CURRENCY)
                 .setSource(SOURCE)
@@ -114,6 +116,7 @@ class EmiratesNBDSmsParametersFactoryTest {
         assertNotNull(transaction)
         val rightTransaction = TransactionBuilder()
                 .setSmsId(PATTERN_2_SMS_ID)
+                .setOriginalSms(PATTERN_2_SMS_BODY)
                 .setQuantity(PATTERN_2_SMS_QUANTITY)
                 .setCurrency(PATTERN_2_SMS_CURRENCY)
                 .setSource(SOURCE)
