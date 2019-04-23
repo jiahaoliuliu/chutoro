@@ -78,6 +78,7 @@ public class ADCBSmsParametersFactoryTest {
         Transaction rightTransaction =
                 new TransactionBuilder()
                     .setSmsId(PATTERN_1_SMS_ID)
+                    .setOriginalSms(PATTERN_1_SMS_BODY)
                     .setQuantity(PATTERN_1_SMS_QUANTITY)
                     .setCurrency(PATTERN_1_SMS_CURRENCY)
                     .setSource(SOURCE)
@@ -103,6 +104,7 @@ public class ADCBSmsParametersFactoryTest {
         Transaction rightTransaction =
                 new TransactionBuilder()
                         .setSmsId(PATTERN_1_CURRENCY_SMS_ID)
+                        .setOriginalSms(PATTERN_1_CURRENCY_SMS_BODY)
                         .setQuantity(PATTERN_1_CURRENCY_SMS_QUANTITY)
                         .setCurrency(PATTERN_1_CURRENCY_SMS_CURRENCY)
                         .setSource(SOURCE)
@@ -128,6 +130,7 @@ public class ADCBSmsParametersFactoryTest {
         Transaction rightTransaction =
                 new TransactionBuilder()
                         .setSmsId(PATTERN_2_SMS_ID)
+                        .setOriginalSms(PATTERN_2_SMS_BODY)
                         .setQuantity(PATTERN_2_SMS_QUANTITY)
                         .setCurrency(PATTERN_2_SMS_CURRENCY)
                         .setSource(SOURCE)
@@ -153,6 +156,7 @@ public class ADCBSmsParametersFactoryTest {
         Transaction rightTransaction =
                 new TransactionBuilder()
                         .setSmsId(PATTERN_2_SMS_2_ID)
+                        .setOriginalSms(PATTERN_2_SMS_2_BODY)
                         .setQuantity(PATTERN_2_SMS_2_QUANTITY)
                         .setCurrency(PATTERN_2_SMS_2_CURRENCY)
                         .setSource(SOURCE)
